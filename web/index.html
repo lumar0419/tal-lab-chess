@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d151b">
+  <meta name="description" content="직접 만든 탈 스타일 체스 엔진과 브라우저에서 대국하세요. 웹 체스 게임입니다.">
+  <title>Tal Lab — 공격은 계산에서 시작된다</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a href="/" class="brand" aria-label="Tal Lab 홈">
+        <span class="brand-mark">♞</span>
+        <span class="brand-name">TAL<span class="brand-divider">/</span>LAB</span>
+        <span class="brand-label">CHESS ENGINE</span>
+      </a>
+      <div class="header-right">
+        <span class="local-chip"><span class="online-dot"></span>WEB EDITION</span>
+        <span class="version-label">WEB v0.5.1 <span class="version-separator">·</span> ENGINE v0.4.11</span>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="소개">
+      <div class="hero-text">
+        <div class="eyebrow"><span class="eyebrow-line"></span> THE ART OF CALCULATED CHAOS</div>
+        <h1>공격은 <em>계산</em>에서<br>시작된다.</h1>
+        <p>기회를 만들고, 주도권을 쥐고, 과감하게 승부한다.<br class="desktop-break"> 직접 개발한 체스 엔진과 첫 대국을 시작하세요.</p>
+      </div>
+      <div class="hero-quote" aria-hidden="true"><span>“</span><div>There are two types of sacrifices:<br>correct ones, and mine.</div><small>— MIKHAIL TAL</small></div>
+    </section>
+
+    <main class="game-layout">
+      <section class="board-column" aria-label="체스 대국">
+        <div class="game-bar">
+          <div class="game-id"><span class="game-id-icon">◈</span> LIVE MATCH <span class="game-id-rule"></span> <span id="game-number">GAME 001</span></div>
+          <div class="status-pill" id="status-pill"><span class="status-indicator"></span><span id="status-label">대국 준비 완료</span></div>
+        </div>
+
+        <div class="player-card top-player">
+          <div class="player-avatar engine-avatar">♞</div>
+          <div class="player-details"><strong id="top-name">TAL ENGINE</strong><span id="top-subtitle">공격적인 플레이를 연구하는 AI</span></div>
+          <span class="player-side-tag" id="top-side">BLACK</span>
+        </div>
+
+        <div class="board-frame">
+          <div id="chessboard" class="chessboard" role="grid" aria-label="체스판 — 말을 클릭하거나 드래그하여 이동하세요"></div>
+          <div id="board-loading" class="board-loading">체스판 불러오는 중…</div>
+        </div>
+
+        <div class="player-card bottom-player">
+          <div class="player-avatar human-avatar">♙</div>
+          <div class="player-details"><strong id="bottom-name">YOU</strong><span id="bottom-subtitle">당신의 차례를 기다리는 중</span></div>
+          <span class="player-side-tag" id="bottom-side">WHITE</span>
+        </div>
+
+        <div class="board-actions" aria-label="대국 컨트롤">
+          <button type="button" id="undo-btn" class="action-button"><span aria-hidden="true">↶</span> 무르기</button>
+          <button type="button" id="flip-btn" class="action-button"><span aria-hidden="true">⇅</span> 판 뒤집기</button>
+          <button type="button" id="pgn-btn" class="action-button"><span aria-hidden="true">⇩</span> PGN 저장</button>
+          <button type="button" id="resign-btn" class="action-button action-danger"><span aria-hidden="true">⚑</span> 기권</button>
+        </div>
+        <div id="message" class="message" role="status" aria-live="polite"></div>
+      </section>
+
+      <aside class="sidebar" aria-label="대국 설정과 기록">
+        <section class="panel thinking-panel">
+          <div class="panel-header"><div><span class="kicker">ENGINE STATUS</span><h2>엔진 분석</h2></div><span class="mini-emblem">✦</span></div>
+          <div class="evaluation-row">
+            <div class="evaluation-value" id="evaluation-value">—</div>
+            <div class="evaluation-caption"><span id="evaluation-caption">평가 준비 중</span><small>백 기준 평가값</small></div>
+          </div>
+          <div class="eval-meter"><span class="eval-meter-fill" id="eval-meter-fill" style="width:50%"></span></div>
+          <div class="metrics"><div><span>DEPTH</span><strong id="metric-depth">—</strong></div><div><span>NODES</span><strong id="metric-nodes">—</strong></div><div><span>TIME</span><strong id="metric-time">—</strong></div></div>
+          <div class="pv-line"><span>예상 수순</span><code id="pv-text">엔진의 첫 수를 기다리는 중입니다.</code></div>
+        </section>
+
+        <section class="panel setup-panel">
+          <div class="panel-header"><div><span class="kicker">YOUR SETUP</span><h2>대국 설정</h2></div><span class="panel-index">01</span></div>
+          <div class="field-label">내 기물 색상</div>
+          <div class="segmented" id="side-selector" role="radiogroup" aria-label="내 기물 색상">
+            <button type="button" data-side="white" class="segment active" role="radio" aria-checked="true"><span>♔</span> 백으로 플레이</button>
+            <button type="button" data-side="black" class="segment" role="radio" aria-checked="false"><span>♚</span> 흑으로 플레이</button>
+          </div>
+
+          <div class="setting-row"><label for="depth-input">탐색 깊이 <small>한층 더 깊게 계산</small></label><output for="depth-input" id="depth-value">4</output></div>
+          <input type="range" id="depth-input" min="2" max="6" step="1" value="4" aria-label="탐색 깊이">
+          <div class="range-labels"><span>빠름</span><span>깊게 탐색</span></div>
+
+          <div class="setting-row time-setting"><label for="time-select">한 수당 생각 시간</label><div class="select-wrap"><select id="time-select"><option value="0.3">0.3초</option><option value="0.7" selected>0.7초</option><option value="1.2">1.2초</option><option value="2.5">2.5초</option><option value="5">5초</option></select></div></div>
+
+          <div class="field-label playstyle-heading">플레이 스타일</div>
+          <div class="style-picker" aria-label="플레이 스타일">
+            <button type="button" class="style-choice active" id="balanced-style"><span class="style-symbol">◇</span><span><strong>밸런스</strong><small>검증된 기본 설정</small></span><span class="style-radio"></span></button>
+            <button type="button" class="style-choice" id="tal-style"><span class="style-symbol">✧</span><span><strong>탈 스타일 실험</strong><small>전술 · 활동성 · 주도권</small></span><span class="style-radio"></span></button>
+          </div>
+          <details class="advanced-settings" id="advanced-settings">
+            <summary>고급 옵션 직접 선택 <span>⌄</span></summary>
+            <div class="toggles" id="advanced-toggles">
+              <label><input type="checkbox" data-option="tactical_checks"><span>조용한 체크 탐색</span></label>
+              <label><input type="checkbox" data-option="attack_activity"><span>공격적 활동성</span></label>
+              <label><input type="checkbox" data-option="initiative"><span>주도권 평가</span></label>
+              <label><input type="checkbox" data-option="tactical_ordering"><span>공격 수 정렬</span></label>
+              <label><input type="checkbox" data-option="check_continuation"><span>연속 체크 탐색</span></label>
+              <label><input type="checkbox" data-option="aspiration"><span>Aspiration 탐색</span></label>
+              <label><input type="checkbox" data-option="king_safety"><span>킹 안전성 평가</span></label>
+            </div>
+          </details>
+          <div class="setting-note">설정은 <strong>새 대국 시작</strong> 시 적용됩니다. 실험 옵션은 실력 향상이 검증되지 않았습니다.</div>
+          <button type="button" class="primary-button" id="start-btn"><span>♞</span> 새 대국 시작 <span class="arrow">↗</span></button>
+        </section>
+
+        <section class="panel history-panel">
+          <div class="panel-header"><div><span class="kicker">GAME RECORD</span><h2>대국 기록</h2></div><span class="move-count" id="move-count">0 MOVES</span></div>
+          <div class="moves-table-header"><span>TURN</span><span>WHITE</span><span>BLACK</span></div>
+          <div id="move-list" class="moves-list" aria-label="기보"><div class="empty-history">첫 수를 두면 기보가 여기에 표시됩니다.<span>♟</span></div></div>
+          <button type="button" id="draw-btn" class="draw-button" hidden>½ 무승부 청구</button>
+        </section>
+      </aside>
+    </main>
+    <footer class="site-footer"><span>♞ TAL / LAB</span><span>Built from scratch in Python · Play locally or online</span><span>NOT AFFILIATED WITH MIKHAIL TAL OR STOCKFISH</span></footer>
+  </div>
+
+  <div class="modal-backdrop" id="promotion-modal" hidden>
+    <div class="promotion-dialog" role="dialog" aria-modal="true" aria-labelledby="promotion-title">
+      <div class="kicker">PAWN PROMOTION</div><h2 id="promotion-title">어떤 기물로 승격할까요?</h2>
+      <div id="promotion-choices" class="promotion-choices"></div>
+      <button type="button" class="modal-cancel" id="promotion-cancel">취소</button>
+    </div>
+  </div>
+</body>
+</html>
