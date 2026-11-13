@@ -207,15 +207,16 @@ _ACTIVITY_PAWN_TARGETS = {
 _ACTIVITY_INDEX_KIND = ('B', 'Q', 'R', 'N')  # _PIECE_AT의 타입 번호와 동일
 
 
-def _attack_activity_parts(board, pieces, pawn_squares):
+def _attack_activity_parts(board, pieces, pawn_squares, guarded=None):
     """빠른 평가 루프에서 이미 모은 기물 정보와 폰 칸으로 공격 활동성을 평가."""
     b = board.board
-    guarded = (set(), set())
-    for c in (WHITE, BLACK):
-        coverage = guarded[c]
-        target_map = _ACTIVITY_PAWN_TARGETS[c]
-        for s in pawn_squares[c]:
-            coverage.update(target_map[s])
+    if guarded is None:
+        guarded = (set(), set())
+        for c in (WHITE, BLACK):
+            coverage = guarded[c]
+            target_map = _ACTIVITY_PAWN_TARGETS[c]
+            for s in pawn_squares[c]:
+                coverage.update(target_map[s])
     results = [None, None]
     for c in (WHITE, BLACK):
         own = 'PNBRQK' if c == WHITE else 'pnbrqk'
@@ -793,7 +794,21 @@ def evaluate_white(board):
         if wpow >= KS_MIN_POWER:
             mg -= _ks_side(b, board.king_sq[BLACK], BLACK, e, pl[WHITE], pl[BLACK], wpow, acc >> 32 & 15)
     if ATTACK_ACTIVITY:
-        activity_mg, activity_eg = _attack_activity_parts(board, pl, activity_pawns)
+        # Stable pawn-attack squares depend only on the pawn-structure cache key.
+        # The entry's king-safety dictionary also allows a lazily populated
+        # string key without colliding with its integer king-square keys.
+        guarded = e[4].get('_activity_guarded')
+        if guarded is None:
+            guarded = (set(), set())
+            for c in (WHITE, BLACK):
+                coverage = guarded[c]
+                target_map = _ACTIVITY_PAWN_TARGETS[c]
+                for square in activity_pawns[c]:
+                    coverage.update(target_map[square])
+            # Keep immutable cached data; never modify cached coverage in eval.
+            guarded = (frozenset(guarded[WHITE]), frozenset(guarded[BLACK]))
+            e[4]['_activity_guarded'] = guarded
+        activity_mg, activity_eg = _attack_activity_parts(board, pl, activity_pawns, guarded)
         mg += activity_mg
         eg += activity_eg
     if INITIATIVE:

@@ -1,73 +1,68 @@
-# Tal Lab v0.5.1 — 피시방에서도 접속하는 체스 엔진
+# Tal Lab v0.5.2 — 공개 웹사이트 안정화 업데이트
 
-기존 체스 엔진 **v0.4.11**을 변경하지 않고, **v0.5.0 로컬 웹사이트에 클라우드 배포 지원을 추가**했습니다.
+현재 운영 중인 **Tal Lab 웹사이트(`https://tal-lab-chess.onrender.com`)**를 위한 업데이트입니다. **체스 엔진 v0.4.11의 탐색과 수 선택 규칙은 그대로 유지**합니다. 이번 릴리스는 웹서버 안정화·보안과 공격 평가 계산의 중복 제거에 집중했습니다. Python 표준 라이브러리만 필요합니다.
 
-- **로컬 실행:** Windows에서 `start_web.bat` 더블클릭 → `http://127.0.0.1:8000` (내 컴퓨터에서만)
-- **인터넷 접속:** GitHub와 Render에 한 번 배포 → 발급받은 `https://...onrender.com` 주소를 피시방 브라우저에서 사용
-- **구성:** Python 표준 라이브러리만 사용. 서버는 우리의 `search.py`와 `evaluate.py`로 직접 체스 수를 계산하며 Stockfish로 대체하지 않습니다.
-- **접근 보호:** 클라우드 버전은 비밀번호가 없으면 시작하지 않습니다. 브라우저별로 대국 상태가 분리됩니다.
+## 이미 배포한 GitHub 저장소 업데이트 (중요)
 
-## 처음 한 번만: GitHub + Render로 배포하기
+GitHub에 `tal-lab-chess`를 이미 만들어 Render에 배포했다면 **새 저장소나 새 Render 서비스를 만들지 마세요.** 업데이트 ZIP `tal_lab_update_v052_github.zip`을 압축 해제하고 기존 저장소 **최상위**에 다음 파일을 덮어써서 커밋하면 됩니다.
 
-**컴퓨터에 Git 명령어, Docker, 웹 프레임워크를 설치할 필요는 없습니다.** GitHub와 Render 계정이 필요합니다. ZIP 파일 자체를 업로드해서 실행하는 게 아니라, **압축을 푼 소스 파일**을 GitHub 저장소에 올려야 합니다.
+```text
+cloud_server.py
+web_server.py
+evaluate.py
+web/app.js
+web/index.html
+README.md
+```
 
-### 1) GitHub에 업로드
+`web` 폴더 자체를 드래그해야 경로가 `web/app.js`, `web/index.html`로 유지됩니다. 테스트 파일 `test_v052.py`를 함께 업로드해도 되지만 배포에는 필요하지 않습니다. 기존 저장소의 `render.yaml`, `board.py`, `search.py`는 수정할 필요가 없습니다.
 
-1. GitHub(https://github.com)에 로그인하고, **New repository**로 예를 들어 `tal-lab-chess`라는 저장소를 만듭니다. **Private**을 선택해도 됩니다.
-2. 다운로드한 `tal_lab_web_hosting_v051.zip`을 완전히 압축 해제합니다.
-3. GitHub 저장소에서 **Add file → Upload files**를 선택합니다.
-4. 압축 해제한 **`tal_lab_web` 폴더 안의 모든 파일과 `web` 하위 폴더**를 한 번에 끌어다 놓습니다. `tal_lab_web` 폴더 자체가 아니라 **안에 있는 내용**이 저장소의 최상위에 들어가야 합니다.
-5. **Commit changes**를 누르고, 저장소 최상위에 `render.yaml`, `cloud_server.py`, `web_server.py`, `board.py`, `search.py`, `evaluate.py`와 `web/` 폴더가 보이는지 확인합니다.
+GitHub에서 **Add file → Upload files → Commit changes**를 누른 뒤 Render의 `tal-lab-chess → Deploys`에서 자동 배포가 `Live`로 돌아오는지 확인하세요. 자동 배포가 꺼져 있다면 Render에서 최신 커밋을 수동 배포합니다. **기존 웹사이트 주소와 `TAL_SITE_PASSWORD` 환경변수는 그대로 사용**합니다. 배포 도중 진행 중인 대국은 메모리에서 사라지므로 **업데이트 전에 PGN을 저장**하세요.
 
-**중요:** `render.yaml`을 저장소 최상위에 놓지 않으면 Render가 배포 설정을 찾지 못합니다. ZIP 파일을 그대로 업로드하지 마세요. 비밀번호를 코드 또는 `render.yaml` 파일에 직접 적지 마세요.
+## 변경 사항
 
-### 2) Render에 연결
+| 구분 | v0.5.1 | v0.5.2 |
+|---|---|---|
+| 로그인 실패 | 시도 횟수 제한 없음 | TCP 연결 IP 기준 60초 내 8회 실패 시 120초 차단(HTTP 429) |
+| HEAD 요청 | 501 Unsupported | `/healthz`와 정적 파일의 HEAD 정상 처리, 요청 본문 없음 |
+| 체스 엔진 대기 | 다른 게임 탐색이 끝날 때까지 무제한 대기 | 클라우드에서 최대 7초 대기 후 안내 메시지 제공 |
+| 세션 한도 | 동시 16개; 만료까지 대기 | 16개 유지; 가득 찬 경우 20분 이상 유휴 세션 우선 재활용 |
+| 세션 초기화 | 서버 재시작 시 초기화 | 초기화 유지 + 브라우저에 명시적 알림 |
+| 느린 연결 | 연결 대기 제한 미설정 | 요청 소켓 타임아웃 15초 |
+| Tal 평가 | 매 평가마다 폰이 공격하는 칸 계산 | 동일한 폰 구조에 대한 공격 칸을 캐시해 재사용 |
+| 체스 탐색·기능 | 엔진 v0.4.11 | **동일 엔진** (평가 수치·수 선택 회귀 검증) |
 
-1. Render(https://dashboard.render.com)에 로그인합니다.
-2. **+ New → Blueprint**를 선택합니다.
-3. GitHub 계정을 연결하고 방금 만든 `tal-lab-chess` 저장소를 선택합니다.
-4. **Blueprint Path**가 `render.yaml`인지 확인합니다.
-5. 배포 과정에서 `TAL_SITE_PASSWORD`를 입력하라는 메시지가 나오면 **다른 서비스에서 사용하지 않는, 12자 이상의 강력한 비밀번호**를 입력합니다. 권장 길이는 20자 이상입니다. 사용자명 `TAL_SITE_USER`는 기본 `player`입니다.
-6. **Deploy Blueprint**를 누릅니다. 웹 서비스의 배포 상태가 정상(`Live`)이 되면 서비스에 표시된 `https://...onrender.com` 주소를 복사합니다.
+**중요한 제한:** 이 로그인 제한은 개인용·소규모 사이트를 위한 간단한 방어 수단일 뿐, 분산 공격이나 프록시 우회까지 막는 완전한 보안 체계는 아닙니다. 사용자들이 동일한 프록시 IP를 공유하면 제한도 공유할 수 있습니다. Basic Auth 접속 비밀번호는 다른 서비스와 공유하지 마세요. 이 서버는 여전히 무료 호스팅 메모리에만 대국을 보관하며 서버 재시작 시 사라집니다.
 
-Render에서 자동으로 `RENDER_EXTERNAL_HOSTNAME`과 `PORT`가 제공되며, 배포 시 클라우드 서버는 이를 사용하여 접속을 받습니다. Render가 제공하는 HTTPS 주소로 접속합니다. `http://127.0.0.1:8000`을 사용하지 않습니다.
+## 테스트 및 성능 측정
 
-### 3) 피시방에서 접속
+- 신규 v0.5.2 테스트 및 기존 v0.5.1/0.4.4~0.4.6 테스트: **62개 통과**.
+- 추가 전술·Aspiration·Tal 기보/진단 테스트: **33개 통과**.
+- 대표 UCI 기능 테스트: **8개 통과**.
+- 이전 v0.5.1 평가와 새로운 v0.5.2 평가의 Tal 특징 국면 4개에 대한 깊이 3 탐색: **최선수와 평가값 4/4 동일**.
+- 실제 탈 기보에서 추출한 22개 국면(각 400회 × 12회 측정)의 Tal 평가(AttackActivity+Initiative) 중간값: **기존 약 36 μs/평가 → 새 약 33 μs/평가**, 단발 환경에서 약 **8% 평가 계산 속도 개선**. Elo나 실전 NPS 개선을 의미하지 않으며 CPU 상태에 따라 달라질 수 있습니다.
+- 전체 `test_engine.py --quick`은 실행했으나 환경 실행 제한으로 **완료하지 못했습니다**. 통과 완료로 기재하지 않습니다. 전체 장시간 테스트와 Stockfish 대국도 이번 릴리스에서 실행하지 않았습니다.
 
-1. Chrome/Edge에서 **시크릿 또는 InPrivate 창**을 엽니다.
-2. 자신에게 발급된 **Render HTTPS 주소**를 입력합니다.
-3. 로그인 창이 뜨면 **사용자명 `player`와 배포할 때 지정한 전용 비밀번호**를 입력합니다.
-4. 체스판에서 바로 플레이합니다. **피시방 컴퓨터에 Python·ZIP 파일·프로그램을 설치할 필요가 없습니다.**
-5. 대국 종료 전 필요한 기보는 **PGN 저장**을 누릅니다. 피시방 이용 후 비공개 창을 **모두 닫습니다**. 공용 컴퓨터는 신뢰할 수 없으므로 중요한 계정 비밀번호를 이 사이트의 비밀번호로 재사용하지 마세요.
+아래 명령은 **전체 프로젝트 ZIP**에서 실행합니다. 웹 배포용 최소 ZIP에는 과거 연구용 테스트 파일 일부가 포함되지 않을 수 있습니다.
 
-## 무료 호스팅의 제한
+테스트:
 
-- Render Free 서비스는 **15분 동안 요청이 없으면 일시 정지**할 수 있습니다. 다시 접속하면 재가동에 1분가량 걸릴 수 있습니다.
-- 현재 대국과 브라우저별 세션은 **서버 메모리만** 사용합니다. 무료 서버가 재시작·재배포·일시 정지 후 다시 시작되면 진행 중인 대국이 사라질 수 있습니다. 중요한 기보는 **PGN 저장**을 사용합니다.
-- 계정 시스템이나 DB 저장 기능은 없습니다. 다중 사용자 대국은 16개까지 제한되고, 서로 다른 브라우저 세션은 독립적으로 플레이합니다. 평가 옵션의 모듈 전역 플래그 충돌을 막기 위해 여러 게임의 엔진 탐색은 직렬화됩니다.
-- 자기 컴퓨터가 켜져 있을 필요는 없지만, 무료 호스팅의 속도 및 대기시간은 로컬 실행과 다를 수 있습니다.
-- 이 구성은 **비밀번호로 보호된 소규모 개인 테스트용**입니다. 불특정 다수를 위한 공개 서비스로 운영하려면 인증, 영구 저장소, 공격 방어, 모니터링을 추가 검토해야 합니다.
+```bash
+python -m unittest -q test_v052.py test_cloud.py test_web.py test_v044.py test_v045.py test_v046.py
+python -m unittest -q test_tactics.py test_aspiration.py test_tal_style.py test_tal_depth.py
+```
 
-## 로컬 실행과 테스트
-
-로컬 웹사이트:
+로컬 웹 실행(일반 PC):
 
 ```bash
 python web_server.py
 ```
 
-클라우드 서버를 **로컬에서 시험할 때만** (실제 배포에서는 `TAL_INSECURE_LOCAL_TEST`를 절대 사용하지 마세요):
+그 뒤 `http://127.0.0.1:8000`로 접속하세요. 클라우드 배포는 `render.yaml`이 설정하는 `python cloud_server.py`를 사용합니다. 기존 GitHub와 Render 설정은 변경하지 않아도 됩니다.
 
-```bash
-# Linux/macOS의 예
-TAL_PUBLIC_HOST=127.0.0.1 TAL_SITE_PASSWORD=your-local-test-password TAL_INSECURE_LOCAL_TEST=1 PORT=8002 python cloud_server.py
-```
+## 다음 연구 과제
 
-자동 테스트:
-
-```bash
-python -m unittest -v test_cloud.py test_web.py
-python test_engine.py --quick
-```
-
-배포 설정은 `render.yaml`, HTTPS 인증·브라우저별 세션은 `cloud_server.py`, 원래의 로컬 서버는 `web_server.py`입니다. 서버 또는 계정의 실제 인터넷 배포는 **이 파일을 다운로드했다고 자동으로 완료되는 것은 아닙니다.**
+1. 대국 분석을 더 많이 모아 서버 성능과 대기율 검증.
+2. 장기적으로는 평가 전역 플래그를 엔진 인스턴스 설정으로 옮겨 병렬 탐색이 서로 간섭하지 않도록 구조 개선.
+3. TacticalOrdering ON/OFF에서 일부 평가 차이가 발생했던 국면을 재현하고 탐색 경계조건 점검.
+4. Stockfish 상대 실전 통계와 Tal 기보 테스트를 통한 공격 기능의 실질적 효과 검증.

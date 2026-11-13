@@ -32,12 +32,20 @@ async function api(path, payload=undefined) {
   catch { throw new Error('체스 서버에 연결할 수 없습니다. 인터넷 연결을 확인한 뒤 새로고침해 주세요.'); }
   let data;
   try { data = await response.json(); }
-  catch { throw new Error('서버 응답을 읽을 수 없습니다.'); }
-  if (!response.ok) throw new Error(data.error || '요청을 처리할 수 없습니다.');
+  catch {
+    if (response.status === 429) throw new Error('로그인 시도가 너무 많아요. 잠시 후 다시 접속해 주세요.');
+    throw new Error('서버 응답을 읽을 수 없습니다.');
+  }
+  if (!response.ok) {
+    if (response.status === 429) throw new Error('로그인 시도가 너무 많아요. 잠시 후 다시 접속해 주세요.');
+    throw new Error(data.error || '요청을 처리할 수 없습니다.');
+  }
+  if (response.headers.get('X-Tal-Session-Reset') === '1') data.session_reset = true;
   return data;
 }
 
 function applyState(data) {
+  if (data.session_reset) message('서버 재시작 또는 장시간 미사용으로 이전 대국이 초기화됐어요.');
   game = data;
   if (selected && !game.legal.some(m => m.startsWith(selected))) selected = null;
   render();

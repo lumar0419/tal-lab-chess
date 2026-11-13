@@ -81,6 +81,7 @@ class Game:
     def __init__(self):
         self.lock = threading.RLock()
         self.search_gate = threading.Lock()
+        self.search_wait_seconds = None  # Local games may wait; hosted games use a deadline.
         self.worker_searcher = None
         self.generation = 0
         self.board = Board()
@@ -118,7 +119,21 @@ class Game:
         threading.Thread(target=self._engine_worker, args=params, daemon=True).start()
 
     def _engine_worker(self, depth, seconds, options, generation, position):
-        with self.search_gate:
+        # The evaluator currently has global feature flags. Never run searches
+        # with different feature settings concurrently in the same process.
+        if self.search_wait_seconds is None:
+            acquired = self.search_gate.acquire()
+        else:
+            acquired = self.search_gate.acquire(timeout=self.search_wait_seconds)
+        if not acquired:
+            with self.lock:
+                if generation == self.generation:
+                    self.thinking = False
+                    self.error = ('엔진이 다른 대국을 계산 중이에요. '
+                                  '잠시 후 새 대국을 시작하거나 다시 시도해 주세요.')
+            return
+        searcher = None
+        try:
             with self.lock:
                 if generation != self.generation:
                     return
@@ -150,39 +165,39 @@ class Game:
                             'pv': [m.uci() for m in info.pv],
                         }
 
-            try:
-                move, score = searcher.search(search_board, max_depth=depth,
-                                              time_limit=seconds, on_info=on_info)
-                with self.lock:
-                    if generation != self.generation:
-                        return
-                    if self._outcome_locked() is not None:
-                        self.thinking = False
-                        return
-                    if move is None:
-                        raise RuntimeError('엔진이 둘 수 있는 수를 반환하지 않았어요.')
-                    # The worker must not mutate the live board unless the move is still legal.
-                    legal_move = self.board.parse_uci(move.uci())
-                    if legal_move is None:
-                        raise RuntimeError('엔진이 현재 국면에서 불법수를 반환했어요.')
-                    san = san_for_move(self.board, legal_move)
-                    self.moves.append({'uci': legal_move.uci(), 'san': san, 'side': self.board.side})
-                    self.board.make_move(legal_move)
+            move, score = searcher.search(search_board, max_depth=depth,
+                                          time_limit=seconds, on_info=on_info)
+            with self.lock:
+                if generation != self.generation:
+                    return
+                if self._outcome_locked() is not None:
                     self.thinking = False
-                    if last_info is None:
-                        self.info = {'depth': 0, 'nodes': searcher.nodes,
-                                     'seconds': round(time.time() - searcher.start, 3),
-                                     'score': score if search_board.side == WHITE else -score,
-                                     'pv': [move.uci()]}
-            except Exception as exc:
-                with self.lock:
-                    if generation == self.generation:
-                        self.thinking = False
-                        self.error = '엔진 계산 오류: ' + str(exc)
-            finally:
-                with self.lock:
-                    if self.worker_searcher is searcher:
-                        self.worker_searcher = None
+                    return
+                if move is None:
+                    raise RuntimeError('엔진이 둘 수 있는 수를 반환하지 않았어요.')
+                # The worker must not mutate the live board unless the move is still legal.
+                legal_move = self.board.parse_uci(move.uci())
+                if legal_move is None:
+                    raise RuntimeError('엔진이 현재 국면에서 불법수를 반환했어요.')
+                san = san_for_move(self.board, legal_move)
+                self.moves.append({'uci': legal_move.uci(), 'san': san, 'side': self.board.side})
+                self.board.make_move(legal_move)
+                self.thinking = False
+                if last_info is None:
+                    self.info = {'depth': 0, 'nodes': searcher.nodes,
+                                 'seconds': round(time.time() - searcher.start, 3),
+                                 'score': score if search_board.side == WHITE else -score,
+                                 'pv': [move.uci()]}
+        except Exception as exc:
+            with self.lock:
+                if generation == self.generation:
+                    self.thinking = False
+                    self.error = '엔진 계산 오류: ' + str(exc)
+        finally:
+            with self.lock:
+                if self.worker_searcher is searcher:
+                    self.worker_searcher = None
+            self.search_gate.release()
 
     def new(self, data):
         if not isinstance(data, dict):
@@ -290,7 +305,7 @@ class Game:
             'can_undo': any(m['side'] == self.human for m in self.moves),
             'info': dict(self.info) if self.info else None,
             'error': self.error,
-            'version': '0.5.1',
+            'version': '0.5.2',
             'engine_version': '0.4.11',
         }
 
@@ -323,7 +338,7 @@ class Game:
 
 class WebHandler(BaseHTTPRequestHandler):
     game = None  # set on the subclass created by make_server
-    server_version = 'TalLab/0.5.1'
+    server_version = 'TalLab/0.5.2'
 
     def _response(self, status, content, content_type='application/json; charset=utf-8', extra=None):
         self.send_response(status)
@@ -337,7 +352,8 @@ class WebHandler(BaseHTTPRequestHandler):
             for key, value in extra.items():
                 self.send_header(key, value)
         self.end_headers()
-        self.wfile.write(content)
+        if self.command != 'HEAD':
+            self.wfile.write(content)
 
     def _json(self, status, data):
         self._response(status, json.dumps(data, ensure_ascii=False).encode('utf-8'))
@@ -412,7 +428,7 @@ class WebHandler(BaseHTTPRequestHandler):
         except (ValueError, TypeError, json.JSONDecodeError) as exc:
             self._json(400, {'error': str(exc)})
         except Exception as exc:
-            self._json(500, {'error': '서버 오류: ' + str(exc)})
+            self._json(500, {'error': '서버 처리 중 오류가 발생했어요.'})
 
     def log_message(self, format, *args):
         # Keep console concise and avoid printing every status poll.
@@ -429,7 +445,7 @@ def make_server(port=8000, game=None):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Tal Lab v0.5.1 local chess website')
+    parser = argparse.ArgumentParser(description='Tal Lab v0.5.2 local chess website')
     parser.add_argument('--port', type=int, default=8000)
     parser.add_argument('--no-browser', action='store_true')
     args = parser.parse_args()
@@ -440,7 +456,7 @@ def main():
         print('다른 포트를 시도하세요: python web_server.py --port 8001')
         raise SystemExit(1)
     url = f'http://127.0.0.1:{server.server_port}'
-    print('\n  ♟  Tal Lab v0.5.1 — Local Chess Web')
+    print('\n  ♟  Tal Lab v0.5.2 — Local Chess Web')
     print('  주소:', url)
     print('  서버 종료: Ctrl+C')
     print('  이 웹사이트는 내 컴퓨터에서만 접속할 수 있어요.\n')
