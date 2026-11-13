@@ -324,8 +324,8 @@ class Game:
             'can_undo': any(m['side'] == self.human for m in self.moves),
             'info': dict(self.info) if self.info else None,
             'error': self.error,
-            'version': '0.5.4',
-            'engine_version': '0.5.4',
+            'version': '0.5.5',
+            'engine_version': '0.5.5',
         }
 
     def state(self):
@@ -336,8 +336,8 @@ class Game:
         with self.lock:
             result = self._outcome_locked()
             label = result[0] if result else '*'
-            white = 'Player' if self.human == WHITE else 'Tal Lab v0.5.4'
-            black = 'Player' if self.human == BLACK else 'Tal Lab v0.5.4'
+            white = 'Player' if self.human == WHITE else 'Tal Lab v0.5.5'
+            black = 'Player' if self.human == BLACK else 'Tal Lab v0.5.5'
             headers = [
                 '[Event "Tal Lab Local Game"]',
                 '[Site "localhost"]',
@@ -357,7 +357,7 @@ class Game:
 
 class WebHandler(BaseHTTPRequestHandler):
     game = None  # set on the subclass created by make_server
-    server_version = 'TalLab/0.5.4'
+    server_version = 'TalLab/0.5.5'
 
     def _response(self, status, content, content_type='application/json; charset=utf-8', extra=None):
         self.send_response(status)
@@ -432,7 +432,8 @@ class WebHandler(BaseHTTPRequestHandler):
             return
         path = urlsplit(self.path).path
         routes = {'/api/new', '/api/move', '/api/undo', '/api/resign', '/api/draw',
-                  '/api/analysis/start', '/api/analysis/stop', '/api/analysis/fen',
+                  '/api/analysis/start', '/api/analysis/auto', '/api/analysis/restart',
+                  '/api/analysis/stop', '/api/analysis/fen',
                   '/api/analysis/move', '/api/analysis/undo', '/api/analysis/reset'}
         if path not in routes:
             self._json(404, {'error': '지원하지 않는 기능이에요.'})
@@ -447,6 +448,10 @@ class WebHandler(BaseHTTPRequestHandler):
                 raise ValueError('JSON 객체가 필요해요.')
             if path == '/api/analysis/start':
                 state = self.game.analysis().start(obj)
+            elif path == '/api/analysis/auto':
+                state = self.game.analysis().start(obj, mode='auto')
+            elif path == '/api/analysis/restart':
+                state = self.game.analysis().start(obj, mode='restart')
             elif path == '/api/analysis/stop':
                 state = self.game.analysis().stop()
             elif path == '/api/analysis/fen':
@@ -488,7 +493,7 @@ def make_server(port=8000, game=None):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Tal Lab v0.5.4 chess analysis website')
+    parser = argparse.ArgumentParser(description='Tal Lab v0.5.5 auto analysis website')
     parser.add_argument('--port', type=int, default=8000)
     parser.add_argument('--no-browser', action='store_true')
     args = parser.parse_args()
@@ -499,7 +504,7 @@ def main():
         print('다른 포트를 시도하세요: python web_server.py --port 8001')
         raise SystemExit(1)
     url = f'http://127.0.0.1:{server.server_port}'
-    print('\n  ♟  Tal Lab v0.5.4 — Chess Analysis Lab')
+    print('\n  ♟  Tal Lab v0.5.5 — Auto Analysis Studio')
     print('  주소:', url)
     print('  서버 종료: Ctrl+C')
     print('  이 웹사이트는 내 컴퓨터에서만 접속할 수 있어요.\n')

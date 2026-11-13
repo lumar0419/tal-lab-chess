@@ -15,7 +15,7 @@
   <div class="site-shell">
     <header class="site-header">
       <a href="/" class="brand" aria-label="Tal Lab 분석실"><span class="brand-mark">♞</span><span class="brand-name">TAL<span class="brand-divider">/</span>LAB</span><span class="brand-label">ANALYSIS</span></a>
-      <div class="header-right"><span class="local-chip"><span class="online-dot"></span>ANALYSIS STUDIO</span><span class="version-label">ENGINE v0.5.4</span><a class="legacy-link" href="/play">대국 화면 ↗</a></div>
+      <div class="header-right"><span class="local-chip"><span class="online-dot"></span>ANALYSIS STUDIO</span><span class="version-label">ENGINE v0.5.5</span><a class="legacy-link" href="/play">대국 화면 ↗</a></div>
     </header>
     <section class="analysis-hero">
       <span class="eyebrow"><span class="eyebrow-line"></span> DEEPER THAN THE FIRST MOVE</span>
@@ -53,11 +53,15 @@
             <div><span>경과 시간</span><strong id="elapsed">0.0s</strong></div>
           </div>
           <div class="analysis-progress-line"><span>목표 깊이</span><strong id="target-depth">5 → 8</strong><div class="bar"><div id="depth-progress" class="bar-fill"></div></div></div>
-          <div class="pv-line"><span>현재 예상 수순 (PV)</span><code id="live-pv">분석 시작 후 깊이를 완료할 때마다 갱신됩니다.</code></div>
+          <div class="pv-line"><span>현재 예상 수순 (PV)</span><code id="live-pv">자동 분석이 시작되면 깊이를 완료할 때마다 갱신됩니다.</code></div>
           <div class="small-caption"><span id="nodes-display">0 nodes</span><span id="analysis-state-label">시작할 준비가 됐어요.</span></div>
         </section>
         <section class="panel settings-panel">
           <div class="panel-header"><div><span class="kicker">SEARCH CONTROL</span><h2>분석 설정</h2></div><span class="panel-index">02</span></div>
+          <div class="auto-analysis-setting">
+            <label class="auto-analysis-label" for="auto-analyze"><input id="auto-analyze" type="checkbox" checked><span><strong>자동 분석</strong><small>페이지 접속 · 수 진행 · FEN 변경 시 분석</small></span></label>
+            <span id="auto-mode-label" class="auto-mode-label">ON</span>
+          </div>
           <div class="analysis-setting-row"><label for="min-depth">최소 목표 깊이</label><select id="min-depth"><option value="3">3</option><option value="4">4</option><option value="5" selected>5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></div>
           <div class="analysis-setting-row"><label for="max-depth">최대 깊이</label><select id="max-depth"><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8" selected>8</option><option value="9">9</option><option value="10">10</option></select></div>
           <div class="analysis-setting-row"><label for="analysis-seconds">안전 시간 상한</label><select id="analysis-seconds"><option value="10">10초</option><option value="20">20초</option><option value="30" selected>30초</option><option value="45">45초</option><option value="60">60초</option></select></div>
@@ -72,18 +76,18 @@
             <label><input type="checkbox" data-option="king_safety"> KingSafety</label>
             <label><input type="checkbox" data-option="lmr"> LMR (실험)</label>
           </div></details>
-          <div class="analysis-controls"><button id="start-analysis" class="primary-button" type="button"><span>▶</span> 분석 시작 <span class="arrow">→</span></button><button id="stop-analysis" class="stop-button" type="button" disabled>■ 중단</button></div>
-          <p class="setting-explanation bottom-note">분석 중에도 웹사이트는 응답하며, 결과는 약 0.6초 간격으로 갱신됩니다. 새 국면을 적용하면 현재 분석은 중단됩니다.</p>
+          <div class="analysis-controls"><button id="start-analysis" class="primary-button" type="button"><span>↻</span> 다시 분석 <span class="arrow">→</span></button><button id="stop-analysis" class="stop-button" type="button" disabled>■ 중단</button></div>
+          <p class="setting-explanation bottom-note">자동 분석 ON: 새 국면·설정을 반영해 자동으로 계산합니다. ■ 중단을 누르면 자동 분석도 꺼집니다. 같은 국면은 시간 상한까지 1회만 계산하며 무한 반복하지 않습니다. 새 국면을 적용하면 기존 분석은 취소됩니다.</p>
         </section>
         <section class="panel results-panel">
           <div class="panel-header"><div><span class="kicker">ITERATIVE DEEPENING</span><h2>깊이별 판단 변화</h2></div><span class="panel-index">03</span></div>
           <div class="history-table-header"><span>DEPTH</span><span>BEST MOVE</span><span>평가 (백)</span><span>TIME</span></div>
-          <div id="iteration-history" class="iteration-history"><p class="empty-history">분석을 실행하면 깊이마다 최선수와 평가가 쌓입니다.</p></div>
+          <div id="iteration-history" class="iteration-history"><p class="empty-history">자동 분석 후 깊이마다 최선수와 평가가 쌓입니다.</p></div>
           <div class="tip-box"><strong>BRILLIANT MOVE 연구</strong><span>유명한 희생을 선택하는지만 보지 말고, 깊이가 증가하면서 평가가 유지되는지, 상대 최선 방어 이후에도 보상이 남는지 확인하세요.</span></div>
         </section>
       </div>
     </main>
-    <footer class="site-footer"><span>TAL / LAB · ANALYSIS v0.5.4</span><span>직접 개발한 Python 엔진 · 분석은 객관적인 최선수의 보증이 아닙니다.</span></footer>
+    <footer class="site-footer"><span>TAL / LAB · ANALYSIS v0.5.5</span><span>직접 개발한 Python 엔진 · 분석은 객관적인 최선수의 보증이 아닙니다.</span></footer>
   </div>
   <div id="promotion-modal" class="modal-backdrop" hidden><div class="promotion-dialog" role="dialog" aria-modal="true" aria-label="승격 기물 선택"><h2>폰을 승격할 기물</h2><div id="promotion-choices" class="promotion-choices"></div><button id="promotion-cancel" type="button" class="modal-cancel">취소</button></div></div>
 </body>

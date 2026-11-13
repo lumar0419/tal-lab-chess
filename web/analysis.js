@@ -8,6 +8,61 @@ let selected = null;
 let busy = false;
 let polling = null;
 let lastFen = '';
+const AUTO_KEY = 'tal_lab_analysis_auto_v055';
+let autoEnabled = true;
+let autoTimer = null;
+let autoSequence = 0;
+function restoreAutoPreference(){
+  try {autoEnabled = localStorage.getItem(AUTO_KEY) !== 'off';} catch {autoEnabled = true;}
+  $('auto-analyze').checked = autoEnabled;
+  showAutoPreference();
+}
+function showAutoPreference(){
+  $('auto-mode-label').textContent=autoEnabled?'ON':'OFF';
+  $('auto-mode-label').classList.toggle('off',!autoEnabled);
+}
+function setAutoPreference(on){
+  autoEnabled=!!on;
+  try {localStorage.setItem(AUTO_KEY, autoEnabled?'on':'off');} catch {}
+  $('auto-analyze').checked=autoEnabled;
+  showAutoPreference();
+  if(!autoEnabled) cancelAuto();
+}
+function cancelAuto(){
+  autoSequence++;
+  if(autoTimer!==null){clearTimeout(autoTimer);autoTimer=null;}
+}
+function currentSettings(){
+  const min=Number($('min-depth').value),max=Number($('max-depth').value);
+  if(!Number.isInteger(min)||!Number.isInteger(max)||min>max){
+    message('최대 깊이가 최소 목표 깊이 이상이어야 해요.');
+    return null;
+  }
+  const options={};
+  for(const box of document.querySelectorAll('input[data-option]'))options[box.dataset.option]=box.checked;
+  return {min_depth:min,max_depth:max,seconds:Number($('analysis-seconds').value),options};
+}
+// One bounded search per new position; a changed setting explicitly replaces
+// the current search. No endless restart on time cap, idle polls, or reload.
+function scheduleAuto(restart=false,delay=350){
+  if(!autoEnabled||!state||state.outcome)return;
+  cancelAuto();
+  const ticket=autoSequence,fen=state.fen;
+  autoTimer=setTimeout(async()=>{
+    autoTimer=null;
+    if(ticket!==autoSequence||!autoEnabled||!state||state.fen!==fen)return;
+    if(busy){scheduleAuto(restart,250);return;}
+    if(!restart && state.status!=='idle')return;
+    const config=currentSettings();if(!config)return;
+    try{
+      const result=await api(restart?'/api/analysis/restart':'/api/analysis/auto',
+                             {...config,expected_fen:fen});
+      if(ticket!==autoSequence||!autoEnabled)return;
+      if(state && result.fen===state.fen)apply(result);
+    }catch(e){if(ticket===autoSequence)message(e.message);}
+  },delay);
+}
+
 
 async function api(url, data) {
   const opts = data === undefined ? {} : {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)};
@@ -113,16 +168,20 @@ function apply(next, initialize=false) {
   $('depth-progress').style.width=((latest?.depth||0)/state.max_depth*100).toFixed(1)+'%';
   $('live-pv').textContent=latest?.pv?.length?(latest.pv_san?.length ? latest.pv_san : latest.pv).join(' → '):'아직 완료된 깊이가 없어요. 계산 중입니다.';
   $('nodes-display').textContent=Number(latest?.nodes||0).toLocaleString('ko-KR')+' nodes';
-  const labels={idle:'분석을 시작해 주세요.',running:'새 깊이를 계산 중입니다.',completed:'분석이 완료됐습니다.',target_not_reached:'시간 상한 때문에 최소 목표 깊이에 도달하지 못했습니다.',stopped:'사용자가 분석을 중단했습니다.',busy:'다른 분석으로 서버가 바쁩니다.',error:'분석 중 오류가 발생했습니다.'};
+  const labels={idle:'자동 분석 대기 중입니다.',running:'새 깊이를 계산 중입니다.',completed:'분석이 완료됐습니다.',target_not_reached:'시간 상한 때문에 최소 목표 깊이에 도달하지 못했습니다.',stopped:'사용자가 분석을 중단했습니다.',busy:'다른 분석으로 서버가 바쁩니다.',error:'분석 중 오류가 발생했습니다.'};
   $('analysis-state-label').textContent=labels[state.status]||state.status;
   if(state.error) message(state.error);
   renderBoard();renderIterations();
   clearTimeout(polling);
   if(ongoing) polling=setTimeout(refresh,600);
+  if(changed && !initialize){
+    // Cancel any queued analysis from the previous position and debounce a new one.
+    scheduleAuto(false);
+  }
 }
 function renderIterations(){
   const root=$('iteration-history');root.replaceChildren();
-  if(!state.iterations.length){const p=document.createElement('p');p.className='empty-history';p.textContent='분석을 실행하면 완료한 깊이마다 최선수와 평가가 나타납니다.';root.appendChild(p);return;}
+  if(!state.iterations.length){const p=document.createElement('p');p.className='empty-history';p.textContent='국면을 불러오면 자동으로 깊이별 최선수와 평가가 나타납니다.';root.appendChild(p);return;}
   for(const result of state.iterations){
     const row=document.createElement('div');row.className='iteration-row';
     for(const [content,cls] of [[result.depth,'depth-pill'],[result.best_san||result.pv?.[0]||'—','move-pill'],[scoreLabel(result.score),''],[result.seconds.toFixed(1)+'s','']]){
@@ -164,15 +223,36 @@ $('reset-position').addEventListener('click',()=>action('/api/analysis/reset'));
 $('flip-position').addEventListener('click',()=>{orientation=orientation==='white'?'black':'white';renderBoard();});
 $('best-position').addEventListener('click',()=>{const mv=state?.completed?.pv?.[0];if(mv)action('/api/analysis/move',{uci:mv});else message('완료된 분석 결과가 없어요.');});
 $('start-analysis').addEventListener('click',()=>{
-  const min=Number($('min-depth').value),max=Number($('max-depth').value);
-  if(min>max){message('최대 깊이가 최소 목표 깊이 이상이어야 해요.');return;}
-  const opts={};for(const box of document.querySelectorAll('input[data-option]'))opts[box.dataset.option]=box.checked;
-  action('/api/analysis/start',{min_depth:min,max_depth:max,seconds:Number($('analysis-seconds').value),options:opts});
+  cancelAuto();
+  const config=currentSettings();
+  if(config)action('/api/analysis/start',config);
 });
-$('stop-analysis').addEventListener('click',()=>action('/api/analysis/stop'));
+$('stop-analysis').addEventListener('click',()=>{
+  setAutoPreference(false); // An explicit stop must never auto-restart.
+  action('/api/analysis/stop');
+});
+$('auto-analyze').addEventListener('change',()=>{
+  setAutoPreference($('auto-analyze').checked);
+  if(autoEnabled && state && !state.active && !state.outcome){
+    scheduleAuto(state.status!=='idle');
+  } else if(!autoEnabled && state?.active){
+    action('/api/analysis/stop');
+  }
+});
+for(const control of document.querySelectorAll('#min-depth,#max-depth,#analysis-seconds,input[data-option]')){
+  control.addEventListener('change',()=>{
+    if(autoEnabled && state && !state.outcome)scheduleAuto(true,650);
+  });
+}
 $('promotion-cancel').addEventListener('click',()=>{$('promotion-modal').hidden=true;});
 $('promotion-modal').addEventListener('click',e=>{if(e.target===$('promotion-modal'))$('promotion-modal').hidden=true;});
 (async()=>{
-  try{apply(await api('/api/analysis/state'),true);loadMaster();}
-  catch(e){message(e.message);}
+  restoreAutoPreference();
+  try{
+    apply(await api('/api/analysis/state'),true);
+    loadMaster();
+    if(autoEnabled && state && state.status==='idle' && !state.outcome){
+      scheduleAuto(false,250);
+    }
+  }catch(e){message(e.message);}
 })();

@@ -81,7 +81,7 @@ MATE = 100_000
 MATE_BOUND = MATE - 1_000      # 이보다 절댓값이 크면 '메이트 점수'
 MAX_PLY = 100
 
-ENGINE_VERSION = "0.5.4"
+ENGINE_VERSION = "0.5.5"
 
 EXACT, LOWER, UPPER, MOVE_ONLY = 0, 1, 2, 3   # TT 종류: 정확한 값 / 이 이상 / 이 이하 / 점수 없음
 TT_HALFMOVE_MARGIN = 10        # 체크 연장 등으로 실제 수순이 깊이보다 길어질 수 있는 여유분

@@ -1,4 +1,4 @@
-"""Position analysis for Tal Lab v0.5.4.
+"""Position analysis for Tal Lab v0.5.5.
 
 No autoplay: both sides' legal moves are available. Iterative search results are
 published after *completed* depths. A minimum target does NOT override the hard
@@ -104,7 +104,17 @@ class AnalysisSession:
                 self.status = 'stopped'
             return self._state_locked()
 
-    def start(self, data):
+    def start(self, data, *, mode='manual'):
+        """Begin a bounded analysis.
+
+        auto: only starts an idle position, never restarts an active/completed
+              analysis (safe on page reload / multiple open tabs).
+        restart: replaces a current search after an explicit setting change.
+        Both require expected_fen so a delayed browser request cannot analyze
+        an obsolete position and overwrite a more recent action.
+        """
+        if mode not in ('manual', 'auto', 'restart'):
+            raise ValueError('지원하지 않는 분석 실행 방식이에요.')
         if not isinstance(data, dict):
             raise ValueError('분석 설정은 JSON 객체여야 해요.')
         minimum = data.get('min_depth', 5)
@@ -120,9 +130,19 @@ class AnalysisSession:
                 any(type(v) is not bool for v in options.values())):
             raise ValueError('지원하지 않는 분석 옵션이에요.')
         with self.lock:
-            if self.active:
+            if mode != 'manual':
+                expected_fen = data.get('expected_fen')
+                if not isinstance(expected_fen, str) or len(expected_fen) > 180:
+                    raise ValueError('자동 분석에는 현재 국면 FEN이 필요해요.')
+                if expected_fen != self.board.fen():
+                    return self._state_locked()  # stale request: no side effects
+                if mode == 'auto' and self.status != 'idle':
+                    return self._state_locked()  # no duplicate / restart loop
+            if self.active and mode == 'manual':
                 raise ValueError('이미 분석 중이에요. 중단한 후 다시 시작해 주세요.')
             if self.board.outcome() is not None:
+                if mode != 'manual':
+                    return self._state_locked()  # checkmate/stalemate needs no search
                 raise ValueError('이미 종료된 국면이에요. 새로운 국면을 불러와 주세요.')
             self._clear_analysis_locked()
             self.min_depth = minimum
@@ -251,7 +271,7 @@ class AnalysisSession:
             'completed': dict(self.completed) if self.completed else None,
             'iterations': list(self.iterations),
             'elapsed': round(time.monotonic() - self.started_at, 2) if self.active and self.started_at else round(self.elapsed, 2),
-            'version': '0.5.4',
+            'version': '0.5.5',
         }
 
     def state(self):
