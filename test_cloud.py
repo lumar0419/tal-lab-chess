@@ -113,7 +113,10 @@ class HostedTests(unittest.TestCase):
     def test_website_assets_and_pgn(self):
         status, _, html = self.req('/')
         self.assertEqual(status, 200)
-        self.assertIn(b'WEB EDITION', html)
+        self.assertIn(b'ANALYSIS STUDIO', html)
+        status, _, play_html = self.req('/play')
+        self.assertEqual(status, 200)
+        self.assertIn(b'WEB EDITION', play_html)
         status, _, js = self.req('/app.js')
         self.assertEqual(status, 200)
         self.assertIn(b'onSquare', js)

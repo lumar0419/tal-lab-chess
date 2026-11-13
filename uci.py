@@ -43,7 +43,7 @@ from search import Searcher, TimeUp, uci_score, MAX_PLY, ENGINE_VERSION
 
 ENGINE_NAME = "MyEngine"          # GUI에 보일 이름 — 마음대로 바꾸세요
 ENGINE_AUTHOR = "MyEngine author"
-UCI_VERSION = "0.5.3"             # UCI 버전 (0.4.2: 평가 최적화·King Safety 개정. 프로토콜은 0.4.1과 같음)
+UCI_VERSION = "0.5.4"             # UCI 버전 (0.4.2: 평가 최적화·King Safety 개정. 프로토콜은 0.4.1과 같음)
 
 # Hash(MB) → TT 용량(항목 수). 근사값임 (v0.4.1에서 실측해 정함).
 #   파이썬 TT 항목 1개 = 튜플 + 해시 int + 점수 int + Move 객체 ≈ 220바이트, 칸 배열 8바이트

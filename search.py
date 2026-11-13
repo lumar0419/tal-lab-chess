@@ -81,7 +81,7 @@ MATE = 100_000
 MATE_BOUND = MATE - 1_000      # 이보다 절댓값이 크면 '메이트 점수'
 MAX_PLY = 100
 
-ENGINE_VERSION = "0.5.3"
+ENGINE_VERSION = "0.5.4"
 
 EXACT, LOWER, UPPER, MOVE_ONLY = 0, 1, 2, 3   # TT 종류: 정확한 값 / 이 이상 / 이 이하 / 점수 없음
 TT_HALFMOVE_MARGIN = 10        # 체크 연장 등으로 실제 수순이 깊이보다 길어질 수 있는 여유분
@@ -317,7 +317,8 @@ class Searcher:
 
     # ──────────────────────────── 바깥에서 부르는 함수 ────────────────────────────
     def search(self, board: Board, max_depth=MAX_PLY, time_limit=None, node_limit=None,
-               on_info=print_info, root_moves=None):
+               on_info=print_info, root_moves=None, min_depth=1, on_iteration=None,
+               full_time=False):
         """반복 심화. (최선수, 점수)를 돌려줌. time_limit은 초 단위.
 
         반환 규칙 (v0.3.2)
@@ -331,6 +332,8 @@ class Searcher:
         node_limit: 정확히 이 노드 수에서 멈춤 (v0.4.1).
         멈추면 마지막으로 끝낸 깊이의 최선수, 깊이 1도 못 끝냈으면 그때까지의 최선 또는 첫 합법수.
         탐색이 시간 초과·정지·예외로 끊겨도 board는 호출 전 상태 그대로 돌아옵니다."""
+        if type(min_depth) is not int or not 1 <= min_depth <= max_depth:
+            raise ValueError('min_depth must be between 1 and max_depth')
         self.nodes = 0
         self.start = time.time()
         self.deadline = self.start + time_limit if time_limit else None
@@ -371,6 +374,8 @@ class Searcher:
 
             best_move, best_score = None, 0
             for depth in range(1, max_depth + 1):
+                if on_iteration is not None:
+                    on_iteration(depth)
                 self.root_best = None
                 try:
                     # v0.4.10: 마지막으로 *완료한* 깊이의 정확한 평가를 중심으로
@@ -406,8 +411,9 @@ class Searcher:
                 plies = mate_plies(score)
                 if plies is not None and plies <= depth:
                     break  # 이 깊이 안에서 메이트가 확정 → 더 볼 필요 없음
-                if self.deadline and elapsed > (self.deadline - self.start) * 0.5:
-                    break  # 남은 시간으로는 다음 깊이를 끝내기 어려움
+                if (self.deadline and not full_time and depth >= min_depth
+                        and elapsed > (self.deadline - self.start) * 0.5):
+                    break  # 최소 목표 깊이 이후에만 조기 종료 (절대 시간 제한은 그대로 적용)
             if best_move is None:
                 best_move = candidates[0]           # 깊이 1도 못 끝냄 → 합법적인 대체 수
             return best_move, best_score

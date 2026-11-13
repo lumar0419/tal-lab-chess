@@ -27,7 +27,11 @@ OPTION_KEYS = ('tactical_checks', 'attack_activity', 'initiative',
                'tactical_ordering', 'check_continuation', 'aspiration', 'king_safety', 'lmr')
 DEFAULT_OPTIONS = {key: False for key in OPTION_KEYS}
 ALLOWED_ASSETS = {
-    '/': ('index.html', 'text/html; charset=utf-8'),
+    '/': ('analysis.html', 'text/html; charset=utf-8'),
+    '/analysis': ('analysis.html', 'text/html; charset=utf-8'),
+    '/play': ('index.html', 'text/html; charset=utf-8'),
+    '/analysis.js': ('analysis.js', 'application/javascript; charset=utf-8'),
+    '/analysis.css': ('analysis.css', 'text/css; charset=utf-8'),
     '/index.html': ('index.html', 'text/html; charset=utf-8'),
     '/styles.css': ('styles.css', 'text/css; charset=utf-8'),
     '/app.js': ('app.js', 'application/javascript; charset=utf-8'),
@@ -96,6 +100,16 @@ class Game:
         self.ending = None
         self.error = None
         self.start_date = date.today().strftime('%Y.%m.%d')
+        self._analysis = None
+
+    def analysis(self):
+        # Construct lazily: CloudGame replaces search_gate after Game.__init__.
+        with self.lock:
+            if self._analysis is None:
+                from analysis_server import AnalysisSession
+                self._analysis = AnalysisSession(self.search_gate, self.search_wait_seconds,
+                                                 san_for_move=san_for_move)
+            return self._analysis
 
     def _stop_locked(self):
         self.generation += 1
@@ -310,8 +324,8 @@ class Game:
             'can_undo': any(m['side'] == self.human for m in self.moves),
             'info': dict(self.info) if self.info else None,
             'error': self.error,
-            'version': '0.5.3',
-            'engine_version': '0.5.3',
+            'version': '0.5.4',
+            'engine_version': '0.5.4',
         }
 
     def state(self):
@@ -322,8 +336,8 @@ class Game:
         with self.lock:
             result = self._outcome_locked()
             label = result[0] if result else '*'
-            white = 'Player' if self.human == WHITE else 'Tal Lab v0.5.3'
-            black = 'Player' if self.human == BLACK else 'Tal Lab v0.5.3'
+            white = 'Player' if self.human == WHITE else 'Tal Lab v0.5.4'
+            black = 'Player' if self.human == BLACK else 'Tal Lab v0.5.4'
             headers = [
                 '[Event "Tal Lab Local Game"]',
                 '[Site "localhost"]',
@@ -343,7 +357,7 @@ class Game:
 
 class WebHandler(BaseHTTPRequestHandler):
     game = None  # set on the subclass created by make_server
-    server_version = 'TalLab/0.5.3'
+    server_version = 'TalLab/0.5.4'
 
     def _response(self, status, content, content_type='application/json; charset=utf-8', extra=None):
         self.send_response(status)
@@ -383,6 +397,16 @@ class WebHandler(BaseHTTPRequestHandler):
             self._json(403, {'error': '허용되지 않은 호스트예요.'})
             return
         path = urlsplit(self.path).path
+        if path == '/api/analysis/state':
+            self._json(200, self.game.analysis().state())
+            return
+        if path == '/api/analysis/cases':
+            try:
+                data = json.loads((BASE / 'master_sacrifice_cases.json').read_text(encoding='utf-8'))
+                self._json(200, {'positions': data.get('positions', [])})
+            except (OSError, ValueError):
+                self._json(500, {'error': '마스터 국면 데이터를 불러올 수 없어요.'})
+            return
         if path == '/api/state':
             self._json(200, self.game.state())
             return
@@ -407,7 +431,9 @@ class WebHandler(BaseHTTPRequestHandler):
             self._json(403, {'error': '허용되지 않은 요청이에요.'})
             return
         path = urlsplit(self.path).path
-        routes = {'/api/new', '/api/move', '/api/undo', '/api/resign', '/api/draw'}
+        routes = {'/api/new', '/api/move', '/api/undo', '/api/resign', '/api/draw',
+                  '/api/analysis/start', '/api/analysis/stop', '/api/analysis/fen',
+                  '/api/analysis/move', '/api/analysis/undo', '/api/analysis/reset'}
         if path not in routes:
             self._json(404, {'error': '지원하지 않는 기능이에요.'})
             return
@@ -419,7 +445,19 @@ class WebHandler(BaseHTTPRequestHandler):
             obj = json.loads(self.rfile.read(size))
             if not isinstance(obj, dict):
                 raise ValueError('JSON 객체가 필요해요.')
-            if path == '/api/new':
+            if path == '/api/analysis/start':
+                state = self.game.analysis().start(obj)
+            elif path == '/api/analysis/stop':
+                state = self.game.analysis().stop()
+            elif path == '/api/analysis/fen':
+                state = self.game.analysis().set_fen(obj.get('fen'))
+            elif path == '/api/analysis/move':
+                state = self.game.analysis().move(obj.get('uci'))
+            elif path == '/api/analysis/undo':
+                state = self.game.analysis().undo()
+            elif path == '/api/analysis/reset':
+                state = self.game.analysis().reset()
+            elif path == '/api/new':
                 state = self.game.new(obj)
             elif path == '/api/move':
                 state = self.game.move(obj.get('uci'))
@@ -450,7 +488,7 @@ def make_server(port=8000, game=None):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Tal Lab v0.5.3 local chess website')
+    parser = argparse.ArgumentParser(description='Tal Lab v0.5.4 chess analysis website')
     parser.add_argument('--port', type=int, default=8000)
     parser.add_argument('--no-browser', action='store_true')
     args = parser.parse_args()
@@ -461,7 +499,7 @@ def main():
         print('다른 포트를 시도하세요: python web_server.py --port 8001')
         raise SystemExit(1)
     url = f'http://127.0.0.1:{server.server_port}'
-    print('\n  ♟  Tal Lab v0.5.3 — Local Chess Web')
+    print('\n  ♟  Tal Lab v0.5.4 — Chess Analysis Lab')
     print('  주소:', url)
     print('  서버 종료: Ctrl+C')
     print('  이 웹사이트는 내 컴퓨터에서만 접속할 수 있어요.\n')

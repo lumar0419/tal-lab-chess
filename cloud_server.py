@@ -1,4 +1,4 @@
-"""Tal Lab v0.5.3: password-protected cloud deployment (Python stdlib only).
+"""Tal Lab v0.5.4: password-protected cloud deployment (Python stdlib only).
 
 Use Render's RENDER_EXTERNAL_HOSTNAME and PORT automatically. Hosting requires a
 strong TAL_SITE_PASSWORD configured in the hosting dashboard, never in Git.
@@ -86,7 +86,8 @@ class Sessions:
             # Limit reached: reclaim only a long-idle, nonthinking game.
             if len(self.items) >= self.maximum:
                 for old_token, (game, last) in list(self.items.items()):
-                    if now - last >= self.idle_reclaim and not game.thinking:
+                    if (now - last >= self.idle_reclaim and not game.thinking
+                            and not (game._analysis and game._analysis.active)):
                         del self.items[old_token]
                         break
             if len(self.items) >= self.maximum:
@@ -167,7 +168,7 @@ def cookie_token(raw):
 
 
 class CloudHandler(WebHandler):
-    server_version = 'TalLabCloud/0.5.3'
+    server_version = 'TalLabCloud/0.5.4'
 
     def setup(self):
         super().setup()
@@ -256,7 +257,7 @@ class CloudHandler(WebHandler):
             return
         if not self._require_auth():
             return
-        if path in ('/api/state', '/api/pgn'):
+        if path.startswith('/api/'):
             self._response(405, b'Method Not Allowed', 'text/plain; charset=utf-8')
             return
         # A static asset request does not create a new browser session.
@@ -301,7 +302,7 @@ class CloudHandler(WebHandler):
 
     def log_message(self, format, *args):
         # Do not log credentials, browser cookies, or game data.
-        if self.path not in ('/api/state', '/healthz'):
+        if self.path not in ('/api/state', '/api/analysis/state', '/healthz'):
             super().log_message(format, *args)
 
 
@@ -323,7 +324,7 @@ def make_cloud_server(port, *, host='0.0.0.0', public_host, auth_user,
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Tal Lab v0.5.3 cloud chess')
+    parser = argparse.ArgumentParser(description='Tal Lab v0.5.4 cloud analysis')
     parser.add_argument('--port', type=int, default=int(os.environ.get('PORT', '10000')))
     parser.add_argument('--host', default='0.0.0.0')
     args = parser.parse_args()
