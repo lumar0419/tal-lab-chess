@@ -81,7 +81,7 @@ MATE = 100_000
 MATE_BOUND = MATE - 1_000      # 이보다 절댓값이 크면 '메이트 점수'
 MAX_PLY = 100
 
-ENGINE_VERSION = "0.4.11"
+ENGINE_VERSION = "0.5.3"
 
 EXACT, LOWER, UPPER, MOVE_ONLY = 0, 1, 2, 3   # TT 종류: 정확한 값 / 이 이상 / 이 이하 / 점수 없음
 TT_HALFMOVE_MARGIN = 10        # 체크 연장 등으로 실제 수순이 깊이보다 길어질 수 있는 여유분
@@ -300,6 +300,11 @@ class Searcher:
         # Requires TacticalChecks, remains OFF by default to avoid qsearch explosion.
         self.check_continuation = False
         self.check_continuation_nodes = 0
+        # Conservative experimental late-move reductions (non-PV, quiet, non-checking
+        # alternatives only). All tactical moves still receive full depth.
+        self.lmr = False
+        self.lmr_probes = 0
+        self.lmr_researches = 0
 
     @property
     def tt_size(self):
@@ -345,6 +350,8 @@ class Searcher:
         self.tactical_order_nodes = 0
         self.tactical_order_candidates = 0
         self.check_continuation_nodes = 0
+        self.lmr_probes = 0
+        self.lmr_researches = 0
         self.root_len = len(board.history)
         self.tt.new_search()           # 세대 증가: 이전 탐색의 항목은 교체 우선 대상이 됨
 
@@ -480,7 +487,28 @@ class Searcher:
             legal += 1
             score = self._rule_child_score(b, ply)    # 둔 결과가 무승부 규칙에 걸리면 바로 점수
             if score is None:
-                if self.pvs and legal > 1 and beta - alpha > 1:
+                # LMR reduces ONLY late quiet moves at non-PV nodes. Never reduce
+                # captures, promotions, pawn pushes to the seventh, replies to check,
+                # moves giving check, TT moves or killers. On a reduced fail-high,
+                # always re-search at full depth. This is SELECTIVE: unlike PVS it
+                # need not preserve full-width scores, so it is an opt-in experiment.
+                quiet_noncheck = (quiet and not b.in_check()) if self.lmr else False
+                pawn_near_promotion = (piece in 'Pp' and
+                    (rank_of(m.to) >= 6 if piece == 'P' else rank_of(m.to) <= 1))
+                do_lmr = (self.lmr and not root and not in_check and
+                    depth >= 3 and legal >= 4 and beta - alpha == 1 and
+                    quiet_noncheck and not pawn_near_promotion and
+                    m != tt_move and m not in self.killers[ply] and
+                    self.history.get((piece, m.to), 0) < depth * depth * 4)
+                if do_lmr:
+                    self.lmr_probes += 1
+                    score = -self.negamax(b, depth - 2, -alpha - 1, -alpha,
+                                          ply + 1, check_rules=False)
+                    if score > alpha:
+                        self.lmr_researches += 1
+                        score = -self.negamax(b, depth - 1, -beta, -alpha,
+                                              ply + 1, check_rules=False)
+                elif self.pvs and legal > 1 and beta - alpha > 1:
                     # PVS: 첫 합법 수는 이미 전체 창에서 확인했다. 이후 수의 경우
                     # 기존 alpha를 넘을 수 있는지만 먼저 1cp 창으로 검사한다.
                     # null-window 값은 fail-soft 경계일 수 있으므로 alpha < score < beta면

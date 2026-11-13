@@ -20,7 +20,7 @@
       </a>
       <div class="header-right">
         <span class="local-chip"><span class="online-dot"></span>WEB EDITION</span>
-        <span class="version-label">WEB v0.5.2 <span class="version-separator">·</span> ENGINE v0.4.11</span>
+        <span class="version-label">WEB v0.5.3 <span class="version-separator">·</span> ENGINE v0.5.3</span>
       </div>
     </header>
 
@@ -92,6 +92,7 @@
 
           <div class="setting-row time-setting"><label for="time-select">한 수당 생각 시간</label><div class="select-wrap"><select id="time-select"><option value="0.3">0.3초</option><option value="0.7" selected>0.7초</option><option value="1.2">1.2초</option><option value="2.5">2.5초</option><option value="5">5초</option></select></div></div>
 
+          <button type="button" id="precision-preset" class="draw-button" style="margin: 8px 0 14px; width:100%">🎯 정확도 우선 설정 (깊이 6 · 5초)</button>
           <div class="field-label playstyle-heading">플레이 스타일</div>
           <div class="style-picker" aria-label="플레이 스타일">
             <button type="button" class="style-choice active" id="balanced-style"><span class="style-symbol">◇</span><span><strong>밸런스</strong><small>검증된 기본 설정</small></span><span class="style-radio"></span></button>
@@ -106,10 +107,11 @@
               <label><input type="checkbox" data-option="tactical_ordering"><span>공격 수 정렬</span></label>
               <label><input type="checkbox" data-option="check_continuation"><span>연속 체크 탐색</span></label>
               <label><input type="checkbox" data-option="aspiration"><span>Aspiration 탐색</span></label>
+              <label><input type="checkbox" data-option="lmr"><span>LMR 탐색 (실험)</span></label>
               <label><input type="checkbox" data-option="king_safety"><span>킹 안전성 평가</span></label>
             </div>
           </details>
-          <div class="setting-note">설정은 <strong>새 대국 시작</strong> 시 적용됩니다. 실험 옵션은 실력 향상이 검증되지 않았습니다.</div>
+          <div class="setting-note">정확한 수를 원하면 생각 시간을 늘려 주세요. 공격적 옵션은 승률 향상이 검증되지 않았습니다.<br>설정은 <strong>새 대국 시작</strong> 시 적용됩니다. 실험 옵션은 실력 향상이 검증되지 않았습니다.</div>
           <button type="button" class="primary-button" id="start-btn"><span>♞</span> 새 대국 시작 <span class="arrow">↗</span></button>
         </section>
 

@@ -1,4 +1,4 @@
-"""Tal Lab v0.5.2: password-protected cloud deployment (Python stdlib only).
+"""Tal Lab v0.5.3: password-protected cloud deployment (Python stdlib only).
 
 Use Render's RENDER_EXTERNAL_HOSTNAME and PORT automatically. Hosting requires a
 strong TAL_SITE_PASSWORD configured in the hosting dashboard, never in Git.
@@ -167,7 +167,7 @@ def cookie_token(raw):
 
 
 class CloudHandler(WebHandler):
-    server_version = 'TalLabCloud/0.5.2'
+    server_version = 'TalLabCloud/0.5.3'
 
     def setup(self):
         super().setup()
@@ -323,7 +323,7 @@ def make_cloud_server(port, *, host='0.0.0.0', public_host, auth_user,
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Tal Lab v0.5.2 cloud chess')
+    parser = argparse.ArgumentParser(description='Tal Lab v0.5.3 cloud chess')
     parser.add_argument('--port', type=int, default=int(os.environ.get('PORT', '10000')))
     parser.add_argument('--host', default='0.0.0.0')
     args = parser.parse_args()

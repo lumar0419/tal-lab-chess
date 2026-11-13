@@ -24,7 +24,7 @@ from search import Searcher, format_score
 BASE = Path(__file__).resolve().parent
 ASSETS = BASE / 'web'
 OPTION_KEYS = ('tactical_checks', 'attack_activity', 'initiative',
-               'tactical_ordering', 'check_continuation', 'aspiration', 'king_safety')
+               'tactical_ordering', 'check_continuation', 'aspiration', 'king_safety', 'lmr')
 DEFAULT_OPTIONS = {key: False for key in OPTION_KEYS}
 ALLOWED_ASSETS = {
     '/': ('index.html', 'text/html; charset=utf-8'),
@@ -83,6 +83,7 @@ class Game:
         self.search_gate = threading.Lock()
         self.search_wait_seconds = None  # Local games may wait; hosted games use a deadline.
         self.worker_searcher = None
+        self._cached_searcher = None  # TT is carried between moves of ONE game only.
         self.generation = 0
         self.board = Board()
         self.human = WHITE
@@ -138,7 +139,9 @@ class Game:
                 if generation != self.generation:
                     return
                 original_fen = self.board.fen()
-                searcher = Searcher(tt_size=60_000)
+                if self._cached_searcher is None:
+                    self._cached_searcher = Searcher(tt_size=60_000)
+                searcher = self._cached_searcher
                 self.worker_searcher = searcher
             # Snapshot includes past history for correct repetition detection.
             search_board = Board(original_fen)
@@ -147,6 +150,7 @@ class Game:
             searcher.tactical_ordering = options['tactical_ordering']
             searcher.check_continuation = options['check_continuation']
             searcher.aspiration = options['aspiration']
+            searcher.lmr = options['lmr']
             evaluate.ATTACK_ACTIVITY = options['attack_activity']
             evaluate.INITIATIVE = options['initiative']
             evaluate.KING_SAFETY = options['king_safety']
@@ -218,6 +222,7 @@ class Game:
             raise ValueError('공격 설정 값은 true/false여야 해요.')
         with self.lock:
             self._stop_locked()
+            self._cached_searcher = None  # new game/options must not reuse old TT scores
             self.board = Board()
             self.moves = []
             self.human = human
@@ -305,8 +310,8 @@ class Game:
             'can_undo': any(m['side'] == self.human for m in self.moves),
             'info': dict(self.info) if self.info else None,
             'error': self.error,
-            'version': '0.5.2',
-            'engine_version': '0.4.11',
+            'version': '0.5.3',
+            'engine_version': '0.5.3',
         }
 
     def state(self):
@@ -317,8 +322,8 @@ class Game:
         with self.lock:
             result = self._outcome_locked()
             label = result[0] if result else '*'
-            white = 'Player' if self.human == WHITE else 'Tal Lab v0.4.11'
-            black = 'Player' if self.human == BLACK else 'Tal Lab v0.4.11'
+            white = 'Player' if self.human == WHITE else 'Tal Lab v0.5.3'
+            black = 'Player' if self.human == BLACK else 'Tal Lab v0.5.3'
             headers = [
                 '[Event "Tal Lab Local Game"]',
                 '[Site "localhost"]',
@@ -338,7 +343,7 @@ class Game:
 
 class WebHandler(BaseHTTPRequestHandler):
     game = None  # set on the subclass created by make_server
-    server_version = 'TalLab/0.5.2'
+    server_version = 'TalLab/0.5.3'
 
     def _response(self, status, content, content_type='application/json; charset=utf-8', extra=None):
         self.send_response(status)
@@ -445,7 +450,7 @@ def make_server(port=8000, game=None):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Tal Lab v0.5.2 local chess website')
+    parser = argparse.ArgumentParser(description='Tal Lab v0.5.3 local chess website')
     parser.add_argument('--port', type=int, default=8000)
     parser.add_argument('--no-browser', action='store_true')
     args = parser.parse_args()
@@ -456,7 +461,7 @@ def main():
         print('다른 포트를 시도하세요: python web_server.py --port 8001')
         raise SystemExit(1)
     url = f'http://127.0.0.1:{server.server_port}'
-    print('\n  ♟  Tal Lab v0.5.2 — Local Chess Web')
+    print('\n  ♟  Tal Lab v0.5.3 — Local Chess Web')
     print('  주소:', url)
     print('  서버 종료: Ctrl+C')
     print('  이 웹사이트는 내 컴퓨터에서만 접속할 수 있어요.\n')

@@ -3,7 +3,7 @@
 const PIECE = {K:'♔', Q:'♕', R:'♖', B:'♗', N:'♘', P:'♙', k:'♚', q:'♛', r:'♜', b:'♝', n:'♞', p:'♟'};
 const PIECE_KO = {k:'킹', q:'퀸', r:'룩', b:'비숍', n:'나이트', p:'폰'};
 const TAL_PRESET = {tactical_checks:true, attack_activity:true, initiative:true,
-                    tactical_ordering:true, check_continuation:false, aspiration:false, king_safety:false};
+                    tactical_ordering:true, check_continuation:false, aspiration:false, king_safety:false, lmr:false};
 const OPTION_KEYS = Object.keys(TAL_PRESET);
 const $ = id => document.getElementById(id);
 
@@ -340,6 +340,13 @@ async function startGame() {
   await action('/api/new',payload);
 }
 
+$('precision-preset').addEventListener('click',()=>{
+  $('depth-input').value='6'; $('depth-value').textContent='6';
+  $('time-select').value='5';
+  // Accuracy-first profile prefers the faster baseline evaluator. LMR
+  // remains an explicit experimental option, not silently switched on.
+  setPreset(Object.fromEntries(OPTION_KEYS.map(k=>[k,false])));
+});
 $('side-selector').addEventListener('click',e=> {
   const button=e.target.closest('button[data-side]');
   if(!button) return;
