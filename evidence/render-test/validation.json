@@ -1,0 +1,44 @@
+{
+  "source_baseline": "7a91e38256931ab70c223edae584477022f388d5",
+  "source_branch": "development/render-test-v092",
+  "engine_version": "0.9.2",
+  "engine_sources_unchanged": true,
+  "core_sha256": {
+    "board.py": "4370e15ffea0c74a57a3d56520841962ac3d703fafe848c9986b38abae293786",
+    "evaluate.py": "4cb3c6679df052eba416b1ad5481099d885007b1769fd6db061be4d5ea388090",
+    "search.py": "76af647afbe49e8392b682f33e7966dde518be0128b2de2072b024048174f559",
+    "deep_analysis.py": "d40260331e4dda20ec8d90c77993c480a88df07d07f4938932c118062f3b87cc",
+    "sacrifice.py": "c3f6c35c9d7734fea3eda9a929b415af8c48bfe7e45e1c8af02bb36b36b57a28",
+    "uci.py": "278b97249176daddb9f7e582feb8a2320168463e9e410bb47936b36410d0d96a",
+    "version.py": "d258bd7cfb332bb8558eadc8e2395fa724d40e391c29a577a6aaea833ca1315a"
+  },
+  "public_blueprint_schema": {
+    "url": "https://render.com/schema/render.yaml.json",
+    "result": "passed"
+  },
+  "render_cli_validation": {
+    "version": "2.36.0",
+    "result": "requires_separate_CLI_login",
+    "service_changes": false
+  },
+  "unittest": {
+    "python": 257,
+    "passed": true
+  },
+  "pypy_hosted_tests": {
+    "count": 21,
+    "passed": true
+  },
+  "browser_checks": {
+    "chromium": 7,
+    "edge": 7,
+    "external_network_requests": 0,
+    "client_invokes_native_python": false
+  },
+  "deployment": {
+    "status": "not_deployed",
+    "reviewed_plan_approval_required": true,
+    "password_source": "user_sets_in_Render_dashboard"
+  },
+  "tested_complete_600_second_runs": false
+}

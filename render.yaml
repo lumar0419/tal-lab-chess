@@ -1,14 +1,33 @@
+# TEST SITE ONLY. The production service/main branch are separate.
 services:
   - type: web
-    name: tal-lab-chess
+    name: tal-lab-chess-v092-test
     runtime: python
+    repo: https://github.com/lumar0419/tal-lab-chess
+    branch: development/render-test-v092
     plan: free
     region: singapore
-    buildCommand: "python -m compileall -q ."
+    numInstances: 1
+    autoDeployTrigger: "off"
+    buildCommand: "python tools/prepare_web_runtime.py && python -m compileall -q board.py evaluate.py search.py web_server.py cloud_server.py analysis_server.py deep_analysis.py"
     startCommand: "python cloud_server.py"
     healthCheckPath: /healthz
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.14
+      - key: PYTHONUNBUFFERED
+        value: "1"
       - key: TAL_SITE_USER
         value: player
       - key: TAL_SITE_PASSWORD
         sync: false
+      - key: TAL_SITE_LABEL
+        value: "Tal Lab v0.9.2 TEST"
+      - key: TAL_DEFAULT_COMPUTE
+        value: local
+      - key: TAL_PYODIDE_BASE
+        value: /runtime/pyodide/v0.27.7/
+      - key: TAL_JOB_LEASE_SECONDS
+        value: "90"
+      - key: TAL_MAX_SESSIONS
+        value: "32"

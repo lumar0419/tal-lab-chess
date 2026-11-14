@@ -1,0 +1,43 @@
+{
+  "browser": "157.0.4341.60",
+  "browser_name": "msedge",
+  "profile": "fresh",
+  "external_network_requests": [],
+  "client_invokes_native_python": false,
+  "checks": [
+    {
+      "name": "fresh-profile-local-WASM-with-server-analysis-blocked",
+      "passed": true,
+      "result": {
+        "version": "0.9.2",
+        "backend": "Tal Lab Python / Pyodide",
+        "depth": 4,
+        "multipv": 3
+      }
+    },
+    {
+      "name": "PGN-navigation-local-MultiPV-arrows-and-evaluation-graph",
+      "passed": true
+    },
+    {
+      "name": "server-CPU-MultiPV",
+      "passed": true
+    },
+    {
+      "name": "600-second-server-job-progress-export-and-cancel",
+      "passed": true
+    },
+    {
+      "name": "600-second-local-job-progress-and-worker-cancel",
+      "passed": true
+    },
+    {
+      "name": "navigation-cancels-server-job",
+      "passed": true
+    },
+    {
+      "name": "play-screen-human-move-and-engine-reply",
+      "passed": true
+    }
+  ]
+}
