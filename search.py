@@ -299,6 +299,7 @@ class Searcher:
         self.reuse_root_order = True
         self._root_hint = None
         self._tt_settings = None
+        self._tt_history_context = None
         self.tt_current_generation_only = False
         self.killers = [[None, None] for _ in range(MAX_PLY + 2)]
         self.history = {}
@@ -434,14 +435,25 @@ class Searcher:
         import evaluate as evaluation
         settings = (self.qsearch_quiet_checks, self.check_continuation, self.qsearch_capture_bridge,
                     self.qsearch_forcing_replies, self.delta_pruning,
+                    self.pvs, self.aspiration, self.aspiration_window, self.tactical_ordering,
                     self.lmr, self.check_extension_limit, self.null_move_pruning,
                     self.null_threat_extension, evaluation.ATTACK_ACTIVITY, evaluation.INITIATIVE,
                     evaluation.KING_SAFETY, self.selective, self.sel_qsearch, self.sel_null,
                     self.sel_rfp, self.sel_futility, self.sel_lmr, self.sel_iir, self.sel_order,
                     self.sel_sac_ply, self.sel_sac_root_only, self.sel_qchecks)
-        if self._tt_settings is not None and self._tt_settings != settings:
+        # Scores from a different reversible game history can hide future draw
+        # claims even when no draw was visited in the cached search. The board
+        # hash intentionally excludes the halfmove clock and game history.
+        # Preserve warm TT reuse for the identical analysis request; start with
+        # fresh scores when that draw context changes. Internal tree repetition
+        # remains the documented search approximation.
+        history_context = (board.halfmove, tuple(
+            h[H_HASH] for h in board.history[max(0, len(board.history)-board.halfmove):]))
+        if ((self._tt_settings is not None and self._tt_settings != settings) or
+                (self._tt_history_context is not None and self._tt_history_context != history_context)):
             self.tt.clear()
         self._tt_settings = settings
+        self._tt_history_context = history_context
         self._eval_cache = {} if self.eval_cache_size else None
         self._eval_cache_limit = self.eval_cache_size * (8 if self.selective else 1)
         self._gain[0] = 0
@@ -681,7 +693,7 @@ class Searcher:
                         and b.has_legal_move(in_check=False)):
                     self.sel_stats['rfp'] += 1
                     if trace:
-                        trace('rfp', b, ply, depth, None)
+                        self._emit_trace(trace, 'rfp', b, ply, depth, None, alpha, beta, static_eval)
                     return static_eval - RFP_MARGIN * depth
                 if (self.sel_null and not self._after_null and depth >= 3
                         and static_eval >= beta and self._has_null_material(b)):
@@ -693,13 +705,13 @@ class Searcher:
                             return 0
                         self.sel_stats['null_cut'] += 1
                         if trace:
-                            trace('null', b, ply, depth, None)
+                            self._emit_trace(trace, 'null', b, ply, depth, None, alpha, beta, static_eval, probe_score=score)
                         return beta
             # TT 수가 없는 깊은 노드: 정렬 정보가 없으니 한 반수 얕게 본다 (다음 반복에서 채워짐).
             if self.sel_iir and tt_move is None and depth >= 4 and not root and abs(protection) < SAC_MIN:
                 self.sel_stats['iir'] += 1
                 if trace:
-                    trace('iir', b, ply, depth, None)
+                    self._emit_trace(trace, 'iir', b, ply, depth, None, alpha, beta, static_eval, reduction=1)
                 depth -= 1
 
         stored_depth = depth
@@ -786,7 +798,7 @@ class Searcher:
                     self.sel_stats[prune] += 1
                     b.unmake_move()
                     if trace:
-                        trace(prune, b, ply, depth, m)
+                        self._emit_trace(trace, prune, b, ply, depth, m, alpha, beta, static_eval)
                     continue
                 if sel_reduce and legal + 1 >= lmr_from and m != tt_move:
                     reduction = LMR_TABLE[min(depth, 63)][min(legal + 1, 63)] - int(pv_node)
@@ -798,7 +810,7 @@ class Searcher:
                 # 얕게 먼저 보고, alpha를 넘을 때만 아래에서 원래 깊이로 다시 본다.
                 self.sel_stats['lmr'] += 1
                 if trace:
-                    trace('lmr', b, ply, depth, m)
+                    self._emit_trace(trace, 'lmr', b, ply, depth, m, alpha, beta, static_eval, reduction=reduction, after_move=True)
                 score = -self.negamax(b, depth - 1 - reduction, -alpha - 1, -alpha,
                                       ply + 1, False, checks_left, threat_left)
                 if score > alpha:
@@ -818,6 +830,9 @@ class Searcher:
                     and not b.in_check())
                 if do_lmr:
                     self.lmr_probes += 1
+                    if trace:
+                        self._emit_trace(trace, 'conservative_lmr', b, ply, depth, m,
+                                         alpha, beta, static_eval, reduction=1, after_move=True)
                     score = -self.negamax(b, depth - 2, -alpha - 1, -alpha,
                                           ply + 1, False, checks_left, threat_left)
                     if score > alpha:
@@ -869,6 +884,20 @@ class Searcher:
         elif entry is None:
             self.tt.store(tt_key, 0, MOVE_ONLY, 0, best_move)
         return best_score
+
+    def _emit_trace(self, callback, event, board, ply, depth, move, alpha, beta,
+                    static_eval, **details):
+        """Diagnostic allocation happens only with an explicitly enabled trace.
+
+        Preserve the original five-argument research callback API. Structured
+        recorders implement record() and receive the window and full context.
+        """
+        record = getattr(callback, 'record', None)
+        if record is None:
+            callback(event, board, ply, depth, move)
+        else:
+            record(event, board, ply, depth, move, alpha=alpha, beta=beta,
+                   static_eval=static_eval, **details)
 
     @staticmethod
     def _has_null_material(board):
@@ -1030,7 +1059,7 @@ class Searcher:
                     if cutoff != 'qs_see' or b.see(m) < 0:
                         self.sel_stats[cutoff] += 1
                         if trace:
-                            trace(cutoff, b, ply, 0, m)
+                            self._emit_trace(trace, cutoff, b, ply, 0, m, alpha, beta, stand_pat)
                         continue
                     b.make_move(m)
                 self.sel_stats['qs_saved'] += 1

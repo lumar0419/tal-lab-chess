@@ -62,8 +62,41 @@ def _compare(lines, reference, white_to_move):
     return None
 
 
+def _defense_need(item):
+    """Uncertainty, applied equally to sacrifice and ordinary candidates."""
+    rows = item['iterations']
+    scores = [r['score'] for r in rows[-3:]]
+    swing = max(scores)-min(scores) if scores else 0
+    replies = {r['pv'][1] for r in rows[-3:] if len(r['pv']) > 1}
+    comparison = item.get('comparison')
+    close = comparison is not None and abs(comparison['delta_for_mover']) <= 80
+    return 1 + min(swing, 400)/200 + int(len(replies)>1) + int(close)
+
+
+def _defense_consistency(candidate_rows, defense_rows, root_in_check=False):
+    """Compare only matching nominal horizons, including the root extension.
+
+    Selective depth is explicitly not an exhaustive full-width horizon.
+    Independent re-rooting changes TT/order and resets the extension context.
+    """
+    offset = 1-int(root_in_check)  # default unlimited check extension at root
+    pairs = [(c,d) for c in candidate_rows for d in defense_rows
+             if c['depth'] == d['depth']+offset and len(c['pv'])>1 and d['pv']]
+    if not pairs:
+        return {'status':'insufficient_common_depth', 'depth_offset':offset}
+    c,d = max(pairs,key=lambda pair: pair[0]['depth'])
+    score = d['score']
+    if mate_plies(score) is not None:
+        score += -1 if score>0 else 1  # include the candidate's first ply
+    return dict(status='agrees' if c['pv'][1]==d['pv'][0] and c['score']==score else 'disagrees',
+                candidate_depth=c['depth'], defense_depth=d['depth'],
+                candidate_reply=c['pv'][1], independent_reply=d['pv'][0],
+                candidate_score=c['score'], independent_score=score,
+                reply_agrees=c['pv'][1]==d['pv'][0], score_delta=score-c['score'])
+
+
 def analyze_deep(board, seconds, *, profile='conservative', candidate=None, cancel_check=None,
-                 on_root=None, on_progress=None, max_depth=MAX_PLY):
+                 on_root=None, on_progress=None, max_depth=MAX_PLY, adaptive=True):
     """Search the whole root, compare forced moves, then re-root at defenses.
 
     Each score uses white's perspective. A matched comparison is published only
@@ -86,6 +119,8 @@ def analyze_deep(board, seconds, *, profile='conservative', candidate=None, canc
               'profile': profile, 'budget': seconds, 'root': [], 'screen': [],
               'offers_found': 0, 'screen_complete': False, 'candidates': [],
               'phase': 'root', 'attempting': 0, 'elapsed': 0, 'outcome': None}
+    report['adaptive'] = adaptive
+    report['depth_kind'] = 'full_width' if profile=='full' else 'selective'
 
     def cancelled():
         return cancel_check is not None and cancel_check()
@@ -197,7 +232,10 @@ def analyze_deep(board, seconds, *, profile='conservative', candidate=None, canc
                 shortlist[other[-1]['pv'][0]] = None
         shortlist = list(shortlist)[:3]
         remaining = max(0, deadline - time.monotonic())
-        comparison_budget = remaining * .72 / len(shortlist)
+        # Keep the 64% unrestricted-root guarantee and equal comparison budgets.
+        # Reserve more time for independent defense, where v0.9.1 could report
+        # a shallower, contradictory reply after a deeper candidate search.
+        comparison_budget = remaining * (.55 if adaptive else .72) / len(shortlist)
         seed = searcher.tt.slots.copy()
         generation, size = searcher.tt.generation, len(searcher.tt)
         searcher.tt_current_generation_only = True
@@ -229,7 +267,10 @@ def analyze_deep(board, seconds, *, profile='conservative', candidate=None, canc
         # search. All opponent replies are legal candidates, including declines.
         remaining = max(0, deadline - time.monotonic())
         defense_budget = remaining * .92 / len(shortlist)
-        for item in report['candidates']:
+        needs = [_defense_need(item) for item in report['candidates']]
+        defense_limits = [(remaining*.92*(.6/len(needs)+.4*need/sum(needs)))
+                          for need in needs] if adaptive else [defense_budget]*len(needs)
+        for item, defense_budget in zip(report['candidates'], defense_limits):
             if expired():
                 break
             child = Board(board.fen())
@@ -251,10 +292,16 @@ def analyze_deep(board, seconds, *, profile='conservative', candidate=None, canc
                     last_defense = item['defenses'][-1]
                     item['material_under_defense'] = _material_trace(
                         board, [item['move'], *last_defense['pv']])
-                    matching = next((row for row in item['iterations']
-                                     if row['depth'] == last_defense['depth'] + 1), None)
-                    if matching and len(matching['pv']) > 1:
-                        item['defense_agrees_at_depth'] = matching['pv'][1] == last_defense['pv'][0]
+                    item['consistency'] = _defense_consistency(
+                        item['iterations'], item['defenses'], board.in_check())
+                    item['defense_need'] = _defense_need(item)
+                    item['required_defense_depth'] = max(
+                        (r['depth'] for r in item['iterations']),default=1)-1+int(board.in_check())
+                    item['deepest_defense_verified'] = (
+                        last_defense['depth'] >= item['required_defense_depth'] and
+                        item['consistency']['status']=='agrees')
+                    if 'reply_agrees' in item['consistency']:
+                        item['defense_agrees_at_depth'] = item['consistency']['reply_agrees']
                     if offered:
                         reply = last_defense['pv'][0]
                         item['defense_accepts'] = reply[2:4] == item['move'][2:4]
