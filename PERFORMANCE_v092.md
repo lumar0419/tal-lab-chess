@@ -24,7 +24,11 @@ git switch --track origin/development/performance-accuracy-v092
 제공하는 비교 패치는 **ZIP v0.9.1과 동일한 트리의 기준 커밋** 이후 변경입니다.
 현재 GitHub main에 직접 적용하는 패치가 아닙니다. 전체 소스 ZIP에는 기존 소스와 테스트,
 기존 검증 자료도 포함합니다. 컴파일 산출물과 외부 실행 파일은 포함하지 않습니다.
-기준 벤치마크를 다시 실행하려면 보고서의 v0.9.1 원격 커밋으로 별도 worktree를 만드세요.
+기준 벤치마크를 다시 실행하려면 다음 v0.9.1 원격 커밋으로 별도 worktree를 만드세요.
+
+```sh
+git worktree add --detach ../baseline-v091 2d5f6ced5a74fee37ba531d55d64e4e1b9882cb0
+```
 
 ## 실행 방식
 

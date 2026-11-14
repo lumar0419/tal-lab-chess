@@ -1,0 +1,52 @@
+{
+  "repository": "lumar0419/tal-lab-chess",
+  "development_branch": "development/performance-accuracy-v092",
+  "original_main_sha": "4b91b757a49b2b33ae1fdbebd00fd350bc905442",
+  "baseline_local_sha": "4fa222ed70c3d7b9a1d2d4688166dd8e5033a425",
+  "baseline_remote_sha": "2d5f6ced5a74fee37ba531d55d64e4e1b9882cb0",
+  "source_head_local_sha": "8724b59af1c9a4e82525e93dd47a0c0fe5c5a0fd",
+  "source_head_remote_sha": "9a4c8e28b05ac636e7c3322e39c62f91e7b56029",
+  "note": "Commit metadata is recreated through GitHub APIs; every corresponding source tree SHA matches. This mapping precedes the final provenance-only commit. Raw profiler binaries were excluded; public metrics were sanitized without changing numeric results.",
+  "commits": [
+    {
+      "local_sha": "4fa222ed70c3d7b9a1d2d4688166dd8e5033a425",
+      "remote_sha": "2d5f6ced5a74fee37ba531d55d64e4e1b9882cb0",
+      "tree_sha": "209122f6f8d5ef477c556f8c948ffb5b195dc5ce"
+    },
+    {
+      "local_sha": "58ac7853ed0b07abc86ffaef123df8a3088e0114",
+      "remote_sha": "6e4e3160bcc8798ea916c28f8b9b9feb2073a889",
+      "tree_sha": "c14dc0deccf32adae45bffc60739b6d37ec9d7be"
+    },
+    {
+      "local_sha": "1c83337786b78c4a5cdb4d5dc8833d9bed212727",
+      "remote_sha": "5ede4ffc6ea196fcb653e58ef2cfeb1c53a10bed",
+      "tree_sha": "ff94e6715fb60211510175d99277adf606de2062"
+    },
+    {
+      "local_sha": "176bd2a12661ea543b65eafeacc913cec2f16e7c",
+      "remote_sha": "018a3d641332e8afbb8e3ef37e47933f61ac17e4",
+      "tree_sha": "d5ab37cc10244667c1fe253536d0953f2a4156e9"
+    },
+    {
+      "local_sha": "fbe72c94f3f760ec279a977e3db1455e615e38c9",
+      "remote_sha": "f4d9b3fe22b387dacb7a2081509ad665f0283ce3",
+      "tree_sha": "d22c0bd9a83c18a7f729197f8d9524dcf709ab74"
+    },
+    {
+      "local_sha": "d29412e48156f68344ceb8f9b5570b6fb1185f75",
+      "remote_sha": "2e6de997ba4bd4c1d5113b22ec47c9683524e038",
+      "tree_sha": "0770a29d81a7e1a88960b72d7afc0c17a8163142"
+    },
+    {
+      "local_sha": "c424df9fb033d5fbf9b138f1ab1c3dc622f84ed6",
+      "remote_sha": "e3a96a6ebfb63e81833f1b1354caff1ce3e6723f",
+      "tree_sha": "d00c7bc0217a37a4fa6ff9d303f9f974c11e378d"
+    },
+    {
+      "local_sha": "8724b59af1c9a4e82525e93dd47a0c0fe5c5a0fd",
+      "remote_sha": "9a4c8e28b05ac636e7c3322e39c62f91e7b56029",
+      "tree_sha": "7151e50a2dde1b377e8748b5529dcaeb2db0abc9"
+    }
+  ]
+}
