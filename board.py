@@ -146,6 +146,20 @@ class Move(NamedTuple):
         return sq_name(self.frm) + sq_name(self.to) + self.promo
 
 
+# Immutable moves can be shared across boards and searches. This bounded table
+# removes NamedTuple allocations from the measured hot move-generation path.
+# Keep the public Move constructor for callers and all promotion variants.
+_MOVE_TABLE = [None] * 120
+for _origin in SQUARES:
+    _MOVE_TABLE[_origin] = [None] * 120
+    for _target in SQUARES:
+        _MOVE_TABLE[_origin][_target] = Move(_origin, _target)
+_KNIGHT_TARGETS = {s: tuple(s + d for d in KNIGHT_STEPS
+                          if s + d in SQUARES) for s in SQUARES}
+_KING_TARGETS = {s: tuple(s + d for d in KING_STEPS
+                        if s + d in SQUARES) for s in SQUARES}
+
+
 class Board:
     def __init__(self, fen=START_FEN):
         self.board = None
@@ -329,11 +343,11 @@ class Board:
             if b[s + 9] == 'p' or b[s + 11] == 'p':
                 return True
             knight, bishop, rook, queen, king = 'n', 'b', 'r', 'q', 'k'
-        for d in KNIGHT_STEPS:
-            if b[s + d] == knight:
+        for t in _KNIGHT_TARGETS[s]:
+            if b[t] == knight:
                 return True
-        for d in KING_STEPS:
-            if b[s + d] == king:
+        for t in _KING_TARGETS[s]:
+            if b[t] == king:
                 return True
         for d in BISHOP_DIRS:
             t = s + d
@@ -480,14 +494,14 @@ class Board:
                 self._add_pawn_move(replies, origin, target, 7 if white else 0)
         for step in KNIGHT_STEPS:
             if b[target + step] == knight:
-                replies.append(Move(target + step, target))
+                replies.append(_MOVE_TABLE[target + step][target])
         for directions, slider in ((BISHOP_DIRS, bishop), (ROOK_DIRS, rook)):
             for step in directions:
                 origin = target + step
                 while b[origin] == EMPTY:
                     origin += step
                 if b[origin] in (slider, queen) or (origin == target + step and b[origin] == king):
-                    replies.append(Move(origin, target))
+                    replies.append(_MOVE_TABLE[origin][target])
         best = 0
         for move in replies:
             gain = SEE_VALUE[victim] + (SEE_VALUE[move.promo] - 100 if move.promo else 0)
@@ -525,7 +539,7 @@ class Board:
                 if b[t] == EMPTY and (not captures_only or rank_of(t) == last_rank):
                     self._add_pawn_move(moves, s, t, last_rank)    # 한 칸 전진
                     if not captures_only and rank_of(s) == start_rank and b[t + up] == EMPTY:
-                        add(Move(s, t + up))                       # 첫 수 두 칸 전진
+                        add(_MOVE_TABLE[s][t + up])                       # 첫 수 두 칸 전진
                 for t in (s + up + E, s + up + W):                 # 대각선 잡기 / 앙파상
                     if b[t] in enemy or t == self.ep:
                         self._add_pawn_move(moves, s, t, last_rank)
@@ -534,7 +548,7 @@ class Board:
                 for d in (KNIGHT_STEPS if kind == 'N' else KING_STEPS):
                     t = s + d
                     if b[t] in enemy or (b[t] == EMPTY and not captures_only):
-                        add(Move(s, t))
+                        add(_MOVE_TABLE[s][t])
 
             else:                                                  # 미끄러지는 기물
                 for d in PIECE_DIRS[kind]:
@@ -544,10 +558,10 @@ class Board:
                             t += d
                     else:
                         while b[t] == EMPTY:
-                            add(Move(s, t))
+                            add(_MOVE_TABLE[s][t])
                             t += d
                     if b[t] in enemy:
-                        add(Move(s, t))
+                        add(_MOVE_TABLE[s][t])
 
         if not captures_only:
             self._add_castling(moves)
@@ -610,24 +624,24 @@ class Board:
                 dest = origin + up
                 if board[dest] == EMPTY and rank_of(dest) != last_rank:
                     if uncovers or dest in pawn_targets:
-                        yield Move(origin, dest)
+                        yield _MOVE_TABLE[origin][dest]
                     if rank_of(origin) == start_rank and board[dest + up] == EMPTY:
                         if uncovers or dest + up in pawn_targets:
-                            yield Move(origin, dest + up)
+                            yield _MOVE_TABLE[origin][dest + up]
             elif kind == 'N' or kind == 'K':
                 if kind == 'K' and not uncovers:
                     continue
                 for step in PIECE_DIRS[kind]:
                     dest = origin + step
                     if board[dest] == EMPTY and (uncovers or king - dest in KNIGHT_STEPS):
-                        yield Move(origin, dest)
+                        yield _MOVE_TABLE[origin][dest]
             else:
                 targets = queen_targets if kind == 'Q' else bishop_targets if kind == 'B' else rook_targets
                 for step in PIECE_DIRS[kind]:
                     dest = origin + step
                     while board[dest] == EMPTY:
                         if uncovers or dest in targets:
-                            yield Move(origin, dest)
+                            yield _MOVE_TABLE[origin][dest]
                         dest += step
         if self.castling:
             castles = []
@@ -654,7 +668,7 @@ class Board:
                 for step in KING_STEPS:
                     dest = origin + step
                     if board[dest] == EMPTY or board[dest] in enemy:
-                        moves.append(Move(origin, dest))
+                        moves.append(_MOVE_TABLE[origin][dest])
             elif kind == 'P':
                 dest = origin + up
                 if board[dest] == EMPTY:
@@ -662,7 +676,7 @@ class Board:
                         self._add_pawn_move(moves, origin, dest, last_rank)
                     double = dest + up
                     if double in targets and rank_of(origin) == start_rank and board[double] == EMPTY:
-                        moves.append(Move(origin, double))
+                        moves.append(_MOVE_TABLE[origin][double])
                 for dest in (origin + up + E, origin + up + W):
                     if dest == self.ep or (dest in targets and board[dest] in enemy):
                         self._add_pawn_move(moves, origin, dest, last_rank)
@@ -670,16 +684,16 @@ class Board:
                 for step in KNIGHT_STEPS:
                     dest = origin + step
                     if dest in targets and (board[dest] == EMPTY or board[dest] in enemy):
-                        moves.append(Move(origin, dest))
+                        moves.append(_MOVE_TABLE[origin][dest])
             else:
                 for step in PIECE_DIRS[kind]:
                     dest = origin + step
                     while board[dest] == EMPTY:
                         if dest in targets:
-                            moves.append(Move(origin, dest))
+                            moves.append(_MOVE_TABLE[origin][dest])
                         dest += step
                     if dest in targets and board[dest] in enemy:
-                        moves.append(Move(origin, dest))
+                        moves.append(_MOVE_TABLE[origin][dest])
         return moves
 
     @staticmethod
@@ -688,7 +702,7 @@ class Board:
             for promo in 'qrbn':
                 moves.append(Move(frm, to, promo))
         else:
-            moves.append(Move(frm, to))
+            moves.append(_MOVE_TABLE[frm][to])
 
     def _add_castling(self, moves):
         b = self.board
@@ -699,7 +713,7 @@ class Board:
                     and b[k_from] == king and b[r_sq] == rook
                     and all(b[s] == EMPTY for s in must_empty)
                     and not any(self.is_attacked(s, enemy) for s in must_safe)):
-                moves.append(Move(k_from, k_to))
+                moves.append(_MOVE_TABLE[k_from][k_to])
 
     def legal_moves(self):
         """수를 실제로 두어 보고 내 킹이 공격받지 않는 것만 남깁니다."""
