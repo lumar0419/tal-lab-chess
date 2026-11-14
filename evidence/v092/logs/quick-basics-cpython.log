@@ -1,0 +1,5 @@
+
+■ 빠른 기본 점검: 합법수(perft)·해시·make/unmake·UCI 기본 명령
+  [OK  ] perft 정답 (6개 국면, 노드 2만 이하 깊이)
+  [OK  ] 무작위 대국 20판: 매 수 뒤 Zobrist 해시 = 처음부터 계산한 값, 전부 무르면 처음 상태 그대로  (해시 0, 복구 0)
+  [OK  ] UCI: uci/isready/position/go/quit — uciok, readyok, 합법 bestmove, 1수 메이트는 'score mate 1'과 Rd8  (b1c3 d1d8)

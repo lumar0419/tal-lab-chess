@@ -1,0 +1,9 @@
+{
+  "backend": "build/native/board.cpython-312-x86_64-linux-gnu.so",
+  "games": 20,
+  "positions": 1996,
+  "edges": 61907,
+  "attack_comparisons": 255488,
+  "digest": "cd36a4c5455734cd2f31caba226f32112849c1201f704df5739f1257eb8c02fd",
+  "seconds": 2.062446066000007
+}

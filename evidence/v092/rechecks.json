@@ -1,0 +1,22 @@
+[
+  {
+    "check": "quick-basics-cpython",
+    "exit_code": 0
+  },
+  {
+    "check": "quick-pypy-fixed",
+    "exit_code": 0
+  },
+  {
+    "check": "oracle-pypy",
+    "exit_code": 0
+  },
+  {
+    "check": "unit-final-cpython",
+    "exit_code": 0
+  },
+  {
+    "check": "unit-final-cython",
+    "exit_code": 0
+  }
+]

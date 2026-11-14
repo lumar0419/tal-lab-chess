@@ -9,3 +9,6 @@ build/
 *.so
 *.pyd
 *.egg-info/
+
+# Raw profiles may embed private execution paths; keep them local.
+evidence/v092/*.prof

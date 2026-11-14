@@ -1,0 +1,92 @@
+
+■ 핸드셰이크와 기본 탐색
+  [OK  ] uci → id name / id author / option / uciok  (0.20s)
+  [OK  ] isready → readyok  (0ms)
+  [OK  ] go depth 4: info 줄 형식이 UCI 규격, 깊이 1→4 순서, bestmove는 합법수  (b1c3, info depth 4 score cp 0 nodes 8772 nps 16914 time 518 pv b1c3 b8c6 g1f3 g8f6)
+  [OK  ] 메이트 1수: bestmove a1a8, 'score mate 1'
+
+■ 시간 관리
+  [OK  ] go movetime 500: 500ms 안에 bestmove  (277ms)
+  [OK  ] go btime 3000 (흑 차례, 남은 3초): 짧게 생각 (≤ 남은 시간의 10%)  (100ms)
+  [OK  ] go wtime 120 (시간 거의 없음): 그래도 합법수를 빨리  (5ms)
+  [OK  ] go nodes 3000: 노드 한도로 끝남  (0.11s)
+  [OK  ] 시계 대국에서 둘 수 있는 수가 하나뿐이면 바로 둠 (보통은 2초 정도 생각할 시간)  (0ms)
+
+■ stop / infinite / isready
+  [OK  ] go infinite: 메이트를 찾아도 stop 전에는 bestmove를 보내지 않음
+  [OK  ] 탐색 중 isready에 즉시 readyok  (0ms)
+  [OK  ] stop → bestmove a1a8 즉시  (0ms)
+  [OK  ] 시작 국면 infinite 1.5초 후 stop → 0.3초 안에 합법 bestmove  (b1c3 4ms)
+  [OK  ] go 직후 바로 stop해도 멈추고 합법수를 냄  (4ms)
+  [OK  ] 조건 없는 'go'는 stop까지 계속
+  [OK  ] 탐색 중 quit → 프로세스 종료  (0.02s)
+
+■ 끝난 국면, 대국 기록(반복) 전달
+  [OK  ] 체크메이트: 'info depth 0 score mate 0' + bestmove 0000
+  [OK  ] 스테일메이트: 'info depth 0 score cp 0' + bestmove 0000
+  [OK  ] 킹 대 킹: 'info depth 0 score cp 0' + bestmove 0000
+  [OK  ] position의 수 목록이 반복 기록으로 이어짐: 룩 없는 흑이 Ke8(3회 반복 청구)로 0점  (d7e8, info depth 4 score cp 0 nodes 257 nps 11)
+  [OK  ] position 수 목록을 이어 붙여 처리해도 FEN이 정확 (60수 대국, 새 대국 전환 포함)
+
+■ 잘못된 입력
+  [OK  ] 잘못된 명령 11종 뒤에도 정상 응답 (죽지 않음)
+  [OK  ] 불법수가 섞인 position: 그 앞까지만 적용하고 알림
+  [OK  ]   → 국면은 1.e4 까지
+  [OK  ] setoption Hash / Clear Hash / Move Overhead 후 정상 탐색
+  [OK  ] ASCII 전용 출력 환경에서도 한국어 출력 때문에 죽지 않음
+  [OK  ] 입력이 닫히면(GUI 종료) 엔진도 종료
+
+■ v0.4.1  go searchmoves / go nodes
+  [OK  ] searchmoves 3개: bestmove가 후보 안이고, 같은 조건의 직접 탐색과 수·점수가 같음  (g5h4, info depth 3 score cp -61 node)
+  [OK  ] 불법·잘못된 후보는 알리고 무시 → 남은 합법 후보(h2h3)
+  [OK  ] 합법 후보가 없으면 알리고 bestmove 0000
+  [OK  ] go infinite searchmoves + stop: 후보 안에서 답함  (a2a3)
+  [OK  ] go nodes 777: 최종 노드 수가 정확히 777  ([777])
+  [OK  ] go nodes 5000: 최종 노드 수가 정확히 5000  ([5000])
+
+■ v0.4.1  stop·시간 동시 발생, bestmove는 go마다 정확히 한 번
+  [OK  ] movetime 100 + 즉시 stop × 5 뒤 정상 탐색: bestmove 6번 (중복·누락 없음)  (6번)
+
+■ v0.4.1  Ponder (상대 차례에 미리 생각)
+  [OK  ] Ponder 옵션을 광고함 (option name Ponder type check)
+  [OK  ] go ponder: 1초 동안 bestmove를 보내지 않음 (생각만 함)
+  [OK  ] ponderhit → 그 시점부터 이번 수의 시간(약 0.1초) 안에 bestmove  (b1c3 109ms)
+  [OK  ] bestmove의 ponder 수는 그 수 다음 국면에서 합법  (bestmove b1c3 ponder b8c6)
+  [OK  ] go ponder 직후 즉시 ponderhit해도 멈춤 (영원히 생각하지 않음)  (102ms)
+  [OK  ] ponder 중 stop(예상 빗나감) → 바로 bestmove, 이어서 새 국면 탐색 정상
+  [OK  ] ponder 중 이미 메이트를 확정해 탐색이 끝났어도 ponderhit 전에는 보류, 후에는 즉시
+  [OK  ] go ponder infinite: ponderhit 뒤에도 stop 전에는 bestmove를 보내지 않음
+  [OK  ] ponder 중 isready 즉시 응답, quit으로 종료
+
+■ v0.4.1  Hash 옵션이 TT 용량을 정함 / Clear Hash
+  [OK  ] 기본 Hash 64MB → 용량 64×4000, 처음엔 비어 있음  ({'hash_mb': 64, 'capacity': 256000, 'entries': 0, 'generation': 0})
+  [OK  ] Hash 1 → 용량 4000, 6만 노드 탐색 뒤에도 항목 수 <= 용량  ({'hash_mb': 1, 'capacity': 4000, 'entries': 2272, 'generation': 1})
+  [OK  ] Clear Hash → 항목 0, 용량 유지  ({'hash_mb': 1, 'capacity': 4000, 'entries': 0, 'generation': 1})
+  [OK  ] Hash 2로 바꾸면 용량 8000의 빈 표 (내용 비움)  ({'hash_mb': 2, 'capacity': 8000, 'entries': 0, 'generation': 2})
+  [OK  ] ucinewgame → TT 비움  ({'hash_mb': 2, 'capacity': 8000, 'entries': 0, 'generation': 3})
+  [OK  ] 범위 밖 값은 1~1024로 잘라서 적용  (1024)
+  [OK  ] 큰 표(1024MB 설정)를 만든 뒤에도 응답
+
+■ v0.4.1  KingSafety 옵션 (평가의 킹 안전 항목 켬/끔, 비교 실험용)
+  [OK  ] 옵션 광고(기본값 = evaluate.KING_SAFETY) / 끄면 점수가 바뀌고 다시 켜면 돌아옴 / 각각 직접 탐색한 점수와 같음  (켬 1130, 끔 1112, 다시 켬 1130 (직접 1130/1112))
+
+■ v0.4.3  TacticalChecks 실험 옵션 및 탐색 결과 차이
+  [OK  ] TacticalChecks 옵션 광고 (기본 비활성)
+  [OK  ] TacticalChecks OFF는 퀸 미끼 Bxf1 선택, ON은 Ra8#을 보고 회피  (off=g2f1, on=g2d5)
+  [OK  ] SelectiveSearch를 켜면 TacticalChecks가 꺼져 있어도 깊이 1에서 미끼를 피함  (selective=g2d5)
+  [OK  ] TacticalChecks 변경 후에도 GUI 명령 정상
+
+■ python-chess UCI 클라이언트로 실제 대국 (GUI 역할)
+  [건너뜀] python-chess 대국  (python-chess 미설치 — pip install chess)
+
+■ match.py: 기록·집계·오류 처리·Elo 표시 (v0.4.1)
+  [건너뜀] match.py  (python-chess 미설치 — pip install chess)
+
+■ match.py v0.4.2: 변형 교차 실행·짝 비교·환경 기록·동시 실행 방지
+  [건너뜀] match.py v0.4.2  (python-chess 미설치 — pip install chess)
+
+총 55개 중 55개 통과  (15s)
+건너뜀 3개 (통과로 세지 않음):
+  python-chess 대국
+  match.py
+  match.py v0.4.2

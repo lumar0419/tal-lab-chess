@@ -1,0 +1,34 @@
+[
+  {
+    "check": "engine-quick",
+    "exit_code": 0
+  },
+  {
+    "check": "uci",
+    "exit_code": 0
+  },
+  {
+    "check": "perft",
+    "exit_code": 0
+  },
+  {
+    "check": "native-uci",
+    "exit_code": 0
+  },
+  {
+    "check": "native-perft",
+    "exit_code": 0
+  },
+  {
+    "check": "http-native",
+    "exit_code": 0
+  },
+  {
+    "check": "pypy-engine",
+    "exit_code": 1
+  },
+  {
+    "check": "pypy-uci",
+    "exit_code": 0
+  }
+]

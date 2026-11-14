@@ -1,0 +1,18 @@
+{
+  "excluded": [
+    "Raw binary cProfile files containing absolute internal paths and runtime metadata"
+  ],
+  "redacted": [
+    "Absolute execution paths",
+    "Memory addresses in function representations",
+    "Process identifiers and host build details"
+  ],
+  "retained": [
+    "Function call counts and timing",
+    "Search scores, PVs, nodes and elapsed times",
+    "Runtime versions and relevant CPU/memory measurement conditions",
+    "All tactical and game outcomes"
+  ],
+  "json_numeric_payloads_verified": 51,
+  "note": "The automatic approval review rejected the raw profiler upload. Public evidence was minimized and sanitized; raw binary payloads were not published."
+}

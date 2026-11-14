@@ -1,0 +1,3594 @@
+{
+  "seconds": 1.0,
+  "threads": 1,
+  "hash_mb": 32,
+  "rows": [
+    {
+      "id": "lichess_001XA",
+      "expected": "b1b7",
+      "root": [
+        {
+          "depth": 18,
+          "nodes": 462024,
+          "score": 704,
+          "mate": null,
+          "pv": [
+            "b1b7",
+            "c7d8",
+            "c2e2",
+            "e7c5",
+            "e2h5",
+            "h7h6",
+            "h5f5",
+            "a7a6",
+            "b7d7",
+            "d8b6",
+            "f5g4",
+            "b6g6",
+            "g4g6"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 462024,
+          "score": 145,
+          "mate": null,
+          "pv": [
+            "e4f6"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 462024,
+          "score": -152,
+          "mate": null,
+          "pv": [
+            "c3a5",
+            "c7a5",
+            "b1b7",
+            "f8e8",
+            "g2h3",
+            "c8c7",
+            "b7c7",
+            "a5c7",
+            "f1d1",
+            "e7f8",
+            "h3g2",
+            "h7h6"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 17,
+          "nodes": 465536,
+          "score": 661,
+          "mate": null,
+          "pv": [
+            "c7d8",
+            "c2e2",
+            "c8c7",
+            "e2g4",
+            "f7f6",
+            "b7c7",
+            "d8c7",
+            "h2h4",
+            "c7c8",
+            "g4h5",
+            "h7h6",
+            "h5d5",
+            "g8h8"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 465536,
+          "score": 682,
+          "mate": null,
+          "pv": [
+            "c7b7",
+            "e4f6",
+            "e7f6",
+            "g2b7",
+            "c8c5",
+            "b7e4",
+            "f8d8",
+            "c3d2",
+            "c5c8",
+            "e4f5",
+            "f6d4",
+            "d2e3",
+            "d4e3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_001aK",
+      "expected": "f1e2",
+      "root": [
+        {
+          "depth": 28,
+          "nodes": 720455,
+          "score": 761,
+          "mate": null,
+          "pv": [
+            "f1e2",
+            "g3g2",
+            "e3e4",
+            "b2d4",
+            "c5d4",
+            "f3d4",
+            "e2f2",
+            "d4c6",
+            "f2g2",
+            "f7f5",
+            "a5a6",
+            "g8f7",
+            "e4e5",
+            "f7g6",
+            "g2h3",
+            "g6h5"
+          ]
+        },
+        {
+          "depth": 28,
+          "nodes": 720455,
+          "score": -29998,
+          "mate": -2,
+          "pv": [
+            "e3e4",
+            "e2d2",
+            "c5e3",
+            "g3g2"
+          ]
+        },
+        {
+          "depth": 28,
+          "nodes": 720455,
+          "score": -29998,
+          "mate": -2,
+          "pv": [
+            "a2b2",
+            "e2b2",
+            "a5a6",
+            "b2f2"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 16,
+          "nodes": 522014,
+          "score": 748,
+          "mate": null,
+          "pv": [
+            "g3g2",
+            "e3e4",
+            "f3d4",
+            "e2f2",
+            "d4b3",
+            "a2b2",
+            "b3c5",
+            "f2g1",
+            "c5a6",
+            "b2g2",
+            "g8f8"
+          ]
+        },
+        {
+          "depth": 16,
+          "nodes": 522014,
+          "score": 857,
+          "mate": null,
+          "pv": [
+            "f3h4",
+            "a2b2",
+            "g3g2",
+            "b2b1",
+            "e6e5",
+            "a5a6",
+            "e5e4",
+            "a6a7",
+            "h4f3",
+            "a7a8q",
+            "g8g7",
+            "a8f8",
+            "g7f6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_001cr",
+      "expected": "d7e8",
+      "root": [
+        {
+          "depth": 23,
+          "nodes": 560687,
+          "score": 29999,
+          "mate": 1,
+          "pv": [
+            "d7e8"
+          ]
+        },
+        {
+          "depth": 23,
+          "nodes": 560687,
+          "score": -252,
+          "mate": null,
+          "pv": [
+            "d7f5",
+            "g6f7",
+            "f4e5",
+            "c4c3",
+            "b2b3",
+            "h7h6",
+            "g5h6",
+            "g7h6",
+            "f5e4",
+            "h6h5",
+            "e5d4",
+            "h5h4",
+            "d4e3",
+            "h4h3",
+            "e4b7",
+            "a6a5",
+            "b7c8",
+            "h3h2",
+            "c8b7",
+            "f7g7"
+          ]
+        },
+        {
+          "depth": 22,
+          "nodes": 560687,
+          "score": -260,
+          "mate": null,
+          "pv": [
+            "b2b3",
+            "g6f7",
+            "b3c4",
+            "f7e7",
+            "d7f5",
+            "e7d6",
+            "f4e4",
+            "d6c5",
+            "e4d3",
+            "a6a5",
+            "d3c2",
+            "h7h6",
+            "g5h6",
+            "g7h6",
+            "f5d3",
+            "h6h5",
+            "d3e2",
+            "h5h4",
+            "c2b3",
+            "h4h3",
+            "e2d3",
+            "h3h2"
+          ]
+        }
+      ],
+      "defense": []
+    },
+    {
+      "id": "lichess_001xO",
+      "expected": "b6c5",
+      "root": [
+        {
+          "depth": 17,
+          "nodes": 471643,
+          "score": -582,
+          "mate": null,
+          "pv": [
+            "b6c5",
+            "a6c8",
+            "c5c4",
+            "b3b1",
+            "e7c8",
+            "f3d2",
+            "e8a4",
+            "e3e4",
+            "d6f4",
+            "b1b2",
+            "f6e4",
+            "d2e4",
+            "f4e4",
+            "c3g3",
+            "g7g6",
+            "g3e3",
+            "e4g4",
+            "b4b5",
+            "g4f4"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 471643,
+          "score": -24,
+          "mate": null,
+          "pv": [
+            "c8b8",
+            "c5d3",
+            "c7c3",
+            "b3c3",
+            "f6e4",
+            "c3c7",
+            "e8c6",
+            "c7d6",
+            "e4d6",
+            "f3e5",
+            "c6b7",
+            "b4b5",
+            "b8c8",
+            "c1c8",
+            "b7c8",
+            "a6c8",
+            "e7c8",
+            "a3a4",
+            "a8b7"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 471643,
+          "score": 225,
+          "mate": null,
+          "pv": [
+            "c8d8",
+            "b4b5",
+            "d8b8",
+            "c5d3",
+            "c7c3",
+            "b3c3",
+            "f6e4",
+            "c3b2",
+            "f7f6",
+            "d3b4",
+            "d6d7",
+            "a3a4",
+            "e4d6",
+            "f3d2",
+            "b8d8",
+            "b2c2"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 17,
+          "nodes": 428770,
+          "score": -552,
+          "mate": null,
+          "pv": [
+            "a6c8",
+            "c5c4",
+            "b3b1",
+            "c7c8",
+            "f3d2",
+            "e8a4",
+            "e3e4",
+            "d6b6",
+            "e4e5",
+            "f6e8",
+            "b1h7",
+            "b6d4",
+            "h7h5"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 428770,
+          "score": -685,
+          "mate": null,
+          "pv": [
+            "b4b5",
+            "c5c4",
+            "b3b1",
+            "f6e4",
+            "a6c8",
+            "e4c3",
+            "c1c3",
+            "e7c8",
+            "a3a4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_002Uy",
+      "expected": "h3c3",
+      "root": [
+        {
+          "depth": 25,
+          "nodes": 989624,
+          "score": -654,
+          "mate": null,
+          "pv": [
+            "h3c3",
+            "b3c3",
+            "a5a4",
+            "c3b2",
+            "a4b4",
+            "b2c2",
+            "b4a3",
+            "c2c3",
+            "b6b5",
+            "c3c2",
+            "b5b4",
+            "c2b1",
+            "a3b3",
+            "b1c1",
+            "b3a2",
+            "c1d2",
+            "b4b3",
+            "d2d3",
+            "b3b2",
+            "d3e2",
+            "a2b3",
+            "e2f2",
+            "b3c4",
+            "f2e2",
+            "c4d4",
+            "e2d2"
+          ]
+        },
+        {
+          "depth": 25,
+          "nodes": 989624,
+          "score": -94,
+          "mate": null,
+          "pv": [
+            "h3h4",
+            "c3g3"
+          ]
+        },
+        {
+          "depth": 24,
+          "nodes": 989624,
+          "score": 0,
+          "mate": null,
+          "pv": [
+            "h3h5",
+            "c3f3",
+            "h5g5",
+            "f3d3",
+            "b6b5",
+            "a4b5",
+            "a5b5",
+            "d3f3",
+            "g5d5",
+            "f3f4",
+            "d5d3",
+            "b3b2",
+            "d3g3",
+            "f4f1",
+            "b5b4",
+            "f1f4"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 32,
+          "nodes": 1263773,
+          "score": -706,
+          "mate": null,
+          "pv": [
+            "b3c3",
+            "a5a4",
+            "c3b2",
+            "a4b4",
+            "b2c2",
+            "b4a3",
+            "c2c3",
+            "b6b5",
+            "c3d2",
+            "b5b4",
+            "d2e1",
+            "a3b2",
+            "e1d2",
+            "b2a2",
+            "d2d3",
+            "b4b3",
+            "d3e2",
+            "b3b2",
+            "e2f3",
+            "a2b3",
+            "f3g4",
+            "b3c2",
+            "g4f3",
+            "b2b1q",
+            "f3g4",
+            "c2d3",
+            "g4h5",
+            "d3c3",
+            "h5g5",
+            "c3d2",
+            "g5g4",
+            "d2e3",
+            "g4h5"
+          ]
+        },
+        {
+          "depth": 31,
+          "nodes": 1263773,
+          "score": -29990,
+          "mate": -10,
+          "pv": [
+            "b3b2",
+            "c3h3",
+            "b2c1",
+            "h3h2",
+            "c1d1",
+            "a5a4",
+            "d1e1",
+            "b6b5",
+            "e1d1",
+            "b5b4",
+            "d1c1",
+            "b4b3",
+            "c1b1",
+            "h2g2",
+            "b1c1",
+            "a4a3",
+            "c1d1",
+            "b3b2",
+            "d1e1",
+            "b2b1q"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_002e8",
+      "expected": "d2h6",
+      "root": [
+        {
+          "depth": 24,
+          "nodes": 449480,
+          "score": 952,
+          "mate": null,
+          "pv": [
+            "d2h6",
+            "b7e4",
+            "g3h3",
+            "f6h4",
+            "h6h4",
+            "f7f5",
+            "h4d8",
+            "e4d3",
+            "h3d3",
+            "a5a4",
+            "d8h4",
+            "e5f6",
+            "h4e1",
+            "f5f4",
+            "e1b4",
+            "f4f3",
+            "d4f3"
+          ]
+        },
+        {
+          "depth": 24,
+          "nodes": 449480,
+          "score": 0,
+          "mate": null,
+          "pv": [
+            "d3h7",
+            "g8h8",
+            "g3h3",
+            "d8d4",
+            "e2d4",
+            "e5d4",
+            "d2d4",
+            "f6d4",
+            "h7d3",
+            "h8g8",
+            "g1g4",
+            "d4e5",
+            "d3h7",
+            "g8h8",
+            "h7e4",
+            "h8g8"
+          ]
+        },
+        {
+          "depth": 24,
+          "nodes": 449480,
+          "score": 0,
+          "mate": null,
+          "pv": [
+            "g3h3",
+            "d8d4",
+            "d3h7",
+            "g8h8",
+            "e2d4",
+            "e5d4",
+            "d2d4",
+            "f6d4",
+            "h7d3",
+            "h8g8",
+            "g1g4",
+            "d4e5",
+            "d3h7",
+            "g8h8",
+            "h7e4",
+            "h8g8"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 13,
+          "nodes": 456832,
+          "score": 907,
+          "mate": null,
+          "pv": [
+            "b7e4",
+            "d3e4",
+            "e5e4",
+            "g3h3",
+            "e4h4",
+            "h3h4",
+            "f6h4",
+            "h6h4",
+            "d8d7",
+            "c2c3",
+            "b4b3",
+            "d4b3",
+            "d7d6",
+            "h4e1"
+          ]
+        },
+        {
+          "depth": 13,
+          "nodes": 456832,
+          "score": 976,
+          "mate": null,
+          "pv": [
+            "g7g6",
+            "g3h3",
+            "f6h4",
+            "h6h4",
+            "e5g7",
+            "h4d8",
+            "g7f6",
+            "d8a5",
+            "f6e7",
+            "d3c4",
+            "e8d6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_004Op",
+      "expected": "d8d1",
+      "root": [
+        {
+          "depth": 16,
+          "nodes": 602266,
+          "score": -629,
+          "mate": null,
+          "pv": [
+            "d8d1",
+            "f1d1",
+            "g8g2",
+            "g1f1",
+            "g2g1",
+            "f1e2",
+            "g1d1",
+            "e2d1",
+            "c6d5",
+            "f4d2",
+            "d5d4",
+            "b1h7",
+            "d4f2",
+            "d1c2",
+            "b7c6",
+            "a1d1"
+          ]
+        },
+        {
+          "depth": 16,
+          "nodes": 602266,
+          "score": 44,
+          "mate": null,
+          "pv": [
+            "h7f6",
+            "a1a2",
+            "f6h5",
+            "f4e5",
+            "b6c5",
+            "b4a5",
+            "c5c4",
+            "g1h2",
+            "c6c5",
+            "a2e2",
+            "c4c3"
+          ]
+        },
+        {
+          "depth": 16,
+          "nodes": 602266,
+          "score": 77,
+          "mate": null,
+          "pv": [
+            "h7g5",
+            "g1h2",
+            "b6c5",
+            "b4a5",
+            "b7a6",
+            "f1c1",
+            "d8d4",
+            "a1a2"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 13,
+          "nodes": 532362,
+          "score": -659,
+          "mate": null,
+          "pv": [
+            "f1d1",
+            "g8g2",
+            "g1f1",
+            "g2g1",
+            "f1e2",
+            "g1d1",
+            "e2d1",
+            "c6d5",
+            "d1e1",
+            "h7g5",
+            "f2d2"
+          ]
+        },
+        {
+          "depth": 13,
+          "nodes": 532362,
+          "score": -751,
+          "mate": null,
+          "pv": [
+            "a1a2",
+            "d1f1",
+            "g1f1",
+            "h7f6",
+            "f1g1",
+            "f6d5",
+            "a2c2",
+            "b6c5",
+            "b4c5",
+            "d5f6",
+            "b1a2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_004sg",
+      "expected": "c4d2",
+      "root": [
+        {
+          "depth": 18,
+          "nodes": 544809,
+          "score": -388,
+          "mate": null,
+          "pv": [
+            "c4d2",
+            "c5c6",
+            "d6d5",
+            "h4g3",
+            "d2e4",
+            "c6c7",
+            "e4d6",
+            "h2g1",
+            "d6c8",
+            "h3h4",
+            "a7a5"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 544809,
+          "score": 792,
+          "mate": null,
+          "pv": [
+            "d6c5",
+            "d2g2",
+            "c4d6",
+            "h4f2",
+            "d6f5",
+            "g2d5",
+            "e7d6",
+            "h2g1",
+            "f5e7",
+            "d5d6"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 544809,
+          "score": 796,
+          "mate": null,
+          "pv": [
+            "c4e5",
+            "h2h1",
+            "b6c5",
+            "d2g2",
+            "a7a5",
+            "g2a8",
+            "g8g7",
+            "a8b7",
+            "e5g6"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 16,
+          "nodes": 631456,
+          "score": -378,
+          "mate": null,
+          "pv": [
+            "c5c6",
+            "d6d5",
+            "h2g2",
+            "d2c4",
+            "h4g3",
+            "b6b5",
+            "h3h4",
+            "c4b6",
+            "g2f2",
+            "b6c8",
+            "f2e2",
+            "e7a3",
+            "h4h5",
+            "a7a5",
+            "g3e5",
+            "a3c5",
+            "c6c7"
+          ]
+        },
+        {
+          "depth": 16,
+          "nodes": 631456,
+          "score": -645,
+          "mate": null,
+          "pv": [
+            "c5b6",
+            "a7b6",
+            "h2g3",
+            "d4d3",
+            "g3f4",
+            "d2c4",
+            "f4f3",
+            "d6d5",
+            "a3a4",
+            "d3d2",
+            "f3e2",
+            "g8f8",
+            "e2d1",
+            "e7d6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_005Bm",
+      "expected": "h4g6",
+      "root": [
+        {
+          "depth": 21,
+          "nodes": 613292,
+          "score": 29998,
+          "mate": 2,
+          "pv": [
+            "h4g6",
+            "f8g8",
+            "f6h8"
+          ]
+        },
+        {
+          "depth": 21,
+          "nodes": 613292,
+          "score": -445,
+          "mate": null,
+          "pv": [
+            "f6h6",
+            "f8e7",
+            "h6g5",
+            "e7d7",
+            "h4f3",
+            "b4c3",
+            "f3e5",
+            "e8e5",
+            "g5e5",
+            "f7f1",
+            "c1c2",
+            "f1e2",
+            "c2c3",
+            "e2d2",
+            "c3b3",
+            "d2d3",
+            "b3b2",
+            "e3e2",
+            "e5g7",
+            "d7c6"
+          ]
+        },
+        {
+          "depth": 21,
+          "nodes": 613292,
+          "score": -701,
+          "mate": null,
+          "pv": [
+            "f6h8",
+            "f8e7",
+            "h8h6",
+            "f7f1",
+            "c1b2",
+            "f1e2",
+            "b2b3",
+            "e2d1",
+            "b3b4",
+            "d1d6",
+            "h6d6",
+            "e7d6",
+            "h4f5",
+            "d6d7",
+            "f5e3",
+            "e8e3",
+            "a2a4",
+            "e3e1",
+            "b4b3"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 245,
+          "nodes": 507,
+          "score": 29999,
+          "mate": 1,
+          "pv": [
+            "f8g8",
+            "f6h8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_005f3",
+      "expected": "g3g6",
+      "root": [
+        {
+          "depth": 19,
+          "nodes": 498133,
+          "score": 706,
+          "mate": null,
+          "pv": [
+            "g3g6",
+            "f7g6",
+            "g1g6",
+            "g8f8",
+            "c3g7",
+            "f8e8",
+            "g7g8",
+            "e8d7",
+            "g8e6",
+            "d7d8",
+            "g6g8",
+            "b5e8",
+            "g8e8",
+            "d8e8",
+            "e6g6",
+            "e8d7",
+            "g6h5",
+            "a8d8",
+            "h5d5",
+            "d7c8"
+          ]
+        },
+        {
+          "depth": 19,
+          "nodes": 498133,
+          "score": 117,
+          "mate": null,
+          "pv": [
+            "c3c7"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 498133,
+          "score": -275,
+          "mate": null,
+          "pv": [
+            "a2a3",
+            "a8f8",
+            "c3c7",
+            "b5c5",
+            "c7b7",
+            "h5h2",
+            "g3g2",
+            "c5d4",
+            "b7a6",
+            "h2g2",
+            "g1g2",
+            "d4f4",
+            "g2c2",
+            "f8b8",
+            "a6b5",
+            "f4e3",
+            "c2c6",
+            "g8g7",
+            "a3a4",
+            "b8d8",
+            "c6b6",
+            "d8d3"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 10,
+          "nodes": 617631,
+          "score": 865,
+          "mate": null,
+          "pv": [
+            "f7g6",
+            "g1g6",
+            "g8f7",
+            "c3g7",
+            "f7e8",
+            "g7g8",
+            "e8d7",
+            "g8e6",
+            "d7d8",
+            "g6g8",
+            "b5e8",
+            "g8e8",
+            "d8e8",
+            "e6g6",
+            "e8f8"
+          ]
+        },
+        {
+          "depth": 10,
+          "nodes": 617631,
+          "score": 29999,
+          "mate": 1,
+          "pv": [
+            "g8h7",
+            "c3g7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_005ws",
+      "expected": "g6g5",
+      "root": [
+        {
+          "depth": 21,
+          "nodes": 1242152,
+          "score": -546,
+          "mate": null,
+          "pv": [
+            "g6g5",
+            "h4g5",
+            "f6g5",
+            "e6e5",
+            "h5h4",
+            "e5e4",
+            "h4h3",
+            "d4f3",
+            "g4g3",
+            "f3g5",
+            "h3h2",
+            "e4e3",
+            "h2h1q",
+            "g5e4",
+            "g3g2",
+            "e3e2",
+            "h1h7",
+            "e4d2",
+            "h7h5",
+            "e2e1",
+            "g2g1",
+            "d2e4",
+            "h5h1",
+            "e1d1",
+            "h1e4",
+            "d1d2",
+            "e4h4",
+            "d2c1"
+          ]
+        },
+        {
+          "depth": 21,
+          "nodes": 1242152,
+          "score": -3,
+          "mate": null,
+          "pv": [
+            "f6f5",
+            "e6f6",
+            "g4h4",
+            "f6g6",
+            "h4g4",
+            "d4f5",
+            "g4f4",
+            "f5h4",
+            "f4e4",
+            "g6h5",
+            "e4e3",
+            "h4g2",
+            "e3e2",
+            "g2f4",
+            "e2f2",
+            "h5g5",
+            "f2e3",
+            "f4h3"
+          ]
+        },
+        {
+          "depth": 21,
+          "nodes": 1242152,
+          "score": -3,
+          "mate": null,
+          "pv": [
+            "g4h4",
+            "e6f6",
+            "h4g4",
+            "d4e6",
+            "h5h4",
+            "e6g5",
+            "g4f4",
+            "f6g6",
+            "f4g3",
+            "g6f7",
+            "h4h3",
+            "g5h3",
+            "g3f3",
+            "f7g6",
+            "f3g4",
+            "h3g5",
+            "g4g3",
+            "g6f5",
+            "g3f2",
+            "g5h3",
+            "f2e2",
+            "h3f4",
+            "e2d2"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 15,
+          "nodes": 1142572,
+          "score": -511,
+          "mate": null,
+          "pv": [
+            "h4g5",
+            "f6g5",
+            "e6e5",
+            "h5h4",
+            "e5e4",
+            "h4h3",
+            "d4f3",
+            "g4g3",
+            "f3g5",
+            "h3h2",
+            "e4e3",
+            "h2h1q",
+            "g5e4",
+            "g3g2",
+            "e4c3",
+            "h1f1"
+          ]
+        },
+        {
+          "depth": 15,
+          "nodes": 1142572,
+          "score": -673,
+          "mate": null,
+          "pv": [
+            "e6f6",
+            "g5h4",
+            "d4c6",
+            "h4h3",
+            "c6e5",
+            "g4g3",
+            "f6g5",
+            "h3h2",
+            "g5h5",
+            "h2h1q",
+            "h5g5",
+            "h1f1",
+            "e5g6",
+            "f1f7",
+            "g5h5",
+            "f7a7",
+            "h5h6",
+            "g3g4",
+            "g6f8",
+            "a7a6",
+            "h6h7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_006pe",
+      "expected": "e7f5",
+      "root": [
+        {
+          "depth": 25,
+          "nodes": 580030,
+          "score": 29998,
+          "mate": 2,
+          "pv": [
+            "e7f5",
+            "h6h7",
+            "f6g7"
+          ]
+        },
+        {
+          "depth": 25,
+          "nodes": 580030,
+          "score": 0,
+          "mate": null,
+          "pv": [
+            "d1d5",
+            "c5b3",
+            "c1b1",
+            "b3d2",
+            "b1c1",
+            "d2b3"
+          ]
+        },
+        {
+          "depth": 24,
+          "nodes": 580030,
+          "score": -163,
+          "mate": null,
+          "pv": [
+            "d1d6",
+            "c5b3",
+            "c1b1",
+            "b3d4",
+            "f6g5",
+            "h6h7",
+            "d6d4",
+            "a8a5",
+            "e7d5",
+            "f7d5",
+            "d4d5",
+            "f8f2",
+            "h1c1",
+            "a5d5",
+            "g5d5",
+            "a4a3",
+            "d5e4",
+            "f2f4",
+            "e4e3",
+            "f4h4"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 245,
+          "nodes": 491,
+          "score": 29999,
+          "mate": 1,
+          "pv": [
+            "h6h7",
+            "f6g7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_008EC",
+      "expected": "e7f7",
+      "root": [
+        {
+          "depth": 17,
+          "nodes": 907956,
+          "score": -566,
+          "mate": null,
+          "pv": [
+            "e7f7",
+            "g3b8",
+            "g8h7",
+            "f2f7",
+            "a4d1",
+            "g1f2",
+            "d1f1",
+            "f2g3",
+            "f1f7",
+            "b8e5",
+            "f7f6",
+            "e5f6",
+            "g7f6",
+            "g3g4",
+            "h7g8",
+            "g4f3",
+            "d3b1",
+            "a2a3",
+            "g8f7",
+            "f3g3"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 907956,
+          "score": 867,
+          "mate": null,
+          "pv": [
+            "a4d1",
+            "f2f1",
+            "e7f7",
+            "f1d1",
+            "d3e2",
+            "d1a1",
+            "e2h5",
+            "d4d5"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 907956,
+          "score": 928,
+          "mate": null,
+          "pv": [
+            "e7e1",
+            "g1h2",
+            "e1h1",
+            "h2h1",
+            "a4d1",
+            "f2f1",
+            "d1h5",
+            "h1g1",
+            "h5g5",
+            "g3b8",
+            "g8h7",
+            "f1f4",
+            "g5g6",
+            "f7f8",
+            "g6e6",
+            "g1h2",
+            "e6e1",
+            "f8e8",
+            "e1d1"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 16,
+          "nodes": 798522,
+          "score": -587,
+          "mate": null,
+          "pv": [
+            "g3b8",
+            "g8h7",
+            "f2f7",
+            "a4d1",
+            "g1f2",
+            "d1f1",
+            "f2g3",
+            "f1f7",
+            "b8e5",
+            "d3f5",
+            "g3f4",
+            "f5d7",
+            "f4e4",
+            "f7e7"
+          ]
+        },
+        {
+          "depth": 16,
+          "nodes": 798522,
+          "score": -659,
+          "mate": null,
+          "pv": [
+            "f2f7",
+            "a4d1",
+            "f7f1",
+            "d1f1",
+            "g1h2",
+            "f1f5",
+            "g3h3",
+            "f5h3",
+            "h2h3",
+            "g8f7",
+            "g2g3",
+            "f7f6",
+            "h3h4",
+            "a6a5",
+            "h4g4",
+            "d3e2",
+            "g4h4",
+            "e2f3",
+            "g3g4",
+            "f3c6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_008LT",
+      "expected": "h6f7",
+      "root": [
+        {
+          "depth": 17,
+          "nodes": 694086,
+          "score": 572,
+          "mate": null,
+          "pv": [
+            "h6f7",
+            "h8g8",
+            "h3e6",
+            "a6c8",
+            "f7h8",
+            "c8e6",
+            "h8g6",
+            "h4f6",
+            "h1h8",
+            "g8f7",
+            "g6f8",
+            "a8f8",
+            "h8f8",
+            "f7f8",
+            "a1e1",
+            "a5a4",
+            "e1e5",
+            "c5c4",
+            "d3c4",
+            "d5c4",
+            "g2g1",
+            "b4b3",
+            "a2b3",
+            "c4b3",
+            "f3a8",
+            "f8f7"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 694086,
+          "score": 16,
+          "mate": null,
+          "pv": [
+            "h6f5",
+            "h4f6",
+            "f5e7",
+            "g6h4",
+            "g2g3",
+            "f6e7",
+            "f3h5",
+            "h8g8",
+            "a1e1",
+            "a6c8",
+            "h3g4",
+            "e7f6",
+            "h5h4",
+            "f6f4",
+            "g3g2",
+            "f8f6"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 694086,
+          "score": -148,
+          "mate": null,
+          "pv": [
+            "h3f5",
+            "g7h6",
+            "f5g6",
+            "h4f4",
+            "f3f4",
+            "f8f4",
+            "f2f3",
+            "f4f6",
+            "g6h5",
+            "d5d4",
+            "g2f2",
+            "a6b7",
+            "a2a3",
+            "a5a4",
+            "h1h3",
+            "b4b3",
+            "c2b3",
+            "a4b3",
+            "a1c1",
+            "a8c8",
+            "h3g3",
+            "e6e5",
+            "f2e2",
+            "c8c7",
+            "a3a4",
+            "b7a6",
+            "h5g6"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 14,
+          "nodes": 636493,
+          "score": 575,
+          "mate": null,
+          "pv": [
+            "h8g8",
+            "h3e6",
+            "a6c8",
+            "f7e5",
+            "c8e6",
+            "e5g6",
+            "h4f6",
+            "h1h8",
+            "g8f7",
+            "h8f8",
+            "a8f8",
+            "g6f8",
+            "f7f8",
+            "a1h1"
+          ]
+        },
+        {
+          "depth": 14,
+          "nodes": 636493,
+          "score": 709,
+          "mate": null,
+          "pv": [
+            "f8f7",
+            "h3e6",
+            "a8f8",
+            "g2f1",
+            "h4h1",
+            "f3h1",
+            "h8g8",
+            "h1d5",
+            "a6c8",
+            "e6f7",
+            "f8f7",
+            "a1e1",
+            "c8h3",
+            "f1g1",
+            "h3d7",
+            "d5c4",
+            "g6f4",
+            "f2f3",
+            "d7e6",
+            "e1e6",
+            "f4h3",
+            "g1h2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_0095W",
+      "expected": "f6e5",
+      "root": [
+        {
+          "depth": 18,
+          "nodes": 719351,
+          "score": -320,
+          "mate": null,
+          "pv": [
+            "f6e5",
+            "c2c8"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 719351,
+          "score": 694,
+          "mate": null,
+          "pv": [
+            "a6d6",
+            "e5d7",
+            "d6d1",
+            "g1h2",
+            "d1d7",
+            "g2g3",
+            "h6d2",
+            "c2c5",
+            "d7d4",
+            "c5c7",
+            "g7h6",
+            "b3f3",
+            "b7b5",
+            "c7b7",
+            "d2b4",
+            "b7b5",
+            "b4c5",
+            "h2g2"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 719351,
+          "score": 787,
+          "mate": null,
+          "pv": [
+            "h6f4",
+            "e5d7",
+            "a6d6",
+            "g2g3",
+            "f4g5",
+            "g1h2",
+            "d6d7",
+            "f2f4",
+            "g5h6",
+            "h3h4",
+            "d7d1"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 18,
+          "nodes": 580036,
+          "score": -311,
+          "mate": null,
+          "pv": [
+            "c2c7",
+            "a6d6",
+            "c7b7",
+            "h6g5",
+            "b3b5",
+            "d7b7",
+            "b5b7",
+            "d6e7",
+            "b7b5",
+            "h7h5",
+            "g2g3",
+            "h5h4",
+            "g3g4",
+            "e7c7",
+            "a2a3",
+            "g5d2",
+            "b5e8",
+            "d2a5",
+            "b2b4",
+            "a5b6",
+            "a3a4",
+            "b6d4",
+            "g1g2",
+            "c7f7",
+            "e8f7",
+            "g7f7",
+            "g4g5",
+            "d4c3",
+            "b4b5"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 580036,
+          "score": -313,
+          "mate": null,
+          "pv": [
+            "c2c8",
+            "a6d6",
+            "b3g8",
+            "g7f6",
+            "c8c3",
+            "h6d2",
+            "c3f3",
+            "f6g5",
+            "f3f7",
+            "d7f7",
+            "g8f7",
+            "g5h6",
+            "f7b7",
+            "d6c5",
+            "g2g3",
+            "d2a5",
+            "b7f7",
+            "a5d8",
+            "h3h4",
+            "c5e7",
+            "f7g8",
+            "d8b6",
+            "g1g2",
+            "a7a6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_009BH",
+      "expected": "e6h6",
+      "root": [
+        {
+          "depth": 45,
+          "nodes": 751087,
+          "score": 29998,
+          "mate": 2,
+          "pv": [
+            "e6h6",
+            "h8g8",
+            "h6g7"
+          ]
+        },
+        {
+          "depth": 44,
+          "nodes": 751087,
+          "score": 0,
+          "mate": null,
+          "pv": [
+            "e6h3",
+            "h8g8",
+            "h3e6",
+            "g8f8",
+            "e5g7",
+            "f8g7",
+            "e6e7",
+            "g7g8",
+            "e7e6",
+            "g8g7"
+          ]
+        },
+        {
+          "depth": 44,
+          "nodes": 751087,
+          "score": 0,
+          "mate": null,
+          "pv": [
+            "e5g7",
+            "h8g7",
+            "e6e7",
+            "g7g8",
+            "e7e6"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 245,
+          "nodes": 491,
+          "score": 29999,
+          "mate": 1,
+          "pv": [
+            "h8g8",
+            "h6g7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_00A5m",
+      "expected": "d3f5",
+      "root": [
+        {
+          "depth": 18,
+          "nodes": 1104687,
+          "score": 434,
+          "mate": null,
+          "pv": [
+            "d3f5",
+            "e5c3",
+            "f5c8",
+            "b7b6",
+            "a5b6",
+            "c3e5",
+            "c8a6",
+            "e5g3",
+            "c4c5",
+            "d2c3",
+            "b6b7",
+            "g3e5",
+            "a6e2",
+            "e5b8",
+            "c5c6",
+            "c3b4",
+            "c6d7"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 1104687,
+          "score": 110,
+          "mate": null,
+          "pv": [
+            "d3b1"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 1104687,
+          "score": 58,
+          "mate": null,
+          "pv": [
+            "d3g6",
+            "e5c7",
+            "g6f5",
+            "b7b6",
+            "a5b6",
+            "c7b6",
+            "f5d7",
+            "b6d8",
+            "d7c6",
+            "d2c2",
+            "c6b7",
+            "a6a5",
+            "b7c6",
+            "c2b2",
+            "c6a4",
+            "b2a3",
+            "b4a5"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 16,
+          "nodes": 1142357,
+          "score": 443,
+          "mate": null,
+          "pv": [
+            "e5c3",
+            "f5c8",
+            "c6c5",
+            "c4c5",
+            "d2d3",
+            "c8b7",
+            "c3d4",
+            "c5d5",
+            "d3c3",
+            "b7a6",
+            "d4g1",
+            "a6e2",
+            "c3b4",
+            "a5a6",
+            "b4c3",
+            "d5c6",
+            "c3d2",
+            "e2b5",
+            "d2d1",
+            "c6b7",
+            "g1c5"
+          ]
+        },
+        {
+          "depth": 16,
+          "nodes": 1142357,
+          "score": 495,
+          "mate": null,
+          "pv": [
+            "e5c7",
+            "f5c8",
+            "b7b5",
+            "a5b6",
+            "c7b6",
+            "c8a6",
+            "b6e3",
+            "a6b7",
+            "d2c2",
+            "b7c6",
+            "c2b2",
+            "c6d7",
+            "e3a7",
+            "d7f5",
+            "a7g1",
+            "f5e4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_00Bg0",
+      "expected": "f4f5",
+      "root": [
+        {
+          "depth": 21,
+          "nodes": 1227561,
+          "score": -632,
+          "mate": null,
+          "pv": [
+            "f4f5",
+            "f6f5",
+            "a5a4",
+            "f5g4",
+            "a4a3",
+            "g4g3",
+            "a3a2",
+            "g3g2",
+            "a2a1q",
+            "g2f2",
+            "a1b2",
+            "f2e1",
+            "b2g2",
+            "e1d1",
+            "g2f3",
+            "d1d2"
+          ]
+        },
+        {
+          "depth": 21,
+          "nodes": 1227561,
+          "score": -139,
+          "mate": null,
+          "pv": [
+            "f4h4"
+          ]
+        },
+        {
+          "depth": 21,
+          "nodes": 1227561,
+          "score": 0,
+          "mate": null,
+          "pv": [
+            "f4a4",
+            "f6e5",
+            "a4a3",
+            "f5f7",
+            "d7e8",
+            "f7e7",
+            "e8d8",
+            "f3f4",
+            "a3e3",
+            "e5f6",
+            "e3d3",
+            "f4f5",
+            "d3d6",
+            "f6f7",
+            "a5a4",
+            "e7e8",
+            "d8c7",
+            "e8a8",
+            "d6d4",
+            "f7g8"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 25,
+          "nodes": 1663894,
+          "score": -1161,
+          "mate": null,
+          "pv": [
+            "f6f5",
+            "a5a4"
+          ]
+        },
+        {
+          "depth": 24,
+          "nodes": 1663894,
+          "score": -29991,
+          "mate": -9,
+          "pv": [
+            "f6g6",
+            "f5f3",
+            "g6g5",
+            "a5a4",
+            "g5g4",
+            "f3f8",
+            "g4h5",
+            "a4a3",
+            "h5g6",
+            "a3a2",
+            "g6g7",
+            "f8f2",
+            "g7g6",
+            "a2a1q",
+            "g6h6",
+            "a1g1",
+            "h6h7",
+            "f2h2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_00CMj",
+      "expected": "e4e3",
+      "root": [
+        {
+          "depth": 23,
+          "nodes": 1104495,
+          "score": -614,
+          "mate": null,
+          "pv": [
+            "e4e3",
+            "f2e3",
+            "g4g3",
+            "a2a4",
+            "d3f1",
+            "a4a5",
+            "h3h2",
+            "a5a6",
+            "f1g2",
+            "a6a7",
+            "h2h1q",
+            "h8h1",
+            "g2h1",
+            "e3d4",
+            "g3f4",
+            "d4c4",
+            "h1a8",
+            "c4b4",
+            "g5g4",
+            "b4a3"
+          ]
+        },
+        {
+          "depth": 23,
+          "nodes": 1104495,
+          "score": -150,
+          "mate": null,
+          "pv": [
+            "d3c2"
+          ]
+        },
+        {
+          "depth": 22,
+          "nodes": 1104495,
+          "score": 0,
+          "mate": null,
+          "pv": [
+            "g4f4",
+            "h8h3",
+            "g5g4",
+            "h3h8",
+            "e4e3",
+            "f2e1",
+            "g4g3",
+            "h8f8",
+            "f4g4",
+            "f8g8",
+            "g4f3",
+            "g8f8"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 25,
+          "nodes": 1176719,
+          "score": -695,
+          "mate": null,
+          "pv": [
+            "f2e3",
+            "g4g3",
+            "a2a4",
+            "h3h2",
+            "a4a5",
+            "g5g4",
+            "a5a6",
+            "d3f1",
+            "e3d4",
+            "f1g2",
+            "d4c4",
+            "h2h1q",
+            "h8h1",
+            "g2h1",
+            "c4c5",
+            "g3f4",
+            "a6a7",
+            "g4g3",
+            "c5b6",
+            "h1f3",
+            "c3c4"
+          ]
+        },
+        {
+          "depth": 25,
+          "nodes": 1176719,
+          "score": -778,
+          "mate": null,
+          "pv": [
+            "f2e1",
+            "g4g3",
+            "a2a4",
+            "d3f5",
+            "e1e2",
+            "h3h2",
+            "h8h2",
+            "g3h2",
+            "e2e3",
+            "g5g4",
+            "e3d4",
+            "f5e6",
+            "d4e5",
+            "g4g3",
+            "a4a5",
+            "g3g2",
+            "e5d6",
+            "e6f5",
+            "d6d5",
+            "g2g1q"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_00CXr",
+      "expected": "a5d5",
+      "root": [
+        {
+          "depth": 17,
+          "nodes": 708047,
+          "score": 328,
+          "mate": null,
+          "pv": [
+            "a5d5",
+            "d4f3",
+            "g2f3",
+            "g5f4",
+            "d5a8",
+            "d8d7",
+            "a8b7",
+            "d7d8",
+            "b7b8",
+            "d8d7",
+            "b8a7",
+            "d7d8",
+            "a7a8",
+            "d8d7",
+            "a1d1",
+            "g7e5",
+            "a8b7",
+            "d7d8",
+            "b7b8",
+            "d8d7",
+            "f7c4",
+            "e7g5",
+            "g1f1",
+            "g8f6",
+            "b8h8",
+            "g5g3",
+            "h8a8"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 708047,
+          "score": -531,
+          "mate": null,
+          "pv": [
+            "a5a3"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 708047,
+          "score": -625,
+          "mate": null,
+          "pv": [
+            "a5b4",
+            "d4f3",
+            "g2f3",
+            "g5f4",
+            "c3e4",
+            "e7f7",
+            "a1d1",
+            "d6d5",
+            "e4d6",
+            "f7g6",
+            "g1f1",
+            "g8e7",
+            "d6b7",
+            "d8d7"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 17,
+          "nodes": 697245,
+          "score": 417,
+          "mate": null,
+          "pv": [
+            "d4f3",
+            "g2f3",
+            "g5f4",
+            "d5a8",
+            "d8d7",
+            "a8a7",
+            "d7c8",
+            "a7a8",
+            "c8d7",
+            "a1d1",
+            "g7c3",
+            "a8b7",
+            "d7d8",
+            "b7b6",
+            "d8d7",
+            "b6b7",
+            "d7d8",
+            "b7b8",
+            "d8d7",
+            "f7e8",
+            "e7e8",
+            "d1d6",
+            "d7e7",
+            "b8c7",
+            "e7f8",
+            "d6d8",
+            "c3f6",
+            "c7d6",
+            "f8f7",
+            "d8e8",
+            "f7e8",
+            "a2a4",
+            "e8f7",
+            "d6f4",
+            "g8e7",
+            "a4a5",
+            "h6h5",
+            "a5a6",
+            "h8d8",
+            "a6a7"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 697245,
+          "score": 563,
+          "mate": null,
+          "pv": [
+            "a8c8",
+            "f4d6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_00Cqg",
+      "expected": "d5e6",
+      "root": [
+        {
+          "depth": 18,
+          "nodes": 802504,
+          "score": 387,
+          "mate": null,
+          "pv": [
+            "d5e6",
+            "d8d1",
+            "e2d1",
+            "c1d1",
+            "h1h2",
+            "d1d6",
+            "e3b3",
+            "g8f8",
+            "b3b4",
+            "f8e7",
+            "b4b7",
+            "e7e6",
+            "b7g7",
+            "d6d7",
+            "g7g8",
+            "d7f7",
+            "g8c8",
+            "e6e7",
+            "c8h8"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 802504,
+          "score": -277,
+          "mate": null,
+          "pv": [
+            "d1c1"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 802504,
+          "score": -447,
+          "mate": null,
+          "pv": [
+            "e3c1",
+            "e6d6",
+            "c1e3",
+            "d8d7",
+            "e3a7",
+            "g7f8",
+            "d1b1",
+            "d7c7",
+            "a7a8",
+            "e5e4",
+            "a8e8",
+            "f6f5",
+            "g2g4",
+            "c7e7",
+            "e8a8",
+            "f5f4",
+            "b1b7",
+            "e7b7",
+            "a8b7",
+            "f4f3",
+            "e2c4",
+            "e4e3"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 17,
+          "nodes": 655430,
+          "score": 248,
+          "mate": null,
+          "pv": [
+            "d8d1",
+            "e2d1"
+          ]
+        },
+        {
+          "depth": 16,
+          "nodes": 655430,
+          "score": 425,
+          "mate": null,
+          "pv": [
+            "c1d1",
+            "h1h2",
+            "d1d4",
+            "e6e7",
+            "h7h5",
+            "e7d8q",
+            "d4d8",
+            "e3a7",
+            "g8h7",
+            "a7a3",
+            "d8f8",
+            "a3e7",
+            "f6f5",
+            "e2c4",
+            "e5e4",
+            "c4f7",
+            "f8a8",
+            "g2g4",
+            "h5g4",
+            "h3g4",
+            "f5g4",
+            "h2g3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_00GWg",
+      "expected": "b8b7",
+      "root": [
+        {
+          "depth": 16,
+          "nodes": 767363,
+          "score": -645,
+          "mate": null,
+          "pv": [
+            "b8b7",
+            "c5c6",
+            "b7b1",
+            "g1f1",
+            "d8d1",
+            "e1d1",
+            "b1d1",
+            "f1e2",
+            "e6d7",
+            "c6c7",
+            "d1d3",
+            "c7a7",
+            "f5f4",
+            "f2f3",
+            "e4f3",
+            "g2f3",
+            "d3e3",
+            "e2f2",
+            "d7e8",
+            "c4c5",
+            "h7h5"
+          ]
+        },
+        {
+          "depth": 16,
+          "nodes": 767363,
+          "score": 62,
+          "mate": null,
+          "pv": [
+            "d8e8",
+            "b7d6",
+            "c6b4",
+            "d6e8",
+            "b4d3",
+            "c5b5",
+            "b8b5",
+            "c4b5",
+            "d3e1",
+            "a2a4",
+            "g8f8",
+            "e8c7",
+            "e6c4",
+            "a4a5",
+            "e1d3",
+            "a5a6",
+            "d3c5",
+            "b5b6",
+            "c5a6",
+            "c7a6",
+            "a7b6",
+            "a6b4",
+            "f8e7",
+            "f2f3",
+            "e4f3",
+            "d1f3"
+          ]
+        },
+        {
+          "depth": 16,
+          "nodes": 767363,
+          "score": 112,
+          "mate": null,
+          "pv": [
+            "d8c8",
+            "b7d6",
+            "c8c7",
+            "d6f5",
+            "e6f5",
+            "c5f5",
+            "b8b2",
+            "e1e4",
+            "g7g6",
+            "f5d5",
+            "b2a2",
+            "g2g3",
+            "a7a5",
+            "c4c5",
+            "a2b2"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 17,
+          "nodes": 774090,
+          "score": -617,
+          "mate": null,
+          "pv": [
+            "c5c6",
+            "b7b1",
+            "g1f1",
+            "d8d1",
+            "e1d1",
+            "b1d1",
+            "f1e2",
+            "e6d7",
+            "c6c7",
+            "d1d3",
+            "c7a7",
+            "g8f8",
+            "c4c5",
+            "f8e8",
+            "a7a8",
+            "e8e7",
+            "a8g8",
+            "e7f7",
+            "g8h8",
+            "d7e8",
+            "f2f3",
+            "d3a3",
+            "f3e4",
+            "f5e4"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 774090,
+          "score": -639,
+          "mate": null,
+          "pv": [
+            "f2f3",
+            "b7b1",
+            "c5c6",
+            "b1d1",
+            "e1d1",
+            "d8d1",
+            "g1f2",
+            "e6d7",
+            "c6a6",
+            "e4f3",
+            "f2f3",
+            "d1c1",
+            "f3e3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_00LRq",
+      "expected": "a6a7",
+      "root": [
+        {
+          "depth": 18,
+          "nodes": 459134,
+          "score": 29996,
+          "mate": 4,
+          "pv": [
+            "a6a7",
+            "b8a8",
+            "b5c7",
+            "d7c7",
+            "h5e8",
+            "c7b8",
+            "a7b8q"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 459134,
+          "score": -122,
+          "mate": null,
+          "pv": [
+            "h1g1",
+            "f4e3",
+            "g1h2",
+            "b7a6",
+            "a1a6",
+            "c5c4",
+            "a6c6",
+            "g7g5",
+            "h5f3",
+            "e3f4",
+            "h2g1",
+            "d7d8",
+            "g2g4",
+            "f5e3"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 459134,
+          "score": -420,
+          "mate": null,
+          "pv": [
+            "h5f3",
+            "f5g3"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 245,
+          "nodes": 218852,
+          "score": 29997,
+          "mate": 3,
+          "pv": [
+            "b8a8",
+            "b5c7",
+            "d7c7",
+            "h5e8",
+            "c7b8",
+            "a7b8q"
+          ]
+        },
+        {
+          "depth": 245,
+          "nodes": 218852,
+          "score": 29999,
+          "mate": 1,
+          "pv": [
+            "b8c8",
+            "a7a8q"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_00hSW",
+      "expected": "b4b3",
+      "root": [
+        {
+          "depth": 17,
+          "nodes": 811989,
+          "score": -435,
+          "mate": null,
+          "pv": [
+            "b4b3",
+            "d7b6",
+            "b3b2",
+            "d5d6",
+            "e7d6",
+            "b6c4",
+            "b2b1q",
+            "c4d6",
+            "b1c2",
+            "e2e3",
+            "c2g2",
+            "c8f8",
+            "g2h3",
+            "f8f3",
+            "h3h2",
+            "d6f5",
+            "g7g6",
+            "f5e7",
+            "h7g7"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 811989,
+          "score": 218,
+          "mate": null,
+          "pv": [
+            "b6b7",
+            "d7f8",
+            "h7g8",
+            "f8g6",
+            "g8f7",
+            "g6h8",
+            "f7f6",
+            "c8c6",
+            "f6g5",
+            "c6g6",
+            "g5f4",
+            "g6g7",
+            "f4e5",
+            "h8g6",
+            "e5f6",
+            "g7e7",
+            "b7e7",
+            "g6e7"
+          ]
+        },
+        {
+          "depth": 17,
+          "nodes": 811989,
+          "score": 407,
+          "mate": null,
+          "pv": [
+            "b6b5",
+            "e2d2",
+            "b4b3",
+            "d2c1",
+            "b3b2",
+            "c1b1",
+            "b5b3",
+            "d7c5",
+            "e7c5",
+            "c8c5",
+            "h7g6",
+            "c5c6",
+            "g6g5"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 15,
+          "nodes": 836370,
+          "score": -431,
+          "mate": null,
+          "pv": [
+            "d5d6",
+            "e7d6",
+            "d7b6",
+            "b3b2",
+            "b6c4",
+            "b2b1q",
+            "c4d6",
+            "b1c2",
+            "e2e3",
+            "c2g2",
+            "d6f5",
+            "g2h3",
+            "e3f2",
+            "h3h2",
+            "f2f3",
+            "h2g1",
+            "f3f4",
+            "h6h5",
+            "c8c6",
+            "g1g4",
+            "f4e5",
+            "h5h4",
+            "c6c7",
+            "h4h3",
+            "c7g7",
+            "g4g7",
+            "f5g7",
+            "h7g7"
+          ]
+        },
+        {
+          "depth": 15,
+          "nodes": 836370,
+          "score": -434,
+          "mate": null,
+          "pv": [
+            "d7b6",
+            "b3b2",
+            "d5d6",
+            "e7d6",
+            "b6c4",
+            "b2b1q",
+            "c4d6",
+            "b1c2",
+            "e2e3",
+            "c2g2",
+            "d6f5",
+            "g2h3",
+            "e3f2",
+            "h3h2",
+            "f2f3",
+            "h2g1",
+            "f3f4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_00iWt",
+      "expected": "d4d7",
+      "root": [
+        {
+          "depth": 24,
+          "nodes": 908377,
+          "score": 29996,
+          "mate": 4,
+          "pv": [
+            "d4d7",
+            "b7a6",
+            "e6c4",
+            "b6b5",
+            "c4c6",
+            "a6a5",
+            "d7a7"
+          ]
+        },
+        {
+          "depth": 23,
+          "nodes": 908377,
+          "score": -914,
+          "mate": null,
+          "pv": [
+            "e6d7",
+            "b7a6",
+            "d4d2",
+            "c2c1",
+            "d7d3",
+            "a6a5",
+            "c3c4",
+            "c6c5",
+            "a3a4",
+            "h3f4",
+            "e3f2",
+            "f4d3",
+            "d2d3",
+            "c1f4",
+            "f2g2",
+            "f4g4",
+            "g2f2"
+          ]
+        },
+        {
+          "depth": 23,
+          "nodes": 908377,
+          "score": -29991,
+          "mate": -9,
+          "pv": [
+            "e6e7",
+            "b7a6",
+            "d4a4",
+            "c2a4",
+            "e7e4",
+            "a4b5",
+            "e4f5",
+            "b5e2",
+            "e3d4",
+            "f2f5",
+            "g4f5",
+            "h3f2",
+            "c3c4",
+            "f2d1",
+            "c4c5",
+            "e2e3",
+            "d4c4",
+            "e3c3"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 245,
+          "nodes": 114262,
+          "score": 29997,
+          "mate": 3,
+          "pv": [
+            "b7a6",
+            "e6c4",
+            "b6b5",
+            "c4c6",
+            "a6a5",
+            "d7a7"
+          ]
+        },
+        {
+          "depth": 245,
+          "nodes": 114262,
+          "score": 29999,
+          "mate": 1,
+          "pv": [
+            "b7b8",
+            "e6e8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_00sKo",
+      "expected": "a6f1",
+      "root": [
+        {
+          "depth": 18,
+          "nodes": 755799,
+          "score": -583,
+          "mate": null,
+          "pv": [
+            "a6f1",
+            "g1f1",
+            "f5g3",
+            "f1e1",
+            "g3e4",
+            "f2f3",
+            "e4g3",
+            "e3g5",
+            "f8c8",
+            "a7d7",
+            "g3f5",
+            "g2g4",
+            "f5d4",
+            "e1f2",
+            "h5g4",
+            "h3g4",
+            "g7f8",
+            "g5f6",
+            "d4b3",
+            "f2e3"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 755799,
+          "score": 552,
+          "mate": null,
+          "pv": [
+            "a6e2",
+            "a7a1",
+            "f5e3",
+            "e4e3",
+            "e2e3",
+            "f2e3",
+            "g7f6",
+            "a1a6",
+            "f8f7",
+            "e3e4",
+            "f6g5",
+            "a6a8",
+            "g8g7",
+            "f1f7",
+            "g7f7",
+            "g1f1",
+            "h5h4"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 755799,
+          "score": 588,
+          "mate": null,
+          "pv": [
+            "a6b5",
+            "f1a1",
+            "b5e8",
+            "a7b7",
+            "e8g6",
+            "a1a7",
+            "g8h8",
+            "g1h2",
+            "f8g8"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 19,
+          "nodes": 805330,
+          "score": -596,
+          "mate": null,
+          "pv": [
+            "g1f1",
+            "f5g3",
+            "f1e1",
+            "g3e4",
+            "a7a4",
+            "e4c3",
+            "a4a6",
+            "f8d8",
+            "e3b6",
+            "d8d7",
+            "a6a5",
+            "e5e4",
+            "g2g4",
+            "g7f6",
+            "e1d2",
+            "h5h4",
+            "d2c2",
+            "g8f7",
+            "b6e3",
+            "d7c7"
+          ]
+        },
+        {
+          "depth": 19,
+          "nodes": 805330,
+          "score": -640,
+          "mate": null,
+          "pv": [
+            "g1h2",
+            "f1b5",
+            "g2g4",
+            "f5e3",
+            "e4e3",
+            "b5b2",
+            "g4h5",
+            "b2f2",
+            "e3f2",
+            "f8f2",
+            "h2g3",
+            "f2f4",
+            "a7a8",
+            "g7f8",
+            "a8e8",
+            "g8g7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_010MJ",
+      "expected": "g2g7",
+      "root": [
+        {
+          "depth": 21,
+          "nodes": 795057,
+          "score": 29996,
+          "mate": 4,
+          "pv": [
+            "g2g7",
+            "g8h8",
+            "g7h7",
+            "h8h7",
+            "b7f7",
+            "h7h6",
+            "g1g7"
+          ]
+        },
+        {
+          "depth": 21,
+          "nodes": 795057,
+          "score": -996,
+          "mate": null,
+          "pv": [
+            "b7d7",
+            "d8d7",
+            "g2g7",
+            "g8f8",
+            "g7g8",
+            "f8e7",
+            "g1c5",
+            "e7f6",
+            "c5c3",
+            "d7d4",
+            "c3c6",
+            "d4d6",
+            "c6c3",
+            "f3e5",
+            "c3g3",
+            "f4e4",
+            "g3g2"
+          ]
+        },
+        {
+          "depth": 21,
+          "nodes": 795057,
+          "score": -1197,
+          "mate": null,
+          "pv": [
+            "b7b8",
+            "f4b8"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 245,
+          "nodes": 282857,
+          "score": 29997,
+          "mate": 3,
+          "pv": [
+            "g8h8",
+            "g7h7",
+            "h8h7",
+            "b7f7",
+            "h7h8",
+            "g1g7"
+          ]
+        },
+        {
+          "depth": 245,
+          "nodes": 282857,
+          "score": 29999,
+          "mate": 1,
+          "pv": [
+            "g8f8",
+            "g7g8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_013U2",
+      "expected": "e1e7",
+      "root": [
+        {
+          "depth": 19,
+          "nodes": 736868,
+          "score": 823,
+          "mate": null,
+          "pv": [
+            "e1e7",
+            "d8f7",
+            "c3b4",
+            "d7d6",
+            "e7f7",
+            "f8e8",
+            "g3e4",
+            "g6g5",
+            "b4d6",
+            "h5h4",
+            "c4d5",
+            "h4h3",
+            "f7f8",
+            "e8d7",
+            "d5c6",
+            "d7e6"
+          ]
+        },
+        {
+          "depth": 19,
+          "nodes": 736868,
+          "score": -161,
+          "mate": null,
+          "pv": [
+            "c3d2",
+            "h6h8",
+            "d2c3",
+            "d8f7",
+            "c4f7",
+            "f8f7",
+            "c3h8",
+            "c8b7",
+            "e1f1",
+            "f7g8",
+            "f1d1",
+            "a8e8",
+            "h8c3",
+            "e7f8",
+            "d1d2",
+            "h5h4",
+            "g3e2",
+            "b7g2"
+          ]
+        },
+        {
+          "depth": 19,
+          "nodes": 736868,
+          "score": -382,
+          "mate": null,
+          "pv": [
+            "g3e4",
+            "d8f7",
+            "e1f1",
+            "h6h7",
+            "c3b4",
+            "d7d6",
+            "c4d5",
+            "a8b8",
+            "e4g5",
+            "e7g5",
+            "b4d6",
+            "g5e7",
+            "d6b8",
+            "c8f5",
+            "b8a7",
+            "e7c5",
+            "a7b8",
+            "c5a3",
+            "b1a2",
+            "a3c5",
+            "b8f4",
+            "f7d6",
+            "f4d6",
+            "c5d6",
+            "d5e6",
+            "f8e7"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 24,
+          "nodes": 689488,
+          "score": 877,
+          "mate": null,
+          "pv": [
+            "d8f7",
+            "e7f7",
+            "f8e8",
+            "g3e4",
+            "g6g5",
+            "c4d5",
+            "a8b8",
+            "c3b4",
+            "d7d6",
+            "e4d6",
+            "e8d8",
+            "f7a7",
+            "h6e6",
+            "d6f7",
+            "d8e8",
+            "d5c6",
+            "e6c6",
+            "b5c6",
+            "c8e6"
+          ]
+        },
+        {
+          "depth": 23,
+          "nodes": 689488,
+          "score": 919,
+          "mate": null,
+          "pv": [
+            "f8e7",
+            "c3b4",
+            "d7d6",
+            "b4d6",
+            "e7d6",
+            "f7f8q",
+            "d6c7",
+            "f8h6",
+            "c8b7",
+            "h6g6",
+            "b7g2",
+            "g3h5",
+            "a8b8",
+            "g6g7",
+            "c7c8",
+            "h5f6",
+            "b8b7",
+            "g7g4",
+            "c8b8",
+            "g4g3",
+            "b8c8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_01BBu",
+      "expected": "h4g4",
+      "root": [
+        {
+          "depth": 15,
+          "nodes": 1271163,
+          "score": -512,
+          "mate": null,
+          "pv": [
+            "h4g4",
+            "c6c7"
+          ]
+        },
+        {
+          "depth": 14,
+          "nodes": 1271163,
+          "score": 437,
+          "mate": null,
+          "pv": [
+            "h4g5",
+            "h7h3",
+            "g5g4",
+            "h3g3",
+            "g4g3",
+            "b2c3",
+            "g3f4",
+            "c3c4",
+            "f4f5",
+            "c4c5",
+            "c8e8",
+            "b5b6",
+            "e8e5",
+            "c5d4",
+            "e5e4",
+            "d4d3",
+            "e4b4",
+            "c6c7",
+            "b4b6",
+            "c7c8q",
+            "f5g6",
+            "c8g8",
+            "g6f5",
+            "g8c4"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 14,
+          "nodes": 1032373,
+          "score": -617,
+          "mate": null,
+          "pv": [
+            "c6c7",
+            "c8c7",
+            "h7c7",
+            "h3h2",
+            "c7g7",
+            "g4f4",
+            "g7h7",
+            "g3g2",
+            "h7h2",
+            "g2g1q",
+            "h2h4",
+            "f4f5",
+            "b2c2"
+          ]
+        },
+        {
+          "depth": 14,
+          "nodes": 1032373,
+          "score": -707,
+          "mate": null,
+          "pv": [
+            "h7g7",
+            "g4f4",
+            "b5b6",
+            "c8c6",
+            "b6b7",
+            "c6b6",
+            "b2c2",
+            "h3h2",
+            "g7h7",
+            "g3g2",
+            "h7h8",
+            "g2g1q"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_02aCK",
+      "expected": "a6b7",
+      "root": [
+        {
+          "depth": 15,
+          "nodes": 579975,
+          "score": 285,
+          "mate": null,
+          "pv": [
+            "a6b7",
+            "e6e5",
+            "a4a5",
+            "e5f4",
+            "a5a6",
+            "f3d4",
+            "a6a7",
+            "d4c2",
+            "e4e5",
+            "c5d4",
+            "a7a8q",
+            "d4e5",
+            "a8e8",
+            "e5d4",
+            "e8f7",
+            "d4e3",
+            "f7c7",
+            "f4f3",
+            "c7c2",
+            "f3f2",
+            "c2d1",
+            "g6g5",
+            "b7c6"
+          ]
+        },
+        {
+          "depth": 15,
+          "nodes": 579975,
+          "score": -293,
+          "mate": null,
+          "pv": [
+            "a4a5"
+          ]
+        },
+        {
+          "depth": 15,
+          "nodes": 579975,
+          "score": -422,
+          "mate": null,
+          "pv": [
+            "c2d1",
+            "f3d4",
+            "a6b7",
+            "d4c6",
+            "b7a6",
+            "h7h5",
+            "a4a5",
+            "h5h4",
+            "d1f3",
+            "c6d4"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 18,
+          "nodes": 734396,
+          "score": 323,
+          "mate": null,
+          "pv": [
+            "f3d4",
+            "a4a5",
+            "d4c2",
+            "a5a6",
+            "c2a1",
+            "a6a7",
+            "a1b3",
+            "a7a8q",
+            "b3d2",
+            "a8a7",
+            "c5c4",
+            "a7e3",
+            "d2b3",
+            "e3e2",
+            "c4c3",
+            "e2e1",
+            "c3c4",
+            "b7c6",
+            "b3d4",
+            "c6d6",
+            "h7h5",
+            "f4f5",
+            "g6f5",
+            "e1c1",
+            "c4d3",
+            "e4f5",
+            "e6f5",
+            "c1b1",
+            "d4c2"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 734396,
+          "score": 323,
+          "mate": null,
+          "pv": [
+            "f3e1",
+            "a4a5",
+            "e1c2",
+            "a5a6",
+            "c2a1",
+            "a6a7",
+            "a1b3",
+            "a7a8q",
+            "b3d2",
+            "a8a7",
+            "c5c4",
+            "a7e3",
+            "d2b3",
+            "b7b6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_02iyq",
+      "expected": "e5f6",
+      "root": [
+        {
+          "depth": 18,
+          "nodes": 539841,
+          "score": 29995,
+          "mate": 5,
+          "pv": [
+            "e5f6",
+            "e8e2",
+            "g5h6",
+            "e2e1",
+            "h1h2",
+            "e1h1",
+            "h2h1",
+            "a6a4",
+            "h6g7"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 539841,
+          "score": -193,
+          "mate": null,
+          "pv": [
+            "g5f6",
+            "a6d3",
+            "f6f2",
+            "a7a6",
+            "e5e6",
+            "e8e6",
+            "e2e6",
+            "f7e6",
+            "f2f4",
+            "d3d8",
+            "f4e5",
+            "g8f7",
+            "e5f4",
+            "f7e8",
+            "f4e5",
+            "e8d7",
+            "e5g7",
+            "d8e7"
+          ]
+        },
+        {
+          "depth": 18,
+          "nodes": 539841,
+          "score": -606,
+          "mate": null,
+          "pv": [
+            "e5e6",
+            "f6d5"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 245,
+          "nodes": 1149928,
+          "score": 29996,
+          "mate": 4,
+          "pv": [
+            "e8e2",
+            "g5h6",
+            "e2e1",
+            "h1h2",
+            "e1h1",
+            "h2h1",
+            "a6d3",
+            "h6g7"
+          ]
+        },
+        {
+          "depth": 245,
+          "nodes": 1149928,
+          "score": 29997,
+          "mate": 3,
+          "pv": [
+            "a6a3",
+            "e2e8",
+            "a3f8",
+            "g5h6",
+            "f8e8",
+            "h6g7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lichess_06Xby",
+      "expected": "f6f5",
+      "root": [
+        {
+          "depth": 23,
+          "nodes": 887804,
+          "score": -492,
+          "mate": null,
+          "pv": [
+            "f6f5",
+            "d5d6"
+          ]
+        },
+        {
+          "depth": 23,
+          "nodes": 887804,
+          "score": 0,
+          "mate": null,
+          "pv": [
+            "c7b8",
+            "e8d7",
+            "b8d6",
+            "d7c8",
+            "d6c7",
+            "c8f5",
+            "c7d6",
+            "f5e6",
+            "d6c7"
+          ]
+        },
+        {
+          "depth": 23,
+          "nodes": 887804,
+          "score": 0,
+          "mate": null,
+          "pv": [
+            "c7d6",
+            "e8d7",
+            "d6b8",
+            "d7f5",
+            "b8c7",
+            "a4a3",
+            "b6b7",
+            "a3b3",
+            "b7b6",
+            "b3a4",
+            "c7d6",
+            "f5c8",
+            "d6c7",
+            "c8f5"
+          ]
+        }
+      ],
+      "defense": [
+        {
+          "depth": 14,
+          "nodes": 703011,
+          "score": -444,
+          "mate": null,
+          "pv": [
+            "e4f5",
+            "e5e4",
+            "d5d6",
+            "e4e3",
+            "d6c7",
+            "b6c7",
+            "a4a5",
+            "e3e2",
+            "b5b6",
+            "c7b8",
+            "a5b5",
+            "e2e1q",
+            "e8d7",
+            "e1b4",
+            "b5c6"
+          ]
+        },
+        {
+          "depth": 14,
+          "nodes": 703011,
+          "score": -571,
+          "mate": null,
+          "pv": [
+            "d5d6",
+            "f5f4"
+          ]
+        }
+      ]
+    }
+  ],
+  "engine": {
+    "name": "Stockfish 19",
+    "author": "the Stockfish developers (see AUTHORS file)"
+  }
+}

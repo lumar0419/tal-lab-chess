@@ -1,0 +1,16 @@
+START engine-quick
+END engine-quick 0
+START uci
+END uci 0
+START perft
+END perft 0
+START native-uci
+END native-uci 0
+START native-perft
+END native-perft 0
+START http-native
+END http-native 0
+START pypy-engine
+END pypy-engine 1
+START pypy-uci
+END pypy-uci 0

@@ -1,0 +1,297 @@
+{
+  "task": {
+    "fen": "b2r3r/k4p1p/p2q1np1/NppP4/3p1Q2/P4PPB/1PP4P/1K1RR3 w - - 1 24",
+    "prefix": [
+      "d1d4",
+      "c5d4",
+      "e1e7"
+    ],
+    "depth": 32,
+    "seconds": 20,
+    "tt": 300000,
+    "options": {
+      "lmr": true
+    }
+  },
+  "scope": "Explicit Rxd4 cxd4 Re7+ branch; not unrestricted root discovery",
+  "runs": {
+    "v091": {
+      "elapsed": 20.015147506000176,
+      "nodes": 1120262,
+      "nps": 55970.709167352674,
+      "rows": [
+        {
+          "depth": 1,
+          "nodes": 142,
+          "seconds": 0.0026244999999107677,
+          "lines": [
+            {
+              "move": "d6e7",
+              "score": 773,
+              "pv": [
+                "d6e7",
+                "f4d4",
+                "a7b8"
+              ]
+            }
+          ]
+        },
+        {
+          "depth": 2,
+          "nodes": 1336,
+          "seconds": 0.025633603000187577,
+          "lines": [
+            {
+              "move": "d6e7",
+              "score": 625,
+              "pv": [
+                "d6e7",
+                "f4d4",
+                "a7b8",
+                "d4b6",
+                "a8b7",
+                "a5b7",
+                "f6d5"
+              ]
+            }
+          ]
+        },
+        {
+          "depth": 3,
+          "nodes": 12615,
+          "seconds": 0.18079165600011038,
+          "lines": [
+            {
+              "move": "a7b6",
+              "score": 390,
+              "pv": [
+                "a7b6",
+                "f4d6",
+                "d8d6",
+                "a5b3",
+                "a8d5",
+                "b3d4"
+              ]
+            }
+          ]
+        },
+        {
+          "depth": 4,
+          "nodes": 63777,
+          "seconds": 1.008844812999996,
+          "lines": [
+            {
+              "move": "a7b6",
+              "score": 412,
+              "pv": [
+                "a7b6",
+                "f4d6",
+                "d8d6",
+                "a5b3",
+                "d4d3",
+                "e7f7",
+                "a8d5"
+              ]
+            }
+          ]
+        },
+        {
+          "depth": 5,
+          "nodes": 204688,
+          "seconds": 3.387661949000176,
+          "lines": [
+            {
+              "move": "a7b6",
+              "score": 391,
+              "pv": [
+                "a7b6",
+                "f4d4",
+                "b6a5",
+                "d4c3",
+                "b5b4",
+                "a3b4",
+                "a5b6",
+                "c3d4",
+                "b6b5",
+                "c2c4",
+                "b5b4",
+                "e7f7"
+              ]
+            }
+          ]
+        },
+        {
+          "depth": 6,
+          "nodes": 677894,
+          "seconds": 11.327131725000072,
+          "lines": [
+            {
+              "move": "a7b6",
+              "score": 348,
+              "pv": [
+                "a7b6",
+                "f4d4",
+                "b6a5",
+                "d4c3",
+                "b5b4",
+                "a3b4",
+                "d6b4",
+                "c3f6",
+                "a8d5",
+                "h3g2"
+              ]
+            }
+          ]
+        }
+      ],
+      "lmr_probes": 31826,
+      "lmr_researches": 2,
+      "pvs_probes": 3990,
+      "pvs_researches": 88,
+      "aspiration_probes": 0,
+      "aspiration_researches": 0,
+      "null_probes": 0,
+      "null_cutoffs": 0,
+      "null_threats": 0
+    },
+    "pypy": {
+      "elapsed": 20.00096221299964,
+      "nodes": 1969286,
+      "nps": 98459.5630464249,
+      "rows": [
+        {
+          "depth": 1,
+          "nodes": 142,
+          "seconds": 0.03635292099988874,
+          "lines": [
+            {
+              "move": "d6e7",
+              "score": 773,
+              "pv": [
+                "d6e7",
+                "f4d4",
+                "a7b8"
+              ]
+            }
+          ]
+        },
+        {
+          "depth": 2,
+          "nodes": 1336,
+          "seconds": 0.22637123399999837,
+          "lines": [
+            {
+              "move": "d6e7",
+              "score": 625,
+              "pv": [
+                "d6e7",
+                "f4d4",
+                "a7b8",
+                "d4b6",
+                "a8b7",
+                "a5b7",
+                "f6d5"
+              ]
+            }
+          ]
+        },
+        {
+          "depth": 3,
+          "nodes": 12615,
+          "seconds": 1.1551886639999793,
+          "lines": [
+            {
+              "move": "a7b6",
+              "score": 390,
+              "pv": [
+                "a7b6",
+                "f4d6",
+                "d8d6",
+                "a5b3",
+                "a8d5",
+                "b3d4"
+              ]
+            }
+          ]
+        },
+        {
+          "depth": 4,
+          "nodes": 63777,
+          "seconds": 2.424302876999718,
+          "lines": [
+            {
+              "move": "a7b6",
+              "score": 412,
+              "pv": [
+                "a7b6",
+                "f4d6",
+                "d8d6",
+                "a5b3",
+                "d4d3",
+                "e7f7",
+                "a8d5"
+              ]
+            }
+          ]
+        },
+        {
+          "depth": 5,
+          "nodes": 204688,
+          "seconds": 4.45260934199996,
+          "lines": [
+            {
+              "move": "a7b6",
+              "score": 391,
+              "pv": [
+                "a7b6",
+                "f4d4",
+                "b6a5",
+                "d4c3",
+                "b5b4",
+                "a3b4",
+                "a5b6",
+                "c3d4",
+                "b6b5",
+                "c2c4",
+                "b5b4",
+                "e7f7"
+              ]
+            }
+          ]
+        },
+        {
+          "depth": 6,
+          "nodes": 677894,
+          "seconds": 8.969878766999955,
+          "lines": [
+            {
+              "move": "a7b6",
+              "score": 348,
+              "pv": [
+                "a7b6",
+                "f4d4",
+                "b6a5",
+                "d4c3",
+                "b5b4",
+                "a3b4",
+                "d6b4",
+                "c3f6",
+                "a8d5",
+                "h3g2"
+              ]
+            }
+          ]
+        }
+      ],
+      "lmr_probes": 52528,
+      "lmr_researches": 4,
+      "pvs_probes": 4598,
+      "pvs_researches": 96,
+      "aspiration_probes": 0,
+      "aspiration_researches": 0,
+      "null_probes": 0,
+      "null_cutoffs": 0,
+      "null_threats": 0
+    }
+  }
+}

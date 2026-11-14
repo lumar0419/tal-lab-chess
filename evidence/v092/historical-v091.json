@@ -1,0 +1,3219 @@
+{
+  "runtime": "CPython",
+  "python": "3.12.14",
+  "backend": "baseline-v091/board.py",
+  "suite_sha256": "069af82640ecf33f98e424ab8eef87c514efb1399d8344eb20f86c727eaf3002",
+  "seconds": 5.0,
+  "defense_seconds": 1,
+  "profile": "conservative",
+  "repeats": 1,
+  "warmup": "Two searches at depth 5 on the existing Kasparov development case",
+  "rows": [
+    {
+      "move": "b6a4",
+      "score": -5,
+      "rows": [
+        {
+          "depth": 1,
+          "score": -40,
+          "nodes": 277,
+          "seconds": 0.006066061000183254,
+          "pv": [
+            "e7e6"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -57,
+          "nodes": 4837,
+          "seconds": 0.10601780600018174,
+          "pv": [
+            "e7e6",
+            "f1d3",
+            "g4f3",
+            "g2f3"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -37,
+          "nodes": 12253,
+          "seconds": 0.21780057500018302,
+          "pv": [
+            "g4f3",
+            "g2f3",
+            "e7e6"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -36,
+          "nodes": 56720,
+          "seconds": 1.1215041620002921,
+          "pv": [
+            "b6a4",
+            "c3a4",
+            "f6e4",
+            "c5c1",
+            "e4g5",
+            "c1g5",
+            "g4f3",
+            "g2f3",
+            "g7d4"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -5,
+          "nodes": 86525,
+          "seconds": 1.61216536000029,
+          "pv": [
+            "b6a4",
+            "c3a4",
+            "f6e4",
+            "g5e7",
+            "e4c5",
+            "e7d8",
+            "g4f3",
+            "g2f3",
+            "c5a4"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": -5,
+          "nodes": 257790,
+          "seconds": 4.538543591000234,
+          "pv": [
+            "b6a4",
+            "c3a4",
+            "f6e4",
+            "g5e7",
+            "e4c5",
+            "e7d8",
+            "g4f3",
+            "g2f3",
+            "c5a4"
+          ]
+        }
+      ],
+      "completed_depth": 6,
+      "nodes": 281598,
+      "elapsed": 5.005575410999882,
+      "id": "fischer_byrne_1956_ply22",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "b6a4"
+      ],
+      "correct": true,
+      "defense": {
+        "move": "c3a4",
+        "score": 5,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 206,
+            "nodes": 321,
+            "seconds": 0.0058558219998303684,
+            "pv": [
+              "c3a4",
+              "f6e4"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 206,
+            "nodes": 899,
+            "seconds": 0.015831227000035142,
+            "pv": [
+              "c3a4",
+              "f6e4"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 36,
+            "nodes": 5959,
+            "seconds": 0.06547387099999469,
+            "pv": [
+              "c3a4",
+              "f6e4",
+              "c5c1",
+              "e4g5",
+              "c1g5",
+              "g4f3",
+              "g2f3",
+              "g7d4"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 5,
+            "nodes": 20361,
+            "seconds": 0.32659036299992295,
+            "pv": [
+              "c3a4",
+              "f6e4",
+              "g5e7",
+              "e4c5",
+              "e7d8",
+              "g4f3",
+              "g2f3",
+              "c5a4"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": 5,
+            "nodes": 45500,
+            "seconds": 0.667854755999997,
+            "pv": [
+              "c3a4",
+              "f6e4",
+              "g5e7",
+              "e4c5",
+              "e7d8",
+              "g4f3",
+              "g2f3",
+              "c5a4"
+            ]
+          }
+        ],
+        "completed_depth": 5,
+        "nodes": 67900,
+        "elapsed": 1.0017801449998842
+      }
+    },
+    {
+      "move": "g4f3",
+      "score": 19,
+      "rows": [
+        {
+          "depth": 1,
+          "score": 60,
+          "nodes": 857,
+          "seconds": 0.015455556000233628,
+          "pv": [
+            "c3b5",
+            "c5b6",
+            "b5a3"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 60,
+          "nodes": 1606,
+          "seconds": 0.024551038000026892,
+          "pv": [
+            "c3b5",
+            "c5b6",
+            "b5a3"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 60,
+          "nodes": 7668,
+          "seconds": 0.08777145600015501,
+          "pv": [
+            "c3b5",
+            "c5b6",
+            "b5a3"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": 30,
+          "nodes": 40842,
+          "seconds": 0.6064780780002366,
+          "pv": [
+            "g4f3",
+            "c5b6",
+            "a7b6",
+            "a3c3",
+            "f3d1"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": 30,
+          "nodes": 84477,
+          "seconds": 1.2731932189999497,
+          "pv": [
+            "g4f3",
+            "c5b6",
+            "a7b6",
+            "a3c3",
+            "f3d1"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": 19,
+          "nodes": 282359,
+          "seconds": 4.193246748000092,
+          "pv": [
+            "g4f3",
+            "c5b6",
+            "a7b6",
+            "a3c3",
+            "f3d1",
+            "f1g1"
+          ]
+        }
+      ],
+      "completed_depth": 6,
+      "nodes": 332087,
+      "elapsed": 5.002724627999669,
+      "id": "fischer_byrne_1956_ply34",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "g4e6"
+      ],
+      "correct": false,
+      "defense": {
+        "move": "c5b6",
+        "score": -11,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 253,
+            "nodes": 296,
+            "seconds": 0.004586102000303072,
+            "pv": [
+              "c4e6"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 53,
+            "nodes": 1792,
+            "seconds": 0.03003389600007722,
+            "pv": [
+              "c5b6",
+              "e6c4",
+              "f1g1",
+              "c3d1",
+              "b6a7"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -11,
+            "nodes": 5664,
+            "seconds": 0.07357407000017702,
+            "pv": [
+              "c5b6",
+              "e6c4",
+              "f1g1",
+              "c3e2",
+              "g1f1",
+              "e2d4",
+              "f1g1",
+              "a7b6"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -11,
+            "nodes": 18703,
+            "seconds": 0.3025663080002232,
+            "pv": [
+              "c5b6",
+              "e6c4",
+              "f1g1",
+              "c3e2",
+              "g1f1",
+              "e2d4",
+              "f1g1",
+              "a7b6"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -11,
+            "nodes": 47874,
+            "seconds": 0.7028504330000942,
+            "pv": [
+              "c5b6",
+              "e6c4",
+              "f1g1",
+              "c3e2",
+              "g1f1",
+              "e2d4",
+              "f1g1",
+              "a7b6"
+            ]
+          }
+        ],
+        "completed_depth": 5,
+        "nodes": 61570,
+        "elapsed": 1.001554183999815
+      }
+    },
+    {
+      "move": "a5c6",
+      "score": -18,
+      "rows": [
+        {
+          "depth": 1,
+          "score": 20,
+          "nodes": 186,
+          "seconds": 0.0026285110002390866,
+          "pv": [
+            "f4d6",
+            "d8d6"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 20,
+          "nodes": 787,
+          "seconds": 0.011811495000074501,
+          "pv": [
+            "f4d6",
+            "d8d6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 20,
+          "nodes": 6587,
+          "seconds": 0.11869653500025379,
+          "pv": [
+            "f4d6",
+            "d8d6",
+            "e1e7",
+            "a7b8"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -10,
+          "nodes": 28702,
+          "seconds": 0.518093816000146,
+          "pv": [
+            "a5c6",
+            "a8c6",
+            "d5c6",
+            "d6f4",
+            "g3f4"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -20,
+          "nodes": 69661,
+          "seconds": 1.0916594250002163,
+          "pv": [
+            "a5c6",
+            "a8c6",
+            "d5c6",
+            "d6f4",
+            "g3f4",
+            "c5c4"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": -18,
+          "nodes": 245766,
+          "seconds": 3.6514945829999306,
+          "pv": [
+            "a5c6",
+            "a8c6",
+            "f4d6",
+            "d8d6",
+            "d5c6",
+            "a7b6",
+            "e1e7",
+            "b6c6",
+            "e7f7"
+          ]
+        }
+      ],
+      "completed_depth": 6,
+      "nodes": 336902,
+      "elapsed": 5.000713237000127,
+      "id": "kasparov_topalov_1999_ply47",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "d1d4"
+      ],
+      "correct": false,
+      "defense": {
+        "move": "c5d4",
+        "score": 383,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 275,
+            "nodes": 139,
+            "seconds": 0.0022891220000929025,
+            "pv": [
+              "c5d4",
+              "f4d4",
+              "a7b8"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 275,
+            "nodes": 712,
+            "seconds": 0.012838123999699746,
+            "pv": [
+              "c5d4",
+              "f4d4",
+              "a7b8"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 371,
+            "nodes": 3973,
+            "seconds": 0.05335568200007401,
+            "pv": [
+              "c5d4",
+              "f4d6",
+              "d8d6"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 370,
+            "nodes": 13953,
+            "seconds": 0.23731130999976813,
+            "pv": [
+              "c5d4",
+              "f4d6",
+              "d8d6",
+              "e1e7",
+              "a7b8"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": 383,
+            "nodes": 49864,
+            "seconds": 0.7724777349999385,
+            "pv": [
+              "c5d4",
+              "f4d4",
+              "a7b8",
+              "c2c4",
+              "b5c4",
+              "a5c4",
+              "d6d5"
+            ]
+          }
+        ],
+        "completed_depth": 5,
+        "nodes": 58824,
+        "elapsed": 1.0011881240002367
+      }
+    },
+    {
+      "move": "f4d4",
+      "score": -105,
+      "rows": [
+        {
+          "depth": 1,
+          "score": -275,
+          "nodes": 132,
+          "seconds": 0.0022975530000621802,
+          "pv": [
+            "f4d4",
+            "a7b8"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -371,
+          "nodes": 1423,
+          "seconds": 0.028466948999721353,
+          "pv": [
+            "f4d6",
+            "d8d6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -370,
+          "nodes": 6422,
+          "seconds": 0.08811784499994246,
+          "pv": [
+            "f4d6",
+            "d8d6",
+            "e1e7",
+            "a7b8"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -383,
+          "nodes": 27223,
+          "seconds": 0.43128745500007426,
+          "pv": [
+            "f4d4",
+            "a7b8",
+            "c2c4",
+            "b5c4",
+            "a5c4",
+            "d6d5"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -105,
+          "nodes": 109858,
+          "seconds": 2.3987412689998564,
+          "pv": [
+            "f4d4",
+            "d6b6",
+            "e1e7",
+            "f6d7",
+            "e7d7",
+            "d8d7",
+            "d4h8",
+            "b6g1",
+            "b1a2",
+            "a8d5",
+            "a5b3"
+          ]
+        }
+      ],
+      "completed_depth": 5,
+      "nodes": 229922,
+      "elapsed": 5.001057301999936,
+      "id": "kasparov_topalov_1999_ply49",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "e1e7"
+      ],
+      "correct": false,
+      "defense": {
+        "move": "a7b6",
+        "score": 390,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 773,
+            "nodes": 142,
+            "seconds": 0.0026896600002146442,
+            "pv": [
+              "d6e7",
+              "f4d4",
+              "a7b8"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 625,
+            "nodes": 1336,
+            "seconds": 0.02577552500042657,
+            "pv": [
+              "d6e7",
+              "f4d4",
+              "a7b8",
+              "d4b6",
+              "a8b7",
+              "a5b7",
+              "f6d5"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 390,
+            "nodes": 12615,
+            "seconds": 0.3093893600002957,
+            "pv": [
+              "a7b6",
+              "f4d6",
+              "d8d6",
+              "a5b3",
+              "a8d5",
+              "b3d4"
+            ]
+          }
+        ],
+        "completed_depth": 3,
+        "nodes": 35911,
+        "elapsed": 1.003763390000131
+      }
+    },
+    {
+      "move": "d5c7",
+      "score": -241,
+      "rows": [
+        {
+          "depth": 1,
+          "score": -220,
+          "nodes": 858,
+          "seconds": 0.05213569500028825,
+          "pv": [
+            "d5c7",
+            "e8f8"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -249,
+          "nodes": 2468,
+          "seconds": 0.12819976800028599,
+          "pv": [
+            "d5c7",
+            "e8f8",
+            "a1d1",
+            "c5g1",
+            "c7a8"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -249,
+          "nodes": 10054,
+          "seconds": 0.40652714899988496,
+          "pv": [
+            "d5c7",
+            "e8f8",
+            "a1d1",
+            "c5g1",
+            "c7a8"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -241,
+          "nodes": 56053,
+          "seconds": 1.6599698099998932,
+          "pv": [
+            "d5c7",
+            "e8d8",
+            "a1d1",
+            "c5g1",
+            "c7a8"
+          ]
+        }
+      ],
+      "completed_depth": 4,
+      "nodes": 185781,
+      "elapsed": 5.0044778569999835,
+      "id": "anderssen_kieseritzky_1851_ply35",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "f4d6"
+      ],
+      "correct": false,
+      "defense": {
+        "move": "b2a1",
+        "score": 727,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 1157,
+            "nodes": 167,
+            "seconds": 0.004291404000014154,
+            "pv": [
+              "b2a1",
+              "f1e2",
+              "c5g1"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 1157,
+            "nodes": 704,
+            "seconds": 0.02400855700034299,
+            "pv": [
+              "b2a1",
+              "f1e2",
+              "c5g1"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 757,
+            "nodes": 3796,
+            "seconds": 0.10098738800024876,
+            "pv": [
+              "b2a1",
+              "f1e2",
+              "a1g1",
+              "d5c7",
+              "e8d8",
+              "c7a8"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 727,
+            "nodes": 16454,
+            "seconds": 0.4796923590001825,
+            "pv": [
+              "b2a1",
+              "f1e2",
+              "c5g1",
+              "d5c7",
+              "e8d8",
+              "c7a8"
+            ]
+          }
+        ],
+        "completed_depth": 4,
+        "nodes": 32262,
+        "elapsed": 1.0032943339997473
+      }
+    },
+    {
+      "move": "f3f6",
+      "score": 99997,
+      "rows": [
+        {
+          "depth": 1,
+          "score": -1065,
+          "nodes": 122,
+          "seconds": 0.0028840099998888036,
+          "pv": [
+            "a2a3"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 99997,
+          "nodes": 1102,
+          "seconds": 0.02117832699968858,
+          "pv": [
+            "f3f6",
+            "g8e7",
+            "d6e7"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 99997,
+          "nodes": 5139,
+          "seconds": 0.10400041399998372,
+          "pv": [
+            "f3f6",
+            "g8e7",
+            "d6e7"
+          ]
+        }
+      ],
+      "completed_depth": 3,
+      "nodes": 5139,
+      "elapsed": 0.1041060299999117,
+      "id": "anderssen_kieseritzky_1851_ply43",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "f3f6"
+      ],
+      "correct": true,
+      "defense": {
+        "move": "g8f6",
+        "score": -99998,
+        "rows": [
+          {
+            "depth": 1,
+            "score": -99998,
+            "nodes": 81,
+            "seconds": 0.0016971139998531726,
+            "pv": [
+              "g8f6",
+              "d6e7"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -99998,
+            "nodes": 311,
+            "seconds": 0.005996870999751991,
+            "pv": [
+              "g8f6",
+              "d6e7"
+            ]
+          }
+        ],
+        "completed_depth": 2,
+        "nodes": 311,
+        "elapsed": 0.006023890000051324
+      }
+    },
+    {
+      "move": "c4d3",
+      "score": 80,
+      "rows": [
+        {
+          "depth": 1,
+          "score": 141,
+          "nodes": 1052,
+          "seconds": 0.16617126400024063,
+          "pv": [
+            "c4d3"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 100,
+          "nodes": 3033,
+          "seconds": 0.3191607810003916,
+          "pv": [
+            "g5f6",
+            "e7f6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 124,
+          "nodes": 12299,
+          "seconds": 0.5009169710001515,
+          "pv": [
+            "c4d3",
+            "b8d7",
+            "e1g1"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": 95,
+          "nodes": 36234,
+          "seconds": 1.2438348810001116,
+          "pv": [
+            "c4d3",
+            "b5b4",
+            "g5f6",
+            "e7f6"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": 80,
+          "nodes": 94247,
+          "seconds": 2.2939522400001806,
+          "pv": [
+            "c4d3",
+            "b8d7",
+            "g5f6",
+            "d7f6",
+            "e1g1"
+          ]
+        }
+      ],
+      "completed_depth": 5,
+      "nodes": 239463,
+      "elapsed": 5.001034241999605,
+      "id": "morphy_opera_1858_ply19",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "c3b5"
+      ],
+      "correct": false,
+      "defense": {
+        "move": "c6b5",
+        "score": 18,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 31,
+            "nodes": 694,
+            "seconds": 0.022521029000017734,
+            "pv": [
+              "c6b5",
+              "c4b5",
+              "b8d7"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 31,
+            "nodes": 1489,
+            "seconds": 0.03435754200017982,
+            "pv": [
+              "c6b5",
+              "c4b5",
+              "b8d7"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 5,
+            "nodes": 4170,
+            "seconds": 0.07038215800002945,
+            "pv": [
+              "c6b5",
+              "c4b5",
+              "b8d7",
+              "e1g1"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 18,
+            "nodes": 17816,
+            "seconds": 0.31074210900032995,
+            "pv": [
+              "c6b5",
+              "c4b5",
+              "b8d7",
+              "e1g1",
+              "e8c8"
+            ]
+          }
+        ],
+        "completed_depth": 4,
+        "nodes": 54616,
+        "elapsed": 1.0011281680003776
+      }
+    },
+    {
+      "move": "d1d7",
+      "score": 135,
+      "rows": [
+        {
+          "depth": 1,
+          "score": -5,
+          "nodes": 281,
+          "seconds": 0.005745790000219131,
+          "pv": [
+            "c1b1"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 101,
+          "nodes": 5734,
+          "seconds": 0.10226787999999942,
+          "pv": [
+            "b5d7",
+            "d8d7",
+            "b3b8",
+            "d7d8",
+            "d1d8",
+            "e7d8",
+            "b8e5",
+            "e8d7",
+            "g5f6",
+            "d8f6",
+            "e5f6",
+            "g7f6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 111,
+          "nodes": 15301,
+          "seconds": 0.20723412400002417,
+          "pv": [
+            "b5d7",
+            "d8d7",
+            "b3b8",
+            "d7d8",
+            "b8b5",
+            "d8d7",
+            "d1d7",
+            "e7d7",
+            "b5e5",
+            "f8e7",
+            "g5f6",
+            "g7f6"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": 135,
+          "nodes": 67266,
+          "seconds": 1.1535215280000557,
+          "pv": [
+            "d1d7",
+            "d8d7",
+            "h1d1",
+            "e7c5",
+            "g5f6"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": 135,
+          "nodes": 148071,
+          "seconds": 2.5998174660003315,
+          "pv": [
+            "d1d7",
+            "d8d7",
+            "h1d1",
+            "e7c5",
+            "g5f6"
+          ]
+        }
+      ],
+      "completed_depth": 5,
+      "nodes": 281767,
+      "elapsed": 5.000900186999843,
+      "id": "morphy_opera_1858_ply25",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "d1d7"
+      ],
+      "correct": true,
+      "defense": {
+        "move": "d8d7",
+        "score": -270,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 76,
+            "nodes": 151,
+            "seconds": 0.0023628690000805364,
+            "pv": [
+              "d8d7",
+              "b5d7",
+              "e8d7"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 76,
+            "nodes": 428,
+            "seconds": 0.006574728000032337,
+            "pv": [
+              "d8d7",
+              "b5d7",
+              "e8d7"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -135,
+            "nodes": 2877,
+            "seconds": 0.05034517700005381,
+            "pv": [
+              "d8d7",
+              "h1d1",
+              "e7c5",
+              "g5f6"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -135,
+            "nodes": 10225,
+            "seconds": 0.14339668000002348,
+            "pv": [
+              "d8d7",
+              "h1d1",
+              "e7c5",
+              "g5f6"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -270,
+            "nodes": 42433,
+            "seconds": 0.6764853910003694,
+            "pv": [
+              "d8d7",
+              "h1d1",
+              "e7e6",
+              "g5f6",
+              "e6f6",
+              "d1d7"
+            ]
+          }
+        ],
+        "completed_depth": 5,
+        "nodes": 65793,
+        "elapsed": 1.000726196999949
+      }
+    },
+    {
+      "move": "b5d7",
+      "score": 880,
+      "rows": [
+        {
+          "depth": 1,
+          "score": 195,
+          "nodes": 149,
+          "seconds": 0.001900387000205228,
+          "pv": [
+            "b3e6",
+            "f7e6",
+            "g5f6"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 270,
+          "nodes": 1426,
+          "seconds": 0.024160684999969817,
+          "pv": [
+            "g5f6",
+            "e6f6",
+            "d1d7"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 437,
+          "nodes": 7133,
+          "seconds": 0.088774801999989,
+          "pv": [
+            "b5d7",
+            "e6d7",
+            "b3b8",
+            "e8e7",
+            "d1d7",
+            "e7d7",
+            "g5f6",
+            "g7f6",
+            "b8a7",
+            "d7e6"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": 437,
+          "nodes": 27489,
+          "seconds": 0.4512023729998873,
+          "pv": [
+            "b5d7",
+            "e6d7",
+            "b3b8",
+            "e8e7",
+            "d1d7",
+            "e7d7",
+            "g5f6",
+            "g7f6",
+            "b8a7",
+            "d7e6"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": 880,
+          "nodes": 71886,
+          "seconds": 1.1659894250001344,
+          "pv": [
+            "b5d7",
+            "e6d7",
+            "b3b8",
+            "e8e7",
+            "b8e5",
+            "e7d8",
+            "g5f6",
+            "d8c8",
+            "d1d7",
+            "c8d7",
+            "f6g7",
+            "f8g7",
+            "e5g7"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": 880,
+          "nodes": 246158,
+          "seconds": 3.8839343360000385,
+          "pv": [
+            "b5d7",
+            "e6d7",
+            "b3b8",
+            "e8e7",
+            "b8e5",
+            "e7d8",
+            "g5f6",
+            "d8c8",
+            "d1d7",
+            "c8d7",
+            "f6g7",
+            "f8g7",
+            "e5g7"
+          ]
+        }
+      ],
+      "completed_depth": 6,
+      "nodes": 318542,
+      "elapsed": 5.00131912400002,
+      "id": "morphy_opera_1858_ply29",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "b5d7"
+      ],
+      "correct": true,
+      "defense": {
+        "move": "e6d7",
+        "score": -880,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 5,
+            "nodes": 127,
+            "seconds": 0.002720460000091407,
+            "pv": [
+              "f6d7",
+              "b3e6",
+              "f7e6"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -437,
+            "nodes": 1648,
+            "seconds": 0.027147351000166964,
+            "pv": [
+              "e6d7",
+              "b3b8",
+              "e8e7",
+              "d1d7",
+              "e7d7",
+              "g5f6",
+              "g7f6",
+              "b8a7",
+              "d7e6"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -437,
+            "nodes": 5421,
+            "seconds": 0.08577160000004369,
+            "pv": [
+              "e6d7",
+              "b3b8",
+              "e8e7",
+              "d1d7",
+              "e7d7",
+              "g5f6",
+              "g7f6",
+              "b8a7",
+              "d7e6"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -880,
+            "nodes": 21693,
+            "seconds": 0.3710376010003529,
+            "pv": [
+              "e6d7",
+              "b3b8",
+              "e8e7",
+              "b8e5",
+              "e7d8",
+              "g5f6",
+              "d8c8",
+              "d1d7",
+              "c8d7",
+              "f6g7",
+              "f8g7",
+              "e5g7"
+            ]
+          }
+        ],
+        "completed_depth": 4,
+        "nodes": 62397,
+        "elapsed": 1.0009328820001429
+      }
+    },
+    {
+      "move": "b3b8",
+      "score": 99997,
+      "rows": [
+        {
+          "depth": 1,
+          "score": -5,
+          "nodes": 106,
+          "seconds": 0.0019799470001089503,
+          "pv": [
+            "b3e6",
+            "f7e6"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 99997,
+          "nodes": 589,
+          "seconds": 0.010248605000015232,
+          "pv": [
+            "b3b8",
+            "d7b8",
+            "d1d8"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 99997,
+          "nodes": 3854,
+          "seconds": 0.03656874400030574,
+          "pv": [
+            "b3b8",
+            "d7b8",
+            "d1d8"
+          ]
+        }
+      ],
+      "completed_depth": 3,
+      "nodes": 3854,
+      "elapsed": 0.036625198000365344,
+      "id": "morphy_opera_1858_ply31",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "b3b8"
+      ],
+      "correct": true,
+      "defense": {
+        "move": "d7b8",
+        "score": -99998,
+        "rows": [
+          {
+            "depth": 1,
+            "score": -99998,
+            "nodes": 75,
+            "seconds": 0.0010088550002365082,
+            "pv": [
+              "d7b8",
+              "d1d8"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -99998,
+            "nodes": 188,
+            "seconds": 0.0035128300000906165,
+            "pv": [
+              "d7b8",
+              "d1d8"
+            ]
+          }
+        ],
+        "completed_depth": 2,
+        "nodes": 188,
+        "elapsed": 0.003533300999606581
+      }
+    },
+    {
+      "move": "e2h5",
+      "score": -20,
+      "rows": [
+        {
+          "depth": 1,
+          "score": -35,
+          "nodes": 98,
+          "seconds": 0.001805968000098801,
+          "pv": [
+            "e2h5"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -35,
+          "nodes": 1451,
+          "seconds": 0.034375974999875325,
+          "pv": [
+            "e2h5",
+            "h7h6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -25,
+          "nodes": 6606,
+          "seconds": 0.0998661630001152,
+          "pv": [
+            "e2h5",
+            "h7h6",
+            "f4f5"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -25,
+          "nodes": 38769,
+          "seconds": 0.7869472390002556,
+          "pv": [
+            "e2h5",
+            "f7f5",
+            "h5f3",
+            "e7f6"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -20,
+          "nodes": 91575,
+          "seconds": 1.586592032000226,
+          "pv": [
+            "e2h5",
+            "f7f5",
+            "h5f3",
+            "e7f6",
+            "a1d1"
+          ]
+        }
+      ],
+      "completed_depth": 5,
+      "nodes": 250871,
+      "elapsed": 5.000687034000293,
+      "id": "lasker_bauer_1889_ply29",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "d3h7"
+      ],
+      "correct": false,
+      "defense": {
+        "move": "g8h7",
+        "score": 279,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 304,
+            "nodes": 107,
+            "seconds": 0.0014986050000516116,
+            "pv": [
+              "g8h7",
+              "e2h5",
+              "h7g8"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 284,
+            "nodes": 764,
+            "seconds": 0.011259671000061644,
+            "pv": [
+              "g8h7",
+              "e2h5",
+              "h7g8",
+              "d2d3"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 284,
+            "nodes": 6148,
+            "seconds": 0.07382221199986816,
+            "pv": [
+              "g8h7",
+              "e2h5",
+              "h7g8",
+              "h5g4",
+              "g7g6"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 279,
+            "nodes": 29038,
+            "seconds": 0.44394374099965717,
+            "pv": [
+              "g8h7",
+              "e2h5",
+              "h7g8",
+              "h5g4",
+              "f7f6",
+              "e5c3"
+            ]
+          }
+        ],
+        "completed_depth": 4,
+        "nodes": 59886,
+        "elapsed": 1.0010904460000347
+      }
+    },
+    {
+      "move": "h5g4",
+      "score": -274,
+      "rows": [
+        {
+          "depth": 1,
+          "score": -284,
+          "nodes": 129,
+          "seconds": 0.00167762799992488,
+          "pv": [
+            "d2d3"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -284,
+          "nodes": 1611,
+          "seconds": 0.025247670999760885,
+          "pv": [
+            "h5g4",
+            "g7g6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -279,
+          "nodes": 8204,
+          "seconds": 0.10880713099959394,
+          "pv": [
+            "h5g4",
+            "f7f6",
+            "e5c3"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -274,
+          "nodes": 39913,
+          "seconds": 0.6187934139998106,
+          "pv": [
+            "d2d3",
+            "f8e8",
+            "h5g4",
+            "e7f8"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -274,
+          "nodes": 96279,
+          "seconds": 1.606500517999848,
+          "pv": [
+            "h5g4",
+            "f7f6",
+            "e5b2",
+            "c5c4",
+            "d2d3"
+          ]
+        }
+      ],
+      "completed_depth": 5,
+      "nodes": 272407,
+      "elapsed": 5.004039305000333,
+      "id": "lasker_bauer_1889_ply33",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "e5g7"
+      ],
+      "correct": false,
+      "defense": {
+        "move": "g8g7",
+        "score": 506,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 521,
+            "nodes": 65,
+            "seconds": 0.000805751999905624,
+            "pv": [
+              "g8g7"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 501,
+            "nodes": 795,
+            "seconds": 0.023484598999857553,
+            "pv": [
+              "g8g7",
+              "d2d3"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 496,
+            "nodes": 3522,
+            "seconds": 0.052474580999842146,
+            "pv": [
+              "g8g7",
+              "h5g4",
+              "g7h7",
+              "d2d3"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 506,
+            "nodes": 13117,
+            "seconds": 0.24549537099983354,
+            "pv": [
+              "g8g7",
+              "d2d3",
+              "e7f6",
+              "a1d1"
+            ]
+          }
+        ],
+        "completed_depth": 4,
+        "nodes": 54013,
+        "elapsed": 1.0022912829999768
+      }
+    },
+    {
+      "move": "c3g3",
+      "score": 358,
+      "rows": [
+        {
+          "depth": 1,
+          "score": 334,
+          "nodes": 522,
+          "seconds": 0.01076365100016119,
+          "pv": [
+            "d4e2",
+            "g1h1"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 321,
+          "nodes": 1708,
+          "seconds": 0.03413101900014226,
+          "pv": [
+            "d4e2",
+            "g1h1",
+            "e2g3",
+            "h1g1"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 358,
+          "nodes": 13135,
+          "seconds": 0.1966310840002734,
+          "pv": [
+            "c3g3",
+            "g5g3",
+            "d4e2",
+            "g1h1",
+            "e2g3",
+            "h1g1",
+            "g3f1",
+            "g2h3"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": 358,
+          "nodes": 46414,
+          "seconds": 0.8262134050000896,
+          "pv": [
+            "c3g3",
+            "g5g3",
+            "d4e2",
+            "g1h1",
+            "e2g3",
+            "h1g1",
+            "g3f1",
+            "g2h3"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": 358,
+          "nodes": 154801,
+          "seconds": 2.6673362320002525,
+          "pv": [
+            "c3g3",
+            "g5g3",
+            "d4e2",
+            "g1h1",
+            "e2g3",
+            "h1g1",
+            "g3f1",
+            "g2h3"
+          ]
+        }
+      ],
+      "completed_depth": 5,
+      "nodes": 306353,
+      "elapsed": 5.002103099000124,
+      "id": "levitsky_marshall_1912_ply46",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "c3g3"
+      ],
+      "correct": true,
+      "defense": {
+        "move": "g5g3",
+        "score": -358,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 538,
+            "nodes": 119,
+            "seconds": 0.0018709859996306477,
+            "pv": [
+              "h2g3"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -358,
+            "nodes": 1832,
+            "seconds": 0.032131688999925245,
+            "pv": [
+              "g5g3",
+              "d4e2",
+              "g1h1",
+              "e2g3",
+              "h1g1",
+              "g3f1",
+              "g2h3"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -358,
+            "nodes": 3841,
+            "seconds": 0.0570600179999019,
+            "pv": [
+              "g5g3",
+              "d4e2",
+              "g1h1",
+              "e2g3",
+              "h1g1",
+              "g3f1",
+              "g2h3"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -358,
+            "nodes": 9589,
+            "seconds": 0.14520095199986827,
+            "pv": [
+              "g5g3",
+              "d4e2",
+              "g1h1",
+              "e2g3",
+              "h1g1",
+              "g3f1",
+              "g2h3"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -358,
+            "nodes": 22078,
+            "seconds": 0.3160780679995696,
+            "pv": [
+              "g5g3",
+              "d4e2",
+              "g1h1",
+              "e2g3",
+              "h1g1",
+              "g3f1",
+              "g2h3"
+            ]
+          }
+        ],
+        "completed_depth": 5,
+        "nodes": 65470,
+        "elapsed": 1.0011140430001433
+      }
+    },
+    {
+      "move": "b7e4",
+      "score": 115,
+      "rows": [
+        {
+          "depth": 1,
+          "score": 6,
+          "nodes": 434,
+          "seconds": 0.011202376000255754,
+          "pv": [
+            "h4e7",
+            "e4b7",
+            "e7b7",
+            "c3e4"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 5,
+          "nodes": 2213,
+          "seconds": 0.04031824499998038,
+          "pv": [
+            "h4e7",
+            "a1d1"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 6,
+          "nodes": 11227,
+          "seconds": 0.14238486200019906,
+          "pv": [
+            "h4e7",
+            "e4b7",
+            "e7b7",
+            "c3e4"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": 10,
+          "nodes": 46420,
+          "seconds": 0.726769030000014,
+          "pv": [
+            "h4e7",
+            "f1f3",
+            "b7c6",
+            "a1e1"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": 115,
+          "nodes": 168663,
+          "seconds": 2.489116582999941,
+          "pv": [
+            "b7e4",
+            "c3e4",
+            "h4h2",
+            "e2h2",
+            "g4h2",
+            "f1e1",
+            "h2f3"
+          ]
+        }
+      ],
+      "completed_depth": 5,
+      "nodes": 276823,
+      "elapsed": 5.002827024999988,
+      "id": "rotlewi_rubinstein_1907_ply44",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "c8c3"
+      ],
+      "correct": false,
+      "defense": {
+        "move": "g3h4",
+        "score": 128,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 523,
+            "nodes": 108,
+            "seconds": 0.001424349999979313,
+            "pv": [
+              "g3h4",
+              "b7e4",
+              "e2e4"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 521,
+            "nodes": 687,
+            "seconds": 0.012231633000283182,
+            "pv": [
+              "g3h4",
+              "d8d2"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 128,
+            "nodes": 3212,
+            "seconds": 0.05288411700030338,
+            "pv": [
+              "g3h4",
+              "d8d2",
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 128,
+            "nodes": 14382,
+            "seconds": 0.21052347900013046,
+            "pv": [
+              "g3h4",
+              "d8d2",
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": 128,
+            "nodes": 42658,
+            "seconds": 0.6628431590002037,
+            "pv": [
+              "g3h4",
+              "d8d2",
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2"
+            ]
+          }
+        ],
+        "completed_depth": 5,
+        "nodes": 64034,
+        "elapsed": 1.0020967049999854
+      }
+    },
+    {
+      "move": "d8d2",
+      "score": -38,
+      "rows": [
+        {
+          "depth": 1,
+          "score": -521,
+          "nodes": 275,
+          "seconds": 0.005670282000210136,
+          "pv": [
+            "d8d2"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -128,
+          "nodes": 1339,
+          "seconds": 0.025381372000083502,
+          "pv": [
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "e4g2",
+            "h1g2"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -128,
+          "nodes": 7579,
+          "seconds": 0.0877590400000372,
+          "pv": [
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "e4g2",
+            "h1g2"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -128,
+          "nodes": 27863,
+          "seconds": 0.37801179400003093,
+          "pv": [
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "e4g2",
+            "h1g2"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -38,
+          "nodes": 68117,
+          "seconds": 1.101063546000205,
+          "pv": [
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "e4g2",
+            "h1g2",
+            "c3c2",
+            "g2g3",
+            "c2b2",
+            "g3g4",
+            "b2h2"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": -38,
+          "nodes": 217292,
+          "seconds": 3.1490051619998667,
+          "pv": [
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "e4g2",
+            "h1g2",
+            "c3c2",
+            "g2g3",
+            "c2b2",
+            "g3g4",
+            "b2h2"
+          ]
+        }
+      ],
+      "completed_depth": 6,
+      "nodes": 327564,
+      "elapsed": 5.000749330999952,
+      "id": "rotlewi_rubinstein_1907_ply46",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "d8d2"
+      ],
+      "correct": true,
+      "defense": {
+        "move": "e2d2",
+        "score": 38,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 128,
+            "nodes": 326,
+            "seconds": 0.006669167999916681,
+            "pv": [
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 128,
+            "nodes": 694,
+            "seconds": 0.012168184000074689,
+            "pv": [
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 128,
+            "nodes": 3110,
+            "seconds": 0.03939472499996555,
+            "pv": [
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 38,
+            "nodes": 10543,
+            "seconds": 0.1600112330002048,
+            "pv": [
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2",
+              "c3c2",
+              "g2g3",
+              "c2b2",
+              "g3g4",
+              "b2h2"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": 38,
+            "nodes": 27298,
+            "seconds": 0.399744205999923,
+            "pv": [
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2",
+              "c3c2",
+              "g2g3",
+              "c2b2",
+              "g3g4",
+              "b2h2"
+            ]
+          }
+        ],
+        "completed_depth": 5,
+        "nodes": 60450,
+        "elapsed": 1.0005743589999838
+      }
+    },
+    {
+      "move": "e6e5",
+      "score": 10,
+      "rows": [
+        {
+          "depth": 1,
+          "score": 40,
+          "nodes": 111,
+          "seconds": 0.002855751000424789,
+          "pv": [
+            "e6e5"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 10,
+          "nodes": 624,
+          "seconds": 0.015401855000163778,
+          "pv": [
+            "e6e5",
+            "a3c2"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 30,
+          "nodes": 3819,
+          "seconds": 0.06470367000019905,
+          "pv": [
+            "e6e5",
+            "a3c2",
+            "c8e6"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": 15,
+          "nodes": 17922,
+          "seconds": 0.3903273970004193,
+          "pv": [
+            "e6e5",
+            "a3c2",
+            "c8g4",
+            "d1d3"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": 30,
+          "nodes": 54669,
+          "seconds": 1.0129179830000794,
+          "pv": [
+            "e6e5",
+            "a3c2",
+            "f8e7",
+            "f1d3",
+            "e8g8"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": 10,
+          "nodes": 257605,
+          "seconds": 4.640694564000114,
+          "pv": [
+            "e6e5",
+            "a3c2",
+            "f8e7",
+            "f1d3",
+            "c8g4",
+            "d1d2"
+          ]
+        }
+      ],
+      "completed_depth": 6,
+      "nodes": 275269,
+      "elapsed": 5.0013029530000495,
+      "id": "karpov_kasparov_1985_g16_ply16",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "d6d5"
+      ],
+      "correct": false,
+      "defense": {
+        "move": "c4d5",
+        "score": 85,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 100,
+            "nodes": 209,
+            "seconds": 0.003817414999957691,
+            "pv": [
+              "c4d5",
+              "e6d5",
+              "e4d5"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 95,
+            "nodes": 1033,
+            "seconds": 0.018808878000072582,
+            "pv": [
+              "c4d5",
+              "c6e5"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 100,
+            "nodes": 6728,
+            "seconds": 0.09628584399979445,
+            "pv": [
+              "c4d5",
+              "e6d5",
+              "e4d5"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 85,
+            "nodes": 22494,
+            "seconds": 0.41672456200012675,
+            "pv": [
+              "c4d5",
+              "e6d5",
+              "e4d5",
+              "c8g4"
+            ]
+          }
+        ],
+        "completed_depth": 4,
+        "nodes": 61534,
+        "elapsed": 1.0019227460002185
+      }
+    },
+    {
+      "move": "b4d3",
+      "score": -110,
+      "rows": [
+        {
+          "depth": 1,
+          "score": -105,
+          "nodes": 437,
+          "seconds": 0.008080294000137656,
+          "pv": [
+            "b4d3"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -110,
+          "nodes": 7930,
+          "seconds": 0.1561569010000312,
+          "pv": [
+            "b4d3",
+            "g5e3"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -101,
+          "nodes": 22525,
+          "seconds": 0.358962277000046,
+          "pv": [
+            "b4d3",
+            "g5e3",
+            "d8c7",
+            "e3c5",
+            "d3c5"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -112,
+          "nodes": 119593,
+          "seconds": 2.1005939920000856,
+          "pv": [
+            "f5d3",
+            "f1e1",
+            "e8e1",
+            "d1e1",
+            "d8b6"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -110,
+          "nodes": 234704,
+          "seconds": 4.000075840000136,
+          "pv": [
+            "b4d3",
+            "f3e2",
+            "d3e5",
+            "a3c2",
+            "d8b6"
+          ]
+        }
+      ],
+      "completed_depth": 5,
+      "nodes": 281488,
+      "elapsed": 5.0008535160000065,
+      "id": "karpov_kasparov_1985_g16_ply32",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "b4d3"
+      ],
+      "correct": true,
+      "defense": {
+        "move": "f3e2",
+        "score": 120,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 110,
+            "nodes": 3180,
+            "seconds": 0.05093171699991217,
+            "pv": [
+              "g5e3"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 101,
+            "nodes": 8952,
+            "seconds": 0.15430699900025502,
+            "pv": [
+              "g5e3",
+              "d8c7",
+              "e3c5",
+              "d3c5"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 120,
+            "nodes": 24382,
+            "seconds": 0.4052313540000796,
+            "pv": [
+              "f3e2",
+              "d3e5",
+              "a3c2"
+            ]
+          }
+        ],
+        "completed_depth": 3,
+        "nodes": 55934,
+        "elapsed": 1.0050340490001872
+      }
+    },
+    {
+      "move": "e7c7",
+      "score": -59,
+      "rows": [
+        {
+          "depth": 1,
+          "score": -59,
+          "nodes": 134,
+          "seconds": 0.002976490000037302,
+          "pv": [
+            "a5a4"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -69,
+          "nodes": 1149,
+          "seconds": 0.022747418000108155,
+          "pv": [
+            "a5a4",
+            "g4f3"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -64,
+          "nodes": 5156,
+          "seconds": 0.0813592559998142,
+          "pv": [
+            "a5a4",
+            "g4f3",
+            "e8d7"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -74,
+          "nodes": 34393,
+          "seconds": 0.6658119130001978,
+          "pv": [
+            "e7c7",
+            "e1d1",
+            "g6d3",
+            "g4f3"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -59,
+          "nodes": 140757,
+          "seconds": 2.423854173000109,
+          "pv": [
+            "e7c7",
+            "e1d1",
+            "g6c2",
+            "d1d2",
+            "c2g6"
+          ]
+        }
+      ],
+      "completed_depth": 5,
+      "nodes": 263445,
+      "elapsed": 5.0035093689998575,
+      "id": "reshevsky_petrosian_1953_re6",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "e7e6"
+      ],
+      "correct": false,
+      "defense": {
+        "move": "g4e6",
+        "score": 186,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 191,
+            "nodes": 88,
+            "seconds": 0.001104801999645133,
+            "pv": [
+              "g4e6",
+              "e8e6"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 191,
+            "nodes": 1606,
+            "seconds": 0.0298614789999192,
+            "pv": [
+              "g4e6",
+              "e8e6"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 191,
+            "nodes": 5063,
+            "seconds": 0.0682946339998125,
+            "pv": [
+              "g4e6",
+              "e8e6",
+              "e1d1"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 186,
+            "nodes": 35796,
+            "seconds": 0.7006028909995621,
+            "pv": [
+              "g4e6",
+              "e8e6",
+              "e1d1",
+              "a5a4"
+            ]
+          }
+        ],
+        "completed_depth": 4,
+        "nodes": 57108,
+        "elapsed": 1.0006935080000403
+      }
+    },
+    {
+      "move": "e5e4",
+      "score": -51,
+      "rows": [
+        {
+          "depth": 1,
+          "score": -35,
+          "nodes": 978,
+          "seconds": 0.018958270999974047,
+          "pv": [
+            "b4a5"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -44,
+          "nodes": 3860,
+          "seconds": 0.07182618499973614,
+          "pv": [
+            "b4a5",
+            "h2g1"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -44,
+          "nodes": 40301,
+          "seconds": 0.6916893059997165,
+          "pv": [
+            "e5e4",
+            "e3a7",
+            "g7c3",
+            "b2c3",
+            "c4c3"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -51,
+          "nodes": 100158,
+          "seconds": 1.9778679789997113,
+          "pv": [
+            "e5e4",
+            "g3g4",
+            "g7e5",
+            "h2g1",
+            "h5f4",
+            "e3f4",
+            "e5f4",
+            "g4f5",
+            "f4c1",
+            "a1c1",
+            "g6f5"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -51,
+          "nodes": 169625,
+          "seconds": 2.9872144070000104,
+          "pv": [
+            "e5e4",
+            "g3g4",
+            "g7e5",
+            "h2g1",
+            "h5f4",
+            "e3f4",
+            "e5f4",
+            "g4f5",
+            "f4c1",
+            "a1c1",
+            "g6f5"
+          ]
+        }
+      ],
+      "completed_depth": 5,
+      "nodes": 279449,
+      "elapsed": 5.001043623999976,
+      "id": "botvinnik_tal_1960_g6_ply42",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "h5f4"
+      ],
+      "correct": false,
+      "defense": {
+        "move": "g3f4",
+        "score": 244,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 244,
+            "nodes": 509,
+            "seconds": 0.008880378999947425,
+            "pv": [
+              "g3f4",
+              "e5f4",
+              "e3a7",
+              "g7c3",
+              "b2c3",
+              "c4c3"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 244,
+            "nodes": 1191,
+            "seconds": 0.020303451000017958,
+            "pv": [
+              "g3f4",
+              "e5f4",
+              "e3a7",
+              "g7c3",
+              "b2c3",
+              "c4c3"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 244,
+            "nodes": 8822,
+            "seconds": 0.13235983100003068,
+            "pv": [
+              "g3f4",
+              "e5f4",
+              "e3a7",
+              "g7c3",
+              "b2c3",
+              "c4c3"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 244,
+            "nodes": 22425,
+            "seconds": 0.3376773069999217,
+            "pv": [
+              "g3f4",
+              "e5f4",
+              "e3a7",
+              "g7c3",
+              "b2c3",
+              "c4c3"
+            ]
+          }
+        ],
+        "completed_depth": 4,
+        "nodes": 58329,
+        "elapsed": 1.0011219319999327
+      }
+    },
+    {
+      "move": "c3e2",
+      "score": 3,
+      "rows": [
+        {
+          "depth": 1,
+          "score": 51,
+          "nodes": 677,
+          "seconds": 0.015938634000121965,
+          "pv": [
+            "c3e2"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 31,
+          "nodes": 1277,
+          "seconds": 0.029052285000034317,
+          "pv": [
+            "c3e2",
+            "e6e5"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 31,
+          "nodes": 6030,
+          "seconds": 0.08036162999997032,
+          "pv": [
+            "c3e2",
+            "e6e5",
+            "d4e3"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": 16,
+          "nodes": 19923,
+          "seconds": 0.3488813199996912,
+          "pv": [
+            "c3e2",
+            "e6e5",
+            "d4e3",
+            "b8c7"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": 21,
+          "nodes": 69840,
+          "seconds": 1.3035867929997949,
+          "pv": [
+            "c3e2",
+            "e6e5",
+            "d4e3",
+            "d7c5",
+            "d3c4"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": 3,
+          "nodes": 233163,
+          "seconds": 4.2654624189999595,
+          "pv": [
+            "c3e2",
+            "e6e5",
+            "d4e3",
+            "d7c5",
+            "d3c4",
+            "c8e6",
+            "c4e6",
+            "c5e6"
+          ]
+        }
+      ],
+      "completed_depth": 6,
+      "nodes": 276875,
+      "elapsed": 5.001685380999788,
+      "id": "tal_larsen_1965_g10_ply31",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "c3d5"
+      ],
+      "correct": false,
+      "defense": {
+        "move": "e6d5",
+        "score": 182,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 156,
+            "nodes": 61,
+            "seconds": 0.0010872429998016742,
+            "pv": [
+              "e6d5",
+              "e4d5"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 156,
+            "nodes": 284,
+            "seconds": 0.0054162019996510935,
+            "pv": [
+              "e6d5",
+              "e4d5"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 171,
+            "nodes": 1519,
+            "seconds": 0.02443991999962236,
+            "pv": [
+              "e6d5",
+              "e4d5",
+              "b8c7"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 166,
+            "nodes": 8679,
+            "seconds": 0.12457276999975875,
+            "pv": [
+              "e6d5",
+              "e4d5",
+              "d7c5",
+              "d3c4"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": 182,
+            "nodes": 42114,
+            "seconds": 0.7885906459996477,
+            "pv": [
+              "e6d5",
+              "h1e1",
+              "b4b3",
+              "a2b3",
+              "d5e4",
+              "d3e4"
+            ]
+          }
+        ],
+        "completed_depth": 5,
+        "nodes": 54146,
+        "elapsed": 1.0014513450000777
+      }
+    },
+    {
+      "move": "d3f5",
+      "score": -84,
+      "rows": [
+        {
+          "depth": 1,
+          "score": -71,
+          "nodes": 229,
+          "seconds": 0.0037442809998537996,
+          "pv": [
+            "d3f5"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -86,
+          "nodes": 2061,
+          "seconds": 0.041182503999607434,
+          "pv": [
+            "d3f5",
+            "b8c7"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -71,
+          "nodes": 9383,
+          "seconds": 0.13389336799991725,
+          "pv": [
+            "d3f5",
+            "b8d8",
+            "f5e6"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -79,
+          "nodes": 37584,
+          "seconds": 0.6667835849998482,
+          "pv": [
+            "d3f5",
+            "d7c5",
+            "c1b1",
+            "b8c7"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -84,
+          "nodes": 97239,
+          "seconds": 1.5463556649997372,
+          "pv": [
+            "d3f5",
+            "d7c5",
+            "f5g4",
+            "b8c7",
+            "c1b1"
+          ]
+        }
+      ],
+      "completed_depth": 5,
+      "nodes": 247319,
+      "elapsed": 5.0329835590000584,
+      "id": "tal_larsen_1965_g10_ply39",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "d3f5"
+      ],
+      "correct": true,
+      "defense": {
+        "move": "d7c5",
+        "score": 79,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 86,
+            "nodes": 324,
+            "seconds": 0.018213997000202653,
+            "pv": [
+              "b8c7"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 71,
+            "nodes": 2745,
+            "seconds": 0.09454327799994644,
+            "pv": [
+              "b8d8",
+              "f5e6"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 79,
+            "nodes": 10241,
+            "seconds": 0.23764494900024147,
+            "pv": [
+              "d7c5",
+              "c1b1",
+              "b8c7"
+            ]
+          }
+        ],
+        "completed_depth": 3,
+        "nodes": 37825,
+        "elapsed": 1.0017126570000983
+      }
+    },
+    {
+      "move": "e1d1",
+      "score": -120,
+      "rows": [
+        {
+          "depth": 1,
+          "score": -90,
+          "nodes": 193,
+          "seconds": 0.0034722339996733353,
+          "pv": [
+            "f1c4"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -100,
+          "nodes": 1138,
+          "seconds": 0.02307101699989289,
+          "pv": [
+            "f1c4",
+            "b2f6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -110,
+          "nodes": 11411,
+          "seconds": 0.23109918000000107,
+          "pv": [
+            "e1d1",
+            "b2c3",
+            "d2d3"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -115,
+          "nodes": 31907,
+          "seconds": 0.7570996379999997,
+          "pv": [
+            "d2d3",
+            "a4b5",
+            "d3b3",
+            "b2f6",
+            "f1b5",
+            "c7b5"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -120,
+          "nodes": 77612,
+          "seconds": 1.5959310230000483,
+          "pv": [
+            "e1d1",
+            "b2c3",
+            "d2c1",
+            "a4b5",
+            "f1c4",
+            "b5c4",
+            "h4c4"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": -120,
+          "nodes": 259728,
+          "seconds": 4.637324559999797,
+          "pv": [
+            "e1d1",
+            "b2c3",
+            "d2c1",
+            "a4b5",
+            "f1c4",
+            "b5c4",
+            "h4c4"
+          ]
+        }
+      ],
+      "completed_depth": 6,
+      "nodes": 277200,
+      "elapsed": 5.001596373999746,
+      "id": "tal_benko_1959_r14_ply45",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "h6f8"
+      ],
+      "correct": false,
+      "defense": {
+        "move": "b2c3",
+        "score": 360,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 458,
+            "nodes": 89,
+            "seconds": 0.001059053000062704,
+            "pv": [
+              "e8f8"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 438,
+            "nodes": 687,
+            "seconds": 0.015635788000054163,
+            "pv": [
+              "e8f8",
+              "f1c4"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 350,
+            "nodes": 7559,
+            "seconds": 0.21447322699987126,
+            "pv": [
+              "e8f8",
+              "d2h6",
+              "f8e8",
+              "h6h7",
+              "g8f8"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 360,
+            "nodes": 32008,
+            "seconds": 0.6202584580000803,
+            "pv": [
+              "b2c3",
+              "d2h6",
+              "c3f6",
+              "h6h7",
+              "g8f8"
+            ]
+          }
+        ],
+        "completed_depth": 4,
+        "nodes": 50760,
+        "elapsed": 1.000902664000023
+      }
+    },
+    {
+      "move": "c4b3",
+      "score": 45,
+      "rows": [
+        {
+          "depth": 1,
+          "score": 70,
+          "nodes": 1114,
+          "seconds": 0.031034432999604178,
+          "pv": [
+            "c4b3"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 50,
+          "nodes": 2430,
+          "seconds": 0.06805620799968892,
+          "pv": [
+            "c4b3",
+            "d8b6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 45,
+          "nodes": 14466,
+          "seconds": 0.30873937299975296,
+          "pv": [
+            "c4b3",
+            "d8b6",
+            "f5e7",
+            "g8h8"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": 40,
+          "nodes": 48413,
+          "seconds": 0.9147342119999848,
+          "pv": [
+            "c4b3",
+            "c6c5",
+            "d4e3",
+            "d8b6"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": 45,
+          "nodes": 187110,
+          "seconds": 3.6885023769996224,
+          "pv": [
+            "c4b3",
+            "c6c5",
+            "d4e3",
+            "c5c4",
+            "e3g5"
+          ]
+        }
+      ],
+      "completed_depth": 5,
+      "nodes": 267750,
+      "elapsed": 5.000659155000449,
+      "id": "tal_smyslov_1959_r8_ply27",
+      "category": "historical",
+      "repeat": 0,
+      "bm": [
+        "d4h4"
+      ],
+      "correct": false,
+      "defense": {
+        "move": "b5c4",
+        "score": 239,
+        "rows": [
+          {
+            "depth": 1,
+            "score": 278,
+            "nodes": 76,
+            "seconds": 0.0011539930001163157,
+            "pv": [
+              "b5c4"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 259,
+            "nodes": 551,
+            "seconds": 0.00931649899985132,
+            "pv": [
+              "b5c4",
+              "c1b1"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 258,
+            "nodes": 4772,
+            "seconds": 0.08342598099989118,
+            "pv": [
+              "b5c4",
+              "h4g5",
+              "g7g6"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 239,
+            "nodes": 24527,
+            "seconds": 0.4188444830001572,
+            "pv": [
+              "b5c4",
+              "h4g5",
+              "g7g6",
+              "c1b1"
+            ]
+          }
+        ],
+        "completed_depth": 4,
+        "nodes": 57807,
+        "elapsed": 1.0008211849999498
+      }
+    }
+  ],
+  "max_rss_kib": 28760
+}

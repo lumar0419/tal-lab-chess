@@ -1,0 +1,5 @@
+{
+  "runtime": "PyPy",
+  "peak_rss_kib_at_observation": 306928,
+  "scope": "Snapshot during the long Rubinstein run; not a final process peak."
+}

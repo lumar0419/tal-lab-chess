@@ -1,0 +1,11 @@
+{
+  "implementation": "Tal Lab / Cython",
+  "python": "3.12.14",
+  "platform": "Linux x86_64",
+  "cache_tag": "cpython-312",
+  "sources": {
+    "board.py": "4370e15ffea0c74a57a3d56520841962ac3d703fafe848c9986b38abae293786",
+    "evaluate.py": "4cb3c6679df052eba416b1ad5481099d885007b1769fd6db061be4d5ea388090",
+    "search.py": "76af647afbe49e8392b682f33e7966dde518be0128b2de2072b024048174f559"
+  }
+}

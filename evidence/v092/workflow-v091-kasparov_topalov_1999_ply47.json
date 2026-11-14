@@ -1,0 +1,1054 @@
+{
+  "case": {
+    "id": "kasparov_topalov_1999_ply47",
+    "game_id": "kasparov_topalov_1999",
+    "master": "Garry Kasparov",
+    "players": "Garry Kasparov – Veselin Topalov",
+    "year": 1999,
+    "source": "https://github.com/kerry-huang-nyu/chessRobot/blob/main/kasparov_topalov_1999.pgn",
+    "fen": "b2r3r/k4p1p/p2q1np1/NppP4/3p1Q2/P4PPB/1PP4P/1K1RR3 w - - 1 24",
+    "historical_san": "Rxd4",
+    "historical_uci": "d1d4",
+    "label": "24.Rxd4",
+    "theme": "공격선을 여는 룩 희생",
+    "tag": "rook_sacrifice",
+    "status": "historical move; not independently verified as objectively best",
+    "themes": [
+      "rook",
+      "line_opening",
+      "king_attack",
+      "serial"
+    ],
+    "history": [
+      "e2e4",
+      "d7d6",
+      "d2d4",
+      "g8f6",
+      "b1c3",
+      "g7g6",
+      "c1e3",
+      "f8g7",
+      "d1d2",
+      "c7c6",
+      "f2f3",
+      "b7b5",
+      "g1e2",
+      "b8d7",
+      "e3h6",
+      "g7h6",
+      "d2h6",
+      "c8b7",
+      "a2a3",
+      "e7e5",
+      "e1c1",
+      "d8e7",
+      "c1b1",
+      "a7a6",
+      "e2c1",
+      "e8c8",
+      "c1b3",
+      "e5d4",
+      "d1d4",
+      "c6c5",
+      "d4d1",
+      "d7b6",
+      "g2g3",
+      "c8b8",
+      "b3a5",
+      "b7a8",
+      "f1h3",
+      "d6d5",
+      "h6f4",
+      "b8a7",
+      "h1e1",
+      "d5d4",
+      "c3d5",
+      "b6d5",
+      "e4d5",
+      "e7d6"
+    ],
+    "bm": [
+      "d1d4"
+    ],
+    "suite": "historical"
+  },
+  "runtime": "CPython",
+  "python": "3.12.14",
+  "backend": "baseline-v091/board.py",
+  "report": {
+    "fen": "b2r3r/k4p1p/p2q1np1/NppP4/3p1Q2/P4PPB/1PP4P/1K1RR3 w - - 1 24",
+    "history": [],
+    "profile": "conservative",
+    "budget": 60.0,
+    "root": [
+      {
+        "depth": 1,
+        "score": 20,
+        "nodes": 186,
+        "seconds": 0.005,
+        "pv": [
+          "f4d6",
+          "d8d6"
+        ]
+      },
+      {
+        "depth": 2,
+        "score": 20,
+        "nodes": 787,
+        "seconds": 0.022,
+        "pv": [
+          "f4d6",
+          "d8d6"
+        ]
+      },
+      {
+        "depth": 3,
+        "score": 20,
+        "nodes": 6587,
+        "seconds": 0.134,
+        "pv": [
+          "f4d6",
+          "d8d6",
+          "e1e7",
+          "a7b8"
+        ]
+      },
+      {
+        "depth": 4,
+        "score": -10,
+        "nodes": 28702,
+        "seconds": 0.526,
+        "pv": [
+          "a5c6",
+          "a8c6",
+          "d5c6",
+          "d6f4",
+          "g3f4"
+        ]
+      },
+      {
+        "depth": 5,
+        "score": -20,
+        "nodes": 69661,
+        "seconds": 1.171,
+        "pv": [
+          "a5c6",
+          "a8c6",
+          "d5c6",
+          "d6f4",
+          "g3f4",
+          "c5c4"
+        ]
+      },
+      {
+        "depth": 6,
+        "score": -18,
+        "nodes": 245766,
+        "seconds": 3.901,
+        "pv": [
+          "a5c6",
+          "a8c6",
+          "f4d6",
+          "d8d6",
+          "d5c6",
+          "a7b6",
+          "e1e7",
+          "b6c6",
+          "e7f7"
+        ]
+      },
+      {
+        "depth": 7,
+        "score": -18,
+        "nodes": 791711,
+        "seconds": 15.164,
+        "pv": [
+          "a5c6",
+          "a8c6",
+          "f4d6",
+          "d8d6",
+          "d5c6",
+          "a7b6",
+          "e1e7",
+          "b6c6",
+          "e7f7"
+        ]
+      }
+    ],
+    "screen": [
+      [
+        {
+          "depth": 1,
+          "score": -175,
+          "nodes": 486,
+          "seconds": 0.011,
+          "pv": [
+            "e1e4",
+            "a8d5",
+            "f4d6",
+            "d8d6"
+          ]
+        },
+        {
+          "depth": 1,
+          "score": -275,
+          "nodes": 692,
+          "seconds": 0.013,
+          "pv": [
+            "d1d4",
+            "c5d4",
+            "f4d4",
+            "a7b8"
+          ]
+        }
+      ],
+      [
+        {
+          "depth": 2,
+          "score": -175,
+          "nodes": 1389,
+          "seconds": 0.031,
+          "pv": [
+            "e1e4",
+            "a8d5",
+            "f4d6",
+            "d8d6"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -275,
+          "nodes": 1720,
+          "seconds": 0.035,
+          "pv": [
+            "d1d4",
+            "c5d4",
+            "f4d4",
+            "a7b8"
+          ]
+        }
+      ],
+      [
+        {
+          "depth": 3,
+          "score": -175,
+          "nodes": 5707,
+          "seconds": 0.097,
+          "pv": [
+            "e1e4",
+            "a8d5",
+            "f4d6",
+            "d8d6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -275,
+          "nodes": 7933,
+          "seconds": 0.129,
+          "pv": [
+            "d1d4",
+            "c5d4",
+            "f4d4",
+            "a7b8"
+          ]
+        }
+      ],
+      [
+        {
+          "depth": 4,
+          "score": -98,
+          "nodes": 20183,
+          "seconds": 0.305,
+          "pv": [
+            "d1d4",
+            "a7b6",
+            "f4d6",
+            "d8d6",
+            "a5c4",
+            "b5c4"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -175,
+          "nodes": 24031,
+          "seconds": 0.351,
+          "pv": [
+            "e1e4",
+            "a8d5",
+            "f4d6",
+            "d8d6"
+          ]
+        }
+      ],
+      [
+        {
+          "depth": 5,
+          "score": -67,
+          "nodes": 41917,
+          "seconds": 0.671,
+          "pv": [
+            "d1d4",
+            "c5d4",
+            "f4d4",
+            "d6b6",
+            "e1e7",
+            "f6d7",
+            "e7d7",
+            "d8d7",
+            "d4h8",
+            "d7d5",
+            "h8h7",
+            "b6a5",
+            "h7f7",
+            "a8b7",
+            "f7g6"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -170,
+          "nodes": 63334,
+          "seconds": 1.009,
+          "pv": [
+            "e1e4",
+            "a8d5",
+            "f4d6",
+            "d8d6",
+            "e4e7",
+            "a7b8"
+          ]
+        }
+      ],
+      [
+        {
+          "depth": 6,
+          "score": -67,
+          "nodes": 101519,
+          "seconds": 2.27,
+          "pv": [
+            "d1d4",
+            "c5d4",
+            "f4d4",
+            "d6b6",
+            "e1e7",
+            "f6d7",
+            "e7d7",
+            "d8d7",
+            "d4h8",
+            "d7d5",
+            "h8h7",
+            "b6a5",
+            "h7f7",
+            "a8b7",
+            "f7g6"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": -180,
+          "nodes": 158805,
+          "seconds": 3.284,
+          "pv": [
+            "e1e4",
+            "a8d5",
+            "f4d6",
+            "d8d6",
+            "e4f4",
+            "a7b8"
+          ]
+        }
+      ]
+    ],
+    "offers_found": 18,
+    "screen_complete": true,
+    "candidates": [
+      {
+        "move": "a5c6",
+        "offer": null,
+        "reference": true,
+        "iterations": [
+          {
+            "depth": 1,
+            "score": -120,
+            "nodes": 43,
+            "seconds": 0.003,
+            "pv": [
+              "a5c6",
+              "a8c6",
+              "f4d6",
+              "d8d6",
+              "d5c6",
+              "d6c6"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -120,
+            "nodes": 186,
+            "seconds": 0.008,
+            "pv": [
+              "a5c6",
+              "a8c6",
+              "f4d6",
+              "d8d6",
+              "d5c6",
+              "d6c6"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -120,
+            "nodes": 846,
+            "seconds": 0.051,
+            "pv": [
+              "a5c6",
+              "a8c6",
+              "f4d6",
+              "d8d6",
+              "d5c6",
+              "d6c6"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -10,
+            "nodes": 6141,
+            "seconds": 0.166,
+            "pv": [
+              "a5c6",
+              "a8c6",
+              "d5c6",
+              "d6f4",
+              "g3f4"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -20,
+            "nodes": 18193,
+            "seconds": 0.4,
+            "pv": [
+              "a5c6",
+              "a8c6",
+              "d5c6",
+              "d6f4",
+              "g3f4",
+              "c5c4"
+            ]
+          },
+          {
+            "depth": 6,
+            "score": -18,
+            "nodes": 60430,
+            "seconds": 1.102,
+            "pv": [
+              "a5c6",
+              "a8c6",
+              "f4d6",
+              "d8d6",
+              "d5c6",
+              "a7b6",
+              "e1e7",
+              "b6c6",
+              "e7f7"
+            ]
+          },
+          {
+            "depth": 7,
+            "score": -18,
+            "nodes": 192150,
+            "seconds": 3.514,
+            "pv": [
+              "a5c6",
+              "a8c6",
+              "f4d6",
+              "d8d6",
+              "d5c6",
+              "a7b6",
+              "e1e7",
+              "b6c6",
+              "e7f7"
+            ]
+          }
+        ],
+        "comparison": {
+          "depth": 7,
+          "score": -18,
+          "reference_score": -18,
+          "delta_for_mover": 0
+        },
+        "defenses": [
+          {
+            "depth": 1,
+            "score": -120,
+            "nodes": 135,
+            "seconds": 0.004,
+            "pv": [
+              "a8c6",
+              "f4d6",
+              "d8d6",
+              "d5c6",
+              "d6c6"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -120,
+            "nodes": 780,
+            "seconds": 0.016,
+            "pv": [
+              "a8c6",
+              "f4d6",
+              "d8d6",
+              "d5c6",
+              "d6c6"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -10,
+            "nodes": 6438,
+            "seconds": 0.113,
+            "pv": [
+              "a8c6",
+              "d5c6",
+              "d6f4",
+              "g3f4"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -20,
+            "nodes": 18866,
+            "seconds": 0.327,
+            "pv": [
+              "a8c6",
+              "d5c6",
+              "d6f4",
+              "g3f4",
+              "c5c4"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -18,
+            "nodes": 60776,
+            "seconds": 0.971,
+            "pv": [
+              "a8c6",
+              "f4d6",
+              "d8d6",
+              "d5c6",
+              "a7b6",
+              "e1e7",
+              "b6c6",
+              "e7f7"
+            ]
+          }
+        ],
+        "proof": null,
+        "verification": "defense_searched",
+        "time_limit": 4.027,
+        "material": {
+          "changes_cp": [
+            0,
+            -320,
+            580,
+            -320,
+            10,
+            10,
+            10,
+            -90,
+            10
+          ],
+          "low_cp": -320,
+          "last_cp": 10,
+          "sustained_piece_loss": null
+        },
+        "legal_replies": 4,
+        "defense_time_limit": 1.37,
+        "draw_claim": false,
+        "material_under_defense": {
+          "changes_cp": [
+            0,
+            -320,
+            580,
+            -320,
+            10,
+            10,
+            10,
+            -90,
+            10
+          ],
+          "low_cp": -320,
+          "last_cp": 10,
+          "sustained_piece_loss": null
+        },
+        "defense_agrees_at_depth": true
+      },
+      {
+        "move": "d1d4",
+        "offer": {
+          "move": "d1d4",
+          "piece": "R",
+          "acceptances": [
+            {
+              "uci": "c5d4",
+              "material_risk_cp": 300
+            }
+          ],
+          "label": "희생 후보 · 검증 필요"
+        },
+        "reference": false,
+        "iterations": [
+          {
+            "depth": 1,
+            "score": -275,
+            "nodes": 57,
+            "seconds": 0.003,
+            "pv": [
+              "d1d4",
+              "c5d4",
+              "f4d4",
+              "a7b8"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -275,
+            "nodes": 162,
+            "seconds": 0.007,
+            "pv": [
+              "d1d4",
+              "c5d4",
+              "f4d4",
+              "a7b8"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -275,
+            "nodes": 590,
+            "seconds": 0.017,
+            "pv": [
+              "d1d4",
+              "c5d4",
+              "f4d4",
+              "a7b8"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -371,
+            "nodes": 3669,
+            "seconds": 0.06,
+            "pv": [
+              "d1d4",
+              "c5d4",
+              "f4d6",
+              "d8d6"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -370,
+            "nodes": 13787,
+            "seconds": 0.312,
+            "pv": [
+              "d1d4",
+              "c5d4",
+              "f4d6",
+              "d8d6",
+              "e1e7",
+              "a7b8"
+            ]
+          },
+          {
+            "depth": 6,
+            "score": -383,
+            "nodes": 43213,
+            "seconds": 0.837,
+            "pv": [
+              "d1d4",
+              "c5d4",
+              "f4d4",
+              "a7b8",
+              "c2c4",
+              "b5c4",
+              "a5c4",
+              "d6d5"
+            ]
+          },
+          {
+            "depth": 7,
+            "score": -105,
+            "nodes": 169718,
+            "seconds": 3.311,
+            "pv": [
+              "d1d4",
+              "c5d4",
+              "f4d4",
+              "d6b6",
+              "e1e7",
+              "f6d7",
+              "e7d7",
+              "d8d7",
+              "d4h8",
+              "b6g1",
+              "b1a2",
+              "a8d5",
+              "a5b3"
+            ]
+          }
+        ],
+        "comparison": {
+          "depth": 7,
+          "score": -105,
+          "reference_score": -18,
+          "delta_for_mover": -87
+        },
+        "defenses": [
+          {
+            "depth": 1,
+            "score": -275,
+            "nodes": 139,
+            "seconds": 0.005,
+            "pv": [
+              "c5d4",
+              "f4d4",
+              "a7b8"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -275,
+            "nodes": 712,
+            "seconds": 0.026,
+            "pv": [
+              "c5d4",
+              "f4d4",
+              "a7b8"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -371,
+            "nodes": 3973,
+            "seconds": 0.137,
+            "pv": [
+              "c5d4",
+              "f4d6",
+              "d8d6"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -370,
+            "nodes": 13953,
+            "seconds": 0.322,
+            "pv": [
+              "c5d4",
+              "f4d6",
+              "d8d6",
+              "e1e7",
+              "a7b8"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -383,
+            "nodes": 49864,
+            "seconds": 0.865,
+            "pv": [
+              "c5d4",
+              "f4d4",
+              "a7b8",
+              "c2c4",
+              "b5c4",
+              "a5c4",
+              "d6d5"
+            ]
+          }
+        ],
+        "proof": null,
+        "verification": "defense_searched",
+        "time_limit": 4.027,
+        "material": {
+          "changes_cp": [
+            100,
+            -400,
+            -300,
+            -300,
+            -300,
+            -300,
+            20,
+            -480,
+            20,
+            20,
+            20,
+            -80,
+            -80
+          ],
+          "low_cp": -480,
+          "last_cp": -80,
+          "sustained_piece_loss": {
+            "ply": 2,
+            "piece": "R"
+          }
+        },
+        "legal_replies": 38,
+        "defense_time_limit": 1.37,
+        "draw_claim": false,
+        "material_under_defense": {
+          "changes_cp": [
+            100,
+            -400,
+            -300,
+            -300,
+            -300,
+            -400,
+            -300,
+            -400
+          ],
+          "low_cp": -400,
+          "last_cp": -400,
+          "sustained_piece_loss": {
+            "ply": 2,
+            "piece": "R"
+          }
+        },
+        "defense_agrees_at_depth": true,
+        "defense_accepts": true
+      },
+      {
+        "move": "e1e4",
+        "offer": {
+          "move": "e1e4",
+          "piece": "R",
+          "acceptances": [
+            {
+              "uci": "f6e4",
+              "material_risk_cp": 180
+            }
+          ],
+          "label": "희생 후보 · 검증 필요"
+        },
+        "reference": false,
+        "iterations": [
+          {
+            "depth": 1,
+            "score": -175,
+            "nodes": 260,
+            "seconds": 0.008,
+            "pv": [
+              "e1e4",
+              "a8d5",
+              "f4d6",
+              "d8d6"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -175,
+            "nodes": 731,
+            "seconds": 0.017,
+            "pv": [
+              "e1e4",
+              "a8d5",
+              "f4d6",
+              "d8d6"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -175,
+            "nodes": 1434,
+            "seconds": 0.031,
+            "pv": [
+              "e1e4",
+              "a8d5",
+              "f4d6",
+              "d8d6"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -175,
+            "nodes": 4081,
+            "seconds": 0.065,
+            "pv": [
+              "e1e4",
+              "a8d5",
+              "f4d6",
+              "d8d6"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -170,
+            "nodes": 14718,
+            "seconds": 0.253,
+            "pv": [
+              "e1e4",
+              "a8d5",
+              "f4d6",
+              "d8d6",
+              "e4e7",
+              "a7b8"
+            ]
+          },
+          {
+            "depth": 6,
+            "score": -180,
+            "nodes": 46377,
+            "seconds": 0.765,
+            "pv": [
+              "e1e4",
+              "a8d5",
+              "f4d6",
+              "d8d6",
+              "e4f4",
+              "a7b8"
+            ]
+          },
+          {
+            "depth": 7,
+            "score": -234,
+            "nodes": 230028,
+            "seconds": 3.938,
+            "pv": [
+              "e1e4",
+              "f6e4",
+              "f3e4",
+              "d6f4",
+              "g3f4",
+              "f7f5",
+              "e4f5",
+              "a8d5",
+              "f5g6",
+              "h7g6"
+            ]
+          }
+        ],
+        "comparison": {
+          "depth": 7,
+          "score": -234,
+          "reference_score": -18,
+          "delta_for_mover": -216
+        },
+        "defenses": [
+          {
+            "depth": 1,
+            "score": -175,
+            "nodes": 431,
+            "seconds": 0.01,
+            "pv": [
+              "a8d5",
+              "f4d6",
+              "d8d6"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -175,
+            "nodes": 2145,
+            "seconds": 0.047,
+            "pv": [
+              "a8d5",
+              "f4d6",
+              "d8d6"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -175,
+            "nodes": 4954,
+            "seconds": 0.084,
+            "pv": [
+              "a8d5",
+              "f4d6",
+              "d8d6"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -170,
+            "nodes": 17217,
+            "seconds": 0.309,
+            "pv": [
+              "a8d5",
+              "f4d6",
+              "d8d6",
+              "e4e7",
+              "a7b8"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -180,
+            "nodes": 48480,
+            "seconds": 0.806,
+            "pv": [
+              "a8d5",
+              "f4d6",
+              "d8d6",
+              "e4f4",
+              "a7b8"
+            ]
+          }
+        ],
+        "proof": null,
+        "verification": "defense_searched",
+        "time_limit": 4.027,
+        "material": {
+          "changes_cp": [
+            0,
+            -500,
+            -180,
+            -1080,
+            -180,
+            -180,
+            -80,
+            -180,
+            -80,
+            -180
+          ],
+          "low_cp": -1080,
+          "last_cp": -180,
+          "sustained_piece_loss": {
+            "ply": 2,
+            "piece": "R"
+          }
+        },
+        "legal_replies": 38,
+        "defense_time_limit": 1.37,
+        "draw_claim": false,
+        "material_under_defense": {
+          "changes_cp": [
+            0,
+            -100,
+            800,
+            -100,
+            -100,
+            -100
+          ],
+          "low_cp": -100,
+          "last_cp": -100,
+          "sustained_piece_loss": {
+            "ply": 4,
+            "piece": "Q"
+          }
+        },
+        "defense_agrees_at_depth": true,
+        "defense_accepts": false
+      }
+    ],
+    "phase": "done",
+    "attempting": 6,
+    "elapsed": 59.673,
+    "outcome": "completed",
+    "root_move": "a5c6"
+  }
+}

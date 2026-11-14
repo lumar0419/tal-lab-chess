@@ -94,6 +94,7 @@ python native_engine.py research.runtime_bench_v092 --output evidence/v092/rerun
 ```sh
 python -m unittest discover -q
 python native_engine.py unittest discover -q
+python -m research.uci_backend_v092
 python test_engine.py --quick
 python test_uci.py
 python perft.py
@@ -150,3 +151,9 @@ python -m research.pruning_trace --replay trace.json --index 0 --seconds 10 --ou
 기본 빠른 분석과 보수적 심층 프로필에 새 공격적 가지치기를 추가하지 않았습니다.
 반복에 관한 탐색 내부의 2회 근사도 유지합니다. TT의 검색 간 무승부 이력 오염은 차단했지만,
 모든 경로의 그래프 이력 의존성까지 완전히 제거한 증명은 아닙니다.
+
+명시적 Kasparov 수락 후 Re7+ 분기는 다음 입력으로 재현할 수 있습니다.
+
+```sh
+pypy3 -m research.probe_search < evidence/v092/kasparov-re7-task.json
+```

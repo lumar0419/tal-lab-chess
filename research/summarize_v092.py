@@ -82,6 +82,8 @@ def main():
     summary['workflows']=workflows
     checks=read('checks')
     if checks:summary['checks']=checks
+    rechecks=read('rechecks')
+    if rechecks:summary['rechecks']=rechecks
     ROOT.joinpath('summary.json').write_text(json.dumps(summary,indent=2)+'\n')
     print(json.dumps(summary,indent=2))
 

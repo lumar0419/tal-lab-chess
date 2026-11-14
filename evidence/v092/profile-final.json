@@ -1,0 +1,1980 @@
+{
+  "python": "3.12.14",
+  "implementation": "CPython",
+  "platform": "Linux x86_64",
+  "depth": 5,
+  "selective": false,
+  "seconds": 1.777013055999987,
+  "nodes": 69661,
+  "rows": [
+    {
+      "depth": 1,
+      "score": 20,
+      "nodes": 186,
+      "seconds": 0.005576043000019126,
+      "pv": [
+        "f4d6",
+        "d8d6"
+      ]
+    },
+    {
+      "depth": 2,
+      "score": 20,
+      "nodes": 787,
+      "seconds": 0.02461225199999717,
+      "pv": [
+        "f4d6",
+        "d8d6"
+      ]
+    },
+    {
+      "depth": 3,
+      "score": 20,
+      "nodes": 6587,
+      "seconds": 0.15501047099996867,
+      "pv": [
+        "f4d6",
+        "d8d6",
+        "e1e7",
+        "a7b8"
+      ]
+    },
+    {
+      "depth": 4,
+      "score": -10,
+      "nodes": 28702,
+      "seconds": 0.7910790450000604,
+      "pv": [
+        "a5c6",
+        "a8c6",
+        "d5c6",
+        "d6f4",
+        "g3f4"
+      ]
+    },
+    {
+      "depth": 5,
+      "score": -20,
+      "nodes": 69661,
+      "seconds": 1.7683011920000808,
+      "pv": [
+        "a5c6",
+        "a8c6",
+        "d5c6",
+        "d6f4",
+        "g3f4",
+        "c5c4"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "file": "board.py",
+      "line": 519,
+      "function": "pseudo_legal_moves",
+      "calls": 14936,
+      "primitive": 14936,
+      "own_seconds": 0.23415195200000002,
+      "cumulative_seconds": 0.337373925,
+      "own_us_per_call": 15.677018746652385,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            5274,
+            5274,
+            0.11732505300000001,
+            0.188196354
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "quiesce",
+          "stats": [
+            9661,
+            9661,
+            0.11678352,
+            0.149119402
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "legal_moves",
+          "stats": [
+            1,
+            1,
+            4.3379000000000006e-05,
+            5.8169000000000005e-05
+          ]
+        }
+      ]
+    },
+    {
+      "file": "evaluate.py",
+      "line": 746,
+      "function": "evaluate_white",
+      "calls": 32516,
+      "primitive": 32516,
+      "own_seconds": 0.229856681,
+      "cumulative_seconds": 0.34021497500000003,
+      "own_us_per_call": 7.069033122155247,
+      "callers": [
+        {
+          "file": "evaluate.py",
+          "function": "evaluate",
+          "stats": [
+            32516,
+            32516,
+            0.229856681,
+            0.34021497500000003
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 331,
+      "function": "is_attacked",
+      "calls": 102208,
+      "primitive": 102208,
+      "own_seconds": 0.156161626,
+      "cumulative_seconds": 0.156161626,
+      "own_us_per_call": 1.5278806551346273,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "_ep_hash_key",
+          "stats": [
+            551,
+            551,
+            0.0008491120000000001,
+            0.0008491120000000001
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            30416,
+            30416,
+            0.046928548,
+            0.046928548
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "quiesce",
+          "stats": [
+            38230,
+            38230,
+            0.05816965,
+            0.05816965
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "_quiesce_evasions",
+          "stats": [
+            1769,
+            1769,
+            0.0027622460000000003,
+            0.0027622460000000003
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "in_check",
+          "stats": [
+            31195,
+            31195,
+            0.047401928,
+            0.047401928
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "legal_moves",
+          "stats": [
+            47,
+            47,
+            5.0142e-05,
+            5.0142e-05
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 598,
+      "function": "negamax",
+      "calls": 29494,
+      "primitive": 5,
+      "own_seconds": 0.14664353400000002,
+      "cumulative_seconds": 1.7677425050000002,
+      "own_us_per_call": 4.9719785041025295,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            5,
+            5,
+            0.0010134710000000002,
+            1.7677425050000002
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            29489,
+            236,
+            0.145630063,
+            1.7651141410000002
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 949,
+      "function": "quiesce",
+      "calls": 40167,
+      "primitive": 20361,
+      "own_seconds": 0.129713927,
+      "cumulative_seconds": 0.95183328,
+      "own_us_per_call": 3.229365573729679,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            20361,
+            20361,
+            0.067243853,
+            0.95183328
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "quiesce",
+          "stats": [
+            18325,
+            12308,
+            0.053855056000000005,
+            0.5047779010000001
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "_quiesce_evasions",
+          "stats": [
+            1481,
+            990,
+            0.008615018,
+            0.138522754
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 772,
+      "function": "make_move",
+      "calls": 50656,
+      "primitive": 50656,
+      "own_seconds": 0.11618204800000001,
+      "cumulative_seconds": 0.129928963,
+      "own_us_per_call": 2.2935495893872395,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            30416,
+            30416,
+            0.069255415,
+            0.07878180800000001
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "quiesce",
+          "stats": [
+            18424,
+            18424,
+            0.043276174,
+            0.047185242
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "_quiesce_evasions",
+          "stats": [
+            1769,
+            1769,
+            0.0035813950000000002,
+            0.003880758
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "legal_moves",
+          "stats": [
+            47,
+            47,
+            6.9064e-05,
+            8.1155e-05
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 1274,
+      "function": "priority",
+      "calls": 229813,
+      "primitive": 229813,
+      "own_seconds": 0.11232165100000001,
+      "cumulative_seconds": 0.15095615,
+      "own_us_per_call": 0.4887523812839135,
+      "callers": [
+        {
+          "file": "~",
+          "function": "<method 'sort' of 'list' objects>",
+          "stats": [
+            229813,
+            229813,
+            0.11232165100000001,
+            0.15095615
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 728,
+      "function": "has_legal_move",
+      "calls": 30332,
+      "primitive": 30332,
+      "own_seconds": 0.082795882,
+      "cumulative_seconds": 0.111108047,
+      "own_us_per_call": 2.7296545562442303,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "quiesce",
+          "stats": [
+            30331,
+            30331,
+            0.08276080100000001,
+            0.11107035500000001
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "outcome",
+          "stats": [
+            1,
+            1,
+            3.5081000000000005e-05,
+            3.7692000000000004e-05
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'sort' of 'list' objects>",
+      "calls": 17096,
+      "primitive": 17096,
+      "own_seconds": 0.070478475,
+      "cumulative_seconds": 0.23149223500000002,
+      "own_us_per_call": 4.12251257604118,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "order_moves",
+          "stats": [
+            6423,
+            6423,
+            0.058686146,
+            0.209642296
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "quiesce",
+          "stats": [
+            9661,
+            9661,
+            0.009869431000000001,
+            0.018682923
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "_quiesce_evasions",
+          "stats": [
+            1012,
+            1012,
+            0.0019228980000000001,
+            0.0031670160000000004
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'get' of 'dict' objects>",
+      "calls": 270078,
+      "primitive": 270078,
+      "own_seconds": 0.065506223,
+      "cumulative_seconds": 0.065506223,
+      "own_us_per_call": 0.242545572019935,
+      "callers": [
+        {
+          "file": "evaluate.py",
+          "function": "evaluate_white",
+          "stats": [
+            32516,
+            32516,
+            0.010067261000000001,
+            0.010067261000000001
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            2075,
+            2075,
+            0.00048719400000000004,
+            0.00048719400000000004
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "priority",
+          "stats": [
+            196332,
+            196332,
+            0.038634499,
+            0.038634499
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "quiesce",
+          "stats": [
+            39155,
+            39155,
+            0.016317269000000002,
+            0.016317269000000002
+          ]
+        }
+      ]
+    },
+    {
+      "file": "evaluate.py",
+      "line": 396,
+      "function": "_pawn_structure",
+      "calls": 1830,
+      "primitive": 1830,
+      "own_seconds": 0.054683767,
+      "cumulative_seconds": 0.085882713,
+      "own_us_per_call": 29.88183989071038,
+      "callers": [
+        {
+          "file": "evaluate.py",
+          "function": "_pawn_entry",
+          "stats": [
+            1830,
+            1830,
+            0.054683767,
+            0.085882713
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 822,
+      "function": "unmake_move",
+      "calls": 50656,
+      "primitive": 50656,
+      "own_seconds": 0.043978219000000006,
+      "cumulative_seconds": 0.053278574,
+      "own_us_per_call": 0.8681739379343021,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            30416,
+            30416,
+            0.025788002,
+            0.031369465
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "quiesce",
+          "stats": [
+            18424,
+            18424,
+            0.016749806000000002,
+            0.020002754
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "_quiesce_evasions",
+          "stats": [
+            1769,
+            1769,
+            0.001413621,
+            0.001873141
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "legal_moves",
+          "stats": [
+            47,
+            47,
+            2.6790000000000003e-05,
+            3.3214000000000004e-05
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'append' of 'list' objects>",
+      "calls": 312120,
+      "primitive": 312120,
+      "own_seconds": 0.043712433,
+      "cumulative_seconds": 0.043712433,
+      "own_us_per_call": 0.14005008650519032,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "evasion_candidates",
+          "stats": [
+            2161,
+            2161,
+            0.000442843,
+            0.000442843
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "pseudo_legal_moves",
+          "stats": [
+            210252,
+            210252,
+            0.026492083000000003,
+            0.026492083000000003
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "_generate_evasions",
+          "stats": [
+            13033,
+            13033,
+            0.001992686,
+            0.001992686
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "make_move",
+          "stats": [
+            50656,
+            50656,
+            0.009135632000000001,
+            0.009135632000000001
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "_add_pawn_move",
+          "stats": [
+            35966,
+            35966,
+            0.005641950000000001,
+            0.005641950000000001
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "legal_moves",
+          "stats": [
+            47,
+            47,
+            5.871e-06,
+            5.871e-06
+          ]
+        },
+        {
+          "file": "profile_v092.py",
+          "function": "<lambda>",
+          "stats": [
+            5,
+            5,
+            1.368e-06,
+            1.368e-06
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'upper' of 'str' objects>",
+      "calls": 225022,
+      "primitive": 225022,
+      "own_seconds": 0.038662115000000004,
+      "cumulative_seconds": 0.038662115000000004,
+      "own_us_per_call": 0.17181482255068395,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "pseudo_legal_moves",
+          "stats": [
+            166933,
+            166933,
+            0.027376804,
+            0.027376804
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "_generate_evasions",
+          "stats": [
+            24872,
+            24872,
+            0.0039176950000000006,
+            0.0039176950000000006
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "has_legal_move",
+          "stats": [
+            33211,
+            33211,
+            0.007366193,
+            0.007366193
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "make_move",
+          "stats": [
+            6,
+            6,
+            1.4230000000000002e-06,
+            1.4230000000000002e-06
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 651,
+      "function": "_generate_evasions",
+      "calls": 2161,
+      "primitive": 2161,
+      "own_seconds": 0.029111693,
+      "cumulative_seconds": 0.035184301,
+      "own_us_per_call": 13.471398889403053,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "evasion_candidates",
+          "stats": [
+            2161,
+            2161,
+            0.029111693,
+            0.035184301
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 86,
+      "function": "rank_of",
+      "calls": 237142,
+      "primitive": 237142,
+      "own_seconds": 0.027768470000000003,
+      "cumulative_seconds": 0.027768470000000003,
+      "own_us_per_call": 0.1170963810712569,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "pseudo_legal_moves",
+          "stats": [
+            74806,
+            74806,
+            0.008964368,
+            0.008964368
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "_generate_evasions",
+          "stats": [
+            17,
+            17,
+            2.047e-06,
+            2.047e-06
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "has_legal_move",
+          "stats": [
+            81248,
+            81248,
+            0.009560167000000001,
+            0.009560167000000001
+          ]
+        },
+        {
+          "file": "evaluate.py",
+          "function": "_pawn_structure",
+          "stats": [
+            44768,
+            44768,
+            0.004397111,
+            0.004397111
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            352,
+            352,
+            6.0087e-05,
+            6.0087e-05
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "_add_pawn_move",
+          "stats": [
+            35951,
+            35951,
+            0.00478469,
+            0.00478469
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 699,
+      "function": "_add_pawn_move",
+      "calls": 35951,
+      "primitive": 35951,
+      "own_seconds": 0.02575123,
+      "cumulative_seconds": 0.036191727,
+      "own_us_per_call": 0.7162868904898334,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "pseudo_legal_moves",
+          "stats": [
+            35796,
+            35796,
+            0.025640318000000002,
+            0.036031547000000004
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "_generate_evasions",
+          "stats": [
+            155,
+            155,
+            0.00011091200000000001,
+            0.00016018
+          ]
+        }
+      ]
+    },
+    {
+      "file": "evaluate.py",
+      "line": 835,
+      "function": "evaluate",
+      "calls": 32516,
+      "primitive": 32516,
+      "own_seconds": 0.017483870000000002,
+      "cumulative_seconds": 0.35769884500000004,
+      "own_us_per_call": 0.537700516668717,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "quiesce",
+          "stats": [
+            32516,
+            32516,
+            0.017483870000000002,
+            0.35769884500000004
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 366,
+      "function": "in_check",
+      "calls": 31195,
+      "primitive": 31195,
+      "own_seconds": 0.016356434,
+      "cumulative_seconds": 0.063758362,
+      "own_us_per_call": 0.5243287065234813,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            31194,
+            31194,
+            0.016353544,
+            0.063752247
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "outcome",
+          "stats": [
+            1,
+            1,
+            2.8900000000000003e-06,
+            6.115000000000001e-06
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 570,
+      "function": "evasion_candidates",
+      "calls": 2161,
+      "primitive": 2161,
+      "own_seconds": 0.012434997000000001,
+      "cumulative_seconds": 0.048463186000000005,
+      "own_us_per_call": 5.754279037482648,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            1149,
+            1149,
+            0.006891309000000001,
+            0.026969316
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "_quiesce_evasions",
+          "stats": [
+            1012,
+            1012,
+            0.005543688000000001,
+            0.02149387
+          ]
+        }
+      ]
+    },
+    {
+      "file": "evaluate.py",
+      "line": 735,
+      "function": "_pawn_entry",
+      "calls": 1830,
+      "primitive": 1830,
+      "own_seconds": 0.011779181000000001,
+      "cumulative_seconds": 0.100291033,
+      "own_us_per_call": 6.43671092896175,
+      "callers": [
+        {
+          "file": "evaluate.py",
+          "function": "evaluate_white",
+          "stats": [
+            1830,
+            1830,
+            0.011779181000000001,
+            0.100291033
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 90,
+      "function": "file_of",
+      "calls": 81248,
+      "primitive": 81248,
+      "own_seconds": 0.011385805,
+      "cumulative_seconds": 0.011385805,
+      "own_us_per_call": 0.1401364341276093,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "has_legal_move",
+          "stats": [
+            81248,
+            81248,
+            0.011385805,
+            0.011385805
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'pop' of 'list' objects>",
+      "calls": 50656,
+      "primitive": 50656,
+      "own_seconds": 0.009300355,
+      "cumulative_seconds": 0.009300355,
+      "own_us_per_call": 0.1835982904295641,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "unmake_move",
+          "stats": [
+            50656,
+            50656,
+            0.009300355,
+            0.009300355
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 1023,
+      "function": "<lambda>",
+      "calls": 22906,
+      "primitive": 22906,
+      "own_seconds": 0.008813492000000001,
+      "cumulative_seconds": 0.008813492000000001,
+      "own_us_per_call": 0.38476783375534795,
+      "callers": [
+        {
+          "file": "~",
+          "function": "<method 'sort' of 'list' objects>",
+          "stats": [
+            22906,
+            22906,
+            0.008813492000000001,
+            0.008813492000000001
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.all>",
+      "calls": 21303,
+      "primitive": 21303,
+      "own_seconds": 0.008771055,
+      "cumulative_seconds": 0.013245842,
+      "own_us_per_call": 0.4117286297704549,
+      "callers": [
+        {
+          "file": "evaluate.py",
+          "function": "_pawn_structure",
+          "stats": [
+            21303,
+            21303,
+            0.008771055,
+            0.013245842
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 238,
+      "function": "store",
+      "calls": 6423,
+      "primitive": 6423,
+      "own_seconds": 0.007508056000000001,
+      "cumulative_seconds": 0.007508056000000001,
+      "own_us_per_call": 1.1689328973999689,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            6423,
+            6423,
+            0.007508056000000001,
+            0.007508056000000001
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 224,
+      "function": "get",
+      "calls": 9133,
+      "primitive": 9133,
+      "own_seconds": 0.007298422000000001,
+      "cumulative_seconds": 0.007298422000000001,
+      "own_us_per_call": 0.7991264644695062,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            9133,
+            9133,
+            0.007298422000000001,
+            0.007298422000000001
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.len>",
+      "calls": 36510,
+      "primitive": 36510,
+      "own_seconds": 0.005994953000000001,
+      "cumulative_seconds": 0.005994953000000001,
+      "own_us_per_call": 0.16420030128731855,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "evasion_candidates",
+          "stats": [
+            2161,
+            2161,
+            0.00040104500000000005,
+            0.00040104500000000005
+          ]
+        },
+        {
+          "file": "evaluate.py",
+          "function": "_pawn_entry",
+          "stats": [
+            1830,
+            1830,
+            0.00034515800000000003,
+            0.00034515800000000003
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            2,
+            2,
+            2.56e-07,
+            2.56e-07
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "quiesce",
+          "stats": [
+            32516,
+            32516,
+            0.0052482480000000005,
+            0.0052482480000000005
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "_same_side_hashes",
+          "stats": [
+            1,
+            1,
+            2.46e-07,
+            2.46e-07
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 1261,
+      "function": "order_moves",
+      "calls": 6423,
+      "primitive": 6423,
+      "own_seconds": 0.005887622,
+      "cumulative_seconds": 0.21552991800000001,
+      "own_us_per_call": 0.9166467382842909,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            6423,
+            6423,
+            0.005887622,
+            0.21552991800000001
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 1163,
+      "function": "_quiesce_evasions",
+      "calls": 1012,
+      "primitive": 738,
+      "own_seconds": 0.005402303000000001,
+      "cumulative_seconds": 0.166865814,
+      "own_us_per_call": 5.338244071146246,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "quiesce",
+          "stats": [
+            1012,
+            738,
+            0.005402303000000001,
+            0.166865814
+          ]
+        }
+      ]
+    },
+    {
+      "file": "evaluate.py",
+      "line": 422,
+      "function": "<genexpr>",
+      "calls": 29079,
+      "primitive": 29079,
+      "own_seconds": 0.005114834,
+      "cumulative_seconds": 0.005114834,
+      "own_us_per_call": 0.17589442553045156,
+      "callers": [
+        {
+          "file": "~",
+          "function": "<built-in method builtins.all>",
+          "stats": [
+            19580,
+            19580,
+            0.00284563,
+            0.00284563
+          ]
+        },
+        {
+          "file": "evaluate.py",
+          "function": "_pawn_structure",
+          "stats": [
+            9499,
+            9499,
+            0.002269204,
+            0.002269204
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.min>",
+      "calls": 22384,
+      "primitive": 22384,
+      "own_seconds": 0.004824206,
+      "cumulative_seconds": 0.004824206,
+      "own_us_per_call": 0.21552028234453183,
+      "callers": [
+        {
+          "file": "evaluate.py",
+          "function": "_pawn_structure",
+          "stats": [
+            22384,
+            22384,
+            0.004824206,
+            0.004824206
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.max>",
+      "calls": 22386,
+      "primitive": 22386,
+      "own_seconds": 0.004491666,
+      "cumulative_seconds": 0.004491666,
+      "own_us_per_call": 0.2006462074510855,
+      "callers": [
+        {
+          "file": "evaluate.py",
+          "function": "_pawn_structure",
+          "stats": [
+            22384,
+            22384,
+            0.004490676,
+            0.004490676
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            1,
+            1,
+            5.000000000000001e-07,
+            5.000000000000001e-07
+          ]
+        },
+        {
+          "file": "board.py",
+          "function": "_same_side_hashes",
+          "stats": [
+            1,
+            1,
+            4.900000000000001e-07,
+            4.900000000000001e-07
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 707,
+      "function": "_add_castling",
+      "calls": 5275,
+      "primitive": 5275,
+      "own_seconds": 0.004357171,
+      "cumulative_seconds": 0.004357171,
+      "own_us_per_call": 0.826003981042654,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "pseudo_legal_moves",
+          "stats": [
+            5275,
+            5275,
+            0.004357171,
+            0.004357171
+          ]
+        }
+      ]
+    },
+    {
+      "file": "evaluate.py",
+      "line": 425,
+      "function": "<genexpr>",
+      "calls": 25689,
+      "primitive": 25689,
+      "own_seconds": 0.003601064,
+      "cumulative_seconds": 0.003601064,
+      "own_us_per_call": 0.14017922067811125,
+      "callers": [
+        {
+          "file": "~",
+          "function": "<built-in method builtins.all>",
+          "stats": [
+            15557,
+            15557,
+            0.001629157,
+            0.001629157
+          ]
+        },
+        {
+          "file": "evaluate.py",
+          "function": "_pawn_structure",
+          "stats": [
+            10132,
+            10132,
+            0.001971907,
+            0.001971907
+          ]
+        }
+      ]
+    },
+    {
+      "file": "evaluate.py",
+      "line": 508,
+      "function": "_files_mask",
+      "calls": 3660,
+      "primitive": 3660,
+      "own_seconds": 0.002283981,
+      "cumulative_seconds": 0.002283981,
+      "own_us_per_call": 0.624038524590164,
+      "callers": [
+        {
+          "file": "evaluate.py",
+          "function": "_pawn_entry",
+          "stats": [
+            3660,
+            3660,
+            0.002283981,
+            0.002283981
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.abs>",
+      "calls": 12025,
+      "primitive": 12025,
+      "own_seconds": 0.002277645,
+      "cumulative_seconds": 0.002277645,
+      "own_us_per_call": 0.18940914760914762,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "make_move",
+          "stats": [
+            12025,
+            12025,
+            0.002277645,
+            0.002277645
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 158,
+      "function": "_to_tt",
+      "calls": 6423,
+      "primitive": 6423,
+      "own_seconds": 0.0018089640000000001,
+      "cumulative_seconds": 0.0018089640000000001,
+      "own_us_per_call": 0.28163848668846336,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            6423,
+            6423,
+            0.0018089640000000001,
+            0.0018089640000000001
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 308,
+      "function": "_ep_hash_key",
+      "calls": 1288,
+      "primitive": 1288,
+      "own_seconds": 0.0014831030000000002,
+      "cumulative_seconds": 0.0023322150000000003,
+      "own_us_per_call": 1.1514774844720497,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "make_move",
+          "stats": [
+            1288,
+            1288,
+            0.0014831030000000002,
+            0.0023322150000000003
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 1168,
+      "function": "<lambda>",
+      "calls": 6485,
+      "primitive": 6485,
+      "own_seconds": 0.001244118,
+      "cumulative_seconds": 0.001244118,
+      "own_us_per_call": 0.1918454895913647,
+      "callers": [
+        {
+          "file": "~",
+          "function": "<method 'sort' of 'list' objects>",
+          "stats": [
+            6485,
+            6485,
+            0.001244118,
+            0.001244118
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 384,
+      "function": "search",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 0.000692703,
+      "cumulative_seconds": 1.7689192800000002,
+      "own_us_per_call": 692.703,
+      "callers": []
+    },
+    {
+      "file": "search.py",
+      "line": 167,
+      "function": "_from_tt",
+      "calls": 2719,
+      "primitive": 2719,
+      "own_seconds": 0.0005179070000000001,
+      "cumulative_seconds": 0.0005179070000000001,
+      "own_us_per_call": 0.1904770136079441,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            2719,
+            2719,
+            0.0005179070000000001,
+            0.0005179070000000001
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 1316,
+      "function": "_check_limits",
+      "calls": 70,
+      "primitive": 70,
+      "own_seconds": 9.771500000000001e-05,
+      "cumulative_seconds": 0.000110969,
+      "own_us_per_call": 1.3959285714285714,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            5,
+            5,
+            6.954000000000001e-06,
+            8.233e-06
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "negamax",
+          "stats": [
+            36,
+            36,
+            5.0941000000000006e-05,
+            5.7405000000000003e-05
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "quiesce",
+          "stats": [
+            29,
+            29,
+            3.982e-05,
+            4.5331000000000004e-05
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 718,
+      "function": "legal_moves",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 5.055e-05,
+      "cumulative_seconds": 0.000279101,
+      "own_us_per_call": 50.550000000000004,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            1,
+            1,
+            5.055e-05,
+            0.000279101
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 288,
+      "function": "restore",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 3.2768e-05,
+      "cumulative_seconds": 3.2768e-05,
+      "own_us_per_call": 32.768,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            1,
+            1,
+            3.2768e-05,
+            3.2768e-05
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 76,
+      "function": "sq_name",
+      "calls": 38,
+      "primitive": 38,
+      "own_seconds": 2.8116000000000003e-05,
+      "cumulative_seconds": 2.8116000000000003e-05,
+      "own_us_per_call": 0.7398947368421054,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "uci",
+          "stats": [
+            38,
+            38,
+            2.8116000000000003e-05,
+            2.8116000000000003e-05
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 2.6782000000000002e-05,
+      "cumulative_seconds": 2.6782000000000002e-05,
+      "own_us_per_call": 26.782000000000004,
+      "callers": []
+    },
+    {
+      "file": "profile_v092.py",
+      "line": 35,
+      "function": "<lambda>",
+      "calls": 5,
+      "primitive": 5,
+      "own_seconds": 2.3588000000000002e-05,
+      "cumulative_seconds": 7.2619e-05,
+      "own_us_per_call": 4.7176,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            5,
+            5,
+            2.3588000000000002e-05,
+            7.2619e-05
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 144,
+      "function": "uci",
+      "calls": 19,
+      "primitive": 19,
+      "own_seconds": 1.9547e-05,
+      "cumulative_seconds": 4.7663e-05,
+      "own_us_per_call": 1.0287894736842105,
+      "callers": [
+        {
+          "file": "profile_v092.py",
+          "function": "<lambda>",
+          "stats": [
+            19,
+            19,
+            1.9547e-05,
+            4.7663e-05
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 1329,
+      "function": "_check_interval",
+      "calls": 71,
+      "primitive": 71,
+      "own_seconds": 1.3884000000000001e-05,
+      "cumulative_seconds": 1.3884000000000001e-05,
+      "own_us_per_call": 0.1955492957746479,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            1,
+            1,
+            6.3e-07,
+            6.3e-07
+          ]
+        },
+        {
+          "file": "search.py",
+          "function": "_check_limits",
+          "stats": [
+            70,
+            70,
+            1.3254e-05,
+            1.3254e-05
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method __new__ of type object>",
+      "calls": 25,
+      "primitive": 25,
+      "own_seconds": 1.1378e-05,
+      "cumulative_seconds": 1.1378e-05,
+      "own_us_per_call": 0.45512,
+      "callers": [
+        {
+          "file": "<string>",
+          "function": "<lambda>",
+          "stats": [
+            25,
+            25,
+            1.1378e-05,
+            1.1378e-05
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 906,
+      "function": "outcome",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 9.343e-06,
+      "cumulative_seconds": 6.3021e-05,
+      "own_us_per_call": 9.343,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            1,
+            1,
+            9.343e-06,
+            6.3021e-05
+          ]
+        }
+      ]
+    },
+    {
+      "file": "<string>",
+      "line": 1,
+      "function": "<lambda>",
+      "calls": 20,
+      "primitive": 20,
+      "own_seconds": 7.424e-06,
+      "cumulative_seconds": 1.3857000000000001e-05,
+      "own_us_per_call": 0.37120000000000003,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "_add_pawn_move",
+          "stats": [
+            20,
+            20,
+            7.424e-06,
+            1.3857000000000001e-05
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method time.monotonic>",
+      "calls": 6,
+      "primitive": 6,
+      "own_seconds": 4.923e-06,
+      "cumulative_seconds": 4.923e-06,
+      "own_us_per_call": 0.8205,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            6,
+            6,
+            4.923e-06,
+            4.923e-06
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 878,
+      "function": "repetition_count",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 2.9910000000000002e-06,
+      "cumulative_seconds": 8.45e-06,
+      "own_us_per_call": 2.991,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "outcome",
+          "stats": [
+            1,
+            1,
+            2.9910000000000002e-06,
+            8.45e-06
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 872,
+      "function": "_same_side_hashes",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 2.2990000000000004e-06,
+      "cumulative_seconds": 3.035e-06,
+      "own_us_per_call": 2.2990000000000004,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "repetition_count",
+          "stats": [
+            1,
+            1,
+            2.2990000000000004e-06,
+            3.035e-06
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 129,
+      "function": "mate_plies",
+      "calls": 5,
+      "primitive": 5,
+      "own_seconds": 2.0720000000000002e-06,
+      "cumulative_seconds": 2.0720000000000002e-06,
+      "own_us_per_call": 0.4144,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            5,
+            5,
+            2.0720000000000002e-06,
+            2.0720000000000002e-06
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 883,
+      "function": "insufficient_material",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 1.421e-06,
+      "cumulative_seconds": 1.421e-06,
+      "own_us_per_call": 1.421,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "outcome",
+          "stats": [
+            1,
+            1,
+            1.421e-06,
+            1.421e-06
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 881,
+      "function": "<genexpr>",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 1.165e-06,
+      "cumulative_seconds": 1.311e-06,
+      "own_us_per_call": 1.165,
+      "callers": [
+        {
+          "file": "~",
+          "function": "<built-in method builtins.sum>",
+          "stats": [
+            1,
+            1,
+            1.165e-06,
+            1.311e-06
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.sum>",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 1.113e-06,
+      "cumulative_seconds": 2.424e-06,
+      "own_us_per_call": 1.113,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "repetition_count",
+          "stats": [
+            1,
+            1,
+            1.113e-06,
+            2.424e-06
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 283,
+      "function": "snapshot",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 9.86e-07,
+      "cumulative_seconds": 9.86e-07,
+      "own_us_per_call": 0.986,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            1,
+            1,
+            9.86e-07,
+            9.86e-07
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'clear' of 'dict' objects>",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 5.29e-07,
+      "cumulative_seconds": 5.29e-07,
+      "own_us_per_call": 0.529,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            1,
+            1,
+            5.29e-07,
+            5.29e-07
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 218,
+      "function": "new_search",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 4.61e-07,
+      "cumulative_seconds": 4.61e-07,
+      "own_us_per_call": 0.461,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            1,
+            1,
+            4.61e-07,
+            4.61e-07
+          ]
+        }
+      ]
+    },
+    {
+      "file": "search.py",
+      "line": 450,
+      "function": "<genexpr>",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 2.7800000000000003e-07,
+      "cumulative_seconds": 2.7800000000000003e-07,
+      "own_us_per_call": 0.278,
+      "callers": [
+        {
+          "file": "search.py",
+          "function": "search",
+          "stats": [
+            1,
+            1,
+            2.7800000000000003e-07,
+            2.7800000000000003e-07
+          ]
+        }
+      ]
+    },
+    {
+      "file": "board.py",
+      "line": 876,
+      "function": "<genexpr>",
+      "calls": 1,
+      "primitive": 1,
+      "own_seconds": 1.46e-07,
+      "cumulative_seconds": 1.46e-07,
+      "own_us_per_call": 0.14600000000000002,
+      "callers": [
+        {
+          "file": "board.py",
+          "function": "<genexpr>",
+          "stats": [
+            1,
+            1,
+            1.46e-07,
+            1.46e-07
+          ]
+        }
+      ]
+    }
+  ]
+}

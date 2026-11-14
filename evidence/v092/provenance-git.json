@@ -1,0 +1,14 @@
+{
+  "remote_main": "4b91b757a49b2b33ae1fdbebd00fd350bc905442",
+  "remote_branches": [
+    "main"
+  ],
+  "zip_base_commit": "4fa222e",
+  "zip_has_git_history": false,
+  "remote_main_readme_version": "0.5.5",
+  "development_branch": "development/performance-accuracy-v092",
+  "v090_commit_referenced_by_archive": "af02d346f5f5411dff973e2e0109bdc4f84d1a3c",
+  "v090_available": false,
+  "v090_fetch_result": "remote error: upload-pack: not our ref",
+  "policy": "No push, no main updates, no Render deployment. Deliver patch and Git bundle."
+}

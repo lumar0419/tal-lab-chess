@@ -1,0 +1,21 @@
+{
+  "cpu": "Intel Xeon Platinum 8370C @ 2.80GHz",
+  "platform": "Linux x86_64",
+  "python": "3.12.14",
+  "affinity": [
+    0,
+    1,
+    2
+  ],
+  "cpu_quota": "200000 100000",
+  "memory_max": "8589934592",
+  "notes": [
+    "Core 0: long searches/deep workflow. Core 2: sequential timing/tactics/match/tests.",
+    "profile-python was exploratory and overlapped original tests; not used for speed ratios.",
+    "Fixed timing uses alternating fresh processes, 3 repeats, sum of per-case medians.",
+    "Long general Searcher: TT preserve_deeper=False. Deep workflow: TT preserve_deeper=True.",
+    "Initial PyPy quick test had an asynchronous UCI command race; fixed test waits for each bestmove, preserving mate assertion. See initial and rerun logs.",
+    "The native-uci check in checks.json alone launches portable subprocesses; actual-native-uci.log separately validates 55 assertions against the Cython child process.",
+    "PyPy initial standalone test_uci skipped chess-dependent tests. Its later quick/oracle checks used chess==1.11.2 via PYTHONPATH."
+  ]
+}

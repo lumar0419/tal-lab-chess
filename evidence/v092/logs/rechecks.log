@@ -1,0 +1,10 @@
+START quick-basics-cpython
+END quick-basics-cpython 0
+START quick-pypy-fixed
+END quick-pypy-fixed 0
+START oracle-pypy
+END oracle-pypy 0
+START unit-final-cpython
+END unit-final-cpython 0
+START unit-final-cython
+END unit-final-cython 0

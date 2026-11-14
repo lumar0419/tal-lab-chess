@@ -1,0 +1,1224 @@
+{
+  "case": {
+    "master": "Akiba Rubinstein",
+    "players": "Georg Rotlewi – Akiba Rubinstein",
+    "year": 1907,
+    "source": "https://chessmotion.com/explore/famous-chess-games/rotlewi-rubinstein-immortal",
+    "id": "rotlewi_rubinstein_1907_ply44",
+    "fen": "2rr2k1/1b3ppp/pb2p3/1p2P3/1P2BPnq/P1N3P1/1B2Q2P/R4R1K b - - 0 22",
+    "historical_uci": "c8c3",
+    "historical_san": "Rxc3",
+    "themes": [
+      "rook",
+      "queen",
+      "defender_removal",
+      "king_attack",
+      "serial"
+    ],
+    "history": [
+      "d2d4",
+      "d7d5",
+      "g1f3",
+      "e7e6",
+      "e2e3",
+      "c7c5",
+      "c2c4",
+      "b8c6",
+      "b1c3",
+      "g8f6",
+      "d4c5",
+      "f8c5",
+      "a2a3",
+      "a7a6",
+      "b2b4",
+      "c5d6",
+      "c1b2",
+      "e8g8",
+      "d1d2",
+      "d8e7",
+      "f1d3",
+      "d5c4",
+      "d3c4",
+      "b7b5",
+      "c4d3",
+      "f8d8",
+      "d2e2",
+      "c8b7",
+      "e1g1",
+      "c6e5",
+      "f3e5",
+      "d6e5",
+      "f2f4",
+      "e5c7",
+      "e3e4",
+      "a8c8",
+      "e4e5",
+      "c7b6",
+      "g1h1",
+      "f6g4",
+      "d3e4",
+      "e7h4",
+      "g2g3"
+    ],
+    "bm": [
+      "c8c3"
+    ],
+    "suite": "historical"
+  },
+  "runtime": "CPython",
+  "python": "3.12.14",
+  "backend": "baseline-v091/board.py",
+  "report": {
+    "fen": "2rr2k1/1b3ppp/pb2p3/1p2P3/1P2BPnq/P1N3P1/1B2Q2P/R4R1K b - - 0 22",
+    "history": [],
+    "profile": "conservative",
+    "budget": 180.0,
+    "root": [
+      {
+        "depth": 1,
+        "score": -6,
+        "nodes": 434,
+        "seconds": 0.01,
+        "pv": [
+          "h4e7",
+          "e4b7",
+          "e7b7",
+          "c3e4"
+        ]
+      },
+      {
+        "depth": 2,
+        "score": -5,
+        "nodes": 2213,
+        "seconds": 0.039,
+        "pv": [
+          "h4e7",
+          "a1d1"
+        ]
+      },
+      {
+        "depth": 3,
+        "score": -6,
+        "nodes": 11227,
+        "seconds": 0.153,
+        "pv": [
+          "h4e7",
+          "e4b7",
+          "e7b7",
+          "c3e4"
+        ]
+      },
+      {
+        "depth": 4,
+        "score": -10,
+        "nodes": 46420,
+        "seconds": 0.797,
+        "pv": [
+          "h4e7",
+          "f1f3",
+          "b7c6",
+          "a1e1"
+        ]
+      },
+      {
+        "depth": 5,
+        "score": -115,
+        "nodes": 168663,
+        "seconds": 2.64,
+        "pv": [
+          "b7e4",
+          "c3e4",
+          "h4h2",
+          "e2h2",
+          "g4h2",
+          "f1e1",
+          "h2f3"
+        ]
+      },
+      {
+        "depth": 6,
+        "score": -110,
+        "nodes": 495427,
+        "seconds": 8.167,
+        "pv": [
+          "b7e4",
+          "c3e4",
+          "h4h2",
+          "e2h2",
+          "g4h2",
+          "f1b1",
+          "h2f3",
+          "h1g2"
+        ]
+      },
+      {
+        "depth": 7,
+        "score": -108,
+        "nodes": 1167452,
+        "seconds": 19.992,
+        "pv": [
+          "b7e4",
+          "c3e4",
+          "h4h2",
+          "e2h2",
+          "g4h2",
+          "f1d1",
+          "h2f3",
+          "d1d8",
+          "c8d8",
+          "h1g2"
+        ]
+      },
+      {
+        "depth": 8,
+        "score": -109,
+        "nodes": 3362690,
+        "seconds": 61.451,
+        "pv": [
+          "b7e4",
+          "c3e4",
+          "h4h2",
+          "e2h2",
+          "g4h2",
+          "f1d1",
+          "h2f3",
+          "h1g2",
+          "f3d4",
+          "b2d4",
+          "b6d4"
+        ]
+      }
+    ],
+    "screen": [
+      [
+        {
+          "depth": 1,
+          "score": 214,
+          "nodes": 415,
+          "seconds": 0.016,
+          "pv": [
+            "h4h2",
+            "e2h2",
+            "g4h2",
+            "h1h2"
+          ]
+        },
+        {
+          "depth": 1,
+          "score": 318,
+          "nodes": 799,
+          "seconds": 0.022,
+          "pv": [
+            "g4f2",
+            "f1f2"
+          ]
+        }
+      ],
+      [
+        {
+          "depth": 2,
+          "score": 214,
+          "nodes": 1352,
+          "seconds": 0.035,
+          "pv": [
+            "h4h2",
+            "e2h2",
+            "g4h2",
+            "h1h2"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 313,
+          "nodes": 2040,
+          "seconds": 0.052,
+          "pv": [
+            "g4f2",
+            "f1f2",
+            "h4e7"
+          ]
+        }
+      ],
+      [
+        {
+          "depth": 3,
+          "score": 214,
+          "nodes": 5048,
+          "seconds": 0.09,
+          "pv": [
+            "h4h2",
+            "e2h2",
+            "g4h2",
+            "h1h2"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 313,
+          "nodes": 8966,
+          "seconds": 0.142,
+          "pv": [
+            "g4f2",
+            "f1f2",
+            "h4e7",
+            "f2f3"
+          ]
+        }
+      ],
+      [
+        {
+          "depth": 4,
+          "score": 116,
+          "nodes": 18162,
+          "seconds": 0.283,
+          "pv": [
+            "h4h2",
+            "e2h2",
+            "g4h2",
+            "e4b7",
+            "h2f1",
+            "b7c8",
+            "f1g3",
+            "h1g2",
+            "d8c8",
+            "g2g3"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": 128,
+          "nodes": 29932,
+          "seconds": 0.434,
+          "pv": [
+            "c8c3",
+            "g3h4",
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "e4g2",
+            "h1g2"
+          ]
+        }
+      ],
+      [
+        {
+          "depth": 5,
+          "score": -115,
+          "nodes": 30467,
+          "seconds": 0.446,
+          "pv": [
+            "h4h2",
+            "e2h2",
+            "b7e4",
+            "c3e4",
+            "g4h2",
+            "f1d1",
+            "h2f3"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": 128,
+          "nodes": 46834,
+          "seconds": 0.664,
+          "pv": [
+            "c8c3",
+            "g3h4",
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "e4g2",
+            "h1g2"
+          ]
+        }
+      ],
+      [
+        {
+          "depth": 6,
+          "score": -110,
+          "nodes": 48340,
+          "seconds": 0.703,
+          "pv": [
+            "h4h2",
+            "e2h2",
+            "b7e4",
+            "c3e4",
+            "g4h2",
+            "f1c1",
+            "h2f3",
+            "h1g2"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": 128,
+          "nodes": 83689,
+          "seconds": 1.582,
+          "pv": [
+            "c8c3",
+            "g3h4",
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "e4g2",
+            "h1g2"
+          ]
+        }
+      ],
+      [
+        {
+          "depth": 7,
+          "score": -108,
+          "nodes": 86772,
+          "seconds": 1.649,
+          "pv": [
+            "h4h2",
+            "e2h2",
+            "b7e4",
+            "c3e4",
+            "g4h2",
+            "f1d1",
+            "h2f3",
+            "d1d8",
+            "c8d8",
+            "h1g2"
+          ]
+        },
+        {
+          "depth": 7,
+          "score": 38,
+          "nodes": 144395,
+          "seconds": 2.683,
+          "pv": [
+            "c8c3",
+            "g3h4",
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "e4g2",
+            "h1g2",
+            "c3c2",
+            "g2g3",
+            "c2b2",
+            "g3g4",
+            "b2h2"
+          ]
+        }
+      ]
+    ],
+    "offers_found": 20,
+    "screen_complete": true,
+    "candidates": [
+      {
+        "move": "b7e4",
+        "offer": null,
+        "reference": true,
+        "iterations": [
+          {
+            "depth": 1,
+            "score": -1,
+            "nodes": 25,
+            "seconds": 0.002,
+            "pv": [
+              "b7e4",
+              "c3e4"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -1,
+            "nodes": 208,
+            "seconds": 0.007,
+            "pv": [
+              "b7e4",
+              "c3e4",
+              "h4h5"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 3,
+            "nodes": 930,
+            "seconds": 0.027,
+            "pv": [
+              "b7e4",
+              "c3e4",
+              "h4h5",
+              "a1d1"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -6,
+            "nodes": 7750,
+            "seconds": 0.136,
+            "pv": [
+              "b7e4",
+              "c3e4",
+              "h4h5",
+              "a1e1",
+              "h5f5"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -115,
+            "nodes": 26263,
+            "seconds": 0.468,
+            "pv": [
+              "b7e4",
+              "c3e4",
+              "h4h2",
+              "e2h2",
+              "g4h2",
+              "f1d1",
+              "h2f3"
+            ]
+          },
+          {
+            "depth": 6,
+            "score": -110,
+            "nodes": 59447,
+            "seconds": 1.056,
+            "pv": [
+              "b7e4",
+              "c3e4",
+              "h4h2",
+              "e2h2",
+              "g4h2",
+              "f1b1",
+              "h2f3",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 7,
+            "score": -108,
+            "nodes": 205342,
+            "seconds": 3.432,
+            "pv": [
+              "b7e4",
+              "c3e4",
+              "h4h2",
+              "e2h2",
+              "g4h2",
+              "f1d1",
+              "h2f3",
+              "d1d8",
+              "c8d8",
+              "h1g2"
+            ]
+          }
+        ],
+        "comparison": {
+          "depth": 7,
+          "score": -108,
+          "reference_score": -108,
+          "delta_for_mover": 0
+        },
+        "defenses": [
+          {
+            "depth": 1,
+            "score": -1,
+            "nodes": 212,
+            "seconds": 0.005,
+            "pv": [
+              "c3e4",
+              "h4h5"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 3,
+            "nodes": 955,
+            "seconds": 0.019,
+            "pv": [
+              "c3e4",
+              "h4h5",
+              "a1d1"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -6,
+            "nodes": 7842,
+            "seconds": 0.101,
+            "pv": [
+              "c3e4",
+              "h4h5",
+              "a1e1",
+              "h5f5"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -115,
+            "nodes": 27533,
+            "seconds": 0.452,
+            "pv": [
+              "c3e4",
+              "h4h2",
+              "e2h2",
+              "g4h2",
+              "f1d1",
+              "h2f3"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -110,
+            "nodes": 61335,
+            "seconds": 0.957,
+            "pv": [
+              "c3e4",
+              "h4h2",
+              "e2h2",
+              "g4h2",
+              "f1b1",
+              "h2f3",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 6,
+            "score": -108,
+            "nodes": 215883,
+            "seconds": 3.37,
+            "pv": [
+              "c3e4",
+              "h4h2",
+              "e2h2",
+              "g4h2",
+              "f1d1",
+              "h2f3",
+              "d1d8",
+              "c8d8",
+              "h1g2"
+            ]
+          }
+        ],
+        "proof": null,
+        "verification": "defense_searched",
+        "time_limit": 14.896,
+        "material": {
+          "changes_cp": [
+            330,
+            0,
+            100,
+            -800,
+            100,
+            100,
+            100,
+            -400,
+            100,
+            100
+          ],
+          "low_cp": -800,
+          "last_cp": 100,
+          "sustained_piece_loss": null
+        },
+        "legal_replies": 5,
+        "defense_time_limit": 4.877,
+        "draw_claim": false,
+        "material_under_defense": {
+          "changes_cp": [
+            330,
+            0,
+            100,
+            -800,
+            100,
+            100,
+            100,
+            -400,
+            100,
+            100
+          ],
+          "low_cp": -800,
+          "last_cp": 100,
+          "sustained_piece_loss": null
+        },
+        "defense_agrees_at_depth": true
+      },
+      {
+        "move": "c8c3",
+        "offer": {
+          "move": "c8c3",
+          "piece": "r",
+          "acceptances": [
+            {
+              "uci": "b2c3",
+              "material_risk_cp": 180
+            }
+          ],
+          "label": "희생 후보 · 검증 필요"
+        },
+        "reference": false,
+        "iterations": [
+          {
+            "depth": 1,
+            "score": 523,
+            "nodes": 43,
+            "seconds": 0.006,
+            "pv": [
+              "c8c3",
+              "g3h4",
+              "b7e4",
+              "e2e4"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 523,
+            "nodes": 152,
+            "seconds": 0.011,
+            "pv": [
+              "c8c3",
+              "g3h4",
+              "b7e4",
+              "e2e4"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 521,
+            "nodes": 654,
+            "seconds": 0.039,
+            "pv": [
+              "c8c3",
+              "g3h4",
+              "d8d2"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 128,
+            "nodes": 3228,
+            "seconds": 0.204,
+            "pv": [
+              "c8c3",
+              "g3h4",
+              "d8d2",
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": 128,
+            "nodes": 13506,
+            "seconds": 0.54,
+            "pv": [
+              "c8c3",
+              "g3h4",
+              "d8d2",
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 6,
+            "score": 128,
+            "nodes": 40196,
+            "seconds": 1.666,
+            "pv": [
+              "c8c3",
+              "g3h4",
+              "d8d2",
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 7,
+            "score": 38,
+            "nodes": 105268,
+            "seconds": 4.577,
+            "pv": [
+              "c8c3",
+              "g3h4",
+              "d8d2",
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2",
+              "c3c2",
+              "g2g3",
+              "c2b2",
+              "g3g4",
+              "b2h2"
+            ]
+          },
+          {
+            "depth": 8,
+            "score": 38,
+            "nodes": 328057,
+            "seconds": 12.269,
+            "pv": [
+              "c8c3",
+              "g3h4",
+              "d8d2",
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2",
+              "c3c2",
+              "g2g3",
+              "c2b2",
+              "g3g4",
+              "b2h2"
+            ]
+          }
+        ],
+        "comparison": {
+          "depth": 7,
+          "score": 38,
+          "reference_score": -108,
+          "delta_for_mover": -146
+        },
+        "defenses": [
+          {
+            "depth": 1,
+            "score": 523,
+            "nodes": 108,
+            "seconds": 0.003,
+            "pv": [
+              "g3h4",
+              "b7e4",
+              "e2e4"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 521,
+            "nodes": 687,
+            "seconds": 0.015,
+            "pv": [
+              "g3h4",
+              "d8d2"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 128,
+            "nodes": 3212,
+            "seconds": 0.07,
+            "pv": [
+              "g3h4",
+              "d8d2",
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 128,
+            "nodes": 14382,
+            "seconds": 0.247,
+            "pv": [
+              "g3h4",
+              "d8d2",
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": 128,
+            "nodes": 42658,
+            "seconds": 0.72,
+            "pv": [
+              "g3h4",
+              "d8d2",
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 6,
+            "score": 38,
+            "nodes": 113008,
+            "seconds": 1.902,
+            "pv": [
+              "g3h4",
+              "d8d2",
+              "e2d2",
+              "b7e4",
+              "d2g2",
+              "e4g2",
+              "h1g2",
+              "c3c2",
+              "g2g3",
+              "c2b2",
+              "g3g4",
+              "b2h2"
+            ]
+          }
+        ],
+        "proof": null,
+        "verification": "defense_searched",
+        "time_limit": 14.896,
+        "material": {
+          "changes_cp": [
+            320,
+            -580,
+            -580,
+            -1080,
+            -750,
+            -750,
+            150,
+            -180,
+            -180,
+            -180,
+            150,
+            -170,
+            -70
+          ],
+          "low_cp": -1080,
+          "last_cp": -70,
+          "sustained_piece_loss": {
+            "ply": 2,
+            "piece": "Q"
+          }
+        },
+        "legal_replies": 36,
+        "defense_time_limit": 4.877,
+        "draw_claim": false,
+        "material_under_defense": {
+          "changes_cp": [
+            320,
+            -580,
+            -580,
+            -1080,
+            -750,
+            -750,
+            150,
+            -180,
+            -180,
+            -180,
+            150,
+            -170,
+            -70
+          ],
+          "low_cp": -1080,
+          "last_cp": -70,
+          "sustained_piece_loss": {
+            "ply": 2,
+            "piece": "Q"
+          }
+        },
+        "defense_agrees_at_depth": true,
+        "defense_accepts": false
+      },
+      {
+        "move": "h4h2",
+        "offer": {
+          "move": "h4h2",
+          "piece": "q",
+          "acceptances": [
+            {
+              "uci": "e2h2",
+              "material_risk_cp": 220
+            }
+          ],
+          "label": "희생 후보 · 검증 필요"
+        },
+        "reference": false,
+        "iterations": [
+          {
+            "depth": 1,
+            "score": 214,
+            "nodes": 50,
+            "seconds": 0.009,
+            "pv": [
+              "h4h2",
+              "e2h2",
+              "g4h2",
+              "h1h2"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 214,
+            "nodes": 210,
+            "seconds": 0.023,
+            "pv": [
+              "h4h2",
+              "e2h2",
+              "g4h2",
+              "h1h2"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 214,
+            "nodes": 801,
+            "seconds": 0.061,
+            "pv": [
+              "h4h2",
+              "e2h2",
+              "g4h2",
+              "h1h2"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 116,
+            "nodes": 5518,
+            "seconds": 0.251,
+            "pv": [
+              "h4h2",
+              "e2h2",
+              "g4h2",
+              "e4b7",
+              "h2f1",
+              "b7c8",
+              "f1g3",
+              "h1g2",
+              "d8c8",
+              "g2g3"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -115,
+            "nodes": 22383,
+            "seconds": 1.135,
+            "pv": [
+              "h4h2",
+              "e2h2",
+              "b7e4",
+              "c3e4",
+              "g4h2",
+              "f1e1",
+              "h2f3"
+            ]
+          },
+          {
+            "depth": 6,
+            "score": -110,
+            "nodes": 55995,
+            "seconds": 2.037,
+            "pv": [
+              "h4h2",
+              "e2h2",
+              "b7e4",
+              "c3e4",
+              "g4h2",
+              "f1b1",
+              "h2f3",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 7,
+            "score": -108,
+            "nodes": 188368,
+            "seconds": 3.85,
+            "pv": [
+              "h4h2",
+              "e2h2",
+              "b7e4",
+              "c3e4",
+              "g4h2",
+              "f1d1",
+              "h2f3",
+              "d1d8",
+              "c8d8",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 8,
+            "score": -109,
+            "nodes": 548294,
+            "seconds": 10.635,
+            "pv": [
+              "h4h2",
+              "e2h2",
+              "b7e4",
+              "c3e4",
+              "g4h2",
+              "f1d1",
+              "h2f3",
+              "h1g2",
+              "f3d4",
+              "b2d4",
+              "b6d4"
+            ]
+          }
+        ],
+        "comparison": {
+          "depth": 7,
+          "score": -108,
+          "reference_score": -108,
+          "delta_for_mover": 0
+        },
+        "defenses": [
+          {
+            "depth": 1,
+            "score": 214,
+            "nodes": 136,
+            "seconds": 0.005,
+            "pv": [
+              "e2h2",
+              "g4h2",
+              "h1h2"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 214,
+            "nodes": 726,
+            "seconds": 0.021,
+            "pv": [
+              "e2h2",
+              "g4h2",
+              "h1h2"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 116,
+            "nodes": 5546,
+            "seconds": 0.099,
+            "pv": [
+              "e2h2",
+              "g4h2",
+              "e4b7",
+              "h2f1",
+              "b7c8",
+              "f1g3",
+              "h1g2",
+              "d8c8",
+              "g2g3"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -115,
+            "nodes": 27865,
+            "seconds": 0.419,
+            "pv": [
+              "e2h2",
+              "b7e4",
+              "c3e4",
+              "g4h2",
+              "f1e1",
+              "h2f3"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -110,
+            "nodes": 66435,
+            "seconds": 1.055,
+            "pv": [
+              "e2h2",
+              "b7e4",
+              "c3e4",
+              "g4h2",
+              "f1b1",
+              "h2f3",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 6,
+            "score": -108,
+            "nodes": 199027,
+            "seconds": 3.104,
+            "pv": [
+              "e2h2",
+              "b7e4",
+              "c3e4",
+              "g4h2",
+              "f1d1",
+              "h2f3",
+              "d1d8",
+              "c8d8",
+              "h1g2"
+            ]
+          }
+        ],
+        "proof": null,
+        "verification": "defense_searched",
+        "time_limit": 14.896,
+        "material": {
+          "changes_cp": [
+            100,
+            -800,
+            -470,
+            -800,
+            100,
+            100,
+            100,
+            100,
+            100,
+            -220,
+            110
+          ],
+          "low_cp": -800,
+          "last_cp": 110,
+          "sustained_piece_loss": {
+            "ply": 2,
+            "piece": "Q"
+          }
+        },
+        "legal_replies": 1,
+        "defense_time_limit": 4.877,
+        "draw_claim": false,
+        "material_under_defense": {
+          "changes_cp": [
+            100,
+            -800,
+            -470,
+            -800,
+            100,
+            100,
+            100,
+            -400,
+            100,
+            100
+          ],
+          "low_cp": -800,
+          "last_cp": 100,
+          "sustained_piece_loss": {
+            "ply": 2,
+            "piece": "Q"
+          }
+        },
+        "defense_agrees_at_depth": true,
+        "defense_accepts": true
+      }
+    ],
+    "phase": "done",
+    "attempting": 7,
+    "elapsed": 178.79,
+    "outcome": "completed",
+    "root_move": "b7e4"
+  }
+}

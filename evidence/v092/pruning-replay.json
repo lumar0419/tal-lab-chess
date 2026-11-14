@@ -1,0 +1,32 @@
+{
+  "event": {
+    "reason": "qs_see",
+    "fen": "b6r/k4p1p/p2r1np1/NppP4/3p4/P4PPB/1PP4P/1K1RR3 w - - 0 25",
+    "ply": 2,
+    "depth": 0,
+    "move": "d1d4",
+    "history": [
+      "f4d6",
+      "d8d6"
+    ],
+    "gain": 0,
+    "root_len": 0,
+    "nodes": 4,
+    "alpha": 20,
+    "beta": 918,
+    "static_eval": 20
+  },
+  "scope": "Fresh TT, full window, forced root branch; original search context is not reproduced.",
+  "runs": {
+    "selective": {
+      "score": -371,
+      "nodes": 2,
+      "depth": 0
+    },
+    "full": {
+      "score": -371,
+      "nodes": 5,
+      "depth": 0
+    }
+  }
+}

@@ -1,0 +1,1308 @@
+{
+  "runtime": "CPython",
+  "seconds": 20,
+  "rows": [
+    {
+      "case": "kasparov_topalov_1999_ply47",
+      "prefix": [
+        "d1d4",
+        "c5d4"
+      ],
+      "fen": "b2r3r/k4p1p/p2q1np1/Np1P4/3p1Q2/P4PPB/1PP4P/1K2R3 w - - 0 25",
+      "iterations": [
+        {
+          "depth": 1,
+          "score_white": -275,
+          "nodes": 132,
+          "seconds": 0.002245396000034816,
+          "pv": [
+            "f4d4",
+            "a7b8"
+          ]
+        },
+        {
+          "depth": 2,
+          "score_white": -371,
+          "nodes": 1423,
+          "seconds": 0.031264773000202695,
+          "pv": [
+            "f4d6",
+            "d8d6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score_white": -370,
+          "nodes": 6422,
+          "seconds": 0.08957276900036959,
+          "pv": [
+            "f4d6",
+            "d8d6",
+            "e1e7",
+            "a7b8"
+          ]
+        },
+        {
+          "depth": 4,
+          "score_white": -383,
+          "nodes": 27223,
+          "seconds": 0.379854343000261,
+          "pv": [
+            "f4d4",
+            "a7b8",
+            "c2c4",
+            "b5c4",
+            "a5c4",
+            "d6d5"
+          ]
+        },
+        {
+          "depth": 5,
+          "score_white": -105,
+          "nodes": 109858,
+          "seconds": 1.5945653380003932,
+          "pv": [
+            "f4d4",
+            "d6b6",
+            "e1e7",
+            "f6d7",
+            "e7d7",
+            "d8d7",
+            "d4h8",
+            "b6g1",
+            "b1a2",
+            "a8d5",
+            "a5b3"
+          ]
+        },
+        {
+          "depth": 6,
+          "score_white": -105,
+          "nodes": 327444,
+          "seconds": 4.656946131000041,
+          "pv": [
+            "f4d4",
+            "d6b6",
+            "e1e7",
+            "f6d7",
+            "e7d7",
+            "d8d7",
+            "d4h8",
+            "b6g1",
+            "b1a2",
+            "a8d5",
+            "a5b3"
+          ]
+        },
+        {
+          "depth": 7,
+          "score_white": -105,
+          "nodes": 1078395,
+          "seconds": 15.723417174000133,
+          "pv": [
+            "f4d4",
+            "d6b6",
+            "e1e7",
+            "f6d7",
+            "e7d7",
+            "d8d7",
+            "d4h8",
+            "a8d5",
+            "a5b3",
+            "b6g1",
+            "b1a2"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "kasparov_topalov_1999_ply47",
+      "prefix": [
+        "d1d4",
+        "a7b6"
+      ],
+      "fen": "b2r3r/5p1p/pk1q1np1/NppP4/3R1Q2/P4PPB/1PP4P/1K2R3 w - - 1 25",
+      "iterations": [
+        {
+          "depth": 1,
+          "score_white": 150,
+          "nodes": 350,
+          "seconds": 0.007025150000117719,
+          "pv": [
+            "f4d6",
+            "d8d6"
+          ]
+        },
+        {
+          "depth": 2,
+          "score_white": -98,
+          "nodes": 2006,
+          "seconds": 0.03865598199990927,
+          "pv": [
+            "f4d6",
+            "d8d6",
+            "a5c4",
+            "b5c4"
+          ]
+        },
+        {
+          "depth": 3,
+          "score_white": -45,
+          "nodes": 9459,
+          "seconds": 0.1277604550000433,
+          "pv": [
+            "d4a4",
+            "a8d5",
+            "f4d6",
+            "d8d6"
+          ]
+        },
+        {
+          "depth": 4,
+          "score_white": -36,
+          "nodes": 41101,
+          "seconds": 0.6530609809997259,
+          "pv": [
+            "b2b4",
+            "c5b4",
+            "a3b4",
+            "a8d5"
+          ]
+        },
+        {
+          "depth": 5,
+          "score_white": -35,
+          "nodes": 107576,
+          "seconds": 1.5942880839997997,
+          "pv": [
+            "b2b4",
+            "f6d5",
+            "f4d6",
+            "d8d6",
+            "b4c5",
+            "b6c5",
+            "a5b3",
+            "c5c6"
+          ]
+        },
+        {
+          "depth": 6,
+          "score_white": -30,
+          "nodes": 371529,
+          "seconds": 5.3292226479998135,
+          "pv": [
+            "b2b4",
+            "d6f4",
+            "d4f4",
+            "f6d5",
+            "f4f7",
+            "c5b4"
+          ]
+        },
+        {
+          "depth": 7,
+          "score_white": -35,
+          "nodes": 1255653,
+          "seconds": 19.360023313000056,
+          "pv": [
+            "b2b4",
+            "f6d5",
+            "f4d6",
+            "d8d6",
+            "b4c5",
+            "b6c5",
+            "a5b3",
+            "c5c6",
+            "c2c4",
+            "d5c3",
+            "b1c2"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "kasparov_topalov_1999_ply47",
+      "prefix": [
+        "d1d4",
+        "a8d5"
+      ],
+      "fen": "3r3r/k4p1p/p2q1np1/Nppb4/3R1Q2/P4PPB/1PP4P/1K2R3 w - - 0 25",
+      "iterations": [
+        {
+          "depth": 1,
+          "score_white": -50,
+          "nodes": 357,
+          "seconds": 0.00604880500031868,
+          "pv": [
+            "f4d6",
+            "d8d6"
+          ]
+        },
+        {
+          "depth": 2,
+          "score_white": -50,
+          "nodes": 1224,
+          "seconds": 0.01710318699997515,
+          "pv": [
+            "f4d6",
+            "d8d6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score_white": -45,
+          "nodes": 7610,
+          "seconds": 0.10124659100029021,
+          "pv": [
+            "f4d6",
+            "d8d6",
+            "d4d1"
+          ]
+        },
+        {
+          "depth": 4,
+          "score_white": -40,
+          "nodes": 31452,
+          "seconds": 0.474601032999999,
+          "pv": [
+            "f4d6",
+            "d8d6",
+            "e1e7",
+            "a7b8",
+            "a5b7"
+          ]
+        },
+        {
+          "depth": 5,
+          "score_white": -40,
+          "nodes": 105653,
+          "seconds": 1.5391848180001944,
+          "pv": [
+            "f4d6",
+            "d8d6",
+            "d4d1",
+            "c5c4",
+            "e1e7",
+            "a7b6"
+          ]
+        },
+        {
+          "depth": 6,
+          "score_white": -35,
+          "nodes": 347594,
+          "seconds": 5.384972479000226,
+          "pv": [
+            "f4d6",
+            "d8d6",
+            "d4d1",
+            "d6d8",
+            "a5b3",
+            "d5b3",
+            "c2b3",
+            "d8d1",
+            "e1d1"
+          ]
+        },
+        {
+          "depth": 7,
+          "score_white": -35,
+          "nodes": 1097558,
+          "seconds": 16.991246480999962,
+          "pv": [
+            "f4d6",
+            "d8d6",
+            "d4d1",
+            "d6d8",
+            "a5b3",
+            "d5b3",
+            "c2b3",
+            "d8d1",
+            "e1d1"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "rotlewi_rubinstein_1907_ply44",
+      "prefix": [
+        "c8c3",
+        "g3h4"
+      ],
+      "fen": "3r2k1/1b3ppp/pb2p3/1p2P3/1P2BPnP/P1r5/1B2Q2P/R4R1K b - - 0 23",
+      "iterations": [
+        {
+          "depth": 1,
+          "score_white": 521,
+          "nodes": 275,
+          "seconds": 0.0059381169999142,
+          "pv": [
+            "d8d2"
+          ]
+        },
+        {
+          "depth": 2,
+          "score_white": 128,
+          "nodes": 1339,
+          "seconds": 0.02575985099974787,
+          "pv": [
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "e4g2",
+            "h1g2"
+          ]
+        },
+        {
+          "depth": 3,
+          "score_white": 128,
+          "nodes": 7579,
+          "seconds": 0.09331212199958827,
+          "pv": [
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "e4g2",
+            "h1g2"
+          ]
+        },
+        {
+          "depth": 4,
+          "score_white": 128,
+          "nodes": 27863,
+          "seconds": 0.4134346060000098,
+          "pv": [
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "e4g2",
+            "h1g2"
+          ]
+        },
+        {
+          "depth": 5,
+          "score_white": 38,
+          "nodes": 68117,
+          "seconds": 0.9830548649997581,
+          "pv": [
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "e4g2",
+            "h1g2",
+            "c3c2",
+            "g2g3",
+            "c2b2",
+            "g3g4",
+            "b2h2"
+          ]
+        },
+        {
+          "depth": 6,
+          "score_white": 38,
+          "nodes": 217292,
+          "seconds": 2.8895240939996256,
+          "pv": [
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "e4g2",
+            "h1g2",
+            "c3c2",
+            "g2g3",
+            "c2b2",
+            "g3g4",
+            "b2h2"
+          ]
+        },
+        {
+          "depth": 7,
+          "score_white": -788,
+          "nodes": 619540,
+          "seconds": 9.214521347999835,
+          "pv": [
+            "d8d2",
+            "e2d2",
+            "b7e4",
+            "d2g2",
+            "c3h3",
+            "b2d4",
+            "h3h2",
+            "h1g1",
+            "b6d4",
+            "g2f2",
+            "d4f2",
+            "f1f2",
+            "h2f2"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "rotlewi_rubinstein_1907_ply44",
+      "prefix": [
+        "c8c3",
+        "e4b7"
+      ],
+      "fen": "3r2k1/1B3ppp/pb2p3/1p2P3/1P3Pnq/P1r3P1/1B2Q2P/R4R1K b - - 0 23",
+      "iterations": [
+        {
+          "depth": 1,
+          "score_white": 21,
+          "nodes": 287,
+          "seconds": 0.005149408999841398,
+          "pv": [
+            "c3g3",
+            "b7a6"
+          ]
+        },
+        {
+          "depth": 2,
+          "score_white": 21,
+          "nodes": 1312,
+          "seconds": 0.019905959999960032,
+          "pv": [
+            "c3g3",
+            "b7a6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score_white": 11,
+          "nodes": 8880,
+          "seconds": 0.11594237099961902,
+          "pv": [
+            "c3g3",
+            "b7a6",
+            "g4e3"
+          ]
+        },
+        {
+          "depth": 4,
+          "score_white": -73,
+          "nodes": 40799,
+          "seconds": 0.7289411909996488,
+          "pv": [
+            "c3g3",
+            "f1f3",
+            "g3f3",
+            "b7f3"
+          ]
+        },
+        {
+          "depth": 5,
+          "score_white": -152,
+          "nodes": 114807,
+          "seconds": 1.7516322989999935,
+          "pv": [
+            "c3g3",
+            "b7f3",
+            "g3g1",
+            "f1g1",
+            "g4f2",
+            "e2f2",
+            "h4f2"
+          ]
+        },
+        {
+          "depth": 6,
+          "score_white": -183,
+          "nodes": 516133,
+          "seconds": 8.837330652999754,
+          "pv": [
+            "c3g3",
+            "f1f3",
+            "g3f3",
+            "b7f3",
+            "g4f2",
+            "h1g2",
+            "h4f4"
+          ]
+        },
+        {
+          "depth": 7,
+          "score_white": -240,
+          "nodes": 1138343,
+          "seconds": 19.947671868999805,
+          "pv": [
+            "c3g3",
+            "f1f3",
+            "g3f3",
+            "b7f3",
+            "g4f2",
+            "h1g1",
+            "f2d3",
+            "g1f1",
+            "d3b2",
+            "e2b2",
+            "h4f4"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "lasker_bauer_1889_ply33",
+      "prefix": [
+        "e5g7",
+        "g8g7",
+        "h5g4",
+        "g7h7"
+      ],
+      "fen": "r4r2/1b2bp1k/ppq1p3/2pp4/5PQ1/1P2P3/P1PP2PP/R4RK1 w - - 2 19",
+      "iterations": [
+        {
+          "depth": 1,
+          "score_white": -496,
+          "nodes": 104,
+          "seconds": 0.0034335290001763497,
+          "pv": [
+            "d2d3"
+          ]
+        },
+        {
+          "depth": 2,
+          "score_white": -506,
+          "nodes": 973,
+          "seconds": 0.0309822960002748,
+          "pv": [
+            "d2d3",
+            "e7f6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score_white": -163,
+          "nodes": 6288,
+          "seconds": 0.11359286500010057,
+          "pv": [
+            "f1f3",
+            "e7h4",
+            "g4h4",
+            "h7g8"
+          ]
+        },
+        {
+          "depth": 4,
+          "score_white": -157,
+          "nodes": 28620,
+          "seconds": 0.4470130660001814,
+          "pv": [
+            "f1f3",
+            "e7g5",
+            "g4g5",
+            "c5c4",
+            "b3c4",
+            "c6c4"
+          ]
+        },
+        {
+          "depth": 5,
+          "score_white": 25,
+          "nodes": 125618,
+          "seconds": 1.9861656060002133,
+          "pv": [
+            "f1f3",
+            "e6e5",
+            "f3h3",
+            "c6h6",
+            "g4f5",
+            "h7g7",
+            "h3h6",
+            "g7h6",
+            "f4e5"
+          ]
+        },
+        {
+          "depth": 6,
+          "score_white": 201,
+          "nodes": 498716,
+          "seconds": 7.446645720000106,
+          "pv": [
+            "f1f3",
+            "e6e5",
+            "f3h3",
+            "c6h6",
+            "h3h6",
+            "h7h6",
+            "g4d7",
+            "e5f4",
+            "d7b7"
+          ]
+        }
+      ]
+    }
+  ],
+  "false_offers": [
+    {
+      "case": {
+        "id": "queen_offer",
+        "fen": "7k/8/8/3p4/8/8/4Q3/4K3 w - - 0 1",
+        "forbidden": "e2e4",
+        "refutation": "d5e4"
+      },
+      "root": "e1d2",
+      "candidate": {
+        "move": "e2e4",
+        "offer": {
+          "move": "e2e4",
+          "piece": "Q",
+          "acceptances": [
+            {
+              "uci": "d5e4",
+              "material_risk_cp": 900
+            }
+          ],
+          "label": "희생 후보 · 검증 필요"
+        },
+        "reference": false,
+        "iterations": [
+          {
+            "depth": 1,
+            "score": -135,
+            "nodes": 4,
+            "seconds": 0.0,
+            "pv": [
+              "e2e4",
+              "d5e4"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -135,
+            "nodes": 14,
+            "seconds": 0.0,
+            "pv": [
+              "e2e4",
+              "d5e4"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -105,
+            "nodes": 46,
+            "seconds": 0.001,
+            "pv": [
+              "e2e4",
+              "d5e4",
+              "e1f2"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -125,
+            "nodes": 118,
+            "seconds": 0.002,
+            "pv": [
+              "e2e4",
+              "d5e4",
+              "e1f2",
+              "h8g7"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -95,
+            "nodes": 299,
+            "seconds": 0.005,
+            "pv": [
+              "e2e4",
+              "d5e4",
+              "e1f2",
+              "h8g7",
+              "f2e3"
+            ]
+          }
+        ],
+        "comparison": {
+          "depth": 5,
+          "score": -95,
+          "reference_score": 916,
+          "delta_for_mover": -1011
+        },
+        "defenses": [
+          {
+            "depth": 1,
+            "score": -135,
+            "nodes": 9,
+            "seconds": 0.0,
+            "pv": [
+              "d5e4"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -105,
+            "nodes": 40,
+            "seconds": 0.001,
+            "pv": [
+              "d5e4",
+              "e1f2"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -125,
+            "nodes": 119,
+            "seconds": 0.002,
+            "pv": [
+              "d5e4",
+              "e1f2",
+              "h8g7"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -95,
+            "nodes": 281,
+            "seconds": 0.004,
+            "pv": [
+              "d5e4",
+              "e1f2",
+              "h8g7",
+              "f2e3"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": 0,
+            "nodes": 529,
+            "seconds": 0.008,
+            "pv": [
+              "d5e4",
+              "e1f2",
+              "h8g7",
+              "f2e3",
+              "g7h8",
+              "e3e4"
+            ]
+          }
+        ],
+        "proof": null,
+        "verification": "defense_searched",
+        "time_limit": 0.843,
+        "material": {
+          "changes_cp": [
+            0,
+            -900,
+            -900,
+            -900,
+            -900
+          ],
+          "low_cp": -900,
+          "last_cp": -900,
+          "sustained_piece_loss": {
+            "ply": 2,
+            "piece": "Q"
+          }
+        },
+        "legal_replies": 4,
+        "defense_time_limit": 1.049,
+        "draw_claim": false,
+        "material_under_defense": {
+          "changes_cp": [
+            0,
+            -900,
+            -900,
+            -900,
+            -900,
+            -900,
+            -800
+          ],
+          "low_cp": -900,
+          "last_cp": -800,
+          "sustained_piece_loss": {
+            "ply": 2,
+            "piece": "Q"
+          }
+        },
+        "defense_accepts": true
+      },
+      "chose_forbidden": false
+    },
+    {
+      "case": {
+        "id": "rook_offer",
+        "fen": "7k/8/8/3p4/8/8/4R3/4K3 w - - 0 1",
+        "forbidden": "e2e4",
+        "refutation": "d5e4"
+      },
+      "root": "e2e7",
+      "candidate": {
+        "move": "e2e4",
+        "offer": {
+          "move": "e2e4",
+          "piece": "R",
+          "acceptances": [
+            {
+              "uci": "d5e4",
+              "material_risk_cp": 500
+            }
+          ],
+          "label": "희생 후보 · 검증 필요"
+        },
+        "reference": false,
+        "iterations": [
+          {
+            "depth": 1,
+            "score": -135,
+            "nodes": 4,
+            "seconds": 0.0,
+            "pv": [
+              "e2e4",
+              "d5e4"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -135,
+            "nodes": 16,
+            "seconds": 0.0,
+            "pv": [
+              "e2e4",
+              "d5e4"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -105,
+            "nodes": 41,
+            "seconds": 0.001,
+            "pv": [
+              "e2e4",
+              "d5e4",
+              "e1f2"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -125,
+            "nodes": 122,
+            "seconds": 0.002,
+            "pv": [
+              "e2e4",
+              "d5e4",
+              "e1f2",
+              "h8g7"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": -95,
+            "nodes": 271,
+            "seconds": 0.004,
+            "pv": [
+              "e2e4",
+              "d5e4",
+              "e1f2",
+              "h8g7",
+              "f2e3"
+            ]
+          }
+        ],
+        "comparison": {
+          "depth": 5,
+          "score": -95,
+          "reference_score": 497,
+          "delta_for_mover": -592
+        },
+        "defenses": [
+          {
+            "depth": 1,
+            "score": -135,
+            "nodes": 11,
+            "seconds": 0.0,
+            "pv": [
+              "d5e4"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": -105,
+            "nodes": 50,
+            "seconds": 0.001,
+            "pv": [
+              "d5e4",
+              "e1f2"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": -125,
+            "nodes": 149,
+            "seconds": 0.002,
+            "pv": [
+              "d5e4",
+              "e1f2",
+              "h8g7"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": -95,
+            "nodes": 301,
+            "seconds": 0.004,
+            "pv": [
+              "d5e4",
+              "e1f2",
+              "h8g7",
+              "f2e3"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": 0,
+            "nodes": 640,
+            "seconds": 0.008,
+            "pv": [
+              "d5e4",
+              "e1f2",
+              "h8g7",
+              "f2e3",
+              "g7h8",
+              "e3e4"
+            ]
+          }
+        ],
+        "proof": null,
+        "verification": "defense_searched",
+        "time_limit": 0.933,
+        "material": {
+          "changes_cp": [
+            0,
+            -500,
+            -500,
+            -500,
+            -500
+          ],
+          "low_cp": -500,
+          "last_cp": -500,
+          "sustained_piece_loss": {
+            "ply": 2,
+            "piece": "R"
+          }
+        },
+        "legal_replies": 5,
+        "defense_time_limit": 1.181,
+        "draw_claim": false,
+        "material_under_defense": {
+          "changes_cp": [
+            0,
+            -500,
+            -500,
+            -500,
+            -500,
+            -500,
+            -400
+          ],
+          "low_cp": -500,
+          "last_cp": -400,
+          "sustained_piece_loss": {
+            "ply": 2,
+            "piece": "R"
+          }
+        },
+        "defense_accepts": true
+      },
+      "chose_forbidden": false
+    },
+    {
+      "case": {
+        "id": "black_queen_offer",
+        "fen": "4k3/4q3/8/8/3P4/8/8/7K b - - 0 1",
+        "forbidden": "e7e5",
+        "refutation": "d4e5"
+      },
+      "root": "e7e4",
+      "candidate": {
+        "move": "e7e5",
+        "offer": {
+          "move": "e7e5",
+          "piece": "q",
+          "acceptances": [
+            {
+              "uci": "d4e5",
+              "material_risk_cp": 900
+            }
+          ],
+          "label": "희생 후보 · 검증 필요"
+        },
+        "reference": false,
+        "iterations": [
+          {
+            "depth": 1,
+            "score": 135,
+            "nodes": 4,
+            "seconds": 0.0,
+            "pv": [
+              "e7e5",
+              "d4e5"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 135,
+            "nodes": 14,
+            "seconds": 0.001,
+            "pv": [
+              "e7e5",
+              "d4e5"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 105,
+            "nodes": 46,
+            "seconds": 0.001,
+            "pv": [
+              "e7e5",
+              "d4e5",
+              "e8f7"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 125,
+            "nodes": 118,
+            "seconds": 0.002,
+            "pv": [
+              "e7e5",
+              "d4e5",
+              "e8f7",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": 95,
+            "nodes": 306,
+            "seconds": 0.006,
+            "pv": [
+              "e7e5",
+              "d4e5",
+              "e8f7",
+              "h1g2",
+              "f7e6"
+            ]
+          }
+        ],
+        "comparison": {
+          "depth": 5,
+          "score": 95,
+          "reference_score": -913,
+          "delta_for_mover": -1008
+        },
+        "defenses": [
+          {
+            "depth": 1,
+            "score": 135,
+            "nodes": 9,
+            "seconds": 0.0,
+            "pv": [
+              "d4e5"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 105,
+            "nodes": 40,
+            "seconds": 0.001,
+            "pv": [
+              "d4e5",
+              "e8f7"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 125,
+            "nodes": 106,
+            "seconds": 0.002,
+            "pv": [
+              "d4e5",
+              "e8f7",
+              "h1g2"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 95,
+            "nodes": 285,
+            "seconds": 0.004,
+            "pv": [
+              "d4e5",
+              "e8f7",
+              "h1g2",
+              "f7e6"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": 0,
+            "nodes": 546,
+            "seconds": 0.008,
+            "pv": [
+              "d4e5",
+              "e8f7",
+              "h1g2",
+              "f7e6",
+              "g2h3",
+              "e6e5"
+            ]
+          }
+        ],
+        "proof": null,
+        "verification": "defense_searched",
+        "time_limit": 0.847,
+        "material": {
+          "changes_cp": [
+            0,
+            -900,
+            -900,
+            -900,
+            -900
+          ],
+          "low_cp": -900,
+          "last_cp": -900,
+          "sustained_piece_loss": {
+            "ply": 2,
+            "piece": "Q"
+          }
+        },
+        "legal_replies": 4,
+        "defense_time_limit": 0.989,
+        "draw_claim": false,
+        "material_under_defense": {
+          "changes_cp": [
+            0,
+            -900,
+            -900,
+            -900,
+            -900,
+            -900,
+            -800
+          ],
+          "low_cp": -900,
+          "last_cp": -800,
+          "sustained_piece_loss": {
+            "ply": 2,
+            "piece": "Q"
+          }
+        },
+        "defense_accepts": true
+      },
+      "chose_forbidden": false
+    },
+    {
+      "case": {
+        "id": "capture_loses_to_mate",
+        "fen": "7k/8/6K1/8/8/8/6b1/R4Q2 b - - 0 1",
+        "forbidden": "g2f1",
+        "refutation": "a1a8"
+      },
+      "root": "g2e4",
+      "candidate": {
+        "move": "g2f1",
+        "offer": null,
+        "reference": false,
+        "iterations": [
+          {
+            "depth": 1,
+            "score": 531,
+            "nodes": 4,
+            "seconds": 0.0,
+            "pv": [
+              "g2f1",
+              "a1f1"
+            ]
+          },
+          {
+            "depth": 2,
+            "score": 99998,
+            "nodes": 41,
+            "seconds": 0.001,
+            "pv": [
+              "g2f1",
+              "a1a8"
+            ]
+          },
+          {
+            "depth": 3,
+            "score": 99998,
+            "nodes": 99,
+            "seconds": 0.001,
+            "pv": [
+              "g2f1",
+              "a1a8"
+            ]
+          },
+          {
+            "depth": 4,
+            "score": 99998,
+            "nodes": 755,
+            "seconds": 0.007,
+            "pv": [
+              "g2f1",
+              "a1a8"
+            ]
+          },
+          {
+            "depth": 5,
+            "score": 99998,
+            "nodes": 1756,
+            "seconds": 0.023,
+            "pv": [
+              "g2f1",
+              "a1a8"
+            ]
+          }
+        ],
+        "comparison": {
+          "depth": 5,
+          "score": 99998,
+          "reference_score": 99990,
+          "delta_for_mover": -8
+        },
+        "defenses": [
+          {
+            "depth": 1,
+            "score": 99999,
+            "nodes": 37,
+            "seconds": 0.001,
+            "pv": [
+              "a1a8"
+            ]
+          }
+        ],
+        "proof": null,
+        "verification": "defense_searched",
+        "time_limit": 0.782,
+        "material": {
+          "changes_cp": [
+            900,
+            900
+          ],
+          "low_cp": 0,
+          "last_cp": 900,
+          "sustained_piece_loss": null
+        },
+        "legal_replies": 18,
+        "defense_time_limit": 0.801,
+        "draw_claim": false,
+        "material_under_defense": {
+          "changes_cp": [
+            900,
+            900
+          ],
+          "low_cp": 0,
+          "last_cp": 900,
+          "sustained_piece_loss": null
+        },
+        "defense_agrees_at_depth": true
+      },
+      "chose_forbidden": false
+    }
+  ]
+}
