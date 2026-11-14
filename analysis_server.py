@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 import re
+import sys
 import threading
 import time
 
@@ -18,6 +19,11 @@ from board import Board, WHITE, START_FEN, file_of, rank_of, sq, sq_name
 from search import Searcher, TimeUp
 from search_gate import AUTO, DEEP, MANUAL, acquire_search
 from deep_analysis import DEEP_SECONDS, analyze_deep
+
+# This comes from the imported implementation, rather than a requested setting.
+ENGINE_IMPLEMENTATION = ('Tal Lab Python / Pyodide' if sys.platform=='emscripten' else
+    'Tal Lab Cython / CPython' if getattr(sys.modules['board'],'__file__','').endswith(('.so','.pyd')) else
+    'Tal Lab Python / '+sys.implementation.name)
 
 ANALYSIS_OPTION_KEYS = ('tactical_checks', 'attack_activity', 'initiative',
                         'tactical_ordering', 'check_continuation', 'aspiration',
@@ -535,6 +541,7 @@ class AnalysisSession:
             'iterations': list(self.iterations),
             'elapsed': round(time.monotonic() - self.started_at, 2) if self.active and self.started_at else round(self.elapsed, 2),
             'version': VERSION,
+            'engine_implementation': ENGINE_IMPLEMENTATION,
         }
 
     def state(self):

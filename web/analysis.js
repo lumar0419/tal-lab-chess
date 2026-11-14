@@ -155,6 +155,10 @@ function apply(next, initialize=false) {
   const changed = next.fen !== lastFen;
   lastFen = next.fen;
   state = next;
+  if(next.engine_implementation){
+    $('compute-mode').title='실행 엔진: '+next.engine_implementation;
+    $('nodes-display').title='실행 엔진: '+next.engine_implementation;
+  }
   if(changed){selected=null;$('fen-input').value=next.fen;$('deep-candidate').value='';$('sacrifice-result').textContent='새 국면입니다. 후보를 선택해 검증하세요.';}
   if(initialize){$('min-depth').value=next.min_depth;$('max-depth').value=next.max_depth;$('analysis-seconds').value=next.seconds;$('multipv').value=next.multipv||3;}
   $('turn-badge').textContent=(state.side_to_move==='white'?'WHITE':'BLACK')+' TO MOVE';
