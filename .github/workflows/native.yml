@@ -1,0 +1,20 @@
+name: Optional native backend validation
+on: [workflow_dispatch]
+jobs:
+  native:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Cython==3.1.8 setuptools wheel chess==1.11.2
+      - run: python tools/build_native.py build_ext --build-lib build/native
+      - run: python native_engine.py unittest discover -q
+      - run: python -m research.validate_backend_v092 --output oracle-python.json
+      - run: python native_engine.py research.validate_backend_v092 --output oracle-native.json
+      - run: python -c "import json; assert json.load(open('oracle-python.json'))['digest'] == json.load(open('oracle-native.json'))['digest']"

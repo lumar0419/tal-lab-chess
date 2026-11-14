@@ -1,0 +1,23 @@
+{
+  "url": "https://database.lichess.org/lichess_db_puzzle.csv.zst",
+  "license": "CC0",
+  "rows_examined": 10499,
+  "selection": "First eligible rows in bounded source prefix; frozen before Tal Lab evaluation.",
+  "exclusion_games": 215,
+  "exclusion_fens": 750,
+  "counts": {
+    "short_mate": 4,
+    "long_mate": 4,
+    "sacrifice": 4,
+    "serial_sacrifice": 4,
+    "positional_compensation_proxy": 4,
+    "quiet_attack": 4,
+    "defense": 4,
+    "bad_sacrifice_refutation": 4
+  },
+  "raw_rows_sha256": "f5be1420c6ce5b91d4a851167c5e0da5051d85e083adbabd72f9f03c86afbb9d",
+  "limitations": [
+    "Positional compensation is a non-forcing long-sacrifice proxy, not expert positional ground truth.",
+    "Puzzle themes and supplied solution are source labels; independent engine checks are separate."
+  ]
+}
