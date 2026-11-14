@@ -1,0 +1,88 @@
+{
+  "engine_version": "0.4.9",
+  "depth": 5,
+  "repeats": 2,
+  "method": "fresh TT; alternating order; fixed depth; median of repeated runs",
+  "positions": [
+    {
+      "name": "start",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 22213.0,
+        "median_seconds": 0.2212578769999709,
+        "first_move": "b1c3",
+        "score": 40
+      },
+      "pvs": {
+        "median_nodes": 21441.0,
+        "median_seconds": 0.16884541500030537,
+        "first_move": "b1c3",
+        "score": 40,
+        "median_probes": 299.0,
+        "median_researches": 9.0
+      }
+    },
+    {
+      "name": "kiwipete",
+      "fen": "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 320512.0,
+        "median_seconds": 4.722089720499753,
+        "first_move": "e2a6",
+        "score": 56
+      },
+      "pvs": {
+        "median_nodes": 220651.0,
+        "median_seconds": 2.7698855659996298,
+        "first_move": "e2a6",
+        "score": 56,
+        "median_probes": 919.0,
+        "median_researches": 15.0
+      }
+    },
+    {
+      "name": "position3",
+      "fen": "8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - - 0 1",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 14346.0,
+        "median_seconds": 0.138479502500104,
+        "first_move": "b4f4",
+        "score": 3
+      },
+      "pvs": {
+        "median_nodes": 13351.0,
+        "median_seconds": 0.12375611400011621,
+        "first_move": "b4f4",
+        "score": 3,
+        "median_probes": 345.0,
+        "median_researches": 16.0
+      }
+    },
+    {
+      "name": "italian",
+      "fen": "r1bqk1nr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 98783.0,
+        "median_seconds": 1.1094499655000618,
+        "first_move": "b1c3",
+        "score": 420
+      },
+      "pvs": {
+        "median_nodes": 92823.0,
+        "median_seconds": 0.939093194000634,
+        "first_move": "b1c3",
+        "score": 420,
+        "median_probes": 466.0,
+        "median_researches": 15.0
+      }
+    }
+  ],
+  "mismatches": [],
+  "median_time_ratio": 0.804782646321605,
+  "median_node_ratio": 0.9351542099075852,
+  "all_scores_equal": true
+}

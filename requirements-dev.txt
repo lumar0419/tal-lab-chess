@@ -1,0 +1,2 @@
+# Optional independent rules oracle / Stockfish UCI harness, never runtime engine.
+chess==1.11.2

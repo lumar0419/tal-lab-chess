@@ -1,0 +1,10 @@
+{"id": "kasparov_topalov_1999_ply47", "depth": 1, "score": 20, "nodes": 186, "seconds": 0.0037685919996874873, "pv": ["f4d6", "d8d6"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 2, "score": 20, "nodes": 787, "seconds": 0.014093447000050219, "pv": ["f4d6", "d8d6"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 3, "score": 20, "nodes": 6587, "seconds": 0.09203656899990165, "pv": ["f4d6", "d8d6", "e1e7", "a7b8"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 4, "score": -10, "nodes": 28702, "seconds": 0.4570557449997068, "pv": ["a5c6", "a8c6", "d5c6", "d6f4", "g3f4"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 5, "score": -20, "nodes": 69661, "seconds": 0.9410109959999318, "pv": ["a5c6", "a8c6", "d5c6", "d6f4", "g3f4", "c5c4"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 6, "score": -18, "nodes": 245766, "seconds": 3.054005369999686, "pv": ["a5c6", "a8c6", "f4d6", "d8d6", "d5c6", "a7b6", "e1e7", "b6c6", "e7f7"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 7, "score": -18, "nodes": 791711, "seconds": 10.347922789999757, "pv": ["a5c6", "a8c6", "f4d6", "d8d6", "d5c6", "a7b6", "e1e7", "b6c6", "e7f7"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 8, "score": -20, "nodes": 2513383, "seconds": 32.93549748999976, "pv": ["a5c6", "a8c6", "f4d6", "d8d6", "d5c6", "d6c6", "e1e7", "a7b8", "e7f7", "f6d5"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 9, "score": -28, "nodes": 10653070, "seconds": 142.58468714300034, "pv": ["a5c6", "a8c6", "f4d6", "d8d6", "d5c6", "a7b6", "e1e7", "b6c6", "e7f7", "f6d5"]}
+{"elapsed": 600.0011283100002, "total_nodes": 46994766}

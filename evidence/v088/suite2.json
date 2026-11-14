@@ -1,0 +1,760 @@
+[
+{
+"id": "lichess_HvLuy",
+"suite": "li_dev",
+"fen": "r3kb1r/1p3ppp/p4q2/2pBn3/5P2/4PbN1/1PPB4/R1Q1K2R w KQkq - 3 19",
+"bm": [
+"f4e5"
+],
+"san": "fxe5",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_REkI5",
+"suite": "li_dev",
+"fen": "6r1/pp6/2p1k1q1/3pQ3/3P4/2P1P3/PP3K2/R1B5 b - - 7 39",
+"bm": [
+"e6d7"
+],
+"san": "Kd7",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_QqY2e",
+"suite": "li_dev",
+"fen": "3r2k1/p4p1p/1p3Qp1/3q3P/P7/1P3PP1/6K1/4R3 w - - 3 36",
+"bm": [
+"h5h6"
+],
+"san": "h6",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_U14OW",
+"suite": "li_dev",
+"fen": "6r1/Q1kp1R1p/1p1Np2q/2n1P1r1/2P5/1P5P/P4PP1/5RK1 b - - 0 27",
+"bm": [
+"c7c6"
+],
+"san": "Kc6",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_m8HR6",
+"suite": "li_dev",
+"fen": "8/5p2/3n2p1/4k1P1/2p2R2/5K2/7P/8 b - - 8 40",
+"bm": [
+"c4c3"
+],
+"san": "c3",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_P4RKx",
+"suite": "li_dev",
+"fen": "8/1pp3kp/3p4/1Pn3R1/2B5/2r5/P4KPP/8 b - - 3 32",
+"bm": [
+"g7f6"
+],
+"san": "Kf6",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_WWGGX",
+"suite": "li_dev",
+"fen": "8/6k1/8/5p1p/3r3P/4KPP1/8/8 w - - 0 75",
+"bm": [
+"e3d4"
+],
+"san": "Kxd4",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_xrLRl",
+"suite": "li_dev",
+"fen": "1q4k1/3P4/4PQpp/1bp5/4p2K/2P1P2P/5q2/8 w - - 5 47",
+"bm": [
+"f6f2"
+],
+"san": "Qxf2",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_Tjivs",
+"suite": "li_dev",
+"fen": "r2q1rk1/p4p2/3pb1p1/2pNn2Q/2P1PR1p/1P6/P5B1/3R2K1 w - - 0 25",
+"bm": [
+"h5h6"
+],
+"san": "Qh6",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_Q1Pbx",
+"suite": "li_dev",
+"fen": "4r3/p1p3kp/3p2q1/1P1B4/2PP2bb/4Q3/P2B4/5R1K w - - 4 31",
+"bm": [
+"f1f7"
+],
+"san": "Rf7+",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_5gQ2l",
+"suite": "li_dev",
+"fen": "r5k1/1pqN2pp/p5n1/5r2/1PPp2n1/3P2b1/P1NBQ1BP/R4RK1 b - - 0 23",
+"bm": [
+"g3f2"
+],
+"san": "Bf2+",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_zGwxA",
+"suite": "li_dev",
+"fen": "1r4k1/1pp2pp1/pq5p/4P3/3Q1P2/7P/PP4P1/3R2K1 b - - 4 27",
+"bm": [
+"b8d8"
+],
+"san": "Rd8",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_POaGX",
+"suite": "li_dev",
+"fen": "r2q1r1k/1b4pp/1pp5/p4n2/P2p4/2NB3R/1PP2PPP/R2Q2K1 w - - 0 17",
+"bm": [
+"h3h7"
+],
+"san": "Rxh7+",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_hDjEF",
+"suite": "li_dev",
+"fen": "r5k1/p4pp1/1p1Q3b/5q2/1P6/8/P3B1KP/3R4 w - - 1 32",
+"bm": [
+"d6d8"
+],
+"san": "Qd8+",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_Dv5i5",
+"suite": "li_dev",
+"fen": "r3r1k1/1pp2p2/1b1p2np/pP4qn/P2PP3/2NQ1PB1/2B2P1K/R5R1 b - - 3 23",
+"bm": [
+"h5f4"
+],
+"san": "Nhf4",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_ZPXUd",
+"suite": "li_dev",
+"fen": "r1b4Q/ppp1kp2/6p1/nP2P1P1/5P2/N1Pq4/P3N3/3RK3 b - - 7 25",
+"bm": [
+"d3e2"
+],
+"san": "Qxe2+",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_8NqKP",
+"suite": "li_dev",
+"fen": "8/3k4/pp1n3p/3P2p1/PP1KN3/6P1/8/8 b - - 2 41",
+"bm": [
+"d6e4"
+],
+"san": "Nxe4",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_RZXcG",
+"suite": "li_dev",
+"fen": "6R1/kpQ5/p3P3/2Pp4/3Pb3/PK6/2r4r/3R4 b - - 0 42",
+"bm": [
+"c2b2"
+],
+"san": "Rb2+",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_gchZN",
+"suite": "li_dev",
+"fen": "5k2/2p3p1/3pQp1p/1p1P4/3P4/P1q4P/1r4PK/6R1 w - - 2 36",
+"bm": [
+"g1e1"
+],
+"san": "Re1",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_sA6h0",
+"suite": "li_dev",
+"fen": "5rk1/pp2Rp2/2b3p1/4Q3/6q1/1P4NR/P4PPK/3r4 b - - 3 29",
+"bm": [
+"d1h1"
+],
+"san": "Rh1+",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_y09HQ",
+"suite": "li_dev",
+"fen": "r5k1/4bppp/8/2ppN3/4bQ2/P1B1P2q/1r3P1P/R1R3K1 w - - 2 28",
+"bm": [
+"f4f7"
+],
+"san": "Qxf7+",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_Lm4KI",
+"suite": "li_dev",
+"fen": "8/4k1p1/4pp1p/2Pq4/3Q1P1P/4K3/8/8 w - - 0 47",
+"bm": [
+"d4d5"
+],
+"san": "Qxd5",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_hh7Jz",
+"suite": "li_dev",
+"fen": "8/6pk/3p1p2/7p/4q2P/P2p1N2/1Pr2RP1/4Q1K1 b - - 5 39",
+"bm": [
+"e4e1"
+],
+"san": "Qxe1+",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_1o7RQ",
+"suite": "li_dev",
+"fen": "b7/5Qpk/7p/3p4/2pP4/P4B1P/1p3PPK/1q6 w - - 0 43",
+"bm": [
+"f3g4"
+],
+"san": "Bg4",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_Exy4G",
+"suite": "li_hol",
+"fen": "8/R4K2/1b6/2p5/2Pk2P1/8/8/8 b - - 0 55",
+"bm": [
+"b6a7"
+],
+"san": "Bxa7",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_BQVaN",
+"suite": "li_hol",
+"fen": "8/8/8/p2P3p/5k2/1pPK3P/8/8 b - - 0 46",
+"bm": [
+"f4e5"
+],
+"san": "Ke5",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_SJrmD",
+"suite": "li_hol",
+"fen": "6k1/4Bp1p/r3bPp1/3PRr2/7P/p5K1/3R2P1/8 b - - 0 47",
+"bm": [
+"f5e5"
+],
+"san": "Rxe5",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_AKcjl",
+"suite": "li_hol",
+"fen": "6k1/6p1/1Bp5/P2b2b1/7p/r7/4Q2P/6K1 b - - 2 31",
+"bm": [
+"a3a1"
+],
+"san": "Ra1+",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_NmDyk",
+"suite": "li_hol",
+"fen": "1R1bk2r/p2n1pp1/2pQp2p/3pP3/3q4/7P/P2B1PP1/6K1 w k - 0 27",
+"bm": [
+"d2a5"
+],
+"san": "Ba5",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_Z1uHW",
+"suite": "li_hol",
+"fen": "8/p2kbp2/5B2/1p3P1p/4P2P/3K4/P7/8 w - - 2 31",
+"bm": [
+"f6e7"
+],
+"san": "Bxe7",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_NvfIc",
+"suite": "li_hol",
+"fen": "8/5p2/8/8/2n2k2/PP6/8/4K3 w - - 0 52",
+"bm": [
+"b3c4"
+],
+"san": "bxc4",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_SPp9T",
+"suite": "li_hol",
+"fen": "6k1/5p2/6p1/p2p3p/2qQ3P/P5P1/1P3P1K/8 w - - 3 30",
+"bm": [
+"d4c4"
+],
+"san": "Qxc4",
+"sacrifice": false,
+"category": "defense"
+},
+{
+"id": "lichess_ApDxd",
+"suite": "li_hol",
+"fen": "r3r3/4Npkp/pq1p1np1/np2p3/4P3/2PB1Q1P/PP3PP1/R3R1K1 w - - 3 22",
+"bm": [
+"f3f6"
+],
+"san": "Qxf6+",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_y4lzQ",
+"suite": "li_hol",
+"fen": "r2qkb1r/p1pb2pp/1p3p2/4n3/2B5/2N1Q3/PPP3PP/R1B2RK1 w kq - 0 13",
+"bm": [
+"e3e5"
+],
+"san": "Qxe5+",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_VACUO",
+"suite": "li_hol",
+"fen": "k7/1R3p2/3q4/p5p1/4P3/P1N2p2/2P2Kb1/1R6 w - g6 0 38",
+"bm": [
+"b7a7"
+],
+"san": "Ra7+",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_CqJm7",
+"suite": "li_hol",
+"fen": "r2q1rk1/pp3pbp/6pB/2pp4/6b1/P1nP4/B1PQ1PPP/1R2NR1K w - - 10 17",
+"bm": [
+"h6g7"
+],
+"san": "Bxg7",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_58cMq",
+"suite": "li_hol",
+"fen": "r2r1bk1/pbq1nppp/1p6/2p2B2/2P5/P2PP3/1B4PP/R2QNRK1 w - - 1 19",
+"bm": [
+"f5h7"
+],
+"san": "Bxh7+",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_iemcM",
+"suite": "li_hol",
+"fen": "r5k1/5pp1/3R3p/2p5/1pB1P1P1/rP5P/bK3P2/R7 b - - 4 24",
+"bm": [
+"a2b3"
+],
+"san": "Bxb3",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_vXWck",
+"suite": "li_hol",
+"fen": "3kr3/5ppp/8/q2n4/3P4/1Q2B3/P7/3KR3 w - - 12 35",
+"bm": [
+"b3b8"
+],
+"san": "Qb8+",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_Owwbp",
+"suite": "li_hol",
+"fen": "3r2rk/pbq2p2/2p2p1p/1p3N1Q/8/P1Pn4/BP3PPP/R3R1K1 b - - 5 22",
+"bm": [
+"g8g2"
+],
+"san": "Rxg2+",
+"sacrifice": true,
+"category": "long_sacrifice"
+},
+{
+"id": "lichess_RqQNy",
+"suite": "li_hol",
+"fen": "8/8/1rk5/7R/3pp1pP/8/4KP2/8 w - - 0 56",
+"bm": [
+"h5h6"
+],
+"san": "Rh6+",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_kQN72",
+"suite": "li_hol",
+"fen": "r5kb/4Qp1p/p2p2pB/2pP4/2p5/3q3P/P4PP1/1R4K1 w - - 1 29",
+"bm": [
+"b1e1"
+],
+"san": "Re1",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_RwGSA",
+"suite": "li_hol",
+"fen": "3R3R/p3kp2/8/r7/1pp1PQ2/5P2/2P2q2/2K5 b - - 8 35",
+"bm": [
+"f2e1"
+],
+"san": "Qe1+",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_kBcya",
+"suite": "li_hol",
+"fen": "8/1p1k4/p1pP4/2P5/P4K1p/8/8/8 w - - 1 44",
+"bm": [
+"a4a5"
+],
+"san": "a5",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_HepEn",
+"suite": "li_hol",
+"fen": "8/8/2p1p3/p2pPk2/3P2p1/PPP2pP1/5K2/8 w - - 2 38",
+"bm": [
+"a3a4"
+],
+"san": "a4",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_7Kklt",
+"suite": "li_hol",
+"fen": "kr5r/np3p2/pR2pP1p/q2pP1pP/3P2P1/3BK3/4Q3/1R6 w - - 0 31",
+"bm": [
+"e2b2"
+],
+"san": "Qb2",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_nxzZW",
+"suite": "li_hol",
+"fen": "r2k4/1p1r2pp/1Pp2p2/8/8/4R1P1/5PKP/2R5 w - - 2 33",
+"bm": [
+"c1e1"
+],
+"san": "Rce1",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "lichess_YzwJX",
+"suite": "li_hol",
+"fen": "r1b3k1/5r1p/pp1Rp2P/4P1pP/4p3/8/PPP5/2K3R1 w - - 0 25",
+"bm": [
+"d6d8"
+],
+"san": "Rd8+",
+"sacrifice": false,
+"category": "other_tactic"
+},
+{
+"id": "fischer_byrne_1956_ply22",
+"suite": "hist",
+"fen": "r2q1rk1/pp2ppbp/1np2np1/2Q3B1/3PP1b1/2N2N2/PP3PPP/3RKB1R b K - 6 11",
+"bm": [
+"b6a4"
+],
+"san": "Na4",
+"sacrifice": true
+},
+{
+"id": "fischer_byrne_1956_ply34",
+"suite": "hist",
+"fen": "r3r1k1/pp3pbp/1qp3p1/2B5/2BP2b1/Q1n2N2/P4PPP/3R1K1R b - - 3 17",
+"bm": [
+"g4e6"
+],
+"san": "Be6",
+"sacrifice": true
+},
+{
+"id": "kasparov_topalov_1999_ply47",
+"suite": "hist",
+"fen": "b2r3r/k4p1p/p2q1np1/NppP4/3p1Q2/P4PPB/1PP4P/1K1RR3 w - - 1 24",
+"bm": [
+"d1d4"
+],
+"san": "Rxd4",
+"sacrifice": true
+},
+{
+"id": "kasparov_topalov_1999_ply49",
+"suite": "hist",
+"fen": "b2r3r/k4p1p/p2q1np1/Np1P4/3p1Q2/P4PPB/1PP4P/1K2R3 w - - 0 25",
+"bm": [
+"e1e7"
+],
+"san": "Re7+",
+"sacrifice": true
+},
+{
+"id": "anderssen_kieseritzky_1851_ply35",
+"suite": "hist",
+"fen": "rnb1k1nr/p2p1ppp/8/1pbN1N1P/4PBP1/3P1Q2/PqP5/R4KR1 w kq - 0 18",
+"bm": [
+"f4d6"
+],
+"san": "Bd6",
+"sacrifice": true
+},
+{
+"id": "anderssen_kieseritzky_1851_ply43",
+"suite": "hist",
+"fen": "r1bk2nr/p2p1pNp/n2B4/1p1NP2P/6P1/3P1Q2/P1P1K3/q5b1 w - - 1 22",
+"bm": [
+"f3f6"
+],
+"san": "Qf6+",
+"sacrifice": true
+},
+{
+"id": "morphy_opera_1858_ply19",
+"suite": "hist",
+"fen": "rn2kb1r/p3qppp/2p2n2/1p2p1B1/2B1P3/1QN5/PPP2PPP/R3K2R w KQkq b6 0 10",
+"bm": [
+"c3b5"
+],
+"san": "Nxb5",
+"sacrifice": true
+},
+{
+"id": "morphy_opera_1858_ply25",
+"suite": "hist",
+"fen": "3rkb1r/p2nqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR3R w k - 3 13",
+"bm": [
+"d1d7"
+],
+"san": "Rxd7",
+"sacrifice": true
+},
+{
+"id": "morphy_opera_1858_ply29",
+"suite": "hist",
+"fen": "4kb1r/p2r1ppp/4qn2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 2 15",
+"bm": [
+"b5d7"
+],
+"san": "Bxd7+",
+"sacrifice": true
+},
+{
+"id": "morphy_opera_1858_ply31",
+"suite": "hist",
+"fen": "4kb1r/p2n1ppp/4q3/4p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 0 16",
+"bm": [
+"b3b8"
+],
+"san": "Qb8+",
+"sacrifice": true
+},
+{
+"id": "lasker_bauer_1889_ply29",
+"suite": "hist",
+"fen": "r4rk1/1b2bppp/ppq1p3/2ppB2n/5P2/1P1BP3/P1PPQ1PP/R4RK1 w - - 0 15",
+"bm": [
+"d3h7"
+],
+"san": "Bxh7+",
+"sacrifice": true
+},
+{
+"id": "lasker_bauer_1889_ply33",
+"suite": "hist",
+"fen": "r4rk1/1b2bpp1/ppq1p3/2ppB2Q/5P2/1P2P3/P1PP2PP/R4RK1 w - - 1 17",
+"bm": [
+"e5g7"
+],
+"san": "Bxg7",
+"sacrifice": true
+},
+{
+"id": "levitsky_marshall_1912_ply46",
+"suite": "hist",
+"fen": "5rk1/pp4pp/4p3/2R3Q1/3n4/2q4r/P1P2PPP/5RK1 b - - 1 23",
+"bm": [
+"c3g3"
+],
+"san": "Qg3",
+"sacrifice": true
+},
+{
+"id": "rotlewi_rubinstein_1907_ply44",
+"suite": "hist",
+"fen": "2rr2k1/1b3ppp/pb2p3/1p2P3/1P2BPnq/P1N3P1/1B2Q2P/R4R1K b - - 0 22",
+"bm": [
+"c8c3"
+],
+"san": "Rxc3",
+"sacrifice": true
+},
+{
+"id": "rotlewi_rubinstein_1907_ply46",
+"suite": "hist",
+"fen": "3r2k1/1b3ppp/pb2p3/1p2P3/1P2BPnP/P1r5/1B2Q2P/R4R1K b - - 0 23",
+"bm": [
+"d8d2"
+],
+"san": "Rd2",
+"sacrifice": true
+},
+{
+"id": "karpov_kasparov_1985_g16_ply16",
+"suite": "hist",
+"fen": "r1bqkb1r/1p3ppp/p1nppn2/8/2P1P3/N1N5/PP3PPP/R1BQKB1R b KQkq - 1 8",
+"bm": [
+"d6d5"
+],
+"san": "d5",
+"sacrifice": true
+},
+{
+"id": "karpov_kasparov_1985_g16_ply32",
+"suite": "hist",
+"fen": "r2qr1k1/5ppp/p4n2/1pbP1bB1/1n6/N1N2B2/PP1Q1PPP/3R1RK1 b - - 1 16",
+"bm": [
+"b4d3"
+],
+"san": "Nd3",
+"sacrifice": true
+},
+{
+"id": "reshevsky_petrosian_1953_re6",
+"suite": "hist",
+"fen": "3rq1k1/4rppp/2n3b1/pp2P3/2pP1QB1/P1P1R3/1B4PP/4R1K1 b - - 3 25",
+"bm": [
+"e7e6"
+],
+"san": "Re6",
+"sacrifice": true
+},
+{
+"id": "botvinnik_tal_1960_g6_ply42",
+"suite": "hist",
+"fen": "2r3k1/pp4bp/3p2p1/3Ppb1n/1qr5/2N1B1PP/PP2QPBK/R1R5 b - - 1 21",
+"bm": [
+"h5f4"
+],
+"san": "Nf4",
+"sacrifice": true
+},
+{
+"id": "tal_larsen_1965_g10_ply31",
+"suite": "hist",
+"fen": "rqb2rk1/3nbppp/p2pp3/6P1/1p1BPP2/2NB1Q2/PPP4P/2KR3R w - - 0 16",
+"bm": [
+"c3d5"
+],
+"san": "Nd5",
+"sacrifice": true
+},
+{
+"id": "tal_larsen_1965_g10_ply39",
+"suite": "hist",
+"fen": "rq4k1/1b1nbrpp/p2p4/3P1pP1/1p1B1P1P/3B1Q2/PPP5/2K1R2R w - - 1 20",
+"bm": [
+"d3f5"
+],
+"san": "Bxf5",
+"sacrifice": true
+},
+{
+"id": "tal_benko_1959_r14_ply45",
+"suite": "hist",
+"fen": "1r1qr1k1/2n1p2p/p2pP1pB/2pP1p2/bp5R/5N1P/1bPQ1PP1/4RBK1 w - - 0 23",
+"bm": [
+"h6f8"
+],
+"san": "Bf8",
+"sacrifice": true
+},
+{
+"id": "tal_smyslov_1959_r8_ply27",
+"suite": "hist",
+"fen": "r1bb1rk1/p2n1ppp/q1p2n2/1p3N2/2BQ4/5N2/PPPB1PPP/2KR3R w - - 4 14",
+"bm": [
+"d4h4"
+],
+"san": "Qh4",
+"sacrifice": true
+}
+]

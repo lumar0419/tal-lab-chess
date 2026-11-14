@@ -1,0 +1,60 @@
+engine1: MyEngine 0.9.1  [LMR=true; Move Overhead=0]  Hash 64MB
+engine2: MyEngine 0.9.0  [Move Overhead=0]  Hash 64MB
+실험 ID v091-depth-smoke-20261114-213004-0005  CPU 9개, 시작 시 부하 7.56
+※ 시작 시 시스템 부하가 높음 — 다른 프로그램이 CPU를 쓰고 있으면 결과 비교가 흐려질 수 있음
+20판, movetime 80ms, 오프닝 시드 91
+
+    1. MyEngine 0.9.1           - MyEngine 0.9.0           0-1       46 ply  Open Game                checkmate
+    2. MyEngine 0.9.0           - MyEngine 0.9.1           0-1       46 ply  Open Game                checkmate
+    3. MyEngine 0.9.1           - MyEngine 0.9.0           0-1       96 ply  Reti                     checkmate
+    4. MyEngine 0.9.0           - MyEngine 0.9.1           1-0      103 ply  Reti                     checkmate
+    5. MyEngine 0.9.1           - MyEngine 0.9.0           0-1      138 ply  Scandinavian             checkmate
+    6. MyEngine 0.9.0           - MyEngine 0.9.1           0-1      126 ply  Scandinavian             checkmate
+    7. MyEngine 0.9.1           - MyEngine 0.9.0           1-0      117 ply  French                   checkmate
+    8. MyEngine 0.9.0           - MyEngine 0.9.1           1-0      111 ply  French                   checkmate
+    9. MyEngine 0.9.1           - MyEngine 0.9.0           1-0      189 ply  Caro-Kann                checkmate
+   10. MyEngine 0.9.0           - MyEngine 0.9.1           0-1      142 ply  Caro-Kann                checkmate
+   11. MyEngine 0.9.1           - MyEngine 0.9.0           1/2-1/2  196 ply  English                  threefold_repetition
+   12. MyEngine 0.9.0           - MyEngine 0.9.1           1/2-1/2   64 ply  English                  threefold_repetition
+   13. MyEngine 0.9.1           - MyEngine 0.9.0           1-0      103 ply  King's Indian            checkmate
+   14. MyEngine 0.9.0           - MyEngine 0.9.1           0-1      186 ply  King's Indian            checkmate
+   15. MyEngine 0.9.1           - MyEngine 0.9.0           1/2-1/2   34 ply  Nimzo/Queen's Indian     threefold_repetition
+   16. MyEngine 0.9.0           - MyEngine 0.9.1           1/2-1/2   34 ply  Nimzo/Queen's Indian     threefold_repetition
+   17. MyEngine 0.9.1           - MyEngine 0.9.0           1-0      115 ply  Queen's Gambit Declined  checkmate
+   18. MyEngine 0.9.0           - MyEngine 0.9.1           0-1       90 ply  Queen's Gambit Declined  checkmate
+   19. MyEngine 0.9.1           - MyEngine 0.9.0           1/2-1/2  111 ply  Sicilian                 threefold_repetition
+   20. MyEngine 0.9.0           - MyEngine 0.9.1           0-1       34 ply  Sicilian                 checkmate
+
+========================================================================
+MyEngine 0.9.1  vs  MyEngine 0.9.0   (movetime 80ms)
+  전체             10승 5무 5패 / 20판   점수율 62.5%
+  engine1 백      4승 3무 3패 / 10판   점수율 55.0%
+  engine1 흑      6승 2무 2패 / 10판   점수율 70.0%
+  오프닝별 (engine1 기준):
+    Open Game                1-0-1  (50%)
+    Reti                     0-0-2  (0%)
+    Scandinavian             1-0-1  (50%)
+    French                   1-0-1  (50%)
+    Caro-Kann                2-0-0  (100%)
+    English                  0-2-0  (50%)
+    King's Indian            2-0-0  (100%)
+    Nimzo/Queen's Indian     0-2-0  (50%)
+    Queen's Gambit Declined  2-0-0  (100%)
+    Sicilian                 1-1-0  (75%)
+  메이트 승 10 / 메이트 패 5
+  시간패            engine1 0 / engine2 0
+  불법수·수 없음       engine1 0 / engine2 0
+  엔진 오류·충돌       engine1 0 / engine2 0
+  종료 사유: checkmate 15, threefold_repetition 5
+  평균 대국 길이 104.0 ply
+  생각 시간 MyEngine 0.9.1: 평균 0.07s, 최대 0.12s (1002수), 평균 깊이 3.05, 수당 노드 5,767, NPS 81,588
+  생각 시간 MyEngine 0.9.0: 평균 0.07s, 최대 0.10s (999수), 평균 깊이 3.05, 수당 노드 5,774, NPS 81,471
+  실행 환경: 시스템 부하 평균 7.98 최대 8.95, 일한 코어 평균 7.21 (1.5 넘은 판 20)
+
+  Elo 차이 (engine1 − engine2, 상대적인 값):
+    +89  95% 범위 -40 ~ +248  (판을 독립으로 본 삼항 오차)
+    쌍 기준 +89  95% 범위 -43 ~ +254  (같은 오프닝 두 판 = 한 쌍, 10쌍)
+    LOS(engine1이 더 강할 확률, 무승부 제외 정규 근사) 90.2%
+    ※ 20판은 표본이 작아 범위가 넓고 정규 근사도 거칠어요. 수십~수백 판이 필요해요.
+========================================================================
+총 142s,  기보 /workspace/scratch/91234f06fed8/evidence-v091/selfplay.pgn  결과 /workspace/scratch/91234f06fed8/evidence-v091/selfplay.json  표 /workspace/scratch/91234f06fed8/evidence-v091/selfplay.csv

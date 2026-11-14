@@ -1,0 +1,11 @@
+[
+  {"id":"rook_quiet_mate","fen":"7k/8/6K1/8/8/8/8/R7 w - - 0 1","mate_plies":1},
+  {"id":"white_knight_underpromotion","fen":"6R1/5P1k/5KR1/8/8/8/8/8 w - - 0 1","mate_plies":1},
+  {"id":"black_knight_underpromotion","fen":"8/8/8/8/8/5kr1/5p1K/6r1 b - - 0 1","mate_plies":1},
+  {"id":"capture_knight_underpromotion","fen":"5r2/4P1K1/4k3/2Q5/8/8/8/8 w - - 0 1","mate_plies":1},
+  {"id":"rook_underpromotion","fen":"8/5P1k/5K2/8/8/8/8/8 w - - 0 1","mate_plies":3},
+  {"id":"black_rook_underpromotion","fen":"8/8/8/8/8/5k2/5p1K/8 b - - 0 1","mate_plies":3},
+  {"id":"queen_capture_mate","fen":"7k/6pp/8/7N/8/8/8/6QK w - - 0 1","mate_plies":1},
+  {"id":"anderssen_forced_mate","fen":"r1bk2nr/p2p1pNp/n2B4/1p1NP2P/6P1/3P1Q2/P1P1K3/q5b1 w - - 1 22","mate_plies":3},
+  {"id":"morphy_forced_mate","fen":"4kb1r/p2n1ppp/4q3/4p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 0 16","mate_plies":3}
+]

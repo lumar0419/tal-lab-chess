@@ -1,0 +1,391 @@
+{
+  "schema_version": 1,
+  "engine_version": "0.4.11",
+  "created_utc": "2026-11-12T10:33:22.744364+00:00",
+  "python": "3.13.5",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "depth": 4,
+  "tt_entries": 40000,
+  "modes": [
+    "baseline",
+    "ordering",
+    "quiet_checks",
+    "continuation",
+    "combined"
+  ],
+  "results": [
+    {
+      "id": "startpos",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "historical_move": null,
+      "historical_initial_rank": null,
+      "modes": {
+        "baseline": {
+          "bestmove": "b1c3",
+          "score_cp_or_mate_encoded": 0,
+          "nodes": 3629,
+          "wall_seconds": 0.048943,
+          "nps": 74147,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 0
+        },
+        "ordering": {
+          "bestmove": "b1c3",
+          "score_cp_or_mate_encoded": 0,
+          "nodes": 3531,
+          "wall_seconds": 0.041954,
+          "nps": 84163,
+          "ordering_nodes": 142,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 0
+        },
+        "quiet_checks": {
+          "bestmove": "b1c3",
+          "score_cp_or_mate_encoded": 0,
+          "nodes": 3694,
+          "wall_seconds": 0.049288,
+          "nps": 74948,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 0
+        },
+        "continuation": {
+          "bestmove": "b1c3",
+          "score_cp_or_mate_encoded": 0,
+          "nodes": 3694,
+          "wall_seconds": 0.049478,
+          "nps": 74659,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 15
+        },
+        "combined": {
+          "bestmove": "b1c3",
+          "score_cp_or_mate_encoded": 0,
+          "nodes": 3548,
+          "wall_seconds": 0.046286,
+          "nps": 76654,
+          "ordering_nodes": 142,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 8
+        }
+      }
+    },
+    {
+      "id": "kiwipete",
+      "fen": "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+      "historical_move": null,
+      "historical_initial_rank": null,
+      "modes": {
+        "baseline": {
+          "bestmove": "e2a6",
+          "score_cp_or_mate_encoded": 82,
+          "nodes": 66500,
+          "wall_seconds": 1.194471,
+          "nps": 55673,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 0
+        },
+        "ordering": {
+          "bestmove": "e2a6",
+          "score_cp_or_mate_encoded": 82,
+          "nodes": 66498,
+          "wall_seconds": 1.04164,
+          "nps": 63840,
+          "ordering_nodes": 316,
+          "ordering_check_candidates": 569,
+          "continuation_nodes": 0
+        },
+        "quiet_checks": {
+          "bestmove": "e2a6",
+          "score_cp_or_mate_encoded": 82,
+          "nodes": 67093,
+          "wall_seconds": 1.08305,
+          "nps": 61948,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 0
+        },
+        "continuation": {
+          "bestmove": "e2a6",
+          "score_cp_or_mate_encoded": 82,
+          "nodes": 67132,
+          "wall_seconds": 1.090589,
+          "nps": 61556,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 67
+        },
+        "combined": {
+          "bestmove": "e2a6",
+          "score_cp_or_mate_encoded": 82,
+          "nodes": 67130,
+          "wall_seconds": 1.068809,
+          "nps": 62808,
+          "ordering_nodes": 316,
+          "ordering_check_candidates": 569,
+          "continuation_nodes": 67
+        }
+      }
+    },
+    {
+      "id": "botvinnik_tal_1960_g6_ply42",
+      "fen": "2r3k1/pp4bp/3p2p1/3Ppb1n/1qr5/2N1B1PP/PP2QPBK/R1R5 b - - 1 21",
+      "historical_move": "h5f4",
+      "historical_initial_rank": {
+        "baseline": 30,
+        "ordering": 13
+      },
+      "modes": {
+        "baseline": {
+          "bestmove": "e5e4",
+          "score_cp_or_mate_encoded": -51,
+          "nodes": 100200,
+          "wall_seconds": 1.488947,
+          "nps": 67296,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 0
+        },
+        "ordering": {
+          "bestmove": "e5e4",
+          "score_cp_or_mate_encoded": -51,
+          "nodes": 116021,
+          "wall_seconds": 1.716251,
+          "nps": 67601,
+          "ordering_nodes": 747,
+          "ordering_check_candidates": 12,
+          "continuation_nodes": 0
+        },
+        "quiet_checks": {
+          "bestmove": "e5e4",
+          "score_cp_or_mate_encoded": -51,
+          "nodes": 110882,
+          "wall_seconds": 1.666736,
+          "nps": 66526,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 0
+        },
+        "continuation": {
+          "bestmove": "e5e4",
+          "score_cp_or_mate_encoded": -51,
+          "nodes": 111611,
+          "wall_seconds": 1.721146,
+          "nps": 64847,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 332
+        },
+        "combined": {
+          "bestmove": "e5e4",
+          "score_cp_or_mate_encoded": -51,
+          "nodes": 129451,
+          "wall_seconds": 1.953769,
+          "nps": 66257,
+          "ordering_nodes": 747,
+          "ordering_check_candidates": 12,
+          "continuation_nodes": 359
+        }
+      }
+    },
+    {
+      "id": "tal_larsen_1965_g10_ply31",
+      "fen": "rqb2rk1/3nbppp/p2pp3/6P1/1p1BPP2/2NB1Q2/PPP4P/2KR3R w - - 0 16",
+      "historical_move": "c3d5",
+      "historical_initial_rank": {
+        "baseline": 17,
+        "ordering": 3
+      },
+      "modes": {
+        "baseline": {
+          "bestmove": "c3e2",
+          "score_cp_or_mate_encoded": 16,
+          "nodes": 19923,
+          "wall_seconds": 0.28571,
+          "nps": 69732,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 0
+        },
+        "ordering": {
+          "bestmove": "c3e2",
+          "score_cp_or_mate_encoded": 16,
+          "nodes": 21372,
+          "wall_seconds": 0.296828,
+          "nps": 72001,
+          "ordering_nodes": 277,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 0
+        },
+        "quiet_checks": {
+          "bestmove": "c3e2",
+          "score_cp_or_mate_encoded": 16,
+          "nodes": 21370,
+          "wall_seconds": 0.317612,
+          "nps": 67283,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 0
+        },
+        "continuation": {
+          "bestmove": "c3e2",
+          "score_cp_or_mate_encoded": 16,
+          "nodes": 21822,
+          "wall_seconds": 0.319372,
+          "nps": 68328,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 46
+        },
+        "combined": {
+          "bestmove": "c3e2",
+          "score_cp_or_mate_encoded": 16,
+          "nodes": 23274,
+          "wall_seconds": 0.356883,
+          "nps": 65215,
+          "ordering_nodes": 277,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 47
+        }
+      }
+    },
+    {
+      "id": "tal_benko_1959_r14_ply45",
+      "fen": "1r1qr1k1/2n1p2p/p2pP1pB/2pP1p2/bp5R/5N1P/1bPQ1PP1/4RBK1 w - - 0 23",
+      "historical_move": "h6f8",
+      "historical_initial_rank": {
+        "baseline": 42,
+        "ordering": 23
+      },
+      "modes": {
+        "baseline": {
+          "bestmove": "d2d3",
+          "score_cp_or_mate_encoded": -115,
+          "nodes": 31614,
+          "wall_seconds": 0.400042,
+          "nps": 79027,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 0
+        },
+        "ordering": {
+          "bestmove": "d2d3",
+          "score_cp_or_mate_encoded": -115,
+          "nodes": 31956,
+          "wall_seconds": 0.397292,
+          "nps": 80434,
+          "ordering_nodes": 446,
+          "ordering_check_candidates": 23,
+          "continuation_nodes": 0
+        },
+        "quiet_checks": {
+          "bestmove": "d2d3",
+          "score_cp_or_mate_encoded": -115,
+          "nodes": 32309,
+          "wall_seconds": 0.463518,
+          "nps": 69704,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 0
+        },
+        "continuation": {
+          "bestmove": "d2d3",
+          "score_cp_or_mate_encoded": -115,
+          "nodes": 33583,
+          "wall_seconds": 0.504794,
+          "nps": 66528,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 104
+        },
+        "combined": {
+          "bestmove": "d2d3",
+          "score_cp_or_mate_encoded": -115,
+          "nodes": 33965,
+          "wall_seconds": 0.563785,
+          "nps": 60245,
+          "ordering_nodes": 446,
+          "ordering_check_candidates": 23,
+          "continuation_nodes": 112
+        }
+      }
+    },
+    {
+      "id": "tal_smyslov_1959_r8_ply27",
+      "fen": "r1bb1rk1/p2n1ppp/q1p2n2/1p3N2/2BQ4/5N2/PPPB1PPP/2KR3R w - - 4 14",
+      "historical_move": "d4h4",
+      "historical_initial_rank": {
+        "baseline": 53,
+        "ordering": 55
+      },
+      "modes": {
+        "baseline": {
+          "bestmove": "c4b3",
+          "score_cp_or_mate_encoded": 40,
+          "nodes": 53327,
+          "wall_seconds": 0.716973,
+          "nps": 74378,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 0
+        },
+        "ordering": {
+          "bestmove": "c4b3",
+          "score_cp_or_mate_encoded": 40,
+          "nodes": 52003,
+          "wall_seconds": 0.590343,
+          "nps": 88090,
+          "ordering_nodes": 350,
+          "ordering_check_candidates": 331,
+          "continuation_nodes": 0
+        },
+        "quiet_checks": {
+          "bestmove": "c4b3",
+          "score_cp_or_mate_encoded": 45,
+          "nodes": 76746,
+          "wall_seconds": 1.086905,
+          "nps": 70610,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 0
+        },
+        "continuation": {
+          "bestmove": "c4b3",
+          "score_cp_or_mate_encoded": 45,
+          "nodes": 85715,
+          "wall_seconds": 1.374984,
+          "nps": 62339,
+          "ordering_nodes": 0,
+          "ordering_check_candidates": 0,
+          "continuation_nodes": 3939
+        },
+        "combined": {
+          "bestmove": "c4b3",
+          "score_cp_or_mate_encoded": 45,
+          "nodes": 83125,
+          "wall_seconds": 1.265317,
+          "nps": 65695,
+          "ordering_nodes": 349,
+          "ordering_check_candidates": 329,
+          "continuation_nodes": 3879
+        }
+      }
+    }
+  ],
+  "validation": {
+    "all_ordering_scores_equal_baseline": true,
+    "all_ordering_moves_equal_baseline": true
+  },
+  "ordering_time_ratio_median": 0.9326,
+  "limitations": [
+    "Each mode uses the SAME engine with fresh TT; not separately developed engines.",
+    "No actual Stockfish games were played; no Elo or human-likeness conclusion.",
+    "Initial ordering ranks are before TT and history learning.",
+    "One sample per mode has CPU noise; repeat before accepting performance claims.",
+    "Check continuation can change qsearch semantics; do NOT expect equal scores to baseline.",
+    "The full set of Tal moves is style reference, not an objectively correct move list."
+  ]
+}

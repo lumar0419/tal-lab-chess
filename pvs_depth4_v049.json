@@ -1,0 +1,221 @@
+{
+  "engine_version": "0.4.9",
+  "depth": 4,
+  "repeats": 3,
+  "method": "fresh TT; alternating order; fixed depth; median of repeated runs",
+  "positions": [
+    {
+      "name": "start",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 3646,
+        "median_seconds": 0.03712149999955727,
+        "first_move": "b1c3",
+        "score": 0
+      },
+      "pvs": {
+        "median_nodes": 3629,
+        "median_seconds": 0.03499662699960027,
+        "first_move": "b1c3",
+        "score": 0,
+        "median_probes": 196,
+        "median_researches": 7
+      }
+    },
+    {
+      "name": "kiwipete",
+      "fen": "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 91768,
+        "median_seconds": 1.5628685060000862,
+        "first_move": "e2a6",
+        "score": 82
+      },
+      "pvs": {
+        "median_nodes": 66510,
+        "median_seconds": 1.0453538189995015,
+        "first_move": "e2a6",
+        "score": 82,
+        "median_probes": 483,
+        "median_researches": 8
+      }
+    },
+    {
+      "name": "position3",
+      "fen": "8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - - 0 1",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 4506,
+        "median_seconds": 0.04771197399986704,
+        "first_move": "b4f4",
+        "score": 13
+      },
+      "pvs": {
+        "median_nodes": 3956,
+        "median_seconds": 0.040787052999803564,
+        "first_move": "b4f4",
+        "score": 13,
+        "median_probes": 191,
+        "median_researches": 10
+      }
+    },
+    {
+      "name": "position5",
+      "fen": "rnbq1k1r/pp1Pbppp/2p5/8/2B5/8/PPP1NnPP/RNBQK2R w KQ - 1 8",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 19620,
+        "median_seconds": 0.24966670600042562,
+        "first_move": "d7c8q",
+        "score": 550
+      },
+      "pvs": {
+        "median_nodes": 18194,
+        "median_seconds": 0.24000727099974029,
+        "first_move": "d7c8q",
+        "score": 550,
+        "median_probes": 375,
+        "median_researches": 2
+      }
+    },
+    {
+      "name": "position6",
+      "fen": "r4rk1/1pp1qppp/p1np1n2/2b1p1B1/2B1P1b1/P1NP1N2/1PP1QPPP/R4RK1 w - - 0 10",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 68886,
+        "median_seconds": 1.1254219120000926,
+        "first_move": "c3d5",
+        "score": 51
+      },
+      "pvs": {
+        "median_nodes": 36318,
+        "median_seconds": 0.5154044219998468,
+        "first_move": "c3d5",
+        "score": 51,
+        "median_probes": 449,
+        "median_researches": 11
+      }
+    },
+    {
+      "name": "italian",
+      "fen": "r1bqk1nr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 19840,
+        "median_seconds": 0.2788188029999219,
+        "first_move": "b1c3",
+        "score": 405
+      },
+      "pvs": {
+        "median_nodes": 17243,
+        "median_seconds": 0.2315122079999128,
+        "first_move": "b1c3",
+        "score": 405,
+        "median_probes": 303,
+        "median_researches": 13
+      }
+    },
+    {
+      "name": "underpromotion",
+      "fen": "6R1/5P1k/5KR1/8/8/8/8/8 w - - 0 1",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 72,
+        "median_seconds": 0.0012095570000383304,
+        "first_move": "f7f8n",
+        "score": 99999
+      },
+      "pvs": {
+        "median_nodes": 73,
+        "median_seconds": 0.001140633999966667,
+        "first_move": "f7f8n",
+        "score": 99999,
+        "median_probes": 23,
+        "median_researches": 1
+      }
+    },
+    {
+      "name": "tal_botvinnik_tal_1960_g6_ply42",
+      "fen": "2r3k1/pp4bp/3p2p1/3Ppb1n/1qr5/2N1B1PP/PP2QPBK/R1R5 b - - 1 21",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 146440,
+        "median_seconds": 2.0590167130003465,
+        "first_move": "e5e4",
+        "score": -51
+      },
+      "pvs": {
+        "median_nodes": 100158,
+        "median_seconds": 1.2900282119999247,
+        "first_move": "e5e4",
+        "score": -51,
+        "median_probes": 1224,
+        "median_researches": 30
+      }
+    },
+    {
+      "name": "tal_tal_larsen_1965_g10_ply31",
+      "fen": "rqb2rk1/3nbppp/p2pp3/6P1/1p1BPP2/2NB1Q2/PPP4P/2KR3R w - - 0 16",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 21019,
+        "median_seconds": 0.27380095399985294,
+        "first_move": "c3e2",
+        "score": 16
+      },
+      "pvs": {
+        "median_nodes": 19923,
+        "median_seconds": 0.2552605939999921,
+        "first_move": "c3e2",
+        "score": 16,
+        "median_probes": 355,
+        "median_researches": 12
+      }
+    },
+    {
+      "name": "tal_tal_benko_1959_r14_ply45",
+      "fen": "1r1qr1k1/2n1p2p/p2pP1pB/2pP1p2/bp5R/5N1P/1bPQ1PP1/4RBK1 w - - 0 23",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 31036,
+        "median_seconds": 0.372614003000308,
+        "first_move": "d2d3",
+        "score": -115
+      },
+      "pvs": {
+        "median_nodes": 31614,
+        "median_seconds": 0.3767888470001708,
+        "first_move": "d2d3",
+        "score": -115,
+        "median_probes": 1015,
+        "median_researches": 38
+      }
+    },
+    {
+      "name": "tal_tal_smyslov_1959_r8_ply27",
+      "fen": "r1bb1rk1/p2n1ppp/q1p2n2/1p3N2/2BQ4/5N2/PPPB1PPP/2KR3R w - - 4 14",
+      "equal_scores": true,
+      "baseline": {
+        "median_nodes": 56233,
+        "median_seconds": 0.6010509520001506,
+        "first_move": "c4b3",
+        "score": 40
+      },
+      "pvs": {
+        "median_nodes": 53426,
+        "median_seconds": 0.5749992549999661,
+        "first_move": "c4b3",
+        "score": 40,
+        "median_probes": 570,
+        "median_researches": 16
+      }
+    }
+  ],
+  "mismatches": [],
+  "median_time_ratio": 0.9322852615047106,
+  "median_node_ratio": 0.9273190621814476,
+  "all_scores_equal": true
+}

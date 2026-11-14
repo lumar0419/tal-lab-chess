@@ -17,6 +17,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from version import VERSION
 import evaluate
 from board import BLACK, EMPTY, START_FEN, WHITE, Board, file_of, rank_of, sq, sq_name
 from search import Searcher, format_score
@@ -24,9 +25,14 @@ from search import Searcher, format_score
 BASE = Path(__file__).resolve().parent
 ASSETS = BASE / 'web'
 OPTION_KEYS = ('tactical_checks', 'attack_activity', 'initiative',
-               'tactical_ordering', 'check_continuation', 'aspiration', 'king_safety', 'lmr')
+               'tactical_ordering', 'check_continuation', 'aspiration', 'king_safety', 'lmr',
+               'selective')
+ENGINE_FILES = ('version.py', 'board.py', 'evaluate.py', 'search.py', 'notation.py', 'analysis_server.py', 'benchmark.py', 'pgn_io.py', 'sacrifice.py', 'search_gate.py', 'deep_analysis.py')
 DEFAULT_OPTIONS = {key: False for key in OPTION_KEYS}
+SELECTIVE_EXTRA_DEPTH = 3      # 선택적 탐색을 켠 대국에서 깊이 상한에 더하는 반수 (v0.8.8)
 ALLOWED_ASSETS = {
+    '/engine-worker.js': ('engine-worker.js', 'application/javascript; charset=utf-8'),
+    '/analysis-visuals.js': ('analysis-visuals.js', 'application/javascript; charset=utf-8'),
     '/': ('analysis.html', 'text/html; charset=utf-8'),
     '/analysis': ('analysis.html', 'text/html; charset=utf-8'),
     '/play': ('index.html', 'text/html; charset=utf-8'),
@@ -39,40 +45,8 @@ ALLOWED_ASSETS = {
 }
 
 
-def san_for_move(board, move):
-    """SAN for a *legal* move, including disambiguation, en passant, promo, +/#."""
-    piece = board.board[move.frm]
-    kind = piece.upper()
-    capture = board.board[move.to] != EMPTY or (kind == 'P' and move.to == board.ep)
-    if kind == 'K' and abs(move.to - move.frm) == 2:
-        label = 'O-O' if move.to > move.frm else 'O-O-O'
-    else:
-        prefix = '' if kind == 'P' else kind
-        if kind == 'P' and capture:
-            prefix = 'abcdefgh'[file_of(move.frm)]
-        elif kind != 'P':
-            others = [candidate for candidate in board.legal_moves()
-                      if candidate != move and candidate.to == move.to
-                      and board.board[candidate.frm] == piece]
-            if others:
-                same_file = any(file_of(c.frm) == file_of(move.frm) for c in others)
-                same_rank = any(rank_of(c.frm) == rank_of(move.frm) for c in others)
-                if not same_file:
-                    prefix += 'abcdefgh'[file_of(move.frm)]
-                elif not same_rank:
-                    prefix += str(rank_of(move.frm) + 1)
-                else:
-                    prefix += sq_name(move.frm)
-        label = prefix + ('x' if capture else '') + sq_name(move.to)
-        if move.promo:
-            label += '=' + move.promo.upper()
-    board.make_move(move)
-    try:
-        if board.in_check():
-            label += '#' if not board.has_legal_move(in_check=True) else '+'
-    finally:
-        board.unmake_move()
-    return label
+from notation import san_for_move
+from search_gate import GAME, MANUAL, SearchGate, acquire_search
 
 
 class Game:
@@ -84,7 +58,7 @@ class Game:
 
     def __init__(self):
         self.lock = threading.RLock()
-        self.search_gate = threading.Lock()
+        self.search_gate = SearchGate()
         self.search_wait_seconds = None  # Local games may wait; hosted games use a deadline.
         self.worker_searcher = None
         self._cached_searcher = None  # TT is carried between moves of ONE game only.
@@ -136,10 +110,8 @@ class Game:
     def _engine_worker(self, depth, seconds, options, generation, position):
         # The evaluator currently has global feature flags. Never run searches
         # with different feature settings concurrently in the same process.
-        if self.search_wait_seconds is None:
-            acquired = self.search_gate.acquire()
-        else:
-            acquired = self.search_gate.acquire(timeout=self.search_wait_seconds)
+        acquired = acquire_search(self.search_gate, GAME, threading.Event(),
+                                  lambda: generation != self.generation, self.search_wait_seconds)
         if not acquired:
             with self.lock:
                 if generation == self.generation:
@@ -148,6 +120,8 @@ class Game:
                                   '잠시 후 새 대국을 시작하거나 다시 시도해 주세요.')
             return
         searcher = None
+        keys = ('ATTACK_ACTIVITY', 'INITIATIVE', 'KING_SAFETY')
+        saved_eval = {key: getattr(evaluate, key) for key in keys}
         try:
             with self.lock:
                 if generation != self.generation:
@@ -165,6 +139,7 @@ class Game:
             searcher.check_continuation = options['check_continuation']
             searcher.aspiration = options['aspiration']
             searcher.lmr = options['lmr']
+            searcher.selective = options['selective']
             evaluate.ATTACK_ACTIVITY = options['attack_activity']
             evaluate.INITIATIVE = options['initiative']
             evaluate.KING_SAFETY = options['king_safety']
@@ -183,8 +158,12 @@ class Game:
                             'pv': [m.uci() for m in info.pv],
                         }
 
-            move, score = searcher.search(search_board, max_depth=depth,
-                                          time_limit=seconds, on_info=on_info)
+            # 선택적 탐색은 같은 시간에 더 깊이 가지만 같은 깊이에서는 가지를 덜 본다.
+            # 화면의 '깊이'를 그대로 상한으로 쓰면 오히려 얕게 끝나므로 상한을 넉넉히 준다.
+            limit = depth + (SELECTIVE_EXTRA_DEPTH if options['selective'] else 0)
+            move, score = searcher.search(search_board, max_depth=limit,
+                                          time_limit=seconds, on_info=on_info,
+                                          cancel_check=lambda: generation != self.generation)
             with self.lock:
                 if generation != self.generation:
                     return
@@ -203,7 +182,7 @@ class Game:
                 self.thinking = False
                 if last_info is None:
                     self.info = {'depth': 0, 'nodes': searcher.nodes,
-                                 'seconds': round(time.time() - searcher.start, 3),
+                                 'seconds': round(time.monotonic() - searcher.start, 3),
                                  'score': score if search_board.side == WHITE else -score,
                                  'pv': [move.uci()]}
         except Exception as exc:
@@ -215,6 +194,8 @@ class Game:
             with self.lock:
                 if self.worker_searcher is searcher:
                     self.worker_searcher = None
+            for key, value in saved_eval.items():
+                setattr(evaluate, key, value)
             self.search_gate.release()
 
     def new(self, data):
@@ -324,8 +305,8 @@ class Game:
             'can_undo': any(m['side'] == self.human for m in self.moves),
             'info': dict(self.info) if self.info else None,
             'error': self.error,
-            'version': '0.5.5',
-            'engine_version': '0.5.5',
+            'version': VERSION,
+            'engine_version': VERSION,
         }
 
     def state(self):
@@ -336,8 +317,8 @@ class Game:
         with self.lock:
             result = self._outcome_locked()
             label = result[0] if result else '*'
-            white = 'Player' if self.human == WHITE else 'Tal Lab v0.5.5'
-            black = 'Player' if self.human == BLACK else 'Tal Lab v0.5.5'
+            white = 'Player' if self.human == WHITE else 'Tal Lab v0.8.6'
+            black = 'Player' if self.human == BLACK else 'Tal Lab v0.8.6'
             headers = [
                 '[Event "Tal Lab Local Game"]',
                 '[Site "localhost"]',
@@ -357,7 +338,7 @@ class Game:
 
 class WebHandler(BaseHTTPRequestHandler):
     game = None  # set on the subclass created by make_server
-    server_version = 'TalLab/0.5.5'
+    server_version = 'TalLab/0.8.6'
 
     def _response(self, status, content, content_type='application/json; charset=utf-8', extra=None):
         self.send_response(status)
@@ -378,9 +359,14 @@ class WebHandler(BaseHTTPRequestHandler):
         self._response(status, json.dumps(data, ensure_ascii=False).encode('utf-8'))
 
     def _host_allowed(self):
-        host = self.headers.get('Host', '')
-        # Refuse unexpected hostnames to reduce DNS rebinding risk.
-        return host.split(':')[0].lower() in ('127.0.0.1', 'localhost', '[::1]')
+        values = self.headers.get_all('Host', [])
+        if len(values) != 1:
+            return False
+        host = values[0].lower()
+        name, sep, port = host.rpartition(':')
+        if sep and port.isascii() and port.isdecimal() and len(port) <= 5 and 1 <= int(port) <= 65535:
+            host = name
+        return host in ('127.0.0.1', 'localhost', '[::1]')
 
     def _origin_allowed(self):
         origin = self.headers.get('Origin')
@@ -415,6 +401,9 @@ class WebHandler(BaseHTTPRequestHandler):
             self._response(200, data, 'application/x-chess-pgn; charset=utf-8',
                            {'Content-Disposition': 'attachment; filename="tal-lab-game.pgn"'})
             return
+        if path.startswith('/engine/') and path[8:] in ENGINE_FILES:
+            self._response(200, (BASE / path[8:]).read_bytes(), 'text/plain; charset=utf-8')
+            return
         asset = ALLOWED_ASSETS.get(path)
         if not asset:
             self._json(404, {'error': '찾을 수 없는 페이지예요.'})
@@ -432,7 +421,7 @@ class WebHandler(BaseHTTPRequestHandler):
             return
         path = urlsplit(self.path).path
         routes = {'/api/new', '/api/move', '/api/undo', '/api/resign', '/api/draw',
-                  '/api/analysis/start', '/api/analysis/auto', '/api/analysis/restart',
+                  '/api/analysis/pgn', '/api/analysis/navigate', '/api/analysis/sacrifice', '/api/analysis/benchmark', '/api/analysis/start', '/api/analysis/auto', '/api/analysis/restart',
                   '/api/analysis/stop', '/api/analysis/fen',
                   '/api/analysis/move', '/api/analysis/undo', '/api/analysis/reset'}
         if path not in routes:
@@ -440,13 +429,29 @@ class WebHandler(BaseHTTPRequestHandler):
             return
         try:
             size = int(self.headers.get('Content-Length', '-1'))
-            if size < 0 or size > 8192:
+            if size < 0 or size > (140000 if path == '/api/analysis/pgn' else 8192):
                 self._json(413, {'error': '요청 크기가 허용 범위를 벗어났어요.'})
                 return
             obj = json.loads(self.rfile.read(size))
             if not isinstance(obj, dict):
                 raise ValueError('JSON 객체가 필요해요.')
-            if path == '/api/analysis/start':
+            if path == '/api/analysis/pgn':
+                state = self.game.analysis().import_pgn(obj.get('pgn'))
+            elif path == '/api/analysis/navigate':
+                state = self.game.analysis().navigate(obj.get('ply'))
+            elif path == '/api/analysis/sacrifice':
+                state = self.game.analysis().sacrifice(obj)
+            elif path == '/api/analysis/benchmark':
+                gate = self.game.search_gate
+                if not acquire_search(gate, MANUAL, threading.Event(), lambda: False, 0.5):
+                    self._json(409, {'error': '분석을 중단한 뒤 벤치마크를 실행하세요.'})
+                    return
+                try:
+                    from benchmark import run_benchmark
+                    state = run_benchmark()
+                finally:
+                    gate.release()
+            elif path == '/api/analysis/start':
                 state = self.game.analysis().start(obj)
             elif path == '/api/analysis/auto':
                 state = self.game.analysis().start(obj, mode='auto')
@@ -493,7 +498,7 @@ def make_server(port=8000, game=None):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Tal Lab v0.5.5 auto analysis website')
+    parser = argparse.ArgumentParser(description='Tal Lab v0.8.6 auto analysis website')
     parser.add_argument('--port', type=int, default=8000)
     parser.add_argument('--no-browser', action='store_true')
     args = parser.parse_args()
@@ -504,7 +509,7 @@ def main():
         print('다른 포트를 시도하세요: python web_server.py --port 8001')
         raise SystemExit(1)
     url = f'http://127.0.0.1:{server.server_port}'
-    print('\n  ♟  Tal Lab v0.5.5 — Auto Analysis Studio')
+    print('\n  ♟  Tal Lab v0.8.6 — Auto Analysis Studio')
     print('  주소:', url)
     print('  서버 종료: Ctrl+C')
     print('  이 웹사이트는 내 컴퓨터에서만 접속할 수 있어요.\n')

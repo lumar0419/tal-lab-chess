@@ -1,0 +1,9 @@
+127.0.0.1 - - [14/Nov/2026 21:45:12] "GET /api/analysis/state HTTP/1.1" 200 -
+127.0.0.1 - - [14/Nov/2026 21:45:12] "POST /api/analysis/start HTTP/1.1" 200 -
+127.0.0.1 - - [14/Nov/2026 21:45:12] "GET /api/analysis/state HTTP/1.1" 200 -
+127.0.0.1 - - [14/Nov/2026 21:45:12] "GET /api/analysis/state HTTP/1.1" 200 -
+127.0.0.1 - - [14/Nov/2026 21:45:12] "POST /api/analysis/stop HTTP/1.1" 200 -
+127.0.0.1 - - [14/Nov/2026 21:45:12] "POST /api/analysis/start HTTP/1.1" 200 -
+127.0.0.1 - - [14/Nov/2026 21:45:12] "GET /api/analysis/state HTTP/1.1" 200 -
+127.0.0.1 - - [14/Nov/2026 21:45:12] "GET /api/analysis/state HTTP/1.1" 200 -
+HTTP: 600-second request, live depth, cancellation, subsequent fast MultiPV 3

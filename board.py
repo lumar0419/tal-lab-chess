@@ -61,6 +61,12 @@ PIECE_DIRS = {'N': KNIGHT_STEPS, 'B': BISHOP_DIRS, 'R': ROOK_DIRS, 'Q': QUEEN_DI
 # 캐슬링 권리 (비트 플래그)
 WK, WQ, BK, BQ = 1, 2, 4, 8
 
+# 정적 교환 평가(SEE)용 기물 가치. 킹은 '잡히면 안 되는 기물'이라 아주 크게 둠.
+SEE_KING = 20000
+SEE_VALUE = {'.': 0}
+for _p, _v in zip('PNBRQK', (100, 320, 330, 500, 900, SEE_KING)):
+    SEE_VALUE[_p] = SEE_VALUE[_p.lower()] = _v
+
 
 def sq(file, rank):
     """file 0..7 (a..h), rank 0..7 (1..8) → 10x12 인덱스"""
@@ -348,6 +354,153 @@ class Board:
             color = self.side
         return self.is_attacked(self.king_sq[color], color ^ 1)
 
+    # ──────────────────────────── 정적 교환 평가 (SEE) ────────────────────────────
+    def _least_attacker(self, s, by):
+        """칸 s를 공격하는 by 쪽 기물 중 가장 싼 것의 (칸, 가치). 없으면 (0, 0).
+        보드에서 이미 치운 기물 뒤의 슬라이더(x-ray)는 광선을 다시 훑으므로 자연히 잡힌다."""
+        b = self.board
+        if by == WHITE:
+            if b[s - 9] == 'P':
+                return s - 9, 100
+            if b[s - 11] == 'P':
+                return s - 11, 100
+            knight, bishop, rook, queen, king = 'N', 'B', 'R', 'Q', 'K'
+        else:
+            if b[s + 9] == 'p':
+                return s + 9, 100
+            if b[s + 11] == 'p':
+                return s + 11, 100
+            knight, bishop, rook, queen, king = 'n', 'b', 'r', 'q', 'k'
+        for d in KNIGHT_STEPS:
+            if b[s + d] == knight:
+                return s + d, 320
+        queen_sq = 0
+        for d in BISHOP_DIRS:
+            t = s + d
+            while b[t] == EMPTY:
+                t += d
+            if b[t] == bishop:
+                return t, 330
+            if b[t] == queen:
+                queen_sq = t
+        rook_sq = 0
+        for d in ROOK_DIRS:
+            t = s + d
+            while b[t] == EMPTY:
+                t += d
+            if b[t] == rook:
+                rook_sq = t
+                break
+            if b[t] == queen:
+                queen_sq = t
+        if rook_sq:
+            return rook_sq, 500
+        if queen_sq:
+            return queen_sq, 900
+        for d in KING_STEPS:
+            if b[s + d] == king:
+                return s + d, SEE_KING
+        return 0, 0
+
+    def see_estimate(self, m):
+        """정적 교환 평가: 수 m을 둔 뒤 도착 칸에서 양쪽이 가장 싼 기물부터 계속 잡는다고
+        볼 때, 수를 둔 쪽의 기물 손익(cp). 음수면 그 칸에서 기물을 잃는 수(희생 후보).
+        핀·체크 같은 전술은 보지 않는 '칸 하나의 산수'다 (탐색을 대신하지 않음)."""
+        b = self.board
+        frm, to, promo = m
+        piece = b[frm]
+        victim = b[to]
+        gain = SEE_VALUE[victim]
+        removed = [(frm, piece)]
+        b[frm] = EMPTY
+        if victim == EMPTY and to == self.ep and (piece == 'P' or piece == 'p'):
+            ep_sq = to - 10 if piece == 'P' else to + 10
+            removed.append((ep_sq, b[ep_sq]))
+            b[ep_sq] = EMPTY
+            gain = 100
+        on_square = SEE_VALUE[piece]
+        if promo:
+            on_square = SEE_VALUE[promo]
+            gain += on_square - 100
+        gains = [gain]
+        side = self.side ^ 1
+        try:
+            while True:
+                s, value = self._least_attacker(to, side)
+                if not s:
+                    break
+                if value == SEE_KING:
+                    # 킹은 상대 공격이 남아 있는 칸으로 잡으러 갈 수 없다
+                    b[s] = EMPTY
+                    guarded = self._least_attacker(to, side ^ 1)[0]
+                    b[s] = 'K' if side == WHITE else 'k'
+                    if guarded:
+                        break
+                gains.append(on_square - gains[-1])
+                on_square = value
+                removed.append((s, b[s]))
+                b[s] = EMPTY
+                side ^= 1
+        finally:
+            for s, p in removed:
+                b[s] = p
+        for i in range(len(gains) - 1, 0, -1):
+            if gains[i] > -gains[i - 1]:
+                gains[i - 1] = -gains[i]
+        return gains[0]
+
+    def see(self, move):
+        """Material balance of a legal move followed by optional legal recaptures."""
+        return self._exchange_capture(move)
+
+    def _exchange_capture(self, move):
+        target = move.to
+        captured = SEE_VALUE[self.board[target]]
+        if not captured and target == self.ep and self.board[move.frm] in 'Pp':
+            captured = 100
+        gain = captured + (SEE_VALUE[move.promo] - 100 if move.promo else 0)
+        self.make_move(move)
+        try:
+            return gain - self._best_exchange_reply(target)
+        finally:
+            self.unmake_move()
+
+    def _best_exchange_reply(self, target):
+        victim = self.board[target]
+        if victim in '.Kk':
+            return 0
+        white = self.side == WHITE
+        pawn, knight, bishop, rook, queen, king = 'PNBRQK' if white else 'pnbrqk'
+        pawn_steps = (-9, -11) if white else (9, 11)
+        b = self.board
+        replies = []
+        for step in pawn_steps:
+            origin = target + step
+            if b[origin] == pawn:
+                self._add_pawn_move(replies, origin, target, 7 if white else 0)
+        for step in KNIGHT_STEPS:
+            if b[target + step] == knight:
+                replies.append(Move(target + step, target))
+        for directions, slider in ((BISHOP_DIRS, bishop), (ROOK_DIRS, rook)):
+            for step in directions:
+                origin = target + step
+                while b[origin] == EMPTY:
+                    origin += step
+                if b[origin] in (slider, queen) or (origin == target + step and b[origin] == king):
+                    replies.append(Move(origin, target))
+        best = 0
+        for move in replies:
+            gain = SEE_VALUE[victim] + (SEE_VALUE[move.promo] - 100 if move.promo else 0)
+            if gain <= best:
+                continue
+            self.make_move(move)
+            try:
+                if not self.in_check(self.side ^ 1):
+                    best = max(best, gain - self._best_exchange_reply(target))
+            finally:
+                self.unmake_move()
+        return best
+
     # ──────────────────────────── 수 생성 ────────────────────────────
     def pseudo_legal_moves(self, captures_only=False):
         """기물 움직임 규칙만 지킨 수. 자기 킹이 체크에 남는 수도 섞여 있음.
@@ -386,15 +539,147 @@ class Board:
             else:                                                  # 미끄러지는 기물
                 for d in PIECE_DIRS[kind]:
                     t = s + d
-                    while b[t] == EMPTY:
-                        if not captures_only:
+                    if captures_only:
+                        while b[t] == EMPTY:
+                            t += d
+                    else:
+                        while b[t] == EMPTY:
                             add(Move(s, t))
-                        t += d
+                            t += d
                     if b[t] in enemy:
                         add(Move(s, t))
 
         if not captures_only:
             self._add_castling(moves)
+        return moves
+
+    def evasion_candidates(self):
+        """Generate only potential responses to check, preserving move order."""
+        board = self.board
+        king = self.king_sq[self.side]
+        enemy = self.side ^ 1
+        pawn, knight, bishop, rook, queen = 'PNBRQ' if enemy == WHITE else 'pnbrq'
+        checkers = []
+        for offset in ((-9, -11) if enemy == WHITE else (9, 11)):
+            if board[king + offset] == pawn:
+                checkers.append({king + offset})
+        for offset in KNIGHT_STEPS:
+            if board[king + offset] == knight:
+                checkers.append({king + offset})
+        for direction in QUEEN_DIRS:
+            target = king + direction
+            while board[target] == EMPTY:
+                target += direction
+            if board[target] in (queen, bishop if direction in BISHOP_DIRS else rook):
+                checkers.append(set(range(king + direction, target + direction, direction)))
+        if not checkers:
+            return self.pseudo_legal_moves()
+        targets = checkers[0] if len(checkers) == 1 else set()
+        return self._generate_evasions(targets)
+
+    def quiet_check_candidates(self):
+        """Quiet moves that can give check, in normal move-generation order."""
+        board = self.board
+        king = self.king_sq[self.side ^ 1]
+        own = WHITE_PIECES if self.side == WHITE else BLACK_PIECES
+        up, start_rank, last_rank = (N, 1, 7) if self.side == WHITE else (S, 6, 0)
+        discovered = set()
+        bishop_targets, rook_targets = set(), set()
+        for direction in QUEEN_DIRS:
+            diagonal = direction in BISHOP_DIRS
+            targets = bishop_targets if diagonal else rook_targets
+            first = king + direction
+            while board[first] == EMPTY:
+                targets.add(first)
+                first += direction
+            if board[first] in own:
+                second = first + direction
+                while board[second] == EMPTY:
+                    second += direction
+                if board[second] in own and board[second].upper() in ('Q', 'B' if diagonal else 'R'):
+                    discovered.add(first)
+        queen_targets = bishop_targets | rook_targets
+        pawn_targets = (king - up - E, king - up - W)
+        for origin in SQUARES:
+            piece = board[origin]
+            if piece not in own:
+                continue
+            kind = piece.upper()
+            uncovers = origin in discovered
+            if kind == 'P':
+                dest = origin + up
+                if board[dest] == EMPTY and rank_of(dest) != last_rank:
+                    if uncovers or dest in pawn_targets:
+                        yield Move(origin, dest)
+                    if rank_of(origin) == start_rank and board[dest + up] == EMPTY:
+                        if uncovers or dest + up in pawn_targets:
+                            yield Move(origin, dest + up)
+            elif kind == 'N' or kind == 'K':
+                if kind == 'K' and not uncovers:
+                    continue
+                for step in PIECE_DIRS[kind]:
+                    dest = origin + step
+                    if board[dest] == EMPTY and (uncovers or king - dest in KNIGHT_STEPS):
+                        yield Move(origin, dest)
+            else:
+                targets = queen_targets if kind == 'Q' else bishop_targets if kind == 'B' else rook_targets
+                for step in PIECE_DIRS[kind]:
+                    dest = origin + step
+                    while board[dest] == EMPTY:
+                        if uncovers or dest in targets:
+                            yield Move(origin, dest)
+                        dest += step
+        if self.castling:
+            castles = []
+            self._add_castling(castles)
+            yield from castles
+
+    def _generate_evasions(self, targets):
+        board = self.board
+        king = self.king_sq[self.side]
+        own = WHITE_PIECES if self.side == WHITE else BLACK_PIECES
+        enemy = CAPTURABLE[self.side]
+        up = N if self.side == WHITE else S
+        start_rank, last_rank = (1, 7) if self.side == WHITE else (6, 0)
+        moves = []
+        # Usually double check allows only king moves. Keep en passant
+        # conservative because the captured square differs from the target.
+        squares = SQUARES if targets or self.ep else (king,)
+        for origin in squares:
+            piece = board[origin]
+            if piece not in own:
+                continue
+            kind = piece.upper()
+            if origin == king:
+                for step in KING_STEPS:
+                    dest = origin + step
+                    if board[dest] == EMPTY or board[dest] in enemy:
+                        moves.append(Move(origin, dest))
+            elif kind == 'P':
+                dest = origin + up
+                if board[dest] == EMPTY:
+                    if dest in targets:
+                        self._add_pawn_move(moves, origin, dest, last_rank)
+                    double = dest + up
+                    if double in targets and rank_of(origin) == start_rank and board[double] == EMPTY:
+                        moves.append(Move(origin, double))
+                for dest in (origin + up + E, origin + up + W):
+                    if dest == self.ep or (dest in targets and board[dest] in enemy):
+                        self._add_pawn_move(moves, origin, dest, last_rank)
+            elif kind == 'N':
+                for step in KNIGHT_STEPS:
+                    dest = origin + step
+                    if dest in targets and (board[dest] == EMPTY or board[dest] in enemy):
+                        moves.append(Move(origin, dest))
+            else:
+                for step in PIECE_DIRS[kind]:
+                    dest = origin + step
+                    while board[dest] == EMPTY:
+                        if dest in targets:
+                            moves.append(Move(origin, dest))
+                        dest += step
+                    if dest in targets and board[dest] in enemy:
+                        moves.append(Move(origin, dest))
         return moves
 
     @staticmethod
@@ -460,7 +745,8 @@ class Board:
                         if b[s + d] == EMPTY or b[s + d] in enemy:
                             return True
         # 느린 길: 하나씩 두어 보다가 합법수가 나오면 즉시 멈춤
-        for m in self.pseudo_legal_moves():
+        moves = self.evasion_candidates() if in_check else self.pseudo_legal_moves()
+        for m in moves:
             self.make_move(m)
             ok = not self.is_attacked(self.king_sq[self.side ^ 1], self.side)
             self.unmake_move()
@@ -539,6 +825,18 @@ class Board:
         self.castling, self.ep, self.ep_key, self.halfmove = castling, ep, ep_key, halfmove
 
     # ──────────────────────────── 편의 기능 ────────────────────────────
+    def make_null_move(self):
+        """Pass for a hypothetical search and start a fresh reversible segment."""
+        state = self.ep, self.ep_key, self.halfmove, self.hash
+        self.side ^= 1
+        self.hash ^= ZOBRIST_SIDE ^ self.ep_key
+        self.ep = self.ep_key = self.halfmove = 0
+        return state
+
+    def unmake_null_move(self, state):
+        self.side ^= 1
+        self.ep, self.ep_key, self.halfmove, self.hash = state
+
     def parse_uci(self, text):
         """'e2e4' 같은 문자열을 합법수 Move로 바꿈. 불법이거나 형식이 틀리면 None."""
         if not isinstance(text, str):

@@ -43,7 +43,7 @@ from search import Searcher, TimeUp, uci_score, MAX_PLY, ENGINE_VERSION
 
 ENGINE_NAME = "MyEngine"          # GUI에 보일 이름 — 마음대로 바꾸세요
 ENGINE_AUTHOR = "MyEngine author"
-UCI_VERSION = "0.5.5"             # UCI 버전 (0.4.2: 평가 최적화·King Safety 개정. 프로토콜은 0.4.1과 같음)
+UCI_VERSION = ENGINE_VERSION             # UCI 버전 (0.4.2: 평가 최적화·King Safety 개정. 프로토콜은 0.4.1과 같음)
 
 # Hash(MB) → TT 용량(항목 수). 근사값임 (v0.4.1에서 실측해 정함).
 #   파이썬 TT 항목 1개 = 튜플 + 해시 int + 점수 int + Move 객체 ≈ 220바이트, 칸 배열 8바이트
@@ -51,6 +51,8 @@ UCI_VERSION = "0.5.5"             # UCI 버전 (0.4.2: 평가 최적화·King Sa
 #   Hash는 TT만의 한도이고, 파이썬 인터프리터·보드·히스토리 표 등 나머지 메모리는 포함하지 않음.
 TT_ENTRIES_PER_MB = 4000
 DEFAULT_HASH_MB = 64
+# Selective search remains available explicitly while tactical regressions are evaluated.
+DEFAULT_SELECTIVE = False
 DEFAULT_MOVE_OVERHEAD_MS = 50     # GUI·운영체제 지연을 감안해 남겨 두는 시간
 
 
@@ -75,17 +77,21 @@ class UCISearcher(Searcher):
     def __init__(self, tt_size):
         super().__init__(tt_size=tt_size)
         self.stop_event = threading.Event()
-        self.pending_time = None     # ponderhit이 남긴 '지금부터 n초' (탐색 스레드가 직접 적용)
+        self.pending_time = None     # ponderhit의 시각과 예산, 탐색 스레드가 직접 적용
 
     def _check_limits(self):
         if self.stop_event.is_set():
             raise TimeUp
-        t = self.pending_time
-        if t is not None:            # ponderhit: 시작 시각과 마감을 지금 기준으로 다시 잡음.
+        pending = self.pending_time
+        if pending is not None:
             self.pending_time = None  # 탐색 스레드 안에서 적용하므로 search() 시작과 경쟁하지 않음
-            now = time.time()
-            self.start, self.deadline = now, now + t
+            started, budget = pending
+            self.start, self.deadline = started, started + budget
         super()._check_limits()
+
+    def _check_interval(self):
+        # A pending ponderhit must be seen even when this pass started untimed.
+        return 128 if self.deadline is None else super()._check_interval()
 
 
 def allocate_time(clock_ms, inc_ms, movestogo, overhead_ms):
@@ -134,6 +140,8 @@ class UCIEngine:
         self.hash_mb = DEFAULT_HASH_MB
         self.move_overhead = DEFAULT_MOVE_OVERHEAD_MS
         self.searcher = UCISearcher(tt_size=self.hash_mb * TT_ENTRIES_PER_MB)
+        self.searcher.selective = DEFAULT_SELECTIVE
+        self.multipv = 1
         self.board = Board()
         self.position_key = (START_FEN, [])     # 마지막 position 명령 (수 목록 재사용용)
         self.thread = None
@@ -152,13 +160,19 @@ class UCIEngine:
                 self.out.write(ascii_safe(line) + '\n')
             self.out.flush()
 
-    def on_info(self, info):
+    def on_info(self, info, rank=None):
         ms = int(info.seconds * 1000)
         nps = int(info.nodes / info.seconds) if info.seconds > 0 else 0
-        self.last_pv = list(info.pv)
+        if rank is None or rank == 1:
+            self.last_pv = list(info.pv)
         pv = ' '.join(m.uci() for m in info.pv)
-        self.send(f"info depth {info.depth} score {uci_score(info.score)} nodes {info.nodes} "
+        multipv = f' multipv {rank}' if rank is not None else ''
+        self.send(f"info depth {info.depth}{multipv} score {uci_score(info.score)} nodes {info.nodes} "
                   f"nps {nps} time {ms} pv {pv}")
+
+    def on_multipv(self, group):
+        for rank, info in enumerate(group, 1):
+            self.on_info(info, rank)
 
     # ──────────────────────────── 명령 처리 ────────────────────────────
     def handle(self, line):
@@ -172,6 +186,7 @@ class UCIEngine:
                 self.send(f"id name {ENGINE_NAME} {UCI_VERSION}")
                 self.send(f"id author {ENGINE_AUTHOR}")
                 self.send(f"option name Hash type spin default {DEFAULT_HASH_MB} min 1 max 1024")
+                self.send("option name MultiPV type spin default 1 min 1 max 5")
                 self.send("option name Clear Hash type button")
                 self.send(f"option name Move Overhead type spin default {DEFAULT_MOVE_OVERHEAD_MS} "
                           f"min 0 max 5000")
@@ -181,6 +196,10 @@ class UCIEngine:
                 self.send("option name TacticalOrdering type check default false")
                 self.send("option name LMR type check default false")
                 self.send("option name CheckContinuation type check default false")
+                self.send("option name CheckExtensionLimit type spin default -1 min -1 max 10")
+                self.send("option name ExperimentalNullMove type check default false")
+                self.send("option name ExperimentalNullThreat type check default false")
+                self.send(f"option name SelectiveSearch type check default {str(DEFAULT_SELECTIVE).lower()}")
                 self.send("option name AttackActivity type check default false")
                 self.send("option name Initiative type check default false")
                 self.send("option name Ponder type check default false")   # 상대 차례에 미리 생각 (v0.4.1)
@@ -255,6 +274,9 @@ class UCIEngine:
         elif name == 'clear hash':
             self.stop_search()
             self.searcher.tt.clear()
+        elif name == 'multipv' and value is not None:
+            self.stop_search()
+            self.multipv = max(1, min(5, int(value)))
         elif name == 'move overhead' and value is not None:
             self.move_overhead = max(0, min(5000, int(value)))
         elif name == 'ponder':
@@ -289,6 +311,17 @@ class UCIEngine:
             if enabled != self.searcher.check_continuation:
                 self.searcher.check_continuation = enabled
                 self.searcher.tt.clear()  # qsearch meaning changes
+        elif name == 'checkextensionlimit' and value is not None:
+            self.stop_search()
+            limit = max(-1, min(10, int(value)))
+            self.searcher.check_extension_limit = None if limit == -1 else limit
+        elif name in ('experimentalnullmove', 'experimentalnullthreat') and value is not None:
+            self.stop_search()
+            attr = 'null_move_pruning' if name == 'experimentalnullmove' else 'null_threat_extension'
+            setattr(self.searcher, attr, value.strip().lower() == 'true')
+        elif name == 'selectivesearch' and value is not None:
+            self.stop_search()                  # 설정이 바뀌면 다음 탐색 시작 때 TT를 비움 (search.py)
+            self.searcher.selective = value.strip().lower() == 'true'
         elif name == 'tacticalchecks' and value is not None:
             self.stop_search()                        # 평가 방식이 바뀌므로 진행 중 탐색 중단
             enabled = value.strip().lower() == 'true'
@@ -402,6 +435,7 @@ class UCIEngine:
 
     def cmd_ponderhit(self):
         """상대가 예상대로 둠. 지금 돌고 있는 탐색(쌓인 결과·TT 그대로)에 이 순간부터 시간 제한을 걸어 계속함."""
+        started = time.monotonic()
         p = self.ponder_params
         self.ponder_params = None
         if not (self.thread and self.thread.is_alive()) or p is None:
@@ -411,15 +445,18 @@ class UCIEngine:
             return
         limit, _ = self.time_for_move(p, self.board)
         if limit is not None:
-            self.searcher.pending_time = limit      # 반복 심화의 '절반 규칙'도 이 시점부터 계산됨
+            self.searcher.pending_time = started, limit
         self.release.set()                      # 탐색이 이미 끝나 기다리는 중이면 바로 bestmove
 
     def _search_worker(self, board, max_depth, time_limit, node_limit, infinite, root_moves):
         best, score = None, 0
         t0 = time.time()
         try:
+            multipv = self.multipv
             best, score = self.searcher.search(board, max_depth=max_depth, time_limit=time_limit,
-                                               node_limit=node_limit, on_info=self.on_info,
+                                               node_limit=node_limit, multipv=multipv,
+                                               on_info=self.on_info if multipv == 1 else None,
+                                               on_multipv=self.on_multipv if multipv > 1 else None,
                                                root_moves=root_moves)
         except Exception as e:                  # 탐색 오류가 나도 GUI에는 반드시 수를 돌려줌
             self.send(f"info string search error: {type(e).__name__}")

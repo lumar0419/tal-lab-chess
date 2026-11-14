@@ -1,71 +1,100 @@
-# Tal Lab v0.5.5 — 분석 중심 웹사이트
+# Tal Lab v0.9.1
 
-**기존 Python 체스 엔진은 유지하고, 국면을 불러오면 자동으로 분석을 시작하도록 개선**했습니다. 분석은 국면당 최대 60초로 제한됩니다.
+직접 개발한 Python 체스 엔진으로 여러 마스터의 희생수와 상대 방어를 연구하는 분석실입니다. Fischer, Kasparov, Anderssen의 실전 사례 6개와 기존 FEN 분석, 대국 화면, UCI 인터페이스를 제공합니다. 심층 연구 도구에는 9명의 마스터가 둔 23개 국면이 포함됩니다. [v0.8.8 검증 기록](VALIDATION_v088.md), [v0.8.7](VALIDATION_v087.md), [v0.8.6](VALIDATION_v086.md), [전술 분기 진단](VALIDATION_v085.md), [서버 검증 기록](VALIDATION_v084.md), [개발 기록](CHANGELOG.md)
 
-- **메인 주소 `/` 또는 `/analysis`**: 체스 분석실. 백/흑 모두 직접 수를 둘 수 있고, 엔진이 자동으로 응수하지 않습니다.
-- **예전 대국 모드 `/play`**: 유지. 기존 URL의 대국 기능은 삭제하지 않았습니다.
-- **자동 분석 기본 ON**: 페이지 최초 접속, 수 진행, 무르기, FEN 입력/마스터 국면/초기화 시 0.35초 디바운스 후 현재 국면을 자동으로 분석합니다. 동일 국면에 대한 중복 요청은 서버에서 무해하게 처리합니다.
-- **설정 변경 시 자동 재분석**: 목표 깊이/시간/공격 옵션 변경 후 0.65초 기다리면 기존 분석을 취소하고 새 설정으로 재분석합니다.
-- **일시 정지**: ■ 중단을 누르거나 자동 분석 체크를 해제하면 현재 분석을 멈춥니다. 설정은 브라우저에 저장되고, 다시 ON으로 바꿀 때 재분석할 수 있습니다. 수동 '다시 분석' 버튼도 유지합니다.
-- **자동 분석은 무한 루프가 아닙니다**: 같은 국면은 설정한 시간 상한까지 한 번만 계산하고 종료합니다. 60초에 도달해도 자동 재시작하지 않습니다. Render 무료 서버의 제한에 맞춘 보호입니다.
-- **깊이별 실시간 업데이트**: Iterative deepening에서 **완료한** 각 깊이의 최선수, 평가(백 기준), 예상 수순(PV), 경과 시간과 노드를 기록합니다. 현재 계산 중인 깊이도 따로 표시합니다.
-- **최소 *목표* 깊이와 최대 깊이**: 기본 목표 5, 최대 8. 기존 대국 모드의 '제한시간의 절반 경과 시 다음 깊이를 시작하지 않음' 휴리스틱을 **분석 모드에서만 비활성화**했습니다. 선택한 최대 시간 내에 다음 깊이까지 계속 계산을 시도합니다.
-- **안전 시간 상한**: 10/20/30/45/60초. 특정 깊이까지 무조건 도달하겠다는 보장은 아닙니다. 서버의 안전 상한에 먼저 걸리면 `target_not_reached`로 표시하고 마지막 완료 깊이만 결과로 보존합니다.
-- **기보 분석**: FEN 입력, 마스터 기물 희생 국면 선택, 판 위에서 양쪽 수 직접 진행, 한 수 무르기, 시작 국면, 추천수 적용, 판 뒤집기.
-- **공격 성향은 실험 옵션**: Balanced 평가를 기본값으로 유지. TacticalChecks, AttackActivity, Initiative, TacticalOrdering, CheckContinuation, Aspiration, KingSafety, LMR 옵션을 필요할 때 켤 수 있습니다. 이 기능이 실전 실력을 높였다는 뜻은 아닙니다.
-- **보안 및 세션 관리**: 기존 Render 기본 인증, 브라우저별 세션, 로그인 시도 제한, 동시 검색 보호 기능을 유지합니다.
+## 실행
 
-## GitHub / Render 업그레이드
+Python 3.12에서 검증했습니다. 웹 앱은 Python 표준 라이브러리만으로 실행됩니다.
 
-1. 기존 GitHub 저장소(`tal-lab-chess`)는 **삭제하지 않습니다.**
-2. 배포용 `tal_lab_update_v054_github.zip`을 압축 해제하고, 안의 모든 파일과 `web` 폴더를 **저장소 최상위**에 업로드하고 Commit하세요. **같은 경로는 새 파일로 교체**되며, 변경하지 않은 기존 파일은 그대로 둡니다.
-3. Render의 `Deploys`에서 **최신 커밋이 Live**인지 확인합니다.
-4. 기존 사이트 주소 `https://tal-lab-chess.onrender.com/`는 이제 분석실이고, 기존 대국 화면은 `https://tal-lab-chess.onrender.com/play`입니다.
-5. 접속 계정(`TAL_SITE_USER`/`TAL_SITE_PASSWORD`)은 변경하지 않아도 됩니다.
-
-> 아직 Render 웹사이트에 새 코드가 실제 반영된 것은 아닙니다. GitHub에 업데이트한 뒤 자동 배포가 완료되어야 합니다.
-
-## 로컬 실행
-
-Python 3가 설치된 폴더에서 `python web_server.py --no-browser` 실행 후 `http://127.0.0.1:8000/`로 접속합니다. Windows에서는 `start_web.bat`를 사용할 수 있습니다. **별도 웹 프레임워크나 패키지는 필요하지 않습니다.**
-
-## API
-
-| 메서드 | 경로 | 기능 |
-|---|---|---|
-| GET | `/api/analysis/state` | 현재 국면, 완료 깊이, 계산 중 깊이, PV/평가/기록 |
-| GET | `/api/analysis/cases` | 등록된 마스터 사례의 FEN, 역사적 수 |
-| POST | `/api/analysis/fen` | `{ "fen": "..." }` FEN 불러오기 |
-| POST | `/api/analysis/move` | `{ "uci": "e2e4" }` 수 진행 |
-| POST | `/api/analysis/undo` | 마지막 직접 진행한 수 되돌리기 |
-| POST | `/api/analysis/reset` | 시작 국면으로 |
-| POST | `/api/analysis/start` | `{ "min_depth": 5, "max_depth": 8, "seconds": 30, "options": {} }` |
-| POST | `/api/analysis/auto` | `{ "min_depth": 5, "max_depth": 8, "seconds": 30, "options": {}, "expected_fen": "..." }` - idle인 현재 국면에만 자동 시작 |
-| POST | `/api/analysis/restart` | 동일 데이터 - 현재 FEN이 일치할 때만 분석 재시작 |
-| POST | `/api/analysis/stop` | 현재 분석 중단 |
-
-분석 진행 중에도 GET 요청으로 상태를 가져올 수 있으며, 브라우저에서 약 600ms마다 요청합니다. 웹 서버의 메인 요청 스레드는 검색 완료를 기다리지 않습니다.
-
-## 테스트
-
-```
-python -m unittest -v test_v054
-python -m unittest -q test_v054 test_web test_cloud test_v052 test_v053
-node --check web/analysis.js  # Node.js가 있다면 선택적으로 확인
+```bash
+python web_server.py --no-browser
 ```
 
-- 현재 버전의 신규 분석 테스트와 기존 서버/웹 회귀 테스트를 합친 **52개**가 통과했습니다.
-- `analysis.js` JavaScript 문법과 HTML ID 참조를 정적으로 확인했습니다.
-- 전체 장시간 엔진 회귀 시험과 외부 Stockfish 상대 Elo 평가는 **이번 업데이트에서 완료하지 않았습니다**.
-- 웹 브라우저 자동 렌더링 검증은 실행 환경에서 로컬 접속이 차단되어 완료하지 못했습니다. 서버/API 테스트는 통과했지만 실제 배포 후 브라우저에서 확인해야 합니다.
+브라우저에서 `http://127.0.0.1:8000/`을 엽니다. `/analysis`도 같은 분석 화면이며, `/play`에서 대국할 수 있습니다. GUI에 엔진을 연결할 때는 `python uci.py`를 사용합니다.
 
-## 분석 결과 해석 주의
+## 분석실 사용
 
-- 이 엔진의 'DEPTH 5'는 그 깊이까지 **완료된 탐색**을 뜻하며, 현재 더 깊은 탐색이 진행 중이어도 결과는 보수적으로 유지합니다.
-- **최소 깊이는 '목표'이지 하한 보장이 아닙니다.** 특히 Render 무료 인스턴스에서는 복잡한 국면의 깊이 6 이상이 시간 상한 안에 끝나지 않을 수 있습니다.
-- 마스터의 역사적 희생 수와 엔진의 선택이 일치한다고 해서 그 수가 객관적으로 최선인 것은 아닙니다. 일반적인 Elo, 전술 정확도, 희생 건전성은 별도로 평가해야 합니다.
-- 서버가 절전/재시작되면 메모리에 저장된 FEN/분석 결과는 초기화됩니다. 보존하려는 FEN은 복사해 두세요.
+- **MultiPV와 화살표**. 후보 수를 1·2·3·5개 중 고릅니다. 체스판에는 완료된 깊이의 상위 3개까지 표시됩니다. 두께와 색은 현재 둘 차례의 관점에서 최선수와의 평가 차이를 보여 줍니다. 숫자는 순위입니다. 후보 카드를 선택하면 그 수순이 표시됩니다. 기물 이동 소리는 체크박스로 켭니다.
+- **CPU 선택**. 서버 CPU와 브라우저 로컬 CPU가 동일한 Tal Lab Python 엔진을 실행합니다. 브라우저 실행에는 WebAssembly와 Pyodide 0.27.7 다운로드가 필요합니다. `CPU 성능 비교`를 누르면 같은 2개 국면을 깊이 3, MultiPV 3으로 각각 3회 측정합니다. `자동`에서는 결과가 일치하고 로컬 중앙값이 서버보다 15% 넘게 짧을 때 로컬을 선택합니다. 측정 전이나 실패 시 서버를 사용합니다. 비교는 다운로드와 통신 시간을 제외합니다.
+- **PGN**. UTF-8 기준 최대 128 KiB, 600반수의 표준 체스 기보 한 판을 불러올 수 있습니다. 주석과 변형 수순은 건너뛰고 본 수순을 검증합니다. 수 목록이나 탐색 버튼으로 원하는 시점으로 이동합니다. 평가 그래프는 실제로 분석한 국면만 표시합니다. 이전 국면에서 새로운 수를 두면 그 지점부터 새 수순으로 이어집니다.
+- **희생 연구**. 분석을 중단한 뒤 `희생 찾기`를 누르면 상대가 즉시 수락할 수 있는 기물 희생을 검색합니다. `후보 검증`에서는 수락·거절 방어와 예상 수순을 최대 세 줄 표시합니다. 메이트 점수가 나오면 최대 7반수에서 합법 방어를 전부 확인합니다. 서버는 약 5초의 예산을 사용합니다. 검증 결과와 범위는 [v0.9.0 검증 기록](VALIDATION_v090.md)에 있습니다.
+- **UCI MultiPV**. `setoption name MultiPV value 3`으로 바꾸면 완료한 깊이마다 추천수 세 줄을 보냅니다. 설정 범위는 1–5입니다.
 
-## 다음 개발 후보
+최소 깊이는 목표입니다. 시간 상한에 도달하면 마지막으로 모든 후보를 계산한 깊이를 사용합니다. 메이트 점수는 폰 단위 점수와 별도로 읽으세요. 브라우저 모드는 분석 계산을 로컬에서 수행하며 기보와 국면 조작에는 사이트 API를 사용합니다.
 
-깊이별 PV 변화 이력을 저장하고, **MultiPV(상위 여러 후보 수)** 및 각 희생 후보를 강제로 탐색한 점수와 상대 최선 방어의 비교를 추가하면 정확한 희생 연구에 유용합니다.
+## 심층 분석
+
+분석 화면의 **심층 분석**을 열고 60·180·300·600초를 선택합니다. 전체 합법수는 MultiPV 1로 탐색하고, 즉시 수락 가능한 희생 후보와 이전에 앞섰던 수는 독립적으로 다시 계산합니다. 비교할 수에 UCI 수를 넣을 수도 있습니다. 후보 간 평가는 공통으로 완료한 깊이에서 읽으세요. 상대 차례에서도 별도로 탐색하므로 같은 후보의 방어 점수는 루트 점수와 다를 수 있습니다.
+
+기본 **보수적 LMR**은 비PV 노드의 늦은 조용한 수만 한 반수 줄여 보고, 알파를 넘을 때 본래 깊이로 재탐색합니다. 기본 탐색과 전체 선택적 탐색도 선택할 수 있습니다. 짧은 메이트를 확정할 때는 합법 방어 전수 검사와 무승부 청구를 적용합니다. 나머지 결과에는 깊이, 수순, 평가와 기물 손실이 기록됩니다. 후보와 실제 전체 탐색 1위는 화면에서 따로 표시합니다.
+
+서버 CPU 심층 분석은 다른 사용자의 빠른 분석·대국이 들어오면 중단되고 이미 완료된 결과가 남습니다. 로컬 CPU는 웹 워커를 사용하고 **중단** 버튼으로 멈춥니다. **분석 JSON 저장**으로 재검토할 수 있습니다.
+
+```bash
+python -m deep_analysis --fen "b2r3r/k4p1p/p2q1np1/NppP4/3p1Q2/P4PPB/1PP4P/1K1RR3 w - - 1 24" --seconds 600 --candidate d1d4 --output rxd4.json
+```
+
+지정 수를 생략하면 후보를 자동으로 선정합니다. `--moves`로 시작 FEN에서 UCI 착수 이력을 재현할 수 있습니다. [심층 탐색 검증과 미해결 국면](VALIDATION_v091.md)
+
+## 선택적 탐색 (SelectiveSearch)
+
+선택적 탐색은 같은 시간에 더 깊이 도달할 수 있는 실험 설정입니다. 정적 탐색에서 체크하는 캡처와 킹 인접 캡처, 앙파상, 승격을 보존합니다. 루트 쪽이 기물을 내준 수순은 루트에서 3반수까지 일부 가지치기에서 보호합니다. 정답률과 완료 깊이 비교는 [v0.8.9 검증 기록](VALIDATION_v089.md)에 있습니다.
+
+- **UCI**. 기본값은 꺼짐입니다. `setoption name SelectiveSearch value true`로 켤 수 있습니다.
+- **분석 화면**. `SelectiveSearch (실험)` 체크박스로 켤 수 있습니다.
+- **대국 화면**. `깊은 전술 탐색` 체크박스로 켜면 깊이 상한에 3반수를 더합니다.
+- **코드**. `Searcher().selective = True`. `Searcher()`의 기본값은 전폭 탐색입니다.
+
+전술 모음으로 두 설정을 비교하려면 다음을 실행합니다.
+
+```bash
+python -m research.suite_runner run --suite evidence/v088/suite.json --output full.json --seconds 1 --only wac
+python -m research.suite_runner run --suite evidence/v088/suite.json --output selective.json --seconds 1 --only wac --profile selective
+python -m research.suite_runner compare --suite evidence/v088/suite.json full.json selective.json
+```
+
+## 심층 희생 연구
+
+임의 FEN에서 Tal Lab만 사용해 후보를 먼저 발견하고, 각 후보 뒤 모든 합법 방어를 대상으로 평가합니다.
+
+```bash
+python -m research.deep_sacrifice --fen "4kb1r/p2n1ppp/4q3/4p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 0 16" --seconds 5 --depth 8 --output opera.json
+```
+
+`--move b3b8`처럼 입력하면 일반 탐색을 먼저 완료한 뒤 지정 수도 비교합니다. `--seconds`는 각 탐색의 시간 상한입니다. 여러 후보와 비교 탐색을 실행하므로 전체 소요 시간은 더 길 수 있습니다. `--multipv 1`로 한 후보에 계산 시간을 집중할 수 있습니다. `--check-continuation`은 정적 탐색에서 연속 체크를 비교하는 실험 옵션입니다. `--profile selective`는 후보 발견과 지정 수 탐색에 선택적 탐색을 씁니다. 결과에는 완료 깊이, 평가 차이, 상대 방어 후보, 판정의 근거와 증명 범위가 기록됩니다.
+
+## 기존 GitHub와 Render에 반영
+
+GitHub `lumar0419/tal-lab-chess`의 기준 커밋은 `4b91b757a49b2b33ae1fdbebd00fd350bc905442`입니다. 패키지의 `tal-lab-chess/`는 최신 소스입니다. 기존 저장소에서는 현재 체크아웃에 맞는 패치를 골라 적용하세요.
+
+| 현재 체크아웃 | 패치 |
+|---|---|
+| GitHub main의 기준 커밋 | `patches/github-main-to-v0.9.1.patch` |
+| v0.9.0 개발판 `af02d34` | `patches/v0.9.0-to-v0.9.1.patch` |
+
+```bash
+git switch -c development/deep-tactical-v091
+git apply --check --whitespace=nowarn /path/to/github-main-to-v0.9.1.patch
+git apply --index --whitespace=nowarn /path/to/github-main-to-v0.9.1.patch
+git commit -m "Integrate Tal Lab v0.9.1"
+```
+
+검사에서 충돌하면 현재 소스와 패치를 비교하세요. 기존 Render 서비스는 같은 `render.yaml`, `cloud_server.py` 시작 명령과 환경변수 이름을 사용합니다. 배포 후 로그인, `/analysis`, `/play`, `/healthz`를 확인하세요. 재시작하면 메모리에 있던 국면과 진행 중 분석이 초기화됩니다.
+
+## 검사 재현
+
+```bash
+python -m pip install -r requirements-dev.txt
+python -m unittest discover -q
+python test_engine.py --full
+python test_uci.py
+node test_visuals.js
+node test_frontend.js
+python perft.py
+python -m research.measure_search --baseline /path/to/v081 --seconds 1 --repeats 2 --output one-second-ab.json
+python -m research.deep_benchmark --baseline /path/to/v081 --stockfish /path/to/stockfish --reference-seconds 8 --output kasparov-timed.json
+python -m research.diagnose_kasparov --stockfish /path/to/stockfish --output kasparov-diagnostic.json
+python -m research.deep_sacrifice --baseline /path/to/v081 --stockfish /path/to/stockfish --seconds 1.5 --reference-seconds 2 --depth 8 --output historical-ab.json
+```
+
+`chess` 패키지와 Stockfish 실행 파일은 검증에 사용합니다. Stockfish 비교를 실행하려면 별도로 설치한 실행 파일 경로를 지정하세요.

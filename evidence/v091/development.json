@@ -1,0 +1,3041 @@
+[
+  {
+    "id": "ECM.1011",
+    "suite": "ecm",
+    "fen": "r1bqnrk1/pp2ppb1/1np3pp/4P1N1/5P2/2NBB3/PPP3PP/R2Q1RK1 w - - 0 1",
+    "bm": [
+      "g5h7"
+    ],
+    "san": "Nh7",
+    "see": -320,
+    "sacrifice": true,
+    "check": false,
+    "capture": false,
+    "sf_score": 267,
+    "sf_gap": 128,
+    "mate": false,
+    "upstream": [
+      {
+        "id": "ECM.1011",
+        "move": "g5h7",
+        "ok": true,
+        "score": 144,
+        "depth": 5,
+        "nodes": 179623,
+        "time": 1.933,
+        "found_at": 0.047,
+        "found_depth": 2
+      },
+      {
+        "id": "ECM.1011",
+        "move": "g5f7",
+        "ok": false,
+        "score": 135,
+        "depth": 8,
+        "nodes": 122447,
+        "time": 2.847,
+        "found_at": null,
+        "found_depth": null
+      }
+    ],
+    "diagnose_moves": [
+      "g5f7",
+      "g5h7"
+    ]
+  },
+  {
+    "id": "ECM.1065",
+    "suite": "ecm",
+    "fen": "rbbq1rk1/p3nppp/1p2p3/8/1B1pN3/P2B4/1P3PPP/2RQ1RK1 w - - 0 1",
+    "bm": [
+      "e4f6"
+    ],
+    "san": "Nf6+",
+    "see": -320,
+    "sacrifice": true,
+    "check": true,
+    "capture": false,
+    "sf_score": 470,
+    "sf_gap": 215,
+    "mate": false,
+    "upstream": [
+      {
+        "id": "ECM.1065",
+        "move": "e4f6",
+        "ok": true,
+        "score": -146,
+        "depth": 4,
+        "nodes": 212658,
+        "time": 3.005,
+        "found_at": 1.307,
+        "found_depth": 4
+      },
+      {
+        "id": "ECM.1065",
+        "move": "e4g5",
+        "ok": false,
+        "score": -103,
+        "depth": 7,
+        "nodes": 88732,
+        "time": 2.156,
+        "found_at": null,
+        "found_depth": null
+      }
+    ],
+    "diagnose_moves": [
+      "e4g5",
+      "e4f6"
+    ]
+  },
+  {
+    "id": "ECM.1076",
+    "suite": "ecm",
+    "fen": "2rr1bk1/5p1p/pPN2np1/3Bp3/2Q1n3/1P2B1Pq/P3PP2/R2R2K1 b - - 0 1",
+    "bm": [
+      "d8d5"
+    ],
+    "san": "Rxd5",
+    "see": 10,
+    "sacrifice": false,
+    "check": false,
+    "capture": true,
+    "sf_score": 535,
+    "sf_gap": 535,
+    "mate": false,
+    "upstream": [
+      {
+        "id": "ECM.1076",
+        "move": "d8d5",
+        "ok": true,
+        "score": -53,
+        "depth": 4,
+        "nodes": 239613,
+        "time": 3.012,
+        "found_at": 0.014,
+        "found_depth": 1
+      },
+      {
+        "id": "ECM.1076",
+        "move": "f6d5",
+        "ok": false,
+        "score": 19,
+        "depth": 6,
+        "nodes": 69008,
+        "time": 1.522,
+        "found_at": null,
+        "found_depth": null
+      }
+    ],
+    "diagnose_moves": [
+      "d8d5",
+      "f6d5"
+    ]
+  },
+  {
+    "id": "ECM.1122",
+    "suite": "ecm",
+    "fen": "3r3k/p1Q3bp/2p3p1/8/2P1BRn1/1P4Pb/P1N1q2P/6BK b - - 0 1",
+    "bm": [
+      "g4f2"
+    ],
+    "san": "Nf2+",
+    "see": -320,
+    "sacrifice": true,
+    "check": true,
+    "capture": false,
+    "sf_score": 99993,
+    "sf_gap": 99880,
+    "mate": true,
+    "upstream": [
+      {
+        "id": "ECM.1122",
+        "move": "g4f2",
+        "ok": true,
+        "score": 99987,
+        "depth": 5,
+        "nodes": 193335,
+        "time": 2.678,
+        "found_at": 2.678,
+        "found_depth": 5
+      },
+      {
+        "id": "ECM.1122",
+        "move": "d8f8",
+        "ok": false,
+        "score": -211,
+        "depth": 5,
+        "nodes": 127797,
+        "time": 3.01,
+        "found_at": null,
+        "found_depth": null
+      }
+    ],
+    "diagnose_moves": [
+      "g4f2",
+      "d8f8"
+    ]
+  },
+  {
+    "id": "ECM.1257",
+    "suite": "ecm",
+    "fen": "8/5k1p/5PpB/3PR3/2r4P/1p3K2/2b5/8 b - - 0 1",
+    "bm": [
+      "c4e4"
+    ],
+    "san": "Re4",
+    "see": -330,
+    "sacrifice": true,
+    "check": false,
+    "capture": false,
+    "sf_score": 436,
+    "sf_gap": 45,
+    "mate": false,
+    "upstream": [
+      {
+        "id": "ECM.1257",
+        "move": "c4e4",
+        "ok": true,
+        "score": 275,
+        "depth": 6,
+        "nodes": 196667,
+        "time": 2.559,
+        "found_at": 2.559,
+        "found_depth": 6
+      },
+      {
+        "id": "ECM.1257",
+        "move": "f7f6",
+        "ok": false,
+        "score": 196,
+        "depth": 7,
+        "nodes": 89449,
+        "time": 1.875,
+        "found_at": null,
+        "found_depth": null
+      }
+    ],
+    "diagnose_moves": [
+      "f7f6",
+      "c4e4"
+    ]
+  },
+  {
+    "id": "ECM.1454",
+    "suite": "ecm",
+    "fen": "4qrk1/pp1bbppp/4pn2/2r1Q1B1/7P/2N3R1/PPP2PP1/2KR1B2 w - - 0 1",
+    "bm": [
+      "g5f6"
+    ],
+    "san": "Bxf6",
+    "see": -10,
+    "sacrifice": false,
+    "check": false,
+    "capture": true,
+    "sf_score": 318,
+    "sf_gap": 122,
+    "mate": false,
+    "upstream": [
+      {
+        "id": "ECM.1454",
+        "move": "g5f6",
+        "ok": true,
+        "score": 98,
+        "depth": 5,
+        "nodes": 259381,
+        "time": 3.015,
+        "found_at": 0.004,
+        "found_depth": 1
+      },
+      {
+        "id": "ECM.1454",
+        "move": "e5e3",
+        "ok": false,
+        "score": 10,
+        "depth": 7,
+        "nodes": 70244,
+        "time": 1.601,
+        "found_at": null,
+        "found_depth": null
+      }
+    ],
+    "diagnose_moves": [
+      "e5e3",
+      "g5f6"
+    ]
+  },
+  {
+    "id": "ECM.1527",
+    "suite": "ecm",
+    "fen": "2r2rk1/pp2pp1p/2np2p1/q4P2/2PBP1b1/2N5/PP1Q2PP/R4RK1 w - - 0 1",
+    "bm": [
+      "h2h3",
+      "d2h6"
+    ],
+    "san": "Qh6",
+    "see": 0,
+    "sacrifice": false,
+    "check": false,
+    "capture": false,
+    "sf_score": 324,
+    "sf_gap": 89,
+    "mate": false,
+    "upstream": [
+      {
+        "id": "ECM.1527",
+        "move": "h2h3",
+        "ok": true,
+        "score": 50,
+        "depth": 5,
+        "nodes": 175200,
+        "time": 2.102,
+        "found_at": 0.674,
+        "found_depth": 4
+      },
+      {
+        "id": "ECM.1527",
+        "move": "d4e3",
+        "ok": false,
+        "score": 37,
+        "depth": 6,
+        "nodes": 78543,
+        "time": 2.065,
+        "found_at": null,
+        "found_depth": null
+      }
+    ],
+    "diagnose_moves": [
+      "d4e3",
+      "h2h3"
+    ]
+  },
+  {
+    "id": "26.5.IQ.1118",
+    "suite": "iq4",
+    "fen": "6k1/6p1/7p/8/pb5N/2B1p2P/PP4P1/3K1b2 b - - 0 1",
+    "bm": [
+      "e3e2"
+    ],
+    "san": "e2+",
+    "see": 0,
+    "sacrifice": false,
+    "check": true,
+    "capture": false,
+    "sf_score": 253,
+    "sf_gap": 103,
+    "mate": false,
+    "upstream": [
+      {
+        "id": "26.5.IQ.1118",
+        "move": "e3e2",
+        "ok": true,
+        "score": 285,
+        "depth": 7,
+        "nodes": 204990,
+        "time": 2.604,
+        "found_at": 0.429,
+        "found_depth": 5
+      },
+      {
+        "id": "26.5.IQ.1118",
+        "move": "b4c5",
+        "ok": false,
+        "score": 153,
+        "depth": 8,
+        "nodes": 76338,
+        "time": 1.606,
+        "found_at": null,
+        "found_depth": null
+      }
+    ],
+    "diagnose_moves": [
+      "b4c5",
+      "e3e2"
+    ]
+  },
+  {
+    "id": "34.5.IQ.1200",
+    "suite": "iq4",
+    "fen": "r1bqkn1r/p3bpp1/1p2pn1p/2pPN1B1/2P5/3B2N1/PP3PPP/R2QR1K1 w kq - 0 1",
+    "bm": [
+      "g3f5",
+      "g3h5",
+      "d5e6"
+    ],
+    "san": "Nf5",
+    "see": -320,
+    "sacrifice": true,
+    "check": false,
+    "capture": false,
+    "sf_score": 544,
+    "sf_gap": 17,
+    "mate": false,
+    "upstream": [
+      {
+        "id": "34.5.IQ.1200",
+        "move": "g3h5",
+        "ok": true,
+        "score": 162,
+        "depth": 4,
+        "nodes": 136782,
+        "time": 2.289,
+        "found_at": 2.289,
+        "found_depth": 4
+      },
+      {
+        "id": "34.5.IQ.1200",
+        "move": "e5c6",
+        "ok": false,
+        "score": 170,
+        "depth": 6,
+        "nodes": 94076,
+        "time": 2.313,
+        "found_at": null,
+        "found_depth": null
+      }
+    ],
+    "diagnose_moves": [
+      "g3h5",
+      "e5c6"
+    ]
+  },
+  {
+    "id": "75.6.IQ.1086",
+    "suite": "iq4",
+    "fen": "rr4k1/3nbp1p/p3p1p1/q2pPPP1/bp1B3R/1B2Q3/PPP4P/2K3R1 w - - 0 1",
+    "bm": [
+      "f5e6"
+    ],
+    "san": "fxe6",
+    "see": 0,
+    "sacrifice": false,
+    "check": false,
+    "capture": true,
+    "sf_score": 274,
+    "sf_gap": 26,
+    "mate": false,
+    "upstream": [
+      {
+        "id": "75.6.IQ.1086",
+        "move": "f5e6",
+        "ok": true,
+        "score": -261,
+        "depth": 5,
+        "nodes": 249666,
+        "time": 3.005,
+        "found_at": 0.522,
+        "found_depth": 4
+      },
+      {
+        "id": "75.6.IQ.1086",
+        "move": "e3h3",
+        "ok": false,
+        "score": -192,
+        "depth": 7,
+        "nodes": 101213,
+        "time": 2.335,
+        "found_at": null,
+        "found_depth": null
+      }
+    ],
+    "diagnose_moves": [
+      "e3h3",
+      "f5e6"
+    ]
+  },
+  {
+    "id": "76.6.IQ.1087",
+    "suite": "iq4",
+    "fen": "7k/p2rq2p/1p3R1P/2p5/2P2P1Q/8/6PK/8 w - - 0 1",
+    "bm": [
+      "h4e1"
+    ],
+    "san": "Qe1",
+    "see": -900,
+    "sacrifice": true,
+    "check": false,
+    "capture": false,
+    "sf_score": 588,
+    "sf_gap": 138,
+    "mate": false,
+    "upstream": [
+      {
+        "id": "76.6.IQ.1087",
+        "move": "h4e1",
+        "ok": true,
+        "score": 55,
+        "depth": 5,
+        "nodes": 235008,
+        "time": 3.008,
+        "found_at": 0.101,
+        "found_depth": 3
+      },
+      {
+        "id": "76.6.IQ.1087",
+        "move": "h4g5",
+        "ok": false,
+        "score": 84,
+        "depth": 7,
+        "nodes": 136613,
+        "time": 3.022,
+        "found_at": null,
+        "found_depth": null
+      }
+    ],
+    "diagnose_moves": [
+      "h4e1",
+      "h4g5"
+    ]
+  },
+  {
+    "id": "123.7.IQ.1199",
+    "suite": "iq4",
+    "fen": "r3k2r/1bqnBppp/p3p3/1p2P3/3N2Q1/3B4/PPP3PP/2KnR3 w kq - 0 1",
+    "bm": [
+      "d4e6"
+    ],
+    "san": "Nxe6",
+    "see": -120,
+    "sacrifice": true,
+    "check": false,
+    "capture": true,
+    "sf_score": 42,
+    "sf_gap": 121,
+    "mate": false,
+    "upstream": [
+      {
+        "id": "123.7.IQ.1199",
+        "move": "d4e6",
+        "ok": true,
+        "score": -285,
+        "depth": 4,
+        "nodes": 224980,
+        "time": 3.0,
+        "found_at": 0.017,
+        "found_depth": 1
+      },
+      {
+        "id": "123.7.IQ.1199",
+        "move": "c1d1",
+        "ok": false,
+        "score": -271,
+        "depth": 5,
+        "nodes": 62617,
+        "time": 1.542,
+        "found_at": null,
+        "found_depth": null
+      }
+    ],
+    "diagnose_moves": [
+      "d4e6",
+      "c1d1"
+    ]
+  },
+  {
+    "id": "146.8.IQ.1090",
+    "suite": "iq4",
+    "fen": "6k1/1p3ppp/1PbNp3/3rP1q1/2Q5/8/5PPP/1R4K1 w - - 0 1",
+    "bm": [
+      "c4c6"
+    ],
+    "san": "Qxc6",
+    "see": -570,
+    "sacrifice": true,
+    "check": false,
+    "capture": true,
+    "sf_score": 405,
+    "sf_gap": 292,
+    "mate": false,
+    "upstream": [
+      {
+        "id": "146.8.IQ.1090",
+        "move": "c4c6",
+        "ok": true,
+        "score": -80,
+        "depth": 5,
+        "nodes": 203318,
+        "time": 3.009,
+        "found_at": 0.283,
+        "found_depth": 4
+      },
+      {
+        "id": "146.8.IQ.1090",
+        "move": "c4f1",
+        "ok": false,
+        "score": -115,
+        "depth": 7,
+        "nodes": 95309,
+        "time": 2.261,
+        "found_at": null,
+        "found_depth": null
+      }
+    ],
+    "diagnose_moves": [
+      "c4f1",
+      "c4c6"
+    ]
+  },
+  {
+    "id": "198.11.IQ.1080",
+    "suite": "iq4",
+    "fen": "2r1r1k1/pp1b1ppp/1q6/3P4/7N/Pn1Q4/1P3PPP/1RB2RK1 b - - 0 1",
+    "bm": [
+      "b3c1"
+    ],
+    "san": "Nxc1",
+    "see": 10,
+    "sacrifice": false,
+    "check": false,
+    "capture": true,
+    "sf_score": 394,
+    "sf_gap": 4,
+    "mate": false,
+    "upstream": [
+      {
+        "id": "198.11.IQ.1080",
+        "move": "b3c1",
+        "ok": true,
+        "score": 5,
+        "depth": 5,
+        "nodes": 294803,
+        "time": 2.803,
+        "found_at": 0.003,
+        "found_depth": 1
+      },
+      {
+        "id": "198.11.IQ.1080",
+        "move": "b6b5",
+        "ok": false,
+        "score": 45,
+        "depth": 7,
+        "nodes": 70093,
+        "time": 1.767,
+        "found_at": null,
+        "found_depth": null
+      }
+    ],
+    "diagnose_moves": [
+      "b6b5",
+      "b3c1"
+    ]
+  },
+  {
+    "id": "lichess_GTPdt",
+    "fen": "8/8/3k1p2/5Pp1/p1pK2Pp/2P4P/8/8 w - - 0 47",
+    "puzzle_move": "d4c4",
+    "answer_san": "Kxc4",
+    "category": "defense",
+    "initial_fen": "8/8/3k1p2/p4Pp1/2pK2Pp/2P4P/8/8 b - - 1 46",
+    "solution": [
+      "a5a4",
+      "d4c4",
+      "d6e5",
+      "c4b4",
+      "e5f4",
+      "c3c4",
+      "f4g3",
+      "c4c5"
+    ],
+    "game": "R9TFkVR6",
+    "source": "https://lichess.org/game/R9TFkVR6/black#92",
+    "rating": 1510,
+    "themes": [
+      "crushing",
+      "defensiveMove",
+      "endgame",
+      "pawnEndgame",
+      "quietMove",
+      "veryLong"
+    ],
+    "bm": [
+      "d4c4"
+    ],
+    "suite": "defense"
+  },
+  {
+    "id": "lichess_8cYy9",
+    "fen": "6R1/6k1/6p1/p1pB4/1q1b4/1P2r2P/P5P1/1KQ5 b - - 5 51",
+    "puzzle_move": "g7h7",
+    "answer_san": "Kh7",
+    "category": "defense",
+    "initial_fen": "5R2/6k1/6p1/p1pB4/1q1b4/1P2r2P/P5P1/1KQ5 w - - 4 51",
+    "solution": [
+      "f8g8",
+      "g7h7",
+      "g8f8",
+      "e3e1"
+    ],
+    "game": "2KE46eUL",
+    "source": "https://lichess.org/game/2KE46eUL#101",
+    "rating": 1928,
+    "themes": [
+      "crushing",
+      "defensiveMove",
+      "endgame",
+      "pin",
+      "short"
+    ],
+    "bm": [
+      "g7h7"
+    ],
+    "suite": "defense"
+  },
+  {
+    "id": "lichess_92ZMe",
+    "fen": "8/r7/7P/8/8/1k4P1/5PK1/q3R3 w - - 0 56",
+    "puzzle_move": "e1a1",
+    "answer_san": "Rxa1",
+    "category": "defense",
+    "initial_fen": "8/r7/7P/8/8/1k4P1/p4PK1/4R3 b - - 7 55",
+    "solution": [
+      "a2a1q",
+      "e1a1",
+      "a7a1",
+      "g3g4"
+    ],
+    "game": "QIJDRXAM",
+    "source": "https://lichess.org/game/QIJDRXAM/black#110",
+    "rating": 1916,
+    "themes": [
+      "crushing",
+      "defensiveMove",
+      "endgame",
+      "short"
+    ],
+    "bm": [
+      "e1a1"
+    ],
+    "suite": "defense"
+  },
+  {
+    "id": "lichess_g8Y0E",
+    "fen": "8/7p/p4kp1/1p2p3/1P2P2P/6P1/P2K4/8 b - - 0 41",
+    "puzzle_move": "g6g5",
+    "answer_san": "g5",
+    "category": "defense",
+    "initial_fen": "8/7p/p4kp1/1p2p3/1P2P3/6PP/P2K4/8 w - - 1 41",
+    "solution": [
+      "h3h4",
+      "g6g5",
+      "h4h5",
+      "g5g4"
+    ],
+    "game": "eSk0ZrRX",
+    "source": "https://lichess.org/game/eSk0ZrRX#81",
+    "rating": 1609,
+    "themes": [
+      "crushing",
+      "defensiveMove",
+      "endgame",
+      "pawnEndgame",
+      "short"
+    ],
+    "bm": [
+      "g6g5"
+    ],
+    "suite": "defense"
+  },
+  {
+    "id": "lichess_p6qEy",
+    "fen": "8/p7/6pp/2p1kp2/2p4P/P1P1KPP1/1P6/8 b - - 0 35",
+    "puzzle_move": "f5f4",
+    "answer_san": "f4+",
+    "category": "defense",
+    "initial_fen": "8/p7/6pp/2p1kp2/2p4P/2P1KPP1/PP6/8 w - - 0 35",
+    "solution": [
+      "a2a3",
+      "f5f4",
+      "e3f2",
+      "f4g3",
+      "f2g3",
+      "e5f5"
+    ],
+    "game": "M1Y9a0c0",
+    "source": "https://lichess.org/game/M1Y9a0c0#69",
+    "rating": 2314,
+    "themes": [
+      "crushing",
+      "defensiveMove",
+      "endgame",
+      "long",
+      "pawnEndgame"
+    ],
+    "bm": [
+      "f5f4"
+    ],
+    "suite": "defense"
+  },
+  {
+    "id": "lichess_cgAGJ",
+    "fen": "r1bqr1k1/pp3ppp/2n5/4p3/3NBn2/5N2/PPPQ1PPP/2KRR3 b - - 0 13",
+    "puzzle_move": "c6d4",
+    "answer_san": "Nxd4",
+    "category": "defense",
+    "initial_fen": "r1bqr1k1/pp3ppp/2n5/4p3/3pBn2/1N3N2/PPPQ1PPP/2KRR3 w - - 4 13",
+    "solution": [
+      "b3d4",
+      "c6d4",
+      "f3d4",
+      "d8d4",
+      "d2d4",
+      "e5d4",
+      "e4h7",
+      "g8f8"
+    ],
+    "game": "P2PFMug2",
+    "source": "https://lichess.org/game/P2PFMug2#25",
+    "rating": 2005,
+    "themes": [
+      "advantage",
+      "defensiveMove",
+      "middlegame",
+      "veryLong"
+    ],
+    "bm": [
+      "c6d4"
+    ],
+    "suite": "defense"
+  },
+  {
+    "id": "lichess_J2cab",
+    "fen": "8/p1k1br2/2p5/4pq2/Q7/4B2P/PP3Pr1/3R2K1 w - - 0 29",
+    "puzzle_move": "g1g2",
+    "answer_san": "Kxg2",
+    "category": "defense",
+    "initial_fen": "6r1/p1k1br2/2p5/4pq2/Q7/4B2P/PP3PP1/3R2K1 b - - 6 28",
+    "solution": [
+      "g8g2",
+      "g1g2",
+      "f7g7",
+      "g2h2"
+    ],
+    "game": "Y3WNvC3Y",
+    "source": "https://lichess.org/game/Y3WNvC3Y/black#56",
+    "rating": 1797,
+    "themes": [
+      "advantage",
+      "defensiveMove",
+      "hangingPiece",
+      "middlegame",
+      "short"
+    ],
+    "bm": [
+      "g1g2"
+    ],
+    "suite": "defense"
+  },
+  {
+    "id": "lichess_ydPQG",
+    "fen": "8/p1nk3r/2rbp1pp/qp1p4/3P2P1/2NR2B1/PnP1NQ1P/1K2R3 w - - 0 30",
+    "puzzle_move": "b1b2",
+    "answer_san": "Kxb2",
+    "category": "defense",
+    "initial_fen": "8/p1nk3r/2rbp1pp/qp1p4/2nP2P1/2NR2B1/PPP1NQ1P/1K2R3 b - - 5 29",
+    "solution": [
+      "c4b2",
+      "b1b2",
+      "d6a3",
+      "b2a1"
+    ],
+    "game": "S0zwabTZ",
+    "source": "https://lichess.org/game/S0zwabTZ/black#58",
+    "rating": 1974,
+    "themes": [
+      "advantage",
+      "defensiveMove",
+      "hangingPiece",
+      "middlegame",
+      "short"
+    ],
+    "bm": [
+      "b1b2"
+    ],
+    "suite": "defense"
+  },
+  {
+    "id": "lichess_Tnzs3",
+    "fen": "3r4/2R1Rpk1/p7/6p1/8/1P2K2P/P2p4/8 b - - 1 35",
+    "puzzle_move": "d2d1q",
+    "answer_san": "d1=Q",
+    "category": "defense",
+    "initial_fen": "3r4/2R1Rpk1/p7/6p1/5K2/1P5P/P2p4/8 w - - 0 35",
+    "solution": [
+      "f4e3",
+      "d2d1q",
+      "e7f7",
+      "g7g6"
+    ],
+    "game": "utJkb4fS",
+    "source": "https://lichess.org/game/utJkb4fS#69",
+    "rating": 1680,
+    "themes": [
+      "advancedPawn",
+      "crushing",
+      "defensiveMove",
+      "endgame",
+      "master",
+      "promotion",
+      "short"
+    ],
+    "bm": [
+      "d2d1q"
+    ],
+    "suite": "defense"
+  },
+  {
+    "id": "lichess_fcFva",
+    "fen": "r7/1b2bBq1/1kn2r2/p2P4/1pp5/1PP1Q3/P2B1RNP/R5K1 b - - 0 28",
+    "puzzle_move": "e7c5",
+    "answer_san": "Bc5",
+    "category": "defense",
+    "initial_fen": "r7/1b2bBq1/1kn2r2/p7/1ppP4/1PP1Q3/P2B1RNP/R5K1 w - - 6 28",
+    "solution": [
+      "d4d5",
+      "e7c5",
+      "f2f6",
+      "g7f6",
+      "e3c5",
+      "b6c5"
+    ],
+    "game": "OhFpPmP8",
+    "source": "https://lichess.org/game/OhFpPmP8#55",
+    "rating": 2218,
+    "themes": [
+      "advantage",
+      "defensiveMove",
+      "long",
+      "middlegame",
+      "pin"
+    ],
+    "bm": [
+      "e7c5"
+    ],
+    "suite": "defense"
+  },
+  {
+    "id": "lichess_K0UKF",
+    "fen": "8/8/8/1p1pkpK1/1Rr4P/2P5/1P6/8 w - - 2 47",
+    "puzzle_move": "b4c4",
+    "answer_san": "Rxc4",
+    "category": "defense",
+    "initial_fen": "8/8/8/1prpkpK1/1R5P/2P5/1P6/8 b - - 1 46",
+    "solution": [
+      "c5c4",
+      "b4c4",
+      "d5c4",
+      "h4h5"
+    ],
+    "game": "k6gAHr8r",
+    "source": "https://lichess.org/game/k6gAHr8r/black#92",
+    "rating": 1700,
+    "themes": [
+      "crushing",
+      "defensiveMove",
+      "endgame",
+      "master",
+      "rookEndgame",
+      "short"
+    ],
+    "bm": [
+      "b4c4"
+    ],
+    "suite": "defense"
+  },
+  {
+    "id": "lichess_ARa65",
+    "fen": "8/8/p4k2/1p6/8/Pr4RP/6PK/8 b - - 2 45",
+    "puzzle_move": "b3g3",
+    "answer_san": "Rxg3",
+    "category": "defense",
+    "initial_fen": "8/8/p4k2/1p4R1/8/Pr5P/6PK/8 w - - 1 45",
+    "solution": [
+      "g5g3",
+      "b3g3",
+      "h2g3",
+      "a6a5",
+      "g3f4",
+      "b5b4",
+      "a3b4",
+      "a5a4"
+    ],
+    "game": "EXS0qkJr",
+    "source": "https://lichess.org/game/EXS0qkJr#89",
+    "rating": 1697,
+    "themes": [
+      "crushing",
+      "defensiveMove",
+      "endgame",
+      "quietMove",
+      "rookEndgame",
+      "veryLong"
+    ],
+    "bm": [
+      "b3g3"
+    ],
+    "suite": "defense"
+  },
+  {
+    "id": "lichess_lP8G9",
+    "fen": "6k1/1qNb4/3R4/2QPnp1p/2P1p1pP/2P1P1P1/Pr3PK1/5B2 b - - 0 35",
+    "puzzle_move": "b2f2",
+    "answer_san": "Rxf2+",
+    "category": "long_sacrifice",
+    "initial_fen": "6k1/1qNb4/3R4/Q1pPnp1p/2P1p1pP/2P1P1P1/Pr3PK1/5B2 w - - 7 35",
+    "solution": [
+      "a5c5",
+      "b2f2",
+      "g2f2",
+      "b7b2",
+      "f1e2",
+      "e5d3"
+    ],
+    "game": "QaX2vtwR",
+    "source": "https://lichess.org/game/QaX2vtwR#69",
+    "rating": 1998,
+    "themes": [
+      "attraction",
+      "crushing",
+      "long",
+      "middlegame",
+      "sacrifice"
+    ],
+    "bm": [
+      "b2f2"
+    ],
+    "suite": "long_sacrifice"
+  },
+  {
+    "id": "lichess_OvtSB",
+    "fen": "r5k1/1p3ppp/3q4/p1bBn3/2Pp4/PP4P1/1B1Q1P1P/4R1K1 b - - 0 21",
+    "puzzle_move": "d6d5",
+    "answer_san": "Qxd5",
+    "category": "long_sacrifice",
+    "initial_fen": "r5k1/1p3ppp/3q4/p1bnn3/2Pp4/PP4P1/1B1Q1PBP/4R1K1 w - - 0 21",
+    "solution": [
+      "g2d5",
+      "d6d5",
+      "c4d5",
+      "e5f3",
+      "g1g2",
+      "f3d2"
+    ],
+    "game": "yDeiCHes",
+    "source": "https://lichess.org/game/yDeiCHes#41",
+    "rating": 1598,
+    "themes": [
+      "advantage",
+      "fork",
+      "long",
+      "master",
+      "middlegame",
+      "sacrifice"
+    ],
+    "bm": [
+      "d6d5"
+    ],
+    "suite": "long_sacrifice"
+  },
+  {
+    "id": "lichess_iPwIU",
+    "fen": "6n1/1R4bk/3Q2pp/3r1q2/4p3/3p3P/5PP1/1R4K1 w - - 4 35",
+    "puzzle_move": "b7g7",
+    "answer_san": "Rxg7+",
+    "category": "long_sacrifice",
+    "initial_fen": "6n1/1R4bk/3Q2pp/2r2q2/4p3/3p3P/5PP1/1R4K1 b - - 3 34",
+    "solution": [
+      "c5d5",
+      "b7g7",
+      "h7g7",
+      "b1b7",
+      "g7h8",
+      "d6c7",
+      "d5d7",
+      "c7d7",
+      "f5d7",
+      "b7d7"
+    ],
+    "game": "fWIelYEI",
+    "source": "https://lichess.org/game/fWIelYEI/black#68",
+    "rating": 1681,
+    "themes": [
+      "advantage",
+      "attraction",
+      "middlegame",
+      "quietMove",
+      "sacrifice",
+      "veryLong"
+    ],
+    "bm": [
+      "b7g7"
+    ],
+    "suite": "long_sacrifice"
+  },
+  {
+    "id": "lichess_gTtO6",
+    "fen": "r1b2rk1/ppp2ppp/2qp2n1/5N2/3B2Q1/2P3P1/P4P1P/R4RK1 w - - 0 18",
+    "puzzle_move": "f5e7",
+    "answer_san": "Ne7+",
+    "category": "long_sacrifice",
+    "initial_fen": "r1b2rk1/pppp1ppp/2q3n1/5N2/3B2Q1/2P3P1/P4P1P/R4RK1 b - - 6 17",
+    "solution": [
+      "d7d6",
+      "f5e7",
+      "g8h8",
+      "d4g7",
+      "h8g7",
+      "g4d4",
+      "f7f6",
+      "e7c6"
+    ],
+    "game": "IKN1wKKX",
+    "source": "https://lichess.org/game/IKN1wKKX/black#34",
+    "rating": 2295,
+    "themes": [
+      "advantage",
+      "attraction",
+      "kingsideAttack",
+      "middlegame",
+      "sacrifice",
+      "veryLong"
+    ],
+    "bm": [
+      "f5e7"
+    ],
+    "suite": "long_sacrifice"
+  },
+  {
+    "id": "lichess_vUacQ",
+    "fen": "r1bqk2r/pp3pp1/2n1p2p/4P3/2PN1PP1/1N2n3/PP1Q3P/R3KB1R b KQkq - 0 14",
+    "puzzle_move": "c6d4",
+    "answer_san": "Nxd4",
+    "category": "long_sacrifice",
+    "initial_fen": "r1bqk2r/pp3pp1/2n1p2p/4P3/2Pp1PP1/1N2nN2/PP1Q3P/R3KB1R w KQkq - 1 14",
+    "solution": [
+      "f3d4",
+      "c6d4",
+      "b3d4",
+      "d8d4",
+      "d2d4",
+      "e3c2",
+      "e1f2",
+      "c2d4"
+    ],
+    "game": "QjF1k96t",
+    "source": "https://lichess.org/game/QjF1k96t#27",
+    "rating": 1845,
+    "themes": [
+      "advantage",
+      "attraction",
+      "exposedKing",
+      "fork",
+      "middlegame",
+      "sacrifice",
+      "veryLong"
+    ],
+    "bm": [
+      "c6d4"
+    ],
+    "suite": "long_sacrifice"
+  },
+  {
+    "id": "lichess_o9SG8",
+    "fen": "r1b1qr2/5k2/1p2p3/p2pRpQ1/3P4/P1P4P/1P3P2/4R1K1 w - - 3 29",
+    "puzzle_move": "e5f5",
+    "answer_san": "Rxf5+",
+    "category": "long_sacrifice",
+    "initial_fen": "r3qr2/5k2/bp2p3/p2pRpQ1/3P4/P1P4P/1P3P2/4R1K1 b - - 2 28",
+    "solution": [
+      "a6c8",
+      "e5f5",
+      "e6f5",
+      "g5h5",
+      "f7g7",
+      "e1e8",
+      "f8e8",
+      "h5e8"
+    ],
+    "game": "O1RNNLsR",
+    "source": "https://lichess.org/game/O1RNNLsR/black#56",
+    "rating": 2145,
+    "themes": [
+      "crushing",
+      "middlegame",
+      "sacrifice",
+      "veryLong"
+    ],
+    "bm": [
+      "e5f5"
+    ],
+    "suite": "long_sacrifice"
+  },
+  {
+    "id": "lichess_wBVfn",
+    "fen": "r6r/3k1p2/p1n1bn2/qpQ4p/3P2pN/2N3P1/PP2BPP1/R3K2R b KQ - 0 21",
+    "puzzle_move": "f6e4",
+    "answer_san": "Ne4",
+    "category": "long_sacrifice",
+    "initial_fen": "r6r/3k1p2/p1n1bn2/qpQ4p/6pN/2NP2P1/PP2BPP1/R3K2R w KQ - 1 21",
+    "solution": [
+      "d3d4",
+      "f6e4",
+      "b2b4",
+      "c6b4",
+      "c3e4",
+      "b4d3",
+      "e1f1",
+      "d3c5"
+    ],
+    "game": "DldGwZkg",
+    "source": "https://lichess.org/game/DldGwZkg#41",
+    "rating": 2149,
+    "themes": [
+      "crushing",
+      "discoveredCheck",
+      "doubleCheck",
+      "middlegame",
+      "pin",
+      "sacrifice",
+      "veryLong"
+    ],
+    "bm": [
+      "f6e4"
+    ],
+    "suite": "long_sacrifice"
+  },
+  {
+    "id": "lichess_LiCUj",
+    "fen": "5k2/1p3pp1/2b1p2p/3pP2P/4n1QN/8/2PB1PPK/r7 b - - 0 28",
+    "puzzle_move": "a1h1",
+    "answer_san": "Rh1+",
+    "category": "long_sacrifice",
+    "initial_fen": "5k2/1p3pp1/2b1p2p/3pP2P/4n1QN/4B3/2Pb1PPK/r7 w - - 0 28",
+    "solution": [
+      "e3d2",
+      "a1h1",
+      "h2h1",
+      "e4f2",
+      "h1g1",
+      "f2g4"
+    ],
+    "game": "1xh0V3Ux",
+    "source": "https://lichess.org/game/1xh0V3Ux#55",
+    "rating": 1584,
+    "themes": [
+      "attraction",
+      "crushing",
+      "endgame",
+      "fork",
+      "long",
+      "sacrifice"
+    ],
+    "bm": [
+      "a1h1"
+    ],
+    "suite": "long_sacrifice"
+  },
+  {
+    "id": "lichess_W8gdv",
+    "fen": "1r4k1/6b1/3p1q1p/2pP1Np1/Q2pP3/Pr3P2/KP3R2/6R1 b - - 0 35",
+    "puzzle_move": "b3b2",
+    "answer_san": "Rxb2+",
+    "category": "long_sacrifice",
+    "initial_fen": "1r4k1/6b1/3p1q1p/2pP1Np1/p1QpP3/Pr3P2/KP3R2/6R1 w - - 4 35",
+    "solution": [
+      "c4a4",
+      "b3b2",
+      "f2b2",
+      "b8b2",
+      "a2b2",
+      "d4d3",
+      "e4e5",
+      "f6e5"
+    ],
+    "game": "3SXyInwv",
+    "source": "https://lichess.org/game/3SXyInwv#69",
+    "rating": 1863,
+    "themes": [
+      "crushing",
+      "discoveredAttack",
+      "discoveredCheck",
+      "master",
+      "middlegame",
+      "sacrifice",
+      "veryLong"
+    ],
+    "bm": [
+      "b3b2"
+    ],
+    "suite": "long_sacrifice"
+  },
+  {
+    "id": "lichess_EnlqO",
+    "fen": "8/3nq3/2p4p/2Pp2pk/3Q4/4PN1P/5KP1/8 w - - 6 37",
+    "puzzle_move": "d4g4",
+    "answer_san": "Qg4+",
+    "category": "long_sacrifice",
+    "initial_fen": "8/3nq3/2p3kp/2Pp2p1/3Q4/4PN1P/5KP1/8 b - - 5 36",
+    "solution": [
+      "g6h5",
+      "d4g4",
+      "h5g6",
+      "g4d7",
+      "e7d7",
+      "f3e5",
+      "g6f5",
+      "e5d7"
+    ],
+    "game": "4owjv0hK",
+    "source": "https://lichess.org/game/4owjv0hK/black#72",
+    "rating": 2275,
+    "themes": [
+      "attraction",
+      "crushing",
+      "endgame",
+      "fork",
+      "sacrifice",
+      "veryLong"
+    ],
+    "bm": [
+      "d4g4"
+    ],
+    "suite": "long_sacrifice"
+  },
+  {
+    "id": "lichess_DpSIp",
+    "fen": "r1b2rk1/ppq1nppp/3Np3/4Q3/8/1nP2N2/PP3PPP/3R1RK1 w - - 0 18",
+    "puzzle_move": "d6f5",
+    "answer_san": "Nf5",
+    "category": "long_sacrifice",
+    "initial_fen": "r1b2rk1/ppq1nppp/3Np3/2n1Q3/8/1BP2N2/PP3PPP/3R1RK1 b - - 0 17",
+    "solution": [
+      "c5b3",
+      "d6f5",
+      "c7e5",
+      "f5e7",
+      "g8h8",
+      "f3e5"
+    ],
+    "game": "LaAMBdku",
+    "source": "https://lichess.org/game/LaAMBdku/black#34",
+    "rating": 2266,
+    "themes": [
+      "advantage",
+      "intermezzo",
+      "kingsideAttack",
+      "long",
+      "middlegame",
+      "sacrifice"
+    ],
+    "bm": [
+      "d6f5"
+    ],
+    "suite": "long_sacrifice"
+  },
+  {
+    "id": "lichess_cYXpo",
+    "fen": "r3k2r/pp1n2pp/1q2pn2/2b2NB1/2p5/2Pp4/PP3PPP/RN1QR1K1 w kq - 2 14",
+    "puzzle_move": "e1e6",
+    "answer_san": "Rxe6+",
+    "category": "long_sacrifice",
+    "initial_fen": "r3kb1r/pp1n2pp/1q2pn2/5NB1/2p5/2Pp4/PP3PPP/RN1QR1K1 b kq - 1 13",
+    "solution": [
+      "f8c5",
+      "e1e6",
+      "b6e6",
+      "f5g7",
+      "e8e7",
+      "g7e6"
+    ],
+    "game": "ZiXc99wv",
+    "source": "https://lichess.org/game/ZiXc99wv/black#26",
+    "rating": 1960,
+    "themes": [
+      "attraction",
+      "crushing",
+      "exposedKing",
+      "fork",
+      "long",
+      "middlegame",
+      "sacrifice"
+    ],
+    "bm": [
+      "e1e6"
+    ],
+    "suite": "long_sacrifice"
+  },
+  {
+    "id": "lichess_LNqVB",
+    "fen": "5k1K/7P/p1p5/Pp1p4/1P1Pp3/2P1P3/8/8 b - - 0 42",
+    "puzzle_move": "f8f7",
+    "answer_san": "Kf7",
+    "category": "other_tactic",
+    "initial_fen": "5k1K/7P/p1p5/Pp1p4/1P1Pp3/4P3/2P5/8 w - - 1 42",
+    "solution": [
+      "c2c3",
+      "f8f7",
+      "c3c4",
+      "d5c4",
+      "d4d5",
+      "c4c3",
+      "d5d6",
+      "c3c2",
+      "d6d7",
+      "c2c1q"
+    ],
+    "game": "dkJy7OT1",
+    "source": "https://lichess.org/game/dkJy7OT1#83",
+    "rating": 2227,
+    "themes": [
+      "advancedPawn",
+      "crushing",
+      "endgame",
+      "pawnEndgame",
+      "promotion",
+      "veryLong",
+      "zugzwang"
+    ],
+    "bm": [
+      "f8f7"
+    ],
+    "suite": "other_tactic"
+  },
+  {
+    "id": "lichess_QanQz",
+    "fen": "7k/5Qp1/3q3p/p7/1p2PR2/1P1p2PK/P1r4P/8 w - - 0 40",
+    "puzzle_move": "f7e8",
+    "answer_san": "Qe8+",
+    "category": "other_tactic",
+    "initial_fen": "7k/5Qp1/3q3p/p7/1p1pPR2/1P4PK/P1r4P/8 b - - 3 39",
+    "solution": [
+      "d4d3",
+      "f7e8",
+      "h8h7",
+      "f4f8",
+      "d6f8",
+      "e8f8"
+    ],
+    "game": "AASrfhzO",
+    "source": "https://lichess.org/game/AASrfhzO/black#78",
+    "rating": 1743,
+    "themes": [
+      "clearance",
+      "crushing",
+      "endgame",
+      "long",
+      "quietMove"
+    ],
+    "bm": [
+      "f7e8"
+    ],
+    "suite": "other_tactic"
+  },
+  {
+    "id": "lichess_hQv9c",
+    "fen": "2N5/3q1pk1/P1Q3p1/1K2P3/7p/8/8/8 b - - 4 61",
+    "puzzle_move": "d7c6",
+    "answer_san": "Qxc6+",
+    "category": "other_tactic",
+    "initial_fen": "2N5/3q1pk1/P5p1/1KQ1P3/7p/8/8/8 w - - 3 61",
+    "solution": [
+      "c5c6",
+      "d7c6",
+      "b5c6",
+      "h4h3",
+      "c8b6",
+      "h3h2",
+      "c6c5",
+      "h2h1q"
+    ],
+    "game": "9D40NWkz",
+    "source": "https://lichess.org/game/9D40NWkz#121",
+    "rating": 1501,
+    "themes": [
+      "advancedPawn",
+      "advantage",
+      "endgame",
+      "promotion",
+      "veryLong"
+    ],
+    "bm": [
+      "d7c6"
+    ],
+    "suite": "other_tactic"
+  },
+  {
+    "id": "lichess_xs7gf",
+    "fen": "8/3kB3/3P3R/2p4p/1p2n2P/1P6/2P1r3/2K5 b - - 1 33",
+    "puzzle_move": "e2e1",
+    "answer_san": "Re1+",
+    "category": "other_tactic",
+    "initial_fen": "8/3kB3/3P2R1/2p4p/1p2n2P/1P6/2P1r3/2K5 w - - 0 33",
+    "solution": [
+      "g6h6",
+      "e2e1",
+      "c1b2",
+      "e4c3",
+      "e7g5",
+      "e1b1"
+    ],
+    "game": "oAt6D1aP",
+    "source": "https://lichess.org/game/oAt6D1aP#65",
+    "rating": 1842,
+    "themes": [
+      "endgame",
+      "hookMate",
+      "long",
+      "mate",
+      "mateIn3",
+      "quietMove"
+    ],
+    "bm": [
+      "e2e1"
+    ],
+    "suite": "other_tactic"
+  },
+  {
+    "id": "lichess_7IPGF",
+    "fen": "5rk1/3q2b1/1Q2p3/p2pP1p1/P2P4/2P1R1P1/1P4KB/8 b - - 2 46",
+    "puzzle_move": "d7f7",
+    "answer_san": "Qf7",
+    "category": "other_tactic",
+    "initial_fen": "5rk1/3q2b1/1Q2p3/p2pP1p1/P2P4/2P1R1P1/1P5B/5K2 w - - 1 46",
+    "solution": [
+      "f1g2",
+      "d7f7",
+      "b6a6",
+      "f7f2",
+      "g2h1",
+      "f2e3"
+    ],
+    "game": "zxETA5P8",
+    "source": "https://lichess.org/game/zxETA5P8#91",
+    "rating": 1851,
+    "themes": [
+      "crushing",
+      "endgame",
+      "fork",
+      "long",
+      "quietMove"
+    ],
+    "bm": [
+      "d7f7"
+    ],
+    "suite": "other_tactic"
+  },
+  {
+    "id": "lichess_iFhV9",
+    "fen": "5rk1/5p1p/4P1pQ/1pPp3P/p6q/3r4/P3RRP1/6K1 w - - 1 34",
+    "puzzle_move": "e6f7",
+    "answer_san": "exf7+",
+    "category": "other_tactic",
+    "initial_fen": "5rk1/5p1p/4P1pQ/1pPp3P/p6q/2r5/P3RRP1/6K1 b - - 0 33",
+    "solution": [
+      "c3d3",
+      "e6f7",
+      "f8f7",
+      "e2e8",
+      "f7f8",
+      "f2f8"
+    ],
+    "game": "xL0sOB32",
+    "source": "https://lichess.org/game/xL0sOB32/black#66",
+    "rating": 1655,
+    "themes": [
+      "advancedPawn",
+      "endgame",
+      "killBoxMate",
+      "long",
+      "mate",
+      "mateIn3"
+    ],
+    "bm": [
+      "e6f7"
+    ],
+    "suite": "other_tactic"
+  },
+  {
+    "id": "lichess_vI1ds",
+    "fen": "8/8/p4p2/1p2k1pp/2p2P1P/P1P1K1P1/1P6/8 b - - 0 46",
+    "puzzle_move": "g5f4",
+    "answer_san": "gxf4+",
+    "category": "other_tactic",
+    "initial_fen": "8/8/p4p2/1p2k1pp/2p4P/P1P1KPP1/1P6/8 w - - 0 46",
+    "solution": [
+      "f3f4",
+      "g5f4",
+      "g3f4",
+      "e5f5",
+      "e3f3",
+      "a6a5",
+      "f3e3",
+      "f5g4"
+    ],
+    "game": "yjX3JsvI",
+    "source": "https://lichess.org/game/yjX3JsvI#91",
+    "rating": 1705,
+    "themes": [
+      "crushing",
+      "endgame",
+      "pawnEndgame",
+      "quietMove",
+      "veryLong"
+    ],
+    "bm": [
+      "g5f4"
+    ],
+    "suite": "other_tactic"
+  },
+  {
+    "id": "lichess_fCVqO",
+    "fen": "8/8/2k4P/2p1Rr2/pp6/4BP2/2b3K1/8 w - - 2 49",
+    "puzzle_move": "h6h7",
+    "answer_san": "h7",
+    "category": "other_tactic",
+    "initial_fen": "8/5r2/2k4P/2p1R3/pp6/4BP2/2b3K1/8 b - - 1 48",
+    "solution": [
+      "f7f5",
+      "h6h7",
+      "f5e5",
+      "h7h8q"
+    ],
+    "game": "TKVIRpnH",
+    "source": "https://lichess.org/game/TKVIRpnH/black#96",
+    "rating": 1670,
+    "themes": [
+      "advancedPawn",
+      "advantage",
+      "endgame",
+      "master",
+      "promotion",
+      "short"
+    ],
+    "bm": [
+      "h6h7"
+    ],
+    "suite": "other_tactic"
+  },
+  {
+    "id": "lichess_3Izno",
+    "fen": "2k1r3/ppp2ppp/2nr4/8/3P1P1q/1BP5/PP1B3P/R2Q1RK1 b - - 2 16",
+    "puzzle_move": "d6g6",
+    "answer_san": "Rg6+",
+    "category": "other_tactic",
+    "initial_fen": "2k1r3/ppp2ppp/2nr4/8/3P1P1q/1BP5/PP5P/R1BQ1RK1 w - - 1 16",
+    "solution": [
+      "c1d2",
+      "d6g6",
+      "g1h1",
+      "g6h6",
+      "f1f2",
+      "h4f2"
+    ],
+    "game": "SsL4IuxN",
+    "source": "https://lichess.org/game/SsL4IuxN#31",
+    "rating": 1612,
+    "themes": [
+      "crushing",
+      "long",
+      "middlegame",
+      "quietMove"
+    ],
+    "bm": [
+      "d6g6"
+    ],
+    "suite": "other_tactic"
+  },
+  {
+    "id": "lichess_tUnvY",
+    "fen": "8/p7/6kp/1Pp1p3/5P2/4K3/P7/8 w - - 0 36",
+    "puzzle_move": "a2a4",
+    "answer_san": "a4",
+    "category": "other_tactic",
+    "initial_fen": "8/p7/5pkp/1Pp1P3/5P2/4K3/P7/8 b - - 0 35",
+    "solution": [
+      "f6e5",
+      "a2a4",
+      "e5f4",
+      "e3f4"
+    ],
+    "game": "8togQX2j",
+    "source": "https://lichess.org/game/8togQX2j/black#70",
+    "rating": 2286,
+    "themes": [
+      "crushing",
+      "endgame",
+      "pawnEndgame",
+      "quietMove",
+      "short"
+    ],
+    "bm": [
+      "a2a4"
+    ],
+    "suite": "other_tactic"
+  },
+  {
+    "id": "lichess_YYPwE",
+    "fen": "2b3k1/p4rp1/5PP1/qp6/3p3P/p6B/1BK2P2/4R3 w - - 0 31",
+    "puzzle_move": "e1e8",
+    "answer_san": "Re8+",
+    "category": "other_tactic",
+    "initial_fen": "2Q3k1/pb3rp1/5PP1/qp6/3p3P/p6B/1BK2P2/4R3 b - - 0 30",
+    "solution": [
+      "b7c8",
+      "e1e8",
+      "f7f8",
+      "f6f7",
+      "g8h8",
+      "e8f8"
+    ],
+    "game": "uddjTal3",
+    "source": "https://lichess.org/game/uddjTal3/black#60",
+    "rating": 1505,
+    "themes": [
+      "advancedPawn",
+      "deflection",
+      "endgame",
+      "fork",
+      "long",
+      "mate",
+      "mateIn3"
+    ],
+    "bm": [
+      "e1e8"
+    ],
+    "suite": "other_tactic"
+  },
+  {
+    "id": "lichess_xLd6r",
+    "fen": "2Q2b1r/p1p2kpp/8/1pq5/3p4/1K6/PP1P1nPP/RNB2B1R b - - 3 15",
+    "puzzle_move": "c5d5",
+    "answer_san": "Qd5+",
+    "category": "other_tactic",
+    "initial_fen": "2Q2b1r/p1p2kpp/8/1pq5/3p4/8/PPKP1nPP/RNB2B1R w - - 2 15",
+    "solution": [
+      "c2b3",
+      "c5d5",
+      "b3c2",
+      "d4d3",
+      "f1d3",
+      "d5d3"
+    ],
+    "game": "BOr1KFaQ",
+    "source": "https://lichess.org/game/BOr1KFaQ#29",
+    "rating": 2235,
+    "themes": [
+      "exposedKing",
+      "long",
+      "mate",
+      "mateIn3",
+      "middlegame"
+    ],
+    "bm": [
+      "c5d5"
+    ],
+    "suite": "other_tactic"
+  },
+  {
+    "id": "fischer_byrne_1956_ply22",
+    "game_id": "fischer_byrne_1956",
+    "master": "Bobby Fischer",
+    "players": "Donald Byrne \u2013 Bobby Fischer",
+    "year": 1956,
+    "source": "https://www.chessworld.net/chessclubs/openingguide/game-of-the-century.asp",
+    "fen": "r2q1rk1/pp2ppbp/1np2np1/2Q3B1/3PP1b1/2N2N2/PP3PPP/3RKB1R b K - 6 11",
+    "historical_san": "Na4",
+    "historical_uci": "b6a4",
+    "label": "11...Na4",
+    "theme": "\ub098\uc774\ud2b8\ub97c \uacf5\uaca9\ubc1b\ub294 \uce78\uc5d0 \ub450\ub294 \uc804\uc220",
+    "tag": "knight_offer",
+    "status": "historical move; not independently verified as objectively best",
+    "themes": [
+      "knight",
+      "king_attack"
+    ],
+    "history": [
+      "g1f3",
+      "g8f6",
+      "c2c4",
+      "g7g6",
+      "b1c3",
+      "f8g7",
+      "d2d4",
+      "e8g8",
+      "c1f4",
+      "d7d5",
+      "d1b3",
+      "d5c4",
+      "b3c4",
+      "c7c6",
+      "e2e4",
+      "b8d7",
+      "a1d1",
+      "d7b6",
+      "c4c5",
+      "c8g4",
+      "f4g5"
+    ],
+    "bm": [
+      "b6a4"
+    ],
+    "suite": "historical"
+  },
+  {
+    "id": "fischer_byrne_1956_ply34",
+    "game_id": "fischer_byrne_1956",
+    "master": "Bobby Fischer",
+    "players": "Donald Byrne \u2013 Bobby Fischer",
+    "year": 1956,
+    "source": "https://www.chessworld.net/chessclubs/openingguide/game-of-the-century.asp",
+    "fen": "r3r1k1/pp3pbp/1qp3p1/2B5/2BP2b1/Q1n2N2/P4PPP/3R1K1R b - - 3 17",
+    "historical_san": "Be6",
+    "historical_uci": "g4e6",
+    "label": "17...Be6",
+    "theme": "\ud038\uc744 \ud53c\ud558\uc9c0 \uc54a\uace0 \uc804\uc220\uc801 \ubcf4\uc0c1\uc744 \ud0dd\ud568",
+    "tag": "queen_offer",
+    "status": "historical move; not independently verified as objectively best",
+    "themes": [
+      "queen",
+      "serial",
+      "delayed_compensation"
+    ],
+    "history": [
+      "g1f3",
+      "g8f6",
+      "c2c4",
+      "g7g6",
+      "b1c3",
+      "f8g7",
+      "d2d4",
+      "e8g8",
+      "c1f4",
+      "d7d5",
+      "d1b3",
+      "d5c4",
+      "b3c4",
+      "c7c6",
+      "e2e4",
+      "b8d7",
+      "a1d1",
+      "d7b6",
+      "c4c5",
+      "c8g4",
+      "f4g5",
+      "b6a4",
+      "c5a3",
+      "a4c3",
+      "b2c3",
+      "f6e4",
+      "g5e7",
+      "d8b6",
+      "f1c4",
+      "e4c3",
+      "e7c5",
+      "f8e8",
+      "e1f1"
+    ],
+    "bm": [
+      "g4e6"
+    ],
+    "suite": "historical"
+  },
+  {
+    "id": "kasparov_topalov_1999_ply47",
+    "game_id": "kasparov_topalov_1999",
+    "master": "Garry Kasparov",
+    "players": "Garry Kasparov \u2013 Veselin Topalov",
+    "year": 1999,
+    "source": "https://github.com/kerry-huang-nyu/chessRobot/blob/main/kasparov_topalov_1999.pgn",
+    "fen": "b2r3r/k4p1p/p2q1np1/NppP4/3p1Q2/P4PPB/1PP4P/1K1RR3 w - - 1 24",
+    "historical_san": "Rxd4",
+    "historical_uci": "d1d4",
+    "label": "24.Rxd4",
+    "theme": "\uacf5\uaca9\uc120\uc744 \uc5ec\ub294 \ub8e9 \ud76c\uc0dd",
+    "tag": "rook_sacrifice",
+    "status": "historical move; not independently verified as objectively best",
+    "themes": [
+      "rook",
+      "line_opening",
+      "king_attack",
+      "serial"
+    ],
+    "history": [
+      "e2e4",
+      "d7d6",
+      "d2d4",
+      "g8f6",
+      "b1c3",
+      "g7g6",
+      "c1e3",
+      "f8g7",
+      "d1d2",
+      "c7c6",
+      "f2f3",
+      "b7b5",
+      "g1e2",
+      "b8d7",
+      "e3h6",
+      "g7h6",
+      "d2h6",
+      "c8b7",
+      "a2a3",
+      "e7e5",
+      "e1c1",
+      "d8e7",
+      "c1b1",
+      "a7a6",
+      "e2c1",
+      "e8c8",
+      "c1b3",
+      "e5d4",
+      "d1d4",
+      "c6c5",
+      "d4d1",
+      "d7b6",
+      "g2g3",
+      "c8b8",
+      "b3a5",
+      "b7a8",
+      "f1h3",
+      "d6d5",
+      "h6f4",
+      "b8a7",
+      "h1e1",
+      "d5d4",
+      "c3d5",
+      "b6d5",
+      "e4d5",
+      "e7d6"
+    ],
+    "bm": [
+      "d1d4"
+    ],
+    "suite": "historical"
+  },
+  {
+    "id": "kasparov_topalov_1999_ply49",
+    "game_id": "kasparov_topalov_1999",
+    "master": "Garry Kasparov",
+    "players": "Garry Kasparov \u2013 Veselin Topalov",
+    "year": 1999,
+    "source": "https://github.com/kerry-huang-nyu/chessRobot/blob/main/kasparov_topalov_1999.pgn",
+    "fen": "b2r3r/k4p1p/p2q1np1/Np1P4/3p1Q2/P4PPB/1PP4P/1K2R3 w - - 0 25",
+    "historical_san": "Re7+",
+    "historical_uci": "e1e7",
+    "label": "25.Re7+",
+    "theme": "\uccab \ud76c\uc0dd \ud6c4 \uac15\uc81c \uccb4\ud06c \uc218\uc21c",
+    "tag": "rook_offer",
+    "status": "historical move; not independently verified as objectively best",
+    "themes": [
+      "rook",
+      "king_attack",
+      "serial"
+    ],
+    "history": [
+      "e2e4",
+      "d7d6",
+      "d2d4",
+      "g8f6",
+      "b1c3",
+      "g7g6",
+      "c1e3",
+      "f8g7",
+      "d1d2",
+      "c7c6",
+      "f2f3",
+      "b7b5",
+      "g1e2",
+      "b8d7",
+      "e3h6",
+      "g7h6",
+      "d2h6",
+      "c8b7",
+      "a2a3",
+      "e7e5",
+      "e1c1",
+      "d8e7",
+      "c1b1",
+      "a7a6",
+      "e2c1",
+      "e8c8",
+      "c1b3",
+      "e5d4",
+      "d1d4",
+      "c6c5",
+      "d4d1",
+      "d7b6",
+      "g2g3",
+      "c8b8",
+      "b3a5",
+      "b7a8",
+      "f1h3",
+      "d6d5",
+      "h6f4",
+      "b8a7",
+      "h1e1",
+      "d5d4",
+      "c3d5",
+      "b6d5",
+      "e4d5",
+      "e7d6",
+      "d1d4",
+      "c5d4"
+    ],
+    "bm": [
+      "e1e7"
+    ],
+    "suite": "historical"
+  },
+  {
+    "id": "anderssen_kieseritzky_1851_ply35",
+    "game_id": "anderssen_kieseritzky_1851",
+    "master": "Adolf Anderssen",
+    "players": "Adolf Anderssen \u2013 Lionel Kieseritzky",
+    "year": 1851,
+    "source": "https://huggingface.co/datasets/tms-gvd/chess-game1-white/blob/main/anderssen_kieseritzky_1851.pgn",
+    "fen": "rnb1k1nr/p2p1ppp/8/1pbN1N1P/4PBP1/3P1Q2/PqP5/R4KR1 w kq - 0 18",
+    "historical_san": "Bd6",
+    "historical_uci": "f4d6",
+    "label": "18.Bd6",
+    "theme": "\uc804\uc220\uc801 \uc8fc\ub3c4\uad8c\uc744 \uc704\ud55c \ube44\uc20d \uc804\uac1c",
+    "tag": "attack_initiative",
+    "status": "historical move; not independently verified as objectively best",
+    "themes": [
+      "rook",
+      "king_attack",
+      "delayed_compensation"
+    ],
+    "history": [
+      "e2e4",
+      "e7e5",
+      "f2f4",
+      "e5f4",
+      "f1c4",
+      "d8h4",
+      "e1f1",
+      "b7b5",
+      "c4b5",
+      "g8f6",
+      "g1f3",
+      "h4h6",
+      "d2d3",
+      "f6h5",
+      "f3h4",
+      "h6g5",
+      "h4f5",
+      "c7c6",
+      "g2g4",
+      "h5f6",
+      "h1g1",
+      "c6b5",
+      "h2h4",
+      "g5g6",
+      "h4h5",
+      "g6g5",
+      "d1f3",
+      "f6g8",
+      "c1f4",
+      "g5f6",
+      "b1c3",
+      "f8c5",
+      "c3d5",
+      "f6b2"
+    ],
+    "bm": [
+      "f4d6"
+    ],
+    "suite": "historical"
+  },
+  {
+    "id": "anderssen_kieseritzky_1851_ply43",
+    "game_id": "anderssen_kieseritzky_1851",
+    "master": "Adolf Anderssen",
+    "players": "Adolf Anderssen \u2013 Lionel Kieseritzky",
+    "year": 1851,
+    "source": "https://huggingface.co/datasets/tms-gvd/chess-game1-white/blob/main/anderssen_kieseritzky_1851.pgn",
+    "fen": "r1bk2nr/p2p1pNp/n2B4/1p1NP2P/6P1/3P1Q2/P1P1K3/q5b1 w - - 1 22",
+    "historical_san": "Qf6+",
+    "historical_uci": "f3f6",
+    "label": "22.Qf6+",
+    "theme": "\uac15\uc81c \uba54\uc774\ud2b8\ub97c \uc704\ud55c \ud038 \ud76c\uc0dd",
+    "tag": "queen_sacrifice",
+    "status": "historical move; not independently verified as objectively best",
+    "themes": [
+      "queen",
+      "deflection",
+      "serial"
+    ],
+    "history": [
+      "e2e4",
+      "e7e5",
+      "f2f4",
+      "e5f4",
+      "f1c4",
+      "d8h4",
+      "e1f1",
+      "b7b5",
+      "c4b5",
+      "g8f6",
+      "g1f3",
+      "h4h6",
+      "d2d3",
+      "f6h5",
+      "f3h4",
+      "h6g5",
+      "h4f5",
+      "c7c6",
+      "g2g4",
+      "h5f6",
+      "h1g1",
+      "c6b5",
+      "h2h4",
+      "g5g6",
+      "h4h5",
+      "g6g5",
+      "d1f3",
+      "f6g8",
+      "c1f4",
+      "g5f6",
+      "b1c3",
+      "f8c5",
+      "c3d5",
+      "f6b2",
+      "f4d6",
+      "c5g1",
+      "e4e5",
+      "b2a1",
+      "f1e2",
+      "b8a6",
+      "f5g7",
+      "e8d8"
+    ],
+    "bm": [
+      "f3f6"
+    ],
+    "suite": "historical"
+  },
+  {
+    "master": "Paul Morphy",
+    "players": "Paul Morphy \u2013 Duke of Brunswick and Count Isouard",
+    "year": 1858,
+    "source": "https://masterchess.live/famous-games/opera-game-morphy-1858",
+    "id": "morphy_opera_1858_ply19",
+    "fen": "rn2kb1r/p3qppp/2p2n2/1p2p1B1/2B1P3/1QN5/PPP2PPP/R3K2R w KQkq b6 0 10",
+    "historical_uci": "c3b5",
+    "historical_san": "Nxb5",
+    "themes": [
+      "knight",
+      "line_opening",
+      "king_attack"
+    ],
+    "history": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "d7d6",
+      "d2d4",
+      "c8g4",
+      "d4e5",
+      "g4f3",
+      "d1f3",
+      "d6e5",
+      "f1c4",
+      "g8f6",
+      "f3b3",
+      "d8e7",
+      "b1c3",
+      "c7c6",
+      "c1g5",
+      "b7b5"
+    ],
+    "bm": [
+      "c3b5"
+    ],
+    "suite": "historical"
+  },
+  {
+    "master": "Paul Morphy",
+    "players": "Paul Morphy \u2013 Duke of Brunswick and Count Isouard",
+    "year": 1858,
+    "source": "https://masterchess.live/famous-games/opera-game-morphy-1858",
+    "id": "morphy_opera_1858_ply25",
+    "fen": "3rkb1r/p2nqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR3R w k - 3 13",
+    "historical_uci": "d1d7",
+    "historical_san": "Rxd7",
+    "themes": [
+      "rook",
+      "defender_removal",
+      "line_opening"
+    ],
+    "history": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "d7d6",
+      "d2d4",
+      "c8g4",
+      "d4e5",
+      "g4f3",
+      "d1f3",
+      "d6e5",
+      "f1c4",
+      "g8f6",
+      "f3b3",
+      "d8e7",
+      "b1c3",
+      "c7c6",
+      "c1g5",
+      "b7b5",
+      "c3b5",
+      "c6b5",
+      "c4b5",
+      "b8d7",
+      "e1c1",
+      "a8d8"
+    ],
+    "bm": [
+      "d1d7"
+    ],
+    "suite": "historical"
+  },
+  {
+    "master": "Paul Morphy",
+    "players": "Paul Morphy \u2013 Duke of Brunswick and Count Isouard",
+    "year": 1858,
+    "source": "https://masterchess.live/famous-games/opera-game-morphy-1858",
+    "id": "morphy_opera_1858_ply29",
+    "fen": "4kb1r/p2r1ppp/4qn2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 2 15",
+    "historical_uci": "b5d7",
+    "historical_san": "Bxd7+",
+    "themes": [
+      "bishop",
+      "defender_removal",
+      "serial"
+    ],
+    "history": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "d7d6",
+      "d2d4",
+      "c8g4",
+      "d4e5",
+      "g4f3",
+      "d1f3",
+      "d6e5",
+      "f1c4",
+      "g8f6",
+      "f3b3",
+      "d8e7",
+      "b1c3",
+      "c7c6",
+      "c1g5",
+      "b7b5",
+      "c3b5",
+      "c6b5",
+      "c4b5",
+      "b8d7",
+      "e1c1",
+      "a8d8",
+      "d1d7",
+      "d8d7",
+      "h1d1",
+      "e7e6"
+    ],
+    "bm": [
+      "b5d7"
+    ],
+    "suite": "historical"
+  },
+  {
+    "master": "Paul Morphy",
+    "players": "Paul Morphy \u2013 Duke of Brunswick and Count Isouard",
+    "year": 1858,
+    "source": "https://masterchess.live/famous-games/opera-game-morphy-1858",
+    "id": "morphy_opera_1858_ply31",
+    "fen": "4kb1r/p2n1ppp/4q3/4p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 0 16",
+    "historical_uci": "b3b8",
+    "historical_san": "Qb8+",
+    "themes": [
+      "queen",
+      "deflection",
+      "serial"
+    ],
+    "history": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "d7d6",
+      "d2d4",
+      "c8g4",
+      "d4e5",
+      "g4f3",
+      "d1f3",
+      "d6e5",
+      "f1c4",
+      "g8f6",
+      "f3b3",
+      "d8e7",
+      "b1c3",
+      "c7c6",
+      "c1g5",
+      "b7b5",
+      "c3b5",
+      "c6b5",
+      "c4b5",
+      "b8d7",
+      "e1c1",
+      "a8d8",
+      "d1d7",
+      "d8d7",
+      "h1d1",
+      "e7e6",
+      "b5d7",
+      "f6d7"
+    ],
+    "bm": [
+      "b3b8"
+    ],
+    "suite": "historical"
+  },
+  {
+    "master": "Emanuel Lasker",
+    "players": "Emanuel Lasker \u2013 Johann Bauer",
+    "year": 1889,
+    "source": "https://chessmotion.com/explore/famous-chess-games/lasker-bauer-double-bishop-sacrifice",
+    "id": "lasker_bauer_1889_ply29",
+    "fen": "r4rk1/1b2bppp/ppq1p3/2ppB2n/5P2/1P1BP3/P1PPQ1PP/R4RK1 w - - 0 15",
+    "historical_uci": "d3h7",
+    "historical_san": "Bxh7+",
+    "themes": [
+      "bishop",
+      "king_attack",
+      "serial"
+    ],
+    "history": [
+      "f2f4",
+      "d7d5",
+      "e2e3",
+      "g8f6",
+      "b2b3",
+      "e7e6",
+      "c1b2",
+      "f8e7",
+      "f1d3",
+      "b7b6",
+      "g1f3",
+      "c8b7",
+      "b1c3",
+      "b8d7",
+      "e1g1",
+      "e8g8",
+      "c3e2",
+      "c7c5",
+      "e2g3",
+      "d8c7",
+      "f3e5",
+      "d7e5",
+      "b2e5",
+      "c7c6",
+      "d1e2",
+      "a7a6",
+      "g3h5",
+      "f6h5"
+    ],
+    "bm": [
+      "d3h7"
+    ],
+    "suite": "historical"
+  },
+  {
+    "master": "Emanuel Lasker",
+    "players": "Emanuel Lasker \u2013 Johann Bauer",
+    "year": 1889,
+    "source": "https://chessmotion.com/explore/famous-chess-games/lasker-bauer-double-bishop-sacrifice",
+    "id": "lasker_bauer_1889_ply33",
+    "fen": "r4rk1/1b2bpp1/ppq1p3/2ppB2Q/5P2/1P2P3/P1PP2PP/R4RK1 w - - 1 17",
+    "historical_uci": "e5g7",
+    "historical_san": "Bxg7",
+    "themes": [
+      "bishop",
+      "line_opening",
+      "serial",
+      "delayed_compensation"
+    ],
+    "history": [
+      "f2f4",
+      "d7d5",
+      "e2e3",
+      "g8f6",
+      "b2b3",
+      "e7e6",
+      "c1b2",
+      "f8e7",
+      "f1d3",
+      "b7b6",
+      "g1f3",
+      "c8b7",
+      "b1c3",
+      "b8d7",
+      "e1g1",
+      "e8g8",
+      "c3e2",
+      "c7c5",
+      "e2g3",
+      "d8c7",
+      "f3e5",
+      "d7e5",
+      "b2e5",
+      "c7c6",
+      "d1e2",
+      "a7a6",
+      "g3h5",
+      "f6h5",
+      "d3h7",
+      "g8h7",
+      "e2h5",
+      "h7g8"
+    ],
+    "bm": [
+      "e5g7"
+    ],
+    "suite": "historical"
+  },
+  {
+    "master": "Frank Marshall",
+    "players": "Stepan Levitsky \u2013 Frank Marshall",
+    "year": 1912,
+    "source": "https://www.chess.com/article/view/throwing-away-your-queen",
+    "id": "levitsky_marshall_1912_ply46",
+    "fen": "5rk1/pp4pp/4p3/2R3Q1/3n4/2q4r/P1P2PPP/5RK1 b - - 1 23",
+    "historical_uci": "c3g3",
+    "historical_san": "Qg3",
+    "themes": [
+      "queen",
+      "king_attack",
+      "deflection"
+    ],
+    "history": [
+      "d2d4",
+      "e7e6",
+      "e2e4",
+      "d7d5",
+      "b1c3",
+      "c7c5",
+      "g1f3",
+      "b8c6",
+      "e4d5",
+      "e6d5",
+      "f1e2",
+      "g8f6",
+      "e1g1",
+      "f8e7",
+      "c1g5",
+      "e8g8",
+      "d4c5",
+      "c8e6",
+      "f3d4",
+      "e7c5",
+      "d4e6",
+      "f7e6",
+      "e2g4",
+      "d8d6",
+      "g4h3",
+      "a8e8",
+      "d1d2",
+      "c5b4",
+      "g5f6",
+      "f8f6",
+      "a1d1",
+      "d6c5",
+      "d2e2",
+      "b4c3",
+      "b2c3",
+      "c5c3",
+      "d1d5",
+      "c6d4",
+      "e2h5",
+      "e8f8",
+      "d5e5",
+      "f6h6",
+      "h5g5",
+      "h6h3",
+      "e5c5"
+    ],
+    "bm": [
+      "c3g3"
+    ],
+    "suite": "historical"
+  },
+  {
+    "master": "Akiba Rubinstein",
+    "players": "Georg Rotlewi \u2013 Akiba Rubinstein",
+    "year": 1907,
+    "source": "https://chessmotion.com/explore/famous-chess-games/rotlewi-rubinstein-immortal",
+    "id": "rotlewi_rubinstein_1907_ply44",
+    "fen": "2rr2k1/1b3ppp/pb2p3/1p2P3/1P2BPnq/P1N3P1/1B2Q2P/R4R1K b - - 0 22",
+    "historical_uci": "c8c3",
+    "historical_san": "Rxc3",
+    "themes": [
+      "rook",
+      "queen",
+      "defender_removal",
+      "king_attack",
+      "serial"
+    ],
+    "history": [
+      "d2d4",
+      "d7d5",
+      "g1f3",
+      "e7e6",
+      "e2e3",
+      "c7c5",
+      "c2c4",
+      "b8c6",
+      "b1c3",
+      "g8f6",
+      "d4c5",
+      "f8c5",
+      "a2a3",
+      "a7a6",
+      "b2b4",
+      "c5d6",
+      "c1b2",
+      "e8g8",
+      "d1d2",
+      "d8e7",
+      "f1d3",
+      "d5c4",
+      "d3c4",
+      "b7b5",
+      "c4d3",
+      "f8d8",
+      "d2e2",
+      "c8b7",
+      "e1g1",
+      "c6e5",
+      "f3e5",
+      "d6e5",
+      "f2f4",
+      "e5c7",
+      "e3e4",
+      "a8c8",
+      "e4e5",
+      "c7b6",
+      "g1h1",
+      "f6g4",
+      "d3e4",
+      "e7h4",
+      "g2g3"
+    ],
+    "bm": [
+      "c8c3"
+    ],
+    "suite": "historical"
+  },
+  {
+    "master": "Akiba Rubinstein",
+    "players": "Georg Rotlewi \u2013 Akiba Rubinstein",
+    "year": 1907,
+    "source": "https://chessmotion.com/explore/famous-chess-games/rotlewi-rubinstein-immortal",
+    "id": "rotlewi_rubinstein_1907_ply46",
+    "fen": "3r2k1/1b3ppp/pb2p3/1p2P3/1P2BPnP/P1r5/1B2Q2P/R4R1K b - - 0 23",
+    "historical_uci": "d8d2",
+    "historical_san": "Rd2",
+    "themes": [
+      "rook",
+      "deflection",
+      "line_opening",
+      "serial"
+    ],
+    "history": [
+      "d2d4",
+      "d7d5",
+      "g1f3",
+      "e7e6",
+      "e2e3",
+      "c7c5",
+      "c2c4",
+      "b8c6",
+      "b1c3",
+      "g8f6",
+      "d4c5",
+      "f8c5",
+      "a2a3",
+      "a7a6",
+      "b2b4",
+      "c5d6",
+      "c1b2",
+      "e8g8",
+      "d1d2",
+      "d8e7",
+      "f1d3",
+      "d5c4",
+      "d3c4",
+      "b7b5",
+      "c4d3",
+      "f8d8",
+      "d2e2",
+      "c8b7",
+      "e1g1",
+      "c6e5",
+      "f3e5",
+      "d6e5",
+      "f2f4",
+      "e5c7",
+      "e3e4",
+      "a8c8",
+      "e4e5",
+      "c7b6",
+      "g1h1",
+      "f6g4",
+      "d3e4",
+      "e7h4",
+      "g2g3",
+      "c8c3",
+      "g3h4"
+    ],
+    "bm": [
+      "d8d2"
+    ],
+    "suite": "historical"
+  },
+  {
+    "master": "Garry Kasparov",
+    "players": "Anatoly Karpov \u2013 Garry Kasparov",
+    "year": 1985,
+    "source": "https://chessmotion.com/explore/famous-chess-games/karpov-kasparov-game-16",
+    "id": "karpov_kasparov_1985_g16_ply16",
+    "fen": "r1bqkb1r/1p3ppp/p1nppn2/8/2P1P3/N1N5/PP3PPP/R1BQKB1R b KQkq - 1 8",
+    "historical_uci": "d6d5",
+    "historical_san": "d5",
+    "themes": [
+      "pawn_offer",
+      "initiative",
+      "positional"
+    ],
+    "history": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "e7e6",
+      "d2d4",
+      "c5d4",
+      "f3d4",
+      "b8c6",
+      "d4b5",
+      "d7d6",
+      "c2c4",
+      "g8f6",
+      "b1c3",
+      "a7a6",
+      "b5a3"
+    ],
+    "bm": [
+      "d6d5"
+    ],
+    "suite": "historical"
+  },
+  {
+    "master": "Garry Kasparov",
+    "players": "Anatoly Karpov \u2013 Garry Kasparov",
+    "year": 1985,
+    "source": "https://chessmotion.com/explore/famous-chess-games/karpov-kasparov-game-16",
+    "id": "karpov_kasparov_1985_g16_ply32",
+    "fen": "r2qr1k1/5ppp/p4n2/1pbP1bB1/1n6/N1N2B2/PP1Q1PPP/3R1RK1 b - - 1 16",
+    "historical_uci": "b4d3",
+    "historical_san": "Nd3",
+    "themes": [
+      "attack",
+      "outpost",
+      "positional"
+    ],
+    "history": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "e7e6",
+      "d2d4",
+      "c5d4",
+      "f3d4",
+      "b8c6",
+      "d4b5",
+      "d7d6",
+      "c2c4",
+      "g8f6",
+      "b1c3",
+      "a7a6",
+      "b5a3",
+      "d6d5",
+      "c4d5",
+      "e6d5",
+      "e4d5",
+      "c6b4",
+      "f1e2",
+      "f8c5",
+      "e1g1",
+      "e8g8",
+      "e2f3",
+      "c8f5",
+      "c1g5",
+      "f8e8",
+      "d1d2",
+      "b7b5",
+      "a1d1"
+    ],
+    "bm": [
+      "b4d3"
+    ],
+    "suite": "historical"
+  },
+  {
+    "master": "Tigran Petrosian",
+    "players": "Samuel Reshevsky \u2013 Tigran Petrosian",
+    "year": 1953,
+    "source": "https://www.playstockfish.com/grandmastergames/game/reshevsky-vs-petrosian-1953-c9f5cb389800",
+    "id": "reshevsky_petrosian_1953_re6",
+    "fen": "3rq1k1/4rppp/2n3b1/pp2P3/2pP1QB1/P1P1R3/1B4PP/4R1K1 b - - 3 25",
+    "historical_uci": "e7e6",
+    "historical_san": "Re6",
+    "themes": [
+      "rook",
+      "positional",
+      "delayed_compensation",
+      "defensive"
+    ],
+    "history": [
+      "d2d4",
+      "g8f6",
+      "c2c4",
+      "e7e6",
+      "b1c3",
+      "f8b4",
+      "e2e3",
+      "e8g8",
+      "f1d3",
+      "d7d5",
+      "g1f3",
+      "c7c5",
+      "e1g1",
+      "b8c6",
+      "a2a3",
+      "b4c3",
+      "b2c3",
+      "b7b6",
+      "c4d5",
+      "e6d5",
+      "c1b2",
+      "c5c4",
+      "d3c2",
+      "c8g4",
+      "d1e1",
+      "f6e4",
+      "f3d2",
+      "e4d2",
+      "e1d2",
+      "g4h5",
+      "f2f3",
+      "h5g6",
+      "e3e4",
+      "d8d7",
+      "a1e1",
+      "d5e4",
+      "f3e4",
+      "f8e8",
+      "d2f4",
+      "b6b5",
+      "c2d1",
+      "e8e7",
+      "d1g4",
+      "d7e8",
+      "e4e5",
+      "a7a5",
+      "e1e3",
+      "a8d8",
+      "f1e1"
+    ],
+    "bm": [
+      "e7e6"
+    ],
+    "suite": "historical"
+  },
+  {
+    "id": "botvinnik_tal_1960_g6_ply42",
+    "master": "Mikhail Tal",
+    "year": "1960",
+    "players": "Botvinnik \u2013 Tal",
+    "source": "https://en.wikipedia.org/wiki/World_Chess_Championship_1960",
+    "fen": "2r3k1/pp4bp/3p2p1/3Ppb1n/1qr5/2N1B1PP/PP2QPBK/R1R5 b - - 1 21",
+    "historical_uci": "h5f4",
+    "historical_san": "Nf4",
+    "themes": [
+      "knight",
+      "king_attack"
+    ],
+    "history": [
+      "c2c4",
+      "g8f6",
+      "g1f3",
+      "g7g6",
+      "g2g3",
+      "f8g7",
+      "f1g2",
+      "e8g8",
+      "d2d4",
+      "d7d6",
+      "b1c3",
+      "b8d7",
+      "e1g1",
+      "e7e5",
+      "e2e4",
+      "c7c6",
+      "h2h3",
+      "d8b6",
+      "d4d5",
+      "c6d5",
+      "c4d5",
+      "d7c5",
+      "f3e1",
+      "c8d7",
+      "e1d3",
+      "c5d3",
+      "d1d3",
+      "f8c8",
+      "a1b1",
+      "f6h5",
+      "c1e3",
+      "b6b4",
+      "d3e2",
+      "c8c4",
+      "f1c1",
+      "a8c8",
+      "g1h2",
+      "f7f5",
+      "e4f5",
+      "d7f5",
+      "b1a1"
+    ],
+    "bm": [
+      "h5f4"
+    ],
+    "suite": "historical"
+  },
+  {
+    "id": "tal_larsen_1965_g10_ply31",
+    "master": "Mikhail Tal",
+    "year": "1965",
+    "players": "Tal \u2013 Larsen",
+    "source": "https://github.com/tonymorris/immortalgames/blob/master/immortal_games.pgn",
+    "fen": "rqb2rk1/3nbppp/p2pp3/6P1/1p1BPP2/2NB1Q2/PPP4P/2KR3R w - - 0 16",
+    "historical_uci": "c3d5",
+    "historical_san": "Nd5",
+    "themes": [
+      "knight",
+      "king_attack",
+      "positional",
+      "delayed_compensation"
+    ],
+    "history": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "b8c6",
+      "d2d4",
+      "c5d4",
+      "f3d4",
+      "e7e6",
+      "b1c3",
+      "d7d6",
+      "c1e3",
+      "g8f6",
+      "f2f4",
+      "f8e7",
+      "d1f3",
+      "e8g8",
+      "e1c1",
+      "d8c7",
+      "d4b5",
+      "c7b8",
+      "g2g4",
+      "a7a6",
+      "b5d4",
+      "c6d4",
+      "e3d4",
+      "b7b5",
+      "g4g5",
+      "f6d7",
+      "f1d3",
+      "b5b4"
+    ],
+    "bm": [
+      "c3d5"
+    ],
+    "suite": "historical"
+  },
+  {
+    "id": "tal_larsen_1965_g10_ply39",
+    "master": "Mikhail Tal",
+    "year": "1965",
+    "players": "Tal \u2013 Larsen",
+    "source": "https://github.com/tonymorris/immortalgames/blob/master/immortal_games.pgn",
+    "fen": "rq4k1/1b1nbrpp/p2p4/3P1pP1/1p1B1P1P/3B1Q2/PPP5/2K1R2R w - - 1 20",
+    "historical_uci": "d3f5",
+    "historical_san": "Bxf5",
+    "themes": [
+      "bishop",
+      "king_attack"
+    ],
+    "history": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "b8c6",
+      "d2d4",
+      "c5d4",
+      "f3d4",
+      "e7e6",
+      "b1c3",
+      "d7d6",
+      "c1e3",
+      "g8f6",
+      "f2f4",
+      "f8e7",
+      "d1f3",
+      "e8g8",
+      "e1c1",
+      "d8c7",
+      "d4b5",
+      "c7b8",
+      "g2g4",
+      "a7a6",
+      "b5d4",
+      "c6d4",
+      "e3d4",
+      "b7b5",
+      "g4g5",
+      "f6d7",
+      "f1d3",
+      "b5b4",
+      "c3d5",
+      "e6d5",
+      "e4d5",
+      "f7f5",
+      "d1e1",
+      "f8f7",
+      "h2h4",
+      "c8b7"
+    ],
+    "bm": [
+      "d3f5"
+    ],
+    "suite": "historical"
+  },
+  {
+    "id": "tal_benko_1959_r14_ply45",
+    "master": "Mikhail Tal",
+    "year": "1959",
+    "players": "Tal \u2013 Benko",
+    "source": "https://www.chessbox.in/chessgame/tal-mihail-benko-pal-c-2/",
+    "fen": "1r1qr1k1/2n1p2p/p2pP1pB/2pP1p2/bp5R/5N1P/1bPQ1PP1/4RBK1 w - - 0 23",
+    "historical_uci": "h6f8",
+    "historical_san": "Bf8",
+    "themes": [
+      "bishop",
+      "king_attack"
+    ],
+    "history": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "g7g6",
+      "d2d4",
+      "f8g7",
+      "d4d5",
+      "d7d6",
+      "b1c3",
+      "g8f6",
+      "f1b5",
+      "b8d7",
+      "a2a4",
+      "e8g8",
+      "e1g1",
+      "a7a6",
+      "b5e2",
+      "a8b8",
+      "f1e1",
+      "f6e8",
+      "c1f4",
+      "e8c7",
+      "e2f1",
+      "b7b5",
+      "d1d2",
+      "f8e8",
+      "h2h3",
+      "d7f6",
+      "a1d1",
+      "c8d7",
+      "e4e5",
+      "b5b4",
+      "c3e4",
+      "f6e4",
+      "e1e4",
+      "d7a4",
+      "f4h6",
+      "g7h8",
+      "d1e1",
+      "f7f6",
+      "e5e6",
+      "f6f5",
+      "e4h4",
+      "h8b2"
+    ],
+    "bm": [
+      "h6f8"
+    ],
+    "suite": "historical"
+  },
+  {
+    "id": "tal_smyslov_1959_r8_ply27",
+    "master": "Mikhail Tal",
+    "year": "1959",
+    "players": "Tal \u2013 Smyslov",
+    "source": "https://chessmotion.com/explore/famous-chess-games/tal-smyslov-1959",
+    "fen": "r1bb1rk1/p2n1ppp/q1p2n2/1p3N2/2BQ4/5N2/PPPB1PPP/2KR3R w - - 4 14",
+    "historical_uci": "d4h4",
+    "historical_san": "Qh4",
+    "themes": [
+      "bishop",
+      "king_attack"
+    ],
+    "history": [
+      "e2e4",
+      "c7c6",
+      "d2d3",
+      "d7d5",
+      "b1d2",
+      "e7e5",
+      "g1f3",
+      "b8d7",
+      "d3d4",
+      "d5e4",
+      "d2e4",
+      "e5d4",
+      "d1d4",
+      "g8f6",
+      "c1g5",
+      "f8e7",
+      "e1c1",
+      "e8g8",
+      "e4d6",
+      "d8a5",
+      "f1c4",
+      "b7b5",
+      "g5d2",
+      "a5a6",
+      "d6f5",
+      "e7d8"
+    ],
+    "bm": [
+      "d4h4"
+    ],
+    "suite": "historical"
+  }
+]

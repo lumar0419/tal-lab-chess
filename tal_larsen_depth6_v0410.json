@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "engine_version": "0.4.10",
+  "overview": {
+    "baseline": {
+      "cases": 1,
+      "historical_choices_at_last_depth": 0,
+      "gaps_narrowed_at_last_depth": 1,
+      "gaps_widened_at_last_depth": 0
+    }
+  },
+  "utc_created": "2026-11-12T10:18:51.364313+00:00",
+  "python_version": "3.13.5",
+  "system": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "profiles": [
+    "baseline"
+  ],
+  "depths": [
+    5,
+    6
+  ],
+  "aspiration_enabled": false,
+  "cases": [
+    {
+      "case_id": "tal_larsen_1965_g10_ply31",
+      "game_id": "tal_larsen_1965_g10",
+      "theme": "positional_knight_sacrifice",
+      "fen": "rqb2rk1/3nbppp/p2pp3/6P1/1p1BPP2/2NB1Q2/PPP4P/2KR3R w - - 0 16",
+      "historical_san": "Nd5",
+      "historical_move": "c3d5",
+      "initial_root_rank": 17,
+      "initial_root_legal_count": 45,
+      "source": "https://github.com/tonymorris/immortalgames/blob/master/immortal_games.pgn",
+      "profile": "baseline",
+      "aspiration": false,
+      "historical_static": {
+        "static_eval_after_move_cp": 66,
+        "immediate_material_delta_cp": 0,
+        "signals": {
+          "gives_check": false,
+          "captures": false,
+          "exposed_to_capture_after": true,
+          "moves_into_attack": false,
+          "moved_piece": "N"
+        }
+      },
+      "depth_results": [
+        {
+          "depth": 5,
+          "selected": {
+            "move": "c3e2",
+            "score_cp_or_mate_encoded": 21,
+            "score_display": "+0.21",
+            "completed_depth": 5,
+            "nodes": 106281,
+            "elapsed_s": 1.24623,
+            "aspiration_researches": 0,
+            "pv": [
+              "c3e2",
+              "e6e5",
+              "d4e3",
+              "d7c5"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "historical_forced": {
+            "move": "c3d5",
+            "score_cp_or_mate_encoded": -166,
+            "score_display": "-1.66",
+            "completed_depth": 5,
+            "nodes": 8696,
+            "elapsed_s": 0.09087,
+            "aspiration_researches": 0,
+            "pv": [
+              "c3d5",
+              "e6d5",
+              "e4d5",
+              "d7c5",
+              "d3c4"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              -320,
+              -220,
+              -220,
+              -220
+            ]
+          },
+          "historical_move_chosen": false,
+          "approx_score_gap_cp": 187,
+          "mate_sensitive": false,
+          "selected_static": {
+            "static_eval_after_move_cp": 51,
+            "immediate_material_delta_cp": 0,
+            "signals": {
+              "gives_check": false,
+              "captures": false,
+              "exposed_to_capture_after": false,
+              "moves_into_attack": false,
+              "moved_piece": "N"
+            }
+          },
+          "warning": null
+        },
+        {
+          "depth": 6,
+          "selected": {
+            "move": "c3e2",
+            "score_cp_or_mate_encoded": 3,
+            "score_display": "+0.03",
+            "completed_depth": 6,
+            "nodes": 528657,
+            "elapsed_s": 6.18701,
+            "aspiration_researches": 0,
+            "pv": [
+              "c3e2",
+              "e6e5",
+              "d4e3"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              0,
+              0
+            ]
+          },
+          "historical_forced": {
+            "move": "c3d5",
+            "score_cp_or_mate_encoded": -182,
+            "score_display": "-1.82",
+            "completed_depth": 6,
+            "nodes": 48709,
+            "elapsed_s": 0.64618,
+            "aspiration_researches": 0,
+            "pv": [
+              "c3d5",
+              "e6d5",
+              "h1e1",
+              "b4b3",
+              "a2b3",
+              "d5e4"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              -320,
+              -320,
+              -320,
+              -220,
+              -320
+            ]
+          },
+          "historical_move_chosen": false,
+          "approx_score_gap_cp": 185,
+          "mate_sensitive": false,
+          "selected_static": {
+            "static_eval_after_move_cp": 51,
+            "immediate_material_delta_cp": 0,
+            "signals": {
+              "gives_check": false,
+              "captures": false,
+              "exposed_to_capture_after": false,
+              "moves_into_attack": false,
+              "moved_piece": "N"
+            }
+          },
+          "warning": null
+        }
+      ],
+      "gap_trend_first_to_last_cp": -2,
+      "interpretation": "Depth/gap trends alone cannot distinguish horizon effects, evaluation bias, and a speculative historical move. Independent stronger analysis is needed."
+    }
+  ],
+  "external_stockfish": {},
+  "limitations": [
+    "ONE unchanged chess engine; profiles are runtime flags, not separate engines",
+    "Tal historical move is NOT an objectively correct answer",
+    "A finite-depth root-forced score is NOT the minimax score and can depend on search order",
+    "Scores and PVs can change sharply with depth; no attribution to evaluation vs search without further analysis",
+    "Material deltas follow truncated PVs and are not a measure of lasting sacrifice compensation",
+    "No Elo, human-likeness score, or objective soundness claim is produced",
+    "FENs omit historical move/repetition history even when reconstructed from full game scores",
+    "Stockfish data only appears if independently run with the requested binary and depth"
+  ]
+}

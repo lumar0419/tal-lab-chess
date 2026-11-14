@@ -1,0 +1,120 @@
+{
+  "version": "0.4.10",
+  "depth": 5,
+  "repeats": 2,
+  "window_cp": 40,
+  "method": "alternating runs, independent TT, per-position medians",
+  "positions": [
+    {
+      "name": "start",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "scores_match": true,
+      "off": {
+        "median_time_s": 0.18680676949998087,
+        "median_nodes": 21441.0,
+        "median_retries": 0.0,
+        "moves": [
+          "b1c3"
+        ],
+        "scores": [
+          40
+        ]
+      },
+      "on": {
+        "median_time_s": 0.2269673209998473,
+        "median_nodes": 23701.0,
+        "median_retries": 4.0,
+        "moves": [
+          "b1c3"
+        ],
+        "scores": [
+          40
+        ]
+      }
+    },
+    {
+      "name": "kiwipete",
+      "fen": "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+      "scores_match": true,
+      "off": {
+        "median_time_s": 2.8299244290001297,
+        "median_nodes": 220697.0,
+        "median_retries": 0.0,
+        "moves": [
+          "e2a6"
+        ],
+        "scores": [
+          56
+        ]
+      },
+      "on": {
+        "median_time_s": 2.829205226499653,
+        "median_nodes": 221508.0,
+        "median_retries": 1.0,
+        "moves": [
+          "e2a6"
+        ],
+        "scores": [
+          56
+        ]
+      }
+    },
+    {
+      "name": "position3",
+      "fen": "8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - - 0 1",
+      "scores_match": true,
+      "off": {
+        "median_time_s": 0.12369357750003473,
+        "median_nodes": 13379.0,
+        "median_retries": 0.0,
+        "moves": [
+          "b4f4"
+        ],
+        "scores": [
+          3
+        ]
+      },
+      "on": {
+        "median_time_s": 0.12020108450042244,
+        "median_nodes": 13334.0,
+        "median_retries": 0.0,
+        "moves": [
+          "b4f4"
+        ],
+        "scores": [
+          3
+        ]
+      }
+    },
+    {
+      "name": "tal_botvinnik",
+      "fen": "2r3k1/pp4bp/3p2p1/3Ppb1n/1qr5/2N1B1PP/PP2QPBK/R1R5 b - - 1 21",
+      "scores_match": true,
+      "off": {
+        "median_time_s": 3.2157821989994773,
+        "median_nodes": 319645.0,
+        "median_retries": 0.0,
+        "moves": [
+          "e5e4"
+        ],
+        "scores": [
+          -51
+        ]
+      },
+      "on": {
+        "median_time_s": 2.8965774495000005,
+        "median_nodes": 302990.0,
+        "median_retries": 0.0,
+        "moves": [
+          "e5e4"
+        ],
+        "scores": [
+          -51
+        ]
+      }
+    }
+  ],
+  "all_scores_match": true,
+  "median_time_ratio": 0.9857554094671419,
+  "median_node_ratio": 1.0001556206849767
+}

@@ -1,0 +1,4 @@
+queen_offer e1d2 defense_searched {'depth': 5, 'score': -95, 'reference_score': 916, 'delta_for_mover': -1011} d5e4
+rook_offer e2e7 defense_searched {'depth': 7, 'score': 0, 'reference_score': 525, 'delta_for_mover': -525} d5e4
+black_queen_offer e7e4 defense_searched {'depth': 5, 'score': 95, 'reference_score': -913, 'delta_for_mover': -1008} d4e5
+capture_loses_to_mate g2e4 defense_searched {'depth': 2, 'score': 99998, 'reference_score': 1065, 'delta_for_mover': -98933} a1a8

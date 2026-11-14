@@ -69,10 +69,10 @@ TT와 대국 이력 (graph history interaction)
 """
 
 import time
+from collections import Counter
 from typing import NamedTuple, List
 
-from board import (Board, Move, EMPTY, START_FEN, H_HASH, OFF, WHITE,
-                   KNIGHT_STEPS, BISHOP_DIRS, ROOK_DIRS, QUEEN_DIRS,
+from board import (Board, Move, EMPTY, START_FEN, H_HASH, SQUARES, WHITE,
                    file_of, rank_of)
 from evaluate import evaluate
 
@@ -81,14 +81,14 @@ MATE = 100_000
 MATE_BOUND = MATE - 1_000      # 이보다 절댓값이 크면 '메이트 점수'
 MAX_PLY = 100
 
-ENGINE_VERSION = "0.5.5"
+from version import VERSION as ENGINE_VERSION
 
 EXACT, LOWER, UPPER, MOVE_ONLY = 0, 1, 2, 3   # TT 종류: 정확한 값 / 이 이상 / 이 이하 / 점수 없음
 TT_HALFMOVE_MARGIN = 10        # 체크 연장 등으로 실제 수순이 깊이보다 길어질 수 있는 여유분
 
 AUTO, CLAIM = 'auto', 'claim'  # 무승부 규칙 종류: 0점으로 끝 / 둘 차례인 쪽이 청구 가능
 
-# 시간·정지 신호는 이 노드 수마다 확인 (time.time() 호출을 줄이려고). 노드 한도는 v0.4.1부터
+# 시간·정지 신호는 이 노드 수마다 확인 (time.monotonic() 호출을 줄이려고). 노드 한도는 v0.4.1부터
 # 이 간격과 무관하게 정확히 지킴: 다음 확인 시점을 '한도'보다 늦지 않게 잡음.
 CHECK_INTERVAL = 1024
 
@@ -96,6 +96,22 @@ CHECK_INTERVAL = 1024
 ORDER_VALUE = {'.': 0}
 for _p, _v in zip('PNBRQK', (100, 320, 330, 500, 900, 1000)):
     ORDER_VALUE[_p] = ORDER_VALUE[_p.lower()] = _v
+
+
+# ── v0.8.8 선택적 탐색(SelectiveSearch)용 상수 ──
+# 깊이 단위는 반수. 여유값은 centipawn. 전부 '탐색을 줄이는' 장치이므로 기본은 꺼져 있고
+# Searcher.selective = True 일 때만 쓰인다. 캡처·승격·체크는 본탐색에서 줄이거나 버리지 않는다.
+RFP_MAX_DEPTH = 3              # 역 futility: 정적 평가가 beta보다 이만큼*깊이 이상 높으면 컷
+RFP_MARGIN = 120
+FUTILITY_MARGIN = (0, 200, 350)     # 남은 깊이 1, 2에서 조용한 수를 건너뛰는 여유값
+LMP_COUNT = (0, 6, 10, 16)          # 남은 깊이 1~3에서 이 개수 뒤의 조용한 수는 건너뜀
+QS_DELTA = 200                      # 정적 탐색: 잡아도 alpha에 이만큼 못 미치면 건너뜀
+SAC_MIN = 100                       # 이만큼 이상 기물을 내준 수순을 '희생 뒤 수순'으로 본다
+import math as _math
+LMR_TABLE = [[0] * 64 for _ in range(64)]
+for _d in range(1, 64):
+    for _n in range(1, 64):
+        LMR_TABLE[_d][_n] = int(0.75 + _math.log(_d) * _math.log(_n) / 2.25)
 
 
 class TimeUp(Exception):
@@ -185,6 +201,7 @@ class TranspositionTable:
 
     def __init__(self, capacity):
         self.generation = 0
+        self.preserve_deeper = False
         self.resize(capacity)
 
     def resize(self, capacity):
@@ -227,11 +244,13 @@ class TranspositionTable:
         new = (depth, flag, score, move, key, gen)
         a = slots[i]
         if a is not None and a[4] == key:              # 같은 국면 → 갱신
-            slots[i] = new
+            if not self.preserve_deeper or not self._prefer_existing(a, new):
+                slots[i] = new
             return
         b = slots[i + 1]
         if b is not None and b[4] == key:
-            slots[i + 1] = new
+            if not self.preserve_deeper or not self._prefer_existing(b, new):
+                slots[i + 1] = new
             return
         if a is None:                                   # 빈 첫째 칸
             slots[i] = new
@@ -245,6 +264,14 @@ class TranspositionTable:
             if b is None:
                 self.count += 1
             slots[i + 1] = new
+
+    @staticmethod
+    def _prefer_existing(old, new):
+        if old[1] == MOVE_ONLY:
+            return False
+        if new[1] == MOVE_ONLY:
+            return True
+        return old[0] > new[0] or (old[0] == new[0] and old[1] == EXACT and new[1] != EXACT)
 
     def __setitem__(self, key, value):                  # v0.4.0 dict 방식 저장과 호환: tt[key] = (깊이, 종류, 점수, 수)
         self.store(key, *value)
@@ -265,6 +292,14 @@ class Searcher:
         self.root_len = 0            # 탐색 시작 시점의 board.history 길이 (반복 판정 기준선)
         self.draw_hits = 0           # 이력 의존 무승부(반복·50수)를 만난 횟수
         self.root_best = None
+        self.pv_table = None
+        self.cancel_check = None
+        self.eval_cache_size = 16000
+        self._eval_cache = None
+        self.reuse_root_order = True
+        self._root_hint = None
+        self._tt_settings = None
+        self.tt_current_generation_only = False
         self.killers = [[None, None] for _ in range(MAX_PLY + 2)]
         self.history = {}
         # 정적 탐색의 근사 델타 가지치기. v0.3.2부터 기본값 False (메이트를 놓칠 수 있어서).
@@ -299,12 +334,41 @@ class Searcher:
         # Experimental second quiet checking move along a forcing quiescence line.
         # Requires TacticalChecks, remains OFF by default to avoid qsearch explosion.
         self.check_continuation = False
+        self.qsearch_capture_bridge = False
+        # A bounded research profile. A quiet check is extended only when
+        # the defender has at most this many legal evasions (zero disables it).
+        self.qsearch_forcing_replies = 0
         self.check_continuation_nodes = 0
         # Conservative experimental late-move reductions (non-PV, quiet, non-checking
         # alternatives only). All tactical moves still receive full depth.
+        self.fast_evasions = True  # exact candidate filter, no search reduction
         self.lmr = False
         self.lmr_probes = 0
         self.lmr_researches = 0
+        # None preserves the original extension on every checked node.
+        self.check_extension_limit = None
+        self.null_move_pruning = False
+        self.null_threat_extension = False
+        self.null_probes = self.null_cutoffs = self.null_threats = 0
+        self._after_null = False
+        # v0.8.8 선택적 탐색. selective가 꺼져 있으면 아래 항목은 전혀 쓰이지 않고
+        # 탐색은 v0.8.7과 같은 전폭(full-width) 탐색이다. 개별 스위치는 비교 실험용.
+        self.selective = False
+        self.sel_qsearch = True      # 정적 탐색: SEE로 손해인 캡처와 가망 없는 캡처를 건너뜀
+        self.sel_null = True         # null-move 가지치기 (R = 2 + 깊이/4)
+        self.sel_rfp = True          # 역 futility 가지치기
+        self.sel_futility = True     # futility + late move pruning (조용하고 체크 아닌 수만)
+        self.sel_lmr = True          # late move reductions (로그 표, 재탐색 포함)
+        self.sel_iir = True          # TT 수가 없는 깊은 노드는 1반수 얕게
+        self.sel_order = True        # SEE로 손해인 캡처를 킬러 뒤로 정렬
+        # 희생 뒤 수순 보호: 루트에서 이 반수 안쪽에서는, 기물을 내준 쪽의 조용한 후속 수를
+        # 줄이거나 버리지 않고, 기물을 받은 쪽을 '평가가 좋다'는 이유만으로 컷하지 않는다.
+        self.sel_sac_ply = 3
+        self.sel_sac_root_only = True
+        self.sel_qchecks = True      # 정적 탐색 첫 층에서 조용한 체크도 본다 (TacticalChecks와 같은 동작)
+        self.sel_stats = Counter()
+        self.selective_trace = None  # Optional research callback (event, board, ply, depth, move).
+        self._gain = [0] * (MAX_PLY + 3)
 
     @property
     def tt_size(self):
@@ -318,7 +382,7 @@ class Searcher:
     # ──────────────────────────── 바깥에서 부르는 함수 ────────────────────────────
     def search(self, board: Board, max_depth=MAX_PLY, time_limit=None, node_limit=None,
                on_info=print_info, root_moves=None, min_depth=1, on_iteration=None,
-               full_time=False):
+               full_time=False, multipv=1, on_multipv=None, cancel_check=None, mate_stop=None):
         """반복 심화. (최선수, 점수)를 돌려줌. time_limit은 초 단위.
 
         반환 규칙 (v0.3.2)
@@ -330,17 +394,27 @@ class Searcher:
         root_moves (v0.4.1, UCI go searchmoves): 루트에서 이 수들만 후보로 봄 (Move 또는 'e2e4').
           불법수는 무시하고, 남는 후보가 없으면 (None, 0). 루트 아래는 평소처럼 모든 수를 봄.
         node_limit: 정확히 이 노드 수에서 멈춤 (v0.4.1).
+        mate_stop: optional positive or negative mate-score confirmation callback (move, score, plies).
         멈추면 마지막으로 끝낸 깊이의 최선수, 깊이 1도 못 끝냈으면 그때까지의 최선 또는 첫 합법수.
+        multipv=1은 이전과 완전히 같은 단일 최선수 탐색. multipv=2~5는
+        이전 순위를 루트에서 제외해 재탐색하므로, 각각 서로 다른 실제 루트 후보
+        점수를 반환합니다. on_multipv에 SearchInfo 목록을 각 *완료된* 깊이마다
+        전달합니다. 계산 도중 일부 후보만 끝나면 그 깊이는 게시하지 않습니다.
         탐색이 시간 초과·정지·예외로 끊겨도 board는 호출 전 상태 그대로 돌아옵니다."""
         if type(min_depth) is not int or not 1 <= min_depth <= max_depth:
             raise ValueError('min_depth must be between 1 and max_depth')
+        if type(multipv) is not int or not 1 <= multipv <= 5:
+            raise ValueError('multipv must be an integer from 1 to 5')
         self.nodes = 0
-        self.start = time.time()
+        self.start = time.monotonic()
         self.deadline = self.start + time_limit if time_limit else None
         self.node_limit = node_limit
-        self._next_check = min(CHECK_INTERVAL, node_limit) if node_limit else CHECK_INTERVAL
+        interval = self._check_interval()
+        self._next_check = min(interval, node_limit) if node_limit else interval
         self.stop_requested = False
         self.root_filter = None
+        self.cancel_check = cancel_check
+        self.pv_table = [()] * (MAX_PLY + 2) if (on_info or on_multipv) else None
         self.killers = [[None, None] for _ in range(MAX_PLY + 2)]
         self.history = {}
         self.draw_hits = 0
@@ -355,7 +429,23 @@ class Searcher:
         self.check_continuation_nodes = 0
         self.lmr_probes = 0
         self.lmr_researches = 0
+        self.null_probes = self.null_cutoffs = self.null_threats = 0
         self.root_len = len(board.history)
+        import evaluate as evaluation
+        settings = (self.qsearch_quiet_checks, self.check_continuation, self.qsearch_capture_bridge,
+                    self.qsearch_forcing_replies, self.delta_pruning,
+                    self.lmr, self.check_extension_limit, self.null_move_pruning,
+                    self.null_threat_extension, evaluation.ATTACK_ACTIVITY, evaluation.INITIATIVE,
+                    evaluation.KING_SAFETY, self.selective, self.sel_qsearch, self.sel_null,
+                    self.sel_rfp, self.sel_futility, self.sel_lmr, self.sel_iir, self.sel_order,
+                    self.sel_sac_ply, self.sel_sac_root_only, self.sel_qchecks)
+        if self._tt_settings is not None and self._tt_settings != settings:
+            self.tt.clear()
+        self._tt_settings = settings
+        self._eval_cache = {} if self.eval_cache_size else None
+        self._eval_cache_limit = self.eval_cache_size * (8 if self.selective else 1)
+        self._gain[0] = 0
+        self.sel_stats.clear()
         self.tt.new_search()           # 세대 증가: 이전 탐색의 항목은 교체 우선 대상이 됨
 
         state = board.snapshot()
@@ -372,12 +462,22 @@ class Searcher:
                     return None, 0
                 self.root_filter = frozenset(candidates)
 
+            if multipv > 1:
+                # An exact full-window root search is repeated for each line,
+                # excluding the already selected root moves. Each selected line
+                # is independently searched (not a score from move ordering).
+                # The entire group must finish before a depth is published.
+                return self._multi_pv_loop(board, candidates, multipv, max_depth,
+                                           min_depth, full_time, on_info,
+                                           on_iteration, on_multipv, state)
+
             best_move, best_score = None, 0
             for depth in range(1, max_depth + 1):
-                if on_iteration is not None:
-                    on_iteration(depth)
                 self.root_best = None
                 try:
+                    if on_iteration is not None:
+                        on_iteration(depth)
+                    self._check_limits()
                     # v0.4.10: 마지막으로 *완료한* 깊이의 정확한 평가를 중심으로
                     # aspiration window를 시도한다. fail-low/high는 경계값이므로
                     # 반드시 전체 창으로 재탐색한다. 특히 메이트 점수는 좁히지 않는다.
@@ -404,12 +504,13 @@ class Searcher:
                         best_move = self.root_best
                     break
                 best_move, best_score = self.root_best, score
-                elapsed = time.time() - self.start
+                elapsed = time.monotonic() - self.start
                 if on_info:
                     on_info(SearchInfo(depth, score, self.nodes, elapsed,
-                                       self.principal_variation(board, best_move, depth)))
+                                       list(self.pv_table[0])))
                 plies = mate_plies(score)
-                if plies is not None and plies <= depth:
+                if (plies is not None and plies <= depth
+                        and (mate_stop is None or mate_stop(best_move, score, plies))):
                     break  # 이 깊이 안에서 메이트가 확정 → 더 볼 필요 없음
                 if (self.deadline and not full_time and depth >= min_depth
                         and elapsed > (self.deadline - self.start) * 0.5):
@@ -420,13 +521,78 @@ class Searcher:
         finally:
             board.restore(state)                    # 어떤 예외가 나도 국면은 원래대로
             self.root_filter = None
+            self.pv_table = None
+            self.cancel_check = None
+            self._root_hint = None
+            self._eval_cache = None
+
+    def _multi_pv_loop(self, board, candidates, multipv, max_depth, min_depth,
+                       full_time, on_info, on_iteration, on_multipv, state):
+        """Exact root-level MultiPV at each *completed* depth.
+
+        The kth search excludes the previous k-1 winners at the root. All
+        subtrees are searched with the normal engine/TT and a full alpha-beta
+        window. Root scores are never entered into the TT with a restricted
+        root_filter (as enforced by negamax), because they are not the value
+        of the unrestricted position. A partially completed group is discarded.
+        """
+        allowed = frozenset(candidates)
+        needed = min(multipv, len(candidates))
+        best_move, best_score = None, 0
+        previous = []
+        for depth in range(1, max_depth + 1):
+            found = set()
+            lines = []
+            try:
+                if on_iteration is not None:
+                    on_iteration(depth)
+                for _ in range(needed):
+                    self._check_limits()
+                    self.root_filter = allowed - found
+                    if self.reuse_root_order:
+                        self._root_hint = next((move for move in previous if move not in found), None)
+                    self.root_best = None
+                    score = self.negamax(board, depth, -INF, INF, 0)
+                    move = self.root_best
+                    if move is None or move in found:
+                        raise RuntimeError('MultiPV root candidate missing')
+                    found.add(move)
+                    elapsed = time.monotonic() - self.start
+                    pv = list(self.pv_table[0]) if self.pv_table is not None else [move]
+                    lines.append(SearchInfo(depth, score, self.nodes, elapsed, pv))
+            except TimeUp:
+                board.restore(state)
+                # Incomplete sets must not overwrite any completed depth.
+                break
+            # Heuristic search, TT reuse and path-dependent draw handling can
+            # occasionally shift a later forced-root score relative to the
+            # unrestricted first pass. Rank by the evaluated score rather
+            # than assuming the selection order is already sorted.
+            lines.sort(key=lambda line: line.score, reverse=True)
+            previous = [line.pv[0] for line in lines]
+            best_move, best_score = previous[0], lines[0].score
+            if on_info is not None:
+                on_info(lines[0])
+            if on_multipv is not None:
+                on_multipv(lines)
+            if (self.deadline and not full_time and depth >= min_depth and
+                    time.monotonic() - self.start > (self.deadline - self.start) * 0.5):
+                break
+        if best_move is None:
+            best_move = candidates[0]
+        return best_move, best_score
 
     # ──────────────────────────── 탐색 본체 ────────────────────────────
-    def negamax(self, b: Board, depth, alpha, beta, ply, check_rules=True):
+    def negamax(self, b: Board, depth, alpha, beta, ply, check_rules=True,
+                checks_left=None, threat_left=True):
         self.nodes += 1
         if self.nodes >= self._next_check:          # 노드 한도는 정확히, 시간·정지는 일정 간격으로
             self._check_limits()
         root = ply == 0
+        pv_node = beta - alpha > 1
+        pv = self.pv_table if pv_node else None
+        if self.pv_table is not None:
+            self.pv_table[ply] = ()
         in_check = b.in_check()
         draw_hits_before = self.draw_hits
 
@@ -443,22 +609,49 @@ class Searcher:
                 # 청구 가능: 둘 차례인 쪽은 max(청구 0점, 계속 둔 값)을 고름
                 if beta <= 0:
                     return 0                           # 청구만으로 이미 beta 이상
-                return max(0, self.negamax(b, depth, max(alpha, 0), beta, ply, check_rules=False))
+                return max(0, self.negamax(b, depth, max(alpha, 0), beta, ply,
+                                           check_rules=False, checks_left=checks_left,
+                                           threat_left=threat_left))
 
-        if in_check:
-            depth += 1                                 # 체크 연장
+        # Budget counts extra full-search plies. Quiescence still searches
+        # legal evasions even after that budget reaches zero.
+        if root and checks_left is None:
+            checks_left = self.check_extension_limit
+        if in_check and checks_left != 0:
+            depth += 1
+            if checks_left is not None:
+                checks_left -= 1
         if depth <= 0:
-            return self.quiesce(b, alpha, beta, ply, in_check=False, check_rules=False)
+            return self.quiesce(b, alpha, beta, ply, in_check=in_check, check_rules=False)
         if ply >= MAX_PLY:
-            return evaluate(b)
+            return self._score_at_ply_limit(b, ply, in_check)
+
+        sel = self.selective
+        sac_ply = self.sel_sac_ply
+        invested = -self._gain[ply] if sel and ply <= sac_ply else 0
+        protection = invested
+        if protection and self.sel_sac_root_only and (protection > 0) == (ply % 2 == 1):
+            protection = 0
+        trace = self.selective_trace
 
         # ── 트랜스포지션 테이블 조회 ──
         alpha_orig = alpha
         tt_move = None
-        entry = self.tt.get(b.hash)
+        # Identical boards can have different remaining extension budgets.
+        tt_key = b.hash
+        if checks_left is not None:
+            tt_key ^= (checks_left + 1) * 0x9E3779B97F4A7C15
+        if self.null_threat_extension and not threat_left:
+            tt_key ^= 0xD1B54A32D192ED03
+        entry = None if self._after_null else self.tt.get(tt_key)
+        # Near the root, identical positions can carry different remaining
+        # protection budgets and material ledgers. Reuse their move only.
+        protection_context = sel and 0 < ply <= sac_ply
         if entry is not None:
             e_depth, e_flag, e_score, tt_move = entry[0], entry[1], entry[2], entry[3]
-            if (not root and e_flag != MOVE_ONLY and e_depth >= depth
+            if (not root and not pv_node and not protection_context
+                    and e_flag != MOVE_ONLY and e_depth >= depth
+                    and (not self.tt_current_generation_only or entry[5] == self.tt.generation)
                     and b.halfmove + e_depth + TT_HALFMOVE_MARGIN < 100):
                 s = _from_tt(e_score, ply)             # 충분히 깊게 본 결과면 그대로 사용
                 if e_flag == EXACT:
@@ -468,11 +661,76 @@ class Searcher:
                 if e_flag == UPPER and s <= alpha:
                     return s
 
+        # ── v0.8.8 선택적 탐색: 수를 만들어 보기 전에 끝낼 수 있는 경우 ──
+        static_eval = None
+        if sel and not in_check:
+            cache = self._eval_cache
+            if cache is None:
+                static_eval = evaluate(b)
+            else:
+                static_eval = cache.get(b.hash)
+                if static_eval is None:
+                    static_eval = evaluate(b)
+                    if len(cache) < self._eval_cache_limit:
+                        cache[b.hash] = static_eval
+            if (not pv_node and not root and abs(beta) < MATE_BOUND and protection > -SAC_MIN
+                    and b.halfmove + depth + TT_HALFMOVE_MARGIN < 100):
+                # 역 futility: 이미 beta보다 넉넉히 좋으면 얕은 깊이에서는 더 보지 않는다.
+                if (self.sel_rfp and depth <= RFP_MAX_DEPTH
+                        and static_eval - RFP_MARGIN * depth >= beta
+                        and b.has_legal_move(in_check=False)):
+                    self.sel_stats['rfp'] += 1
+                    if trace:
+                        trace('rfp', b, ply, depth, None)
+                    return static_eval - RFP_MARGIN * depth
+                if (self.sel_null and not self._after_null and depth >= 3
+                        and static_eval >= beta and self._has_null_material(b)):
+                    self.sel_stats['null'] += 1
+                    score = self._search_after_null(b, depth, beta, ply, checks_left,
+                                                    reduction=3 + depth // 4)
+                    if score >= beta:
+                        if not b.has_legal_move(in_check=False):
+                            return 0
+                        self.sel_stats['null_cut'] += 1
+                        if trace:
+                            trace('null', b, ply, depth, None)
+                        return beta
+            # TT 수가 없는 깊은 노드: 정렬 정보가 없으니 한 반수 얕게 본다 (다음 반복에서 채워짐).
+            if self.sel_iir and tt_move is None and depth >= 4 and not root and abs(protection) < SAC_MIN:
+                self.sel_stats['iir'] += 1
+                if trace:
+                    trace('iir', b, ply, depth, None)
+                depth -= 1
+
+        stored_depth = depth
+        use_threat_probe = self.null_threat_extension and threat_left and depth >= 4
+        if ((self.null_move_pruning or use_threat_probe) and not self._after_null
+                and not root and not pv_node and not in_check and depth >= 3
+                and abs(beta) < MATE_BOUND and b.halfmove + depth + TT_HALFMOVE_MARGIN < 100
+                and (use_threat_probe or evaluate(b) >= beta)
+                and self._has_null_material(b)):
+            if (self.null_move_pruning and (not use_threat_probe or evaluate(b) >= beta)
+                    and beta <= self._search_after_null(b, depth, beta, ply, checks_left) < MATE_BOUND):
+                # Even a favorable pass cannot prove that a legal move exists.
+                if not b.has_legal_move(in_check=False):
+                    return 0
+                self.null_cutoffs += 1
+                return beta
+            # A normal cp window can cut on an earlier non-mating move.
+            if (use_threat_probe and self._search_after_null(
+                    b, depth, 1 - MATE_BOUND, ply, checks_left) <= -MATE_BOUND):
+                self.null_threats += 1
+                depth += 1
+                threat_left = False
+
+        if root and self._root_hint is not None:
+            tt_move = self._root_hint
+
         # ── 모든 수 시도 ──
         best_score, best_move = -INF, None
         legal = 0
         board = b.board
-        moves = b.pseudo_legal_moves()
+        moves = b.evasion_candidates() if in_check and self.fast_evasions else b.pseudo_legal_moves()
         if root and self.root_filter is not None:      # go searchmoves: 루트 후보만 남김 (아래 깊이는 전부)
             moves = [m for m in moves if m in self.root_filter]
         # Tactical ordering is limited to the upper tree and low remaining depths:
@@ -482,38 +740,90 @@ class Searcher:
             priority_checks = set(self._quiet_check_candidates(b, moves=moves))
             self.tactical_order_nodes += 1
             self.tactical_order_candidates += len(priority_checks)
+        # 선택적 탐색에서 '조용하고 체크가 아닌 수'만 줄이거나 건너뛴다. 체크 여부는 수를 두기 전에
+        # 기하 후보 집합(과포함, 누락 없음)으로 판정한다: 집합에 없으면 확실히 체크가 아니다.
+        sel_quiet = sel and not in_check and protection < SAC_MIN
+        sel_prune = (sel_quiet and self.sel_futility and not pv_node and not root
+                     and depth <= 3 and alpha > -MATE_BOUND
+                     and b.halfmove + depth + TT_HALFMOVE_MARGIN < 100)
+        sel_reduce = sel_quiet and self.sel_lmr and not root and depth >= 3
+        track_gain = sel and ply < sac_ply
+        lmr_from = 5 if pv_node else 3
+        check_cands = None
+        quiets_seen = 0
         for m in self.order_moves(b, moves, tt_move, ply, priority_checks):
             piece = board[m.frm]
             quiet = board[m.to] == EMPTY and not m.promo and not (
                 m.to == b.ep and piece in 'Pp')
+            reduction = 0
+            if track_gain:
+                self._gain[ply + 1] = invested - (
+                    (ORDER_VALUE[board[m.to]] or (100 if piece in 'Pp' and m.to == b.ep else 0))
+                    + (ORDER_VALUE[m.promo] - 100 if m.promo else 0))
+            prune = None
+            quiet_candidate = (sel_prune or sel_reduce) and quiet and legal > 0
+            if quiet_candidate:
+                if check_cands is None:
+                    check_cands = set(b.quiet_check_candidates())
+                quiet_candidate = m not in check_cands and not (piece in 'Pp' and (
+                    rank_of(m.to) >= 6 if piece == 'P' else rank_of(m.to) <= 1))
             b.make_move(m)
             if b.is_attacked(b.king_sq[b.side ^ 1], b.side):   # 내 킹이 체크에 남는 수 = 불법
                 b.unmake_move()
                 continue
+            # Repetition takes at least four reversible plies, and the
+            # move-count claims require a higher clock still.
+            score = self._rule_child_score(b, ply) if b.halfmove >= 4 else None
+            from_search = score is None
+            if quiet_candidate and from_search:
+                quiets_seen += 1
+                if sel_prune and best_score > -MATE_BOUND and m != tt_move:
+                    if quiets_seen > LMP_COUNT[depth]:
+                        prune = 'lmp'
+                    elif depth <= 2 and static_eval + FUTILITY_MARGIN[depth] <= alpha:
+                        prune = 'futility'
+                if prune:
+                    self.sel_stats[prune] += 1
+                    b.unmake_move()
+                    if trace:
+                        trace(prune, b, ply, depth, m)
+                    continue
+                if sel_reduce and legal + 1 >= lmr_from and m != tt_move:
+                    reduction = LMR_TABLE[min(depth, 63)][min(legal + 1, 63)] - int(pv_node)
+                    if m in self.killers[ply] or self.history.get((piece, m.to), 0) > depth * depth * 4:
+                        reduction -= 1
+                    reduction = min(reduction, depth - 2)
             legal += 1
-            score = self._rule_child_score(b, ply)    # 둔 결과가 무승부 규칙에 걸리면 바로 점수
-            if score is None:
+            if from_search and reduction > 0:
+                # 얕게 먼저 보고, alpha를 넘을 때만 아래에서 원래 깊이로 다시 본다.
+                self.sel_stats['lmr'] += 1
+                if trace:
+                    trace('lmr', b, ply, depth, m)
+                score = -self.negamax(b, depth - 1 - reduction, -alpha - 1, -alpha,
+                                      ply + 1, False, checks_left, threat_left)
+                if score > alpha:
+                    self.sel_stats['lmr_research'] += 1
+                    reduction = 0
+            if from_search and reduction <= 0:
                 # LMR reduces ONLY late quiet moves at non-PV nodes. Never reduce
                 # captures, promotions, pawn pushes to the seventh, replies to check,
                 # moves giving check, TT moves or killers. On a reduced fail-high,
                 # always re-search at full depth. This is SELECTIVE: unlike PVS it
                 # need not preserve full-width scores, so it is an opt-in experiment.
-                quiet_noncheck = (quiet and not b.in_check()) if self.lmr else False
-                pawn_near_promotion = (piece in 'Pp' and
-                    (rank_of(m.to) >= 6 if piece == 'P' else rank_of(m.to) <= 1))
-                do_lmr = (self.lmr and not root and not in_check and
-                    depth >= 3 and legal >= 4 and beta - alpha == 1 and
-                    quiet_noncheck and not pawn_near_promotion and
+                do_lmr = (self.lmr and not sel and not root and not in_check and
+                    depth >= 3 and legal >= 4 and beta - alpha == 1 and quiet and
                     m != tt_move and m not in self.killers[ply] and
-                    self.history.get((piece, m.to), 0) < depth * depth * 4)
+                    self.history.get((piece, m.to), 0) < depth * depth * 4 and
+                    not (piece in 'Pp' and (rank_of(m.to) >= 6 if piece == 'P' else rank_of(m.to) <= 1))
+                    and not b.in_check())
                 if do_lmr:
                     self.lmr_probes += 1
                     score = -self.negamax(b, depth - 2, -alpha - 1, -alpha,
-                                          ply + 1, check_rules=False)
+                                          ply + 1, False, checks_left, threat_left)
                     if score > alpha:
                         self.lmr_researches += 1
                         score = -self.negamax(b, depth - 1, -beta, -alpha,
-                                              ply + 1, check_rules=False)
+                                              ply + 1, False, checks_left, threat_left)
                 elif self.pvs and legal > 1 and beta - alpha > 1:
                     # PVS: 첫 합법 수는 이미 전체 창에서 확인했다. 이후 수의 경우
                     # 기존 alpha를 넘을 수 있는지만 먼저 1cp 창으로 검사한다.
@@ -521,14 +831,14 @@ class Searcher:
                     # 전체 창으로 재탐색해야 정확한 점수와 PV를 구할 수 있다.
                     self.pvs_probes += 1
                     score = -self.negamax(b, depth - 1, -alpha - 1, -alpha,
-                                          ply + 1, check_rules=False)
+                                          ply + 1, False, checks_left, threat_left)
                     if alpha < score < beta:
                         self.pvs_researches += 1
                         score = -self.negamax(b, depth - 1, -beta, -alpha,
-                                              ply + 1, check_rules=False)
+                                              ply + 1, False, checks_left, threat_left)
                 else:
                     score = -self.negamax(b, depth - 1, -beta, -alpha,
-                                          ply + 1, check_rules=False)
+                                          ply + 1, False, checks_left, threat_left)
             b.unmake_move()
 
             if score > best_score:
@@ -536,9 +846,11 @@ class Searcher:
                 if root:
                     self.root_best = m
                 if score > alpha:
+                    if pv is not None:
+                        pv[ply] = (m,) + (pv[ply + 1] if from_search else ())
                     alpha = score
                     if alpha >= beta:                  # 베타 컷: 상대가 이 국면을 허용하지 않음
-                        if quiet:                      # 조용한 수가 컷을 냈다면 기억해 둠
+                        if quiet and not self._after_null:
                             k = self.killers[ply]
                             if k[0] != m:
                                 k[0], k[1] = m, k[0]
@@ -549,99 +861,61 @@ class Searcher:
         if legal == 0:                                 # 둘 수가 없음
             return -MATE + ply if in_check else 0      # 체크메이트(거리 반영) / 스테일메이트
 
-        if root and self.root_filter is not None:
-            pass        # 후보를 제한한 루트 점수는 '이 국면의 값'이 아님 → TT에 저장하지 않음
-        elif self.draw_hits == draw_hits_before:       # 이력과 무관한 결과만 점수까지 저장
+        if self._after_null or (root and self.root_filter is not None):
+            pass        # Synthetic nodes and restricted roots have no reusable position score.
+        elif self.draw_hits == draw_hits_before and not protection_context:
             flag = UPPER if best_score <= alpha_orig else LOWER if best_score >= beta else EXACT
-            self.tt.store(b.hash, depth, flag, _to_tt(best_score, ply), best_move)
+            self.tt.store(tt_key, stored_depth, flag, _to_tt(best_score, ply), best_move)
         elif entry is None:
-            self.tt.store(b.hash, 0, MOVE_ONLY, 0, best_move)
+            self.tt.store(tt_key, 0, MOVE_ONLY, 0, best_move)
         return best_score
 
-    def _quiet_check_candidates(self, b: Board, moves=None):
-        """모든 조용한 체크를 포함하는 *과포함* 후보 필터.
+    @staticmethod
+    def _has_null_material(board):
+        pieces = 'NBRQ' if board.side == WHITE else 'nbrq'
+        count = 0
+        for square in SQUARES:
+            if board.board[square] in pieces:
+                count += 1
+                if count == 2:
+                    return True
+        return False
 
-        탐색 후보를 실제로 두기 전의 가벼운 판정만 사용한다. 직접 체크(폰/나이트/슬라이더),
-        디스커버드 체크, 캐슬링 룩 체크를 포괄한다. False positive는 뒤의 정확한 검사에서
-        제거한다. False negative는 전술 누락이므로 독립 기준과 비교 테스트한다.
-        """
+    def _search_after_null(self, board, depth, beta, ply, checks_left, reduction=3):
+        self.null_probes += 1
+        draw_hits = self.draw_hits
+        history_length = len(board.history)
+        state = board.make_null_move()
+        self._after_null = True
+        saved_gain = self._gain[ply + 1]
+        self._gain[ply + 1] = 0
+        try:
+            return -self.negamax(board, depth - reduction, -beta, 1 - beta, ply + 1,
+                                 False, checks_left, False)
+        finally:
+            while len(board.history) > history_length:
+                board.unmake_move()
+            board.unmake_null_move(state)
+            self._after_null = False
+            self._gain[ply + 1] = saved_gain
+            self.draw_hits = draw_hits
+
+    def _quiet_check_candidates(self, b: Board, moves=None):
+        """Filter quiet checks geometrically; the caller verifies king safety."""
+        if self.qsearch_fast_checks:
+            candidates = b.quiet_check_candidates()
+            if moves is None:
+                yield from candidates
+            else:
+                possible = set(candidates)
+                yield from (move for move in moves if move in possible)
+            return
         if moves is None:
             moves = b.pseudo_legal_moves()
-        if not self.qsearch_fast_checks:
-            # v0.4.3 baseline: every quiet move is made/unmade to test check.
-            for m in moves:
-                p = b.board[m.frm]
-                if b.board[m.to] == EMPTY and not m.promo and not (m.to == b.ep and p in 'Pp'):
-                    yield m
-            return
-        board = b.board
-        target = b.king_sq[b.side ^ 1]
-        own = 'PNBRQK' if b.side == WHITE else 'pnbrqk'
-        # 상대 킹 방향으로 두 번째 자신의 슬라이더가 있고, 그 사이 첫 기물이 내 기물이라면
-        # 첫 기물이 움직이며 발견 체크를 낼 수 있다. 이동 방향에 따라 막힌 채일 수도 있음.
-        discovered = set()
-        for direction in QUEEN_DIRS:
-            s = target + direction
-            while board[s] == EMPTY:
-                s += direction
-            first = s
-            if board[first] not in own:
-                continue
-            s += direction
-            while board[s] == EMPTY:
-                s += direction
-            slider = board[s].upper()
-            if slider == 'Q' or (direction in ROOK_DIRS and slider == 'R') or (direction in BISHOP_DIRS and slider == 'B'):
-                if board[s] in own:
-                    discovered.add(first)
-
-        tf, tr = file_of(target), rank_of(target)
-        for m in moves:
-            moving = board[m.frm]
-            if board[m.to] != EMPTY or m.promo or (m.to == b.ep and moving in 'Pp'):
-                continue
-            kind = moving.upper()
-            if m.frm in discovered:
-                yield m
-                continue
-            if kind == 'K':
-                # 캐슬링은 룩의 위치도 바뀌므로 직접 체크 가능성을 배제하지 않는다.
-                if abs(m.to - m.frm) == 2:
-                    yield m
-                continue
-            delta = target - m.to
-            if kind == 'N':
-                if delta in KNIGHT_STEPS:
-                    yield m
-                continue
-            if kind == 'P':
-                if delta in ((9, 11) if b.side == WHITE else (-9, -11)):
-                    yield m
-                continue
-            # 비숍·룩·퀸은 도착 칸에서 상대 킹까지 막히지 않은 같은 선이어야 한다.
-            df, dr = tf - file_of(m.to), tr - rank_of(m.to)
-            if kind == 'B':
-                if abs(df) != abs(dr):
-                    continue
-            elif kind == 'R':
-                if df != 0 and dr != 0:
-                    continue
-            elif kind == 'Q':
-                if not (df == 0 or dr == 0 or abs(df) == abs(dr)):
-                    continue
-            else:
-                continue
-            if df == 0:
-                step = 10 if dr > 0 else -10
-            elif dr == 0:
-                step = 1 if df > 0 else -1
-            else:
-                step = (10 if dr > 0 else -10) + (1 if df > 0 else -1)
-            scan = m.to + step
-            while scan != target and (board[scan] == EMPTY or scan == m.frm):
-                scan += step
-            if scan == target:
-                yield m
+        for move in moves:
+            piece = b.board[move.frm]
+            if b.board[move.to] == EMPTY and not move.promo and not (move.to == b.ep and piece in 'Pp'):
+                yield move
 
     def quiesce(self, b: Board, alpha, beta, ply, in_check=None, check_rules=True,
                 quiet_checks_left=None):
@@ -651,13 +925,18 @@ class Searcher:
         quiet_checks_left: 이번 qsearch 가지에서 허용할 조용한 체크 횟수.
           기본 TacticalChecks에서는 1개만 허용. CheckContinuation이 켜지면
           조용한 체크→강제 회피→두 번째 조용한 체크를 1회 추가로 허용.
-          캡처 가지에서는 기존처럼 budget=0 (가지 폭발 제한).
+          캡처는 체크 예산을 소진합니다. 실험용 capture bridge는 체크 2회 예산을
+          캡처 한 번 뒤 체크 1회로 바꿉니다.
         """
         if quiet_checks_left is None:
-            quiet_checks_left = (2 if self.check_continuation else 1) if self.qsearch_quiet_checks else 0
+            quiet_checks_left = ((2 if self.check_continuation else 1)
+                                 if self.qsearch_quiet_checks or (self.selective and self.sel_qchecks) else 0)
         self.nodes += 1
         if self.nodes >= self._next_check:          # 노드 한도는 정확히, 시간·정지는 일정 간격으로
             self._check_limits()
+        pv = self.pv_table if beta - alpha > 1 else None
+        if self.pv_table is not None:
+            self.pv_table[ply] = ()
         if in_check is None:
             in_check = b.is_attacked(b.king_sq[b.side], b.side ^ 1)
         if check_rules and ply > 0:                   # negamax와 같은 규칙 처리 (직접 호출될 때만)
@@ -673,12 +952,30 @@ class Searcher:
                 return max(0, self.quiesce(b, max(alpha, 0), beta, ply, in_check, check_rules=False,
                                            quiet_checks_left=quiet_checks_left))
         if ply >= MAX_PLY:
-            return evaluate(b)
+            return self._score_at_ply_limit(b, ply, in_check)
 
         if in_check:
             return self._quiesce_evasions(b, alpha, beta, ply, quiet_checks_left)
 
-        stand_pat = evaluate(b)        # "아무것도 안 잡고 멈춰도 이 정도는 된다"
+        cache = self._eval_cache
+        if cache is None:
+            stand_pat = evaluate(b)
+        else:
+            stand_pat = cache.get(b.hash)
+            if stand_pat is None:
+                stand_pat = evaluate(b)
+                if len(cache) < self._eval_cache_limit:
+                    cache[b.hash] = stand_pat
+        # At the horizon a reversible quiet move can still be announced
+        # to claim a draw. It need not be a check or capture. The normal
+        # search already handles repeats inside the tree; probe announced
+        # repetitions here only where the root game history can provide both
+        # prior occurrences without a repeat along the searched path.
+        if (stand_pat < 0 and (b.halfmove >= 99 or
+                (b.halfmove >= 7 and len(b.history) - self.root_len <= 1))
+                and self._can_announce_draw(b)):
+            self.draw_hits += 1
+            stand_pat = 0
         if stand_pat >= beta:
             # 컷하기 전에 스테일메이트가 아닌지 확인. has_legal_move의 빠른 길 덕분에
             # 대부분 기물 하나만 보고 끝나므로 비용이 작음.
@@ -697,7 +994,21 @@ class Searcher:
         moves.sort(key=lambda m: 10 * ORDER_VALUE[board[m.to]] - ORDER_VALUE[board[m.frm]]
                    + (ORDER_VALUE[m.promo] if m.promo else 0), reverse=True)
         searched_legal = False
+        after_capture = int(self.qsearch_capture_bridge and quiet_checks_left == 2)
+        qsel = self.selective and self.sel_qsearch and abs(alpha) < MATE_BOUND
+        trace = self.selective_trace
         for m in moves:
+            cutoff = None
+            if qsel and not m.promo and m.to != b.ep:
+                gain = ORDER_VALUE[board[m.to]]
+                if stand_pat + gain + QS_DELTA <= alpha:
+                    cutoff = 'qs_delta'
+                elif ORDER_VALUE[board[m.frm]] > gain and b.see_estimate(m) < 0:
+                    cutoff = 'qs_see'
+                if cutoff:
+                    king = b.king_sq[b.side ^ 1]
+                    if max(abs(file_of(m.to) - file_of(king)), abs(rank_of(m.to) - rank_of(king))) <= 1:
+                        cutoff = None
             # [실험용, 기본 꺼짐] 근사 델타 가지치기: "공짜로 잡아도 alpha에 못 미칠 것 같으면 생략".
             # stand_pat + gain + 200 은 실제 결과의 상한이 아님 (잡으면서 체크→메이트 등) → 메이트를 놓침.
             # 끈 상태에서는 잡은 뒤의 정적 탐색이 자기 stand pat으로 즉시 컷하므로(평가 1회),
@@ -711,15 +1022,29 @@ class Searcher:
                 b.unmake_move()
                 continue
             searched_legal = True
+            in_child_check = None
+            if cutoff:
+                in_child_check = b.in_check()
+                if not in_child_check:
+                    b.unmake_move()
+                    if cutoff != 'qs_see' or b.see(m) < 0:
+                        self.sel_stats[cutoff] += 1
+                        if trace:
+                            trace(cutoff, b, ply, 0, m)
+                        continue
+                    b.make_move(m)
+                self.sel_stats['qs_saved'] += 1
             # 잡기·승격은 halfmove를 0으로 만들므로 반복·50수 규칙에 걸릴 수 없음 → 규칙 확인 생략
             try:
-                score = -self.quiesce(b, -beta, -alpha, ply + 1, check_rules=False,
-                                      quiet_checks_left=0)
+                score = -self.quiesce(b, -beta, -alpha, ply + 1, in_check=in_child_check, check_rules=False,
+                                      quiet_checks_left=after_capture)
             finally:
                 b.unmake_move()
             if score > best:
                 best = score
                 if score > alpha:
+                    if pv is not None:
+                        pv[ply] = (m,) + pv[ply + 1]
                     alpha = score
                     if alpha >= beta:
                         break
@@ -740,10 +1065,13 @@ class Searcher:
                     if not b.in_check():
                         continue                             # 체크가 아닌 조용한 수 제외
                     searched_legal = True
+                    if self.qsearch_forcing_replies and self._too_many_evasions(b):
+                        continue
                     child_rule = self._rule_child_score(b, ply)  # 조용한 체크는 50수/반복 가능
                     if child_rule is None:
                         score = -self.quiesce(b, -beta, -alpha, ply + 1,
-                                              check_rules=False, quiet_checks_left=quiet_checks_left - 1)
+                                              in_check=True, check_rules=False,
+                                              quiet_checks_left=quiet_checks_left - 1)
                     else:
                         score = child_rule
                 finally:
@@ -751,6 +1079,8 @@ class Searcher:
                 if score > best:
                     best = score
                     if score > alpha:
+                        if pv is not None:
+                            pv[ply] = (m,) + (pv[ply + 1] if child_rule is None else ())
                         alpha = score
                         if alpha >= beta:
                             break
@@ -760,10 +1090,52 @@ class Searcher:
             return 0
         return best
 
+    @staticmethod
+    def _can_announce_draw(board):
+        # At least two occurrences of the *next* position must already
+        # exist. Preselect by the opponent's side to move before generating.
+        fifty = board.halfmove >= 99
+        repeated = set()
+        if not fifty and board.halfmove >= 7:
+            seen = set()
+            stop = max(0, len(board.history) - board.halfmove)
+            for index in range(len(board.history)-1, stop-1, -2):
+                key = board.history[index][H_HASH]
+                if key in seen:
+                    repeated.add(key)
+                seen.add(key)
+        if not fifty and not repeated:
+            return False
+        for move in board.pseudo_legal_moves():
+            if board.board[move.frm] in 'Pp' or board.board[move.to] != EMPTY:
+                continue
+            board.make_move(move)
+            try:
+                if ((fifty or board.hash in repeated)
+                        and not board.in_check(board.side ^ 1)):
+                    return True
+            finally:
+                board.unmake_move()
+        return False
+
+    def _too_many_evasions(self, board):
+        """Limit optional quiet checks; never filter evasions inside search."""
+        remaining = self.qsearch_forcing_replies
+        for move in board.evasion_candidates():
+            board.make_move(move)
+            legal = not board.in_check(board.side ^ 1)
+            board.unmake_move()
+            if legal:
+                remaining -= 1
+                if remaining < 0:
+                    return True
+        return False
+
     def _quiesce_evasions(self, b: Board, alpha, beta, ply, quiet_checks_left=0):
         """체크를 받은 국면: 평가값으로 멈출 수 없음 → 모든 합법 회피 수를 봄"""
+        pv = self.pv_table if beta - alpha > 1 else None
         board = b.board
-        moves = b.pseudo_legal_moves()
+        moves = b.evasion_candidates() if self.fast_evasions else b.pseudo_legal_moves()
         moves.sort(key=lambda m: 10 * ORDER_VALUE[board[m.to]] - ORDER_VALUE[board[m.frm]]
                    if board[m.to] != EMPTY else -10_000, reverse=True)
         best = -INF
@@ -774,9 +1146,10 @@ class Searcher:
                 b.unmake_move()
                 continue
             legal += 1
-            score = self._rule_child_score(b, ply)    # 회피 수는 조용한 수일 수 있어 규칙 확인
+            score = self._rule_child_score(b, ply) if b.halfmove >= 4 else None
+            from_search = score is None
             try:
-                if score is None:
+                if from_search:
                     score = -self.quiesce(b, -beta, -alpha, ply + 1, check_rules=False,
                                           quiet_checks_left=(quiet_checks_left if self.check_continuation else 0))
             finally:
@@ -784,12 +1157,20 @@ class Searcher:
             if score > best:
                 best = score
                 if score > alpha:
+                    if pv is not None:
+                        pv[ply] = (m,) + (pv[ply + 1] if from_search else ())
                     alpha = score
                     if alpha >= beta:
                         break
         if legal == 0:
             return -MATE + ply                         # 체크메이트 (negamax와 같은 거리 기준)
         return best
+
+    @staticmethod
+    def _score_at_ply_limit(board, ply, in_check):
+        if board.has_legal_move(in_check=in_check):
+            return evaluate(board)
+        return -MATE + ply if in_check else 0
 
     # ──────────────────────────── 무승부 판정 (v0.3.2) ────────────────────────────
     def _rule_kind(self, b: Board):
@@ -859,11 +1240,18 @@ class Searcher:
             king = b.king_sq[b.side ^ 1]
             kf, kr = file_of(king), rank_of(king)
 
+        see_order = self.selective and self.sel_order
+
         def priority(m):
             if m == tt_move:
                 return 10_000_000
             victim = board[m.to]
             if victim != EMPTY:                        # MVV-LVA: 비싼 걸 싼 걸로 잡는 수부터
+                # [선택적 탐색] 그 칸에서 기물을 잃는 캡처는 킬러 뒤로 보낸다. 순서만 바뀌고
+                # 깊이는 줄이지 않는다 (희생 수는 여전히 전부, 원래 깊이로 탐색).
+                if (see_order and not m.promo and ORDER_VALUE[board[m.frm]] > ORDER_VALUE[victim]
+                        and b.see_estimate(m) < 0):
+                    return 750_000 + 10 * ORDER_VALUE[victim] - ORDER_VALUE[board[m.frm]]
                 # 잡으며 승격하는 4종은 새 기물 가치로 순서만 나눔 (v0.3.3, 모두 탐색 대상)
                 return (1_000_000 + 10 * ORDER_VALUE[victim] - ORDER_VALUE[board[m.frm]]
                         + (ORDER_VALUE[m.promo] if m.promo else 0))
@@ -879,7 +1267,9 @@ class Searcher:
                 return 900_000
             if m == killer2:
                 return 800_000
-            score = min(history.get((board[m.frm], m.to), 0), 700_000)
+            score = history.get((board[m.frm], m.to), 0)
+            if score > 700_000:
+                score = 700_000
             if priority_checks is not None and board[m.frm].upper() in 'NBRQ':
                 # Prefer developing a *piece* toward the enemy king among otherwise
                 # quiet alternatives; this is only a sorting tie-break, not eval.
@@ -894,35 +1284,28 @@ class Searcher:
         moves.sort(key=priority, reverse=True)
         return moves
 
-    def principal_variation(self, b: Board, first: Move, max_len):
-        """TT에 남은 최선수를 따라가며 예상 수순을 복원"""
-        pv, seen = [first], {b.hash}
-        b.make_move(first)
-        while len(pv) < max_len:
-            entry = self.tt.get(b.hash)
-            if entry is None or entry[3] is None or b.hash in seen:
-                break
-            m = entry[3]
-            if m not in b.legal_moves():
-                break
-            seen.add(b.hash)
-            b.make_move(m)
-            pv.append(m)
-        for _ in pv:
-            b.unmake_move()
-        return pv
-
     def _check_limits(self):
         """노드 한도·정지 요청·시간 초과면 TimeUp. 다음 확인 시점도 여기서 정함:
         평소에는 CHECK_INTERVAL 노드 뒤, 노드 한도가 그보다 가까우면 한도 지점."""
         if self.node_limit and self.nodes >= self.node_limit:
             raise TimeUp
-        if self.stop_requested or (self.deadline and time.time() >= self.deadline):
+        if (self.stop_requested or (self.cancel_check and self.cancel_check())
+                or (self.deadline and time.monotonic() >= self.deadline)):
             raise TimeUp
-        nxt = self.nodes + CHECK_INTERVAL
+        nxt = self.nodes + self._check_interval()
         if self.node_limit:
             nxt = min(nxt, self.node_limit)
         self._next_check = nxt
+
+    def _check_interval(self):
+        if self.deadline is None:
+            return CHECK_INTERVAL
+        remaining = self.deadline - time.monotonic()
+        if remaining <= 0.05:
+            return 64
+        if remaining <= 0.25:
+            return 256
+        return CHECK_INTERVAL
 
 
 # ════════════════════════ 교육용: 미니맥스 vs 알파베타 비교 ════════════════════════
@@ -972,9 +1355,9 @@ def compare_pruning(fen, depth):
                      ("알파베타 (정렬 없음)", lambda c: plain_alphabeta(b, depth, -INF, INF, c, False)),
                      ("알파베타 + 잡는 수 먼저", lambda c: plain_alphabeta(b, depth, -INF, INF, c, True))):
         counter = [0]
-        t0 = time.time()
+        t0 = time.monotonic()
         score = fn(counter)
-        print(f"  {name:<22} 점수 {score:>+5}   평가한 국면 {counter[0]:>8,}개   {time.time() - t0:5.1f}s")
+        print(f"  {name:<22} 점수 {score:>+5}   평가한 국면 {counter[0]:>8,}개   {time.monotonic() - t0:5.1f}s")
 
 
 if __name__ == '__main__':

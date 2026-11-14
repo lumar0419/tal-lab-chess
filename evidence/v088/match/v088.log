@@ -1,0 +1,170 @@
+engine1: MyEngine 0.8.7  [(default)]  Hash 64MB
+engine2: Stockfish 16  [UCI_LimitStrength=true; UCI_Elo=1700]  Hash 16MB, 강도 제한 확인됨 (오프닝 10국면 중 10개에서 제한 없는 설정과 다른 수)
+  변형 full: [SelectiveSearch=false]
+  변형 selective: [SelectiveSearch=true]
+실험 ID v088_selective-20261114-123431-2520  CPU 2개, 시작 시 부하 0.66
+변형마다 40판 (총 80판, 오프닝마다 변형 순서를 번갈아 순차 실행), 10+0.1s, 오프닝 고정 순서
+
+    1. MyEngine 0.8.7 [full]    - Stockfish 16             1-0      105 ply  Open Game                checkmate
+    2. MyEngine 0.8.7 [selective] - Stockfish 16             1-0       83 ply  Open Game                checkmate
+    3. Stockfish 16             - MyEngine 0.8.7 [selective] 0-1       98 ply  Open Game                checkmate
+    4. Stockfish 16             - MyEngine 0.8.7 [full]    1/2-1/2  170 ply  Open Game                threefold_repetition
+    5. MyEngine 0.8.7 [selective] - Stockfish 16             1/2-1/2   73 ply  Sicilian                 threefold_repetition
+    6. MyEngine 0.8.7 [full]    - Stockfish 16             1-0       61 ply  Sicilian                 checkmate
+    7. Stockfish 16             - MyEngine 0.8.7 [full]    0-1       70 ply  Sicilian                 checkmate
+    8. Stockfish 16             - MyEngine 0.8.7 [selective] 0-1      100 ply  Sicilian                 checkmate
+    9. MyEngine 0.8.7 [full]    - Stockfish 16             1-0       97 ply  Queen's Gambit Declined  checkmate
+   10. MyEngine 0.8.7 [selective] - Stockfish 16             1-0       77 ply  Queen's Gambit Declined  checkmate
+   11. Stockfish 16             - MyEngine 0.8.7 [selective] 0-1       88 ply  Queen's Gambit Declined  checkmate
+   12. Stockfish 16             - MyEngine 0.8.7 [full]    0-1       66 ply  Queen's Gambit Declined  checkmate
+   13. MyEngine 0.8.7 [selective] - Stockfish 16             1-0       69 ply  King's Indian            checkmate
+   14. MyEngine 0.8.7 [full]    - Stockfish 16             1-0       67 ply  King's Indian            checkmate
+   15. Stockfish 16             - MyEngine 0.8.7 [full]    0-1       72 ply  King's Indian            checkmate
+   16. Stockfish 16             - MyEngine 0.8.7 [selective] 0-1       76 ply  King's Indian            checkmate
+   17. MyEngine 0.8.7 [full]    - Stockfish 16             1-0       67 ply  French                   checkmate
+   18. MyEngine 0.8.7 [selective] - Stockfish 16             1-0      111 ply  French                   checkmate
+   19. Stockfish 16             - MyEngine 0.8.7 [selective] 1/2-1/2  128 ply  French                   threefold_repetition
+   20. Stockfish 16             - MyEngine 0.8.7 [full]    1-0      189 ply  French                   checkmate
+   21. MyEngine 0.8.7 [selective] - Stockfish 16             1-0       69 ply  Caro-Kann                checkmate
+   22. MyEngine 0.8.7 [full]    - Stockfish 16             0-1      172 ply  Caro-Kann                checkmate
+   23. Stockfish 16             - MyEngine 0.8.7 [full]    0-1       86 ply  Caro-Kann                checkmate
+   24. Stockfish 16             - MyEngine 0.8.7 [selective] 1/2-1/2  126 ply  Caro-Kann                threefold_repetition
+   25. MyEngine 0.8.7 [full]    - Stockfish 16             0-1       48 ply  English                  checkmate
+   26. MyEngine 0.8.7 [selective] - Stockfish 16             1-0       73 ply  English                  checkmate
+   27. Stockfish 16             - MyEngine 0.8.7 [selective] 0-1      100 ply  English                  checkmate
+   28. Stockfish 16             - MyEngine 0.8.7 [full]    0-1       50 ply  English                  checkmate
+   29. MyEngine 0.8.7 [selective] - Stockfish 16             1-0      103 ply  Reti                     checkmate
+   30. MyEngine 0.8.7 [full]    - Stockfish 16             1-0      101 ply  Reti                     checkmate
+   31. Stockfish 16             - MyEngine 0.8.7 [full]    1-0       67 ply  Reti                     checkmate
+   32. Stockfish 16             - MyEngine 0.8.7 [selective] 0-1       72 ply  Reti                     checkmate
+   33. MyEngine 0.8.7 [full]    - Stockfish 16             1-0       95 ply  Nimzo/Queen's Indian     checkmate
+   34. MyEngine 0.8.7 [selective] - Stockfish 16             1-0      109 ply  Nimzo/Queen's Indian     checkmate
+   35. Stockfish 16             - MyEngine 0.8.7 [selective] 0-1       94 ply  Nimzo/Queen's Indian     checkmate
+   36. Stockfish 16             - MyEngine 0.8.7 [full]    0-1       60 ply  Nimzo/Queen's Indian     checkmate
+   37. MyEngine 0.8.7 [selective] - Stockfish 16             0-1      114 ply  Scandinavian             checkmate
+   38. MyEngine 0.8.7 [full]    - Stockfish 16             1-0       95 ply  Scandinavian             checkmate
+   39. Stockfish 16             - MyEngine 0.8.7 [full]    1-0       49 ply  Scandinavian             checkmate
+   40. Stockfish 16             - MyEngine 0.8.7 [selective] 0-1       76 ply  Scandinavian             checkmate
+   41. MyEngine 0.8.7 [full]    - Stockfish 16             0-1      108 ply  Open Game                checkmate
+   42. MyEngine 0.8.7 [selective] - Stockfish 16             1-0       67 ply  Open Game                checkmate
+   43. Stockfish 16             - MyEngine 0.8.7 [selective] 0-1      114 ply  Open Game                checkmate
+   44. Stockfish 16             - MyEngine 0.8.7 [full]    1-0       73 ply  Open Game                checkmate
+   45. MyEngine 0.8.7 [selective] - Stockfish 16             0-1       88 ply  Sicilian                 checkmate
+   46. MyEngine 0.8.7 [full]    - Stockfish 16             1-0       93 ply  Sicilian                 checkmate
+   47. Stockfish 16             - MyEngine 0.8.7 [full]    1-0       79 ply  Sicilian                 checkmate
+   48. Stockfish 16             - MyEngine 0.8.7 [selective] 0-1      110 ply  Sicilian                 checkmate
+   49. MyEngine 0.8.7 [full]    - Stockfish 16             1/2-1/2  133 ply  Queen's Gambit Declined  threefold_repetition
+   50. MyEngine 0.8.7 [selective] - Stockfish 16             1-0       81 ply  Queen's Gambit Declined  checkmate
+   51. Stockfish 16             - MyEngine 0.8.7 [selective] 0-1      134 ply  Queen's Gambit Declined  checkmate
+   52. Stockfish 16             - MyEngine 0.8.7 [full]    0-1      114 ply  Queen's Gambit Declined  checkmate
+   53. MyEngine 0.8.7 [selective] - Stockfish 16             1/2-1/2  176 ply  King's Indian            threefold_repetition
+   54. MyEngine 0.8.7 [full]    - Stockfish 16             1-0       73 ply  King's Indian            checkmate
+   55. Stockfish 16             - MyEngine 0.8.7 [full]    0-1       80 ply  King's Indian            checkmate
+   56. Stockfish 16             - MyEngine 0.8.7 [selective] 1-0       93 ply  King's Indian            checkmate
+   57. MyEngine 0.8.7 [full]    - Stockfish 16             1-0      119 ply  French                   checkmate
+   58. MyEngine 0.8.7 [selective] - Stockfish 16             1-0       89 ply  French                   checkmate
+   59. Stockfish 16             - MyEngine 0.8.7 [selective] 0-1       60 ply  French                   checkmate
+   60. Stockfish 16             - MyEngine 0.8.7 [full]    1-0       77 ply  French                   checkmate
+   61. MyEngine 0.8.7 [selective] - Stockfish 16             1/2-1/2  137 ply  Caro-Kann                threefold_repetition
+   62. MyEngine 0.8.7 [full]    - Stockfish 16             1-0       97 ply  Caro-Kann                checkmate
+   63. Stockfish 16             - MyEngine 0.8.7 [full]    1/2-1/2  212 ply  Caro-Kann                threefold_repetition
+   64. Stockfish 16             - MyEngine 0.8.7 [selective] 1/2-1/2   90 ply  Caro-Kann                threefold_repetition
+   65. MyEngine 0.8.7 [full]    - Stockfish 16             1/2-1/2   47 ply  English                  threefold_repetition
+   66. MyEngine 0.8.7 [selective] - Stockfish 16             0-1       52 ply  English                  checkmate
+   67. Stockfish 16             - MyEngine 0.8.7 [selective] 1/2-1/2   78 ply  English                  threefold_repetition
+   68. Stockfish 16             - MyEngine 0.8.7 [full]    0-1       80 ply  English                  checkmate
+   69. MyEngine 0.8.7 [selective] - Stockfish 16             1/2-1/2  175 ply  Reti                     threefold_repetition
+   70. MyEngine 0.8.7 [full]    - Stockfish 16             1/2-1/2  165 ply  Reti                     threefold_repetition
+   71. Stockfish 16             - MyEngine 0.8.7 [full]    0-1       74 ply  Reti                     checkmate
+   72. Stockfish 16             - MyEngine 0.8.7 [selective] 1-0       79 ply  Reti                     checkmate
+   73. MyEngine 0.8.7 [full]    - Stockfish 16             0-1       44 ply  Nimzo/Queen's Indian     checkmate
+   74. MyEngine 0.8.7 [selective] - Stockfish 16             0-1      108 ply  Nimzo/Queen's Indian     checkmate
+   75. Stockfish 16             - MyEngine 0.8.7 [selective] 1-0      135 ply  Nimzo/Queen's Indian     checkmate
+   76. Stockfish 16             - MyEngine 0.8.7 [full]    1-0       85 ply  Nimzo/Queen's Indian     checkmate
+   77. MyEngine 0.8.7 [selective] - Stockfish 16             1-0      129 ply  Scandinavian             checkmate
+   78. MyEngine 0.8.7 [full]    - Stockfish 16             0-1      186 ply  Scandinavian             checkmate
+   79. Stockfish 16             - MyEngine 0.8.7 [full]    1-0       63 ply  Scandinavian             checkmate
+   80. Stockfish 16             - MyEngine 0.8.7 [selective] 0-1      106 ply  Scandinavian             checkmate
+
+========================================================================
+MyEngine 0.8.7 [full]  vs  Stockfish 16   (10+0.1s)
+  전체             22승 5무 13패 / 40판   점수율 61.3%
+  engine1 백      12승 3무 5패 / 20판   점수율 67.5%
+  engine1 흑      10승 2무 8패 / 20판   점수율 55.0%
+  오프닝별 (engine1 기준):
+    Open Game                1-1-2  (38%)
+    Sicilian                 3-0-1  (75%)
+    Queen's Gambit Declined  3-1-0  (88%)
+    King's Indian            4-0-0  (100%)
+    French                   2-0-2  (50%)
+    Caro-Kann                2-1-1  (62%)
+    English                  2-1-1  (62%)
+    Reti                     2-1-1  (62%)
+    Nimzo/Queen's Indian     2-0-2  (50%)
+    Scandinavian             1-0-3  (25%)
+  메이트 승 22 / 메이트 패 13
+  시간패            engine1 0 / engine2 0
+  불법수·수 없음       engine1 0 / engine2 0
+  엔진 오류·충돌       engine1 0 / engine2 0
+  종료 사유: checkmate 35, threefold_repetition 5
+  평균 대국 길이 94.7 ply
+  생각 시간 MyEngine 0.8.7 [full]: 평균 0.23s, 최대 0.44s (1818수), 평균 깊이 3.7, 수당 노드 15,494, NPS 67,608
+  생각 시간 Stockfish 16: 평균 0.31s, 최대 1.87s (1811수), 평균 깊이 24.21, 수당 노드 197,929, NPS 639,503
+  실행 환경: 시스템 부하 평균 1.03 최대 1.2, 일한 코어 평균 1.02 (1.5 넘은 판 0)
+
+  Elo 차이 (engine1 − engine2, 상대적인 값):
+    +80  95% 범위 -20 ~ +194  (판을 독립으로 본 삼항 오차)
+    쌍 기준 +80  95% 범위 -20 ~ +194  (같은 오프닝 두 판 = 한 쌍, 20쌍)
+    LOS(engine1이 더 강할 확률, 무승부 제외 정규 근사) 93.6%
+  상대 설정 Elo 1700 기준 환산: 약 1780 (범위 1680 ~ 1894)
+    ※ 절대 Elo가 아님. 상대의 '설정 Elo'는 그 엔진이 정한 척도의 목표값이며 (Stockfish는 문서상
+      특정 시간 조건에서 CCRL 40/4 기준으로 보정), 이 대국의 시간·하드웨어에서 실제로 그 실력이라는
+      보장이 없음. FIDE 등 사람 레이팅과도 다른 척도.
+========================================================================
+
+========================================================================
+MyEngine 0.8.7 [selective]  vs  Stockfish 16   (10+0.1s)
+  전체             25승 8무 7패 / 40판   점수율 72.5%
+  engine1 백      12승 4무 4패 / 20판   점수율 70.0%
+  engine1 흑      13승 4무 3패 / 20판   점수율 75.0%
+  오프닝별 (engine1 기준):
+    Open Game                4-0-0  (100%)
+    Sicilian                 2-1-1  (62%)
+    Queen's Gambit Declined  4-0-0  (100%)
+    King's Indian            2-1-1  (62%)
+    French                   3-1-0  (88%)
+    Caro-Kann                1-3-0  (62%)
+    English                  2-1-1  (62%)
+    Reti                     2-1-1  (62%)
+    Nimzo/Queen's Indian     2-0-2  (50%)
+    Scandinavian             3-0-1  (75%)
+  메이트 승 25 / 메이트 패 7
+  시간패            engine1 0 / engine2 0
+  불법수·수 없음       engine1 0 / engine2 0
+  엔진 오류·충돌       engine1 0 / engine2 0
+  종료 사유: checkmate 32, threefold_repetition 8
+  평균 대국 길이 98.5 ply
+  생각 시간 MyEngine 0.8.7 [selective]: 평균 0.22s, 최대 0.45s (1896수), 평균 깊이 4.33, 수당 노드 9,674, NPS 43,399
+  생각 시간 Stockfish 16: 평균 0.30s, 최대 1.87s (1884수), 평균 깊이 24.51, 수당 노드 186,291, NPS 617,496
+  실행 환경: 시스템 부하 평균 1.03 최대 1.11, 일한 코어 평균 1.03 (1.5 넘은 판 1)
+
+  Elo 차이 (engine1 − engine2, 상대적인 값):
+    +168  95% 범위 +74 ~ +294  (판을 독립으로 본 삼항 오차)
+    쌍 기준 +168  95% 범위 +58 ~ +326  (같은 오프닝 두 판 = 한 쌍, 20쌍)
+    LOS(engine1이 더 강할 확률, 무승부 제외 정규 근사) 99.9%
+  상대 설정 Elo 1700 기준 환산: 약 1868 (범위 1758 ~ 2026)
+    ※ 절대 Elo가 아님. 상대의 '설정 Elo'는 그 엔진이 정한 척도의 목표값이며 (Stockfish는 문서상
+      특정 시간 조건에서 CCRL 40/4 기준으로 보정), 이 대국의 시간·하드웨어에서 실제로 그 실력이라는
+      보장이 없음. FIDE 등 사람 레이팅과도 다른 척도.
+========================================================================
+
+짝 비교 (selective − full, 같은 오프닝·같은 색끼리 40짝):
+  점수율 차이 +11.2%  95% 범위 -8.4% ~ +30.9%  (0을 포함 → 차이가 있다고 말할 수 없음)
+  selective가 더 나은 짝 13, 같은 결과 17, full가 더 나은 짝 10  → 부호 검정 p = 0.68 (0.05보다 크면 우연으로 설명 가능)
+  engine1이 백일 때: 차이 +2.5% (20짝)
+  engine1이 흑일 때: 차이 +20.0% (20짝)
+  가정: 짝끼리 독립, 평균 차이의 정규 근사. 짝이 수십 개뿐이면 범위는 대략적인 값.
+
+실행 환경: 부하 평균 1.03 최대 1.2, 일한 코어 평균 1.02 최대 1.61 (1.5 넘은 판 1)
+총 1972s,  기보 /home/claude/v087/sf/v088.pgn  결과 /home/claude/v087/sf/v088.json  표 /home/claude/v087/sf/v088.csv
+exit 0

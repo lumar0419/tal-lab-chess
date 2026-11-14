@@ -1,4 +1,4 @@
-"""Tal Lab v0.5.5: password-protected cloud deployment (Python stdlib only).
+"""Tal Lab v0.8.6: password-protected cloud deployment (Python stdlib only).
 
 Use Render's RENDER_EXTERNAL_HOSTNAME and PORT automatically. Hosting requires a
 strong TAL_SITE_PASSWORD configured in the hosting dashboard, never in Git.
@@ -11,6 +11,7 @@ import base64
 import binascii
 from collections import OrderedDict, deque
 import hmac
+from ipaddress import ip_address, ip_network
 from http.cookies import SimpleCookie
 from http.server import ThreadingHTTPServer
 import os
@@ -20,13 +21,14 @@ import time
 from urllib.parse import urlsplit
 
 from web_server import Game, WebHandler
+from search_gate import SearchGate
 
 SESSION_COOKIE = 'tal_lab_sid'
 SESSION_TTL = 2 * 60 * 60
 MAX_SESSIONS = 16
 IDLE_RECLAIM_SECONDS = 20 * 60
 SEARCH_WAIT_SECONDS = 7.0
-GLOBAL_SEARCH_GATE = threading.Lock()
+GLOBAL_SEARCH_GATE = SearchGate()
 
 
 class CloudGame(Game):
@@ -69,6 +71,11 @@ class Sessions:
         self.lock = threading.Lock()
         self.items = OrderedDict()  # token => (CloudGame, last_seen_epoch)
 
+    def active(self, token):
+        with self.lock:
+            item = self.items.get(token)
+            return item is not None and self.clock() - item[1] < self.ttl
+
     def session(self, token):
         now = self.clock()
         with self.lock:
@@ -99,16 +106,14 @@ class Sessions:
 
 
 class AuthLimiter:
-    """In-memory login-failure rate limit, keyed by observed TCP peer IP.
+    """Bound failed responses by client and process-wide, with atomic updates.
 
-    Deliberately ignores user-supplied X-Forwarded-For: it can be spoofed
-    unless the deployment has a verified trusted-proxy configuration. Shared
-    proxy peers may share limits, so keep the threshold modest, and never
-    claim this protects against distributed attacks. Resets on process restart.
+    Requests with an active session and correct credentials bypass the failure
+    budget. Fresh logins remain throttled, even when a proxy peer is shared.
     """
 
     def __init__(self, *, max_failures=8, window=60, penalty=120,
-                 maximum_clients=1024, clock=time.monotonic):
+                 maximum_clients=1024, global_failures=120, clock=time.monotonic):
         self.max_failures = max_failures
         self.window = window
         self.penalty = penalty
@@ -116,28 +121,36 @@ class AuthLimiter:
         self.clock = clock
         self.lock = threading.Lock()
         self.clients = OrderedDict()   # ip -> (deque[fail_time], blocked_until)
+        self.global_failures = global_failures
+        self._recent = deque()
 
     def wait_seconds(self, ip):
         now = self.clock()
         with self.lock:
             item = self.clients.get(ip)
-            if not item:
-                return 0
-            failures, blocked_until = item
-            if blocked_until > now:
-                return max(1, int(blocked_until - now + .999))
-            if blocked_until and blocked_until <= now:
-                self.clients.pop(ip, None)
-            return 0
+            if item and item[1] > now:
+                return max(1, int(item[1] - now + .999))
+            return self._global_wait(now)
+
+    def _global_wait(self, now):
+        while self._recent and self._recent[0] <= now - self.window:
+            self._recent.popleft()
+        if len(self._recent) >= self.global_failures:
+            return max(1, int(self._recent[0] + self.window - now + .999))
+        return 0
 
     def failure(self, ip):
+        """Record a wrong credential and return the existing retry delay."""
         now = self.clock()
         with self.lock:
             item = self.clients.get(ip)
-            if item is None or item[1] and now >= item[1]:
-                times = deque()
-            else:
-                times = item[0]
+            if item and item[1] > now:
+                return max(1, int(item[1] - now + .999))
+            wait = self._global_wait(now)
+            if wait:
+                return wait
+            self._recent.append(now)
+            times = item[0] if item and not item[1] else deque()
             while times and times[0] <= now - self.window:
                 times.popleft()
             times.append(now)
@@ -148,6 +161,7 @@ class AuthLimiter:
             self.clients.move_to_end(ip)
             if len(self.clients) > self.maximum_clients:
                 self.clients.popitem(last=False)
+            return 0
 
     def success(self, ip):
         with self.lock:
@@ -168,7 +182,7 @@ def cookie_token(raw):
 
 
 class CloudHandler(WebHandler):
-    server_version = 'TalLabCloud/0.5.5'
+    server_version = 'TalLabCloud/0.8.6'
 
     def setup(self):
         super().setup()
@@ -211,8 +225,8 @@ class CloudHandler(WebHandler):
         extra = dict(extra or {})
         extra['Content-Security-Policy'] = (
             "default-src 'self'; base-uri 'none'; frame-ancestors 'none'; "
-            "form-action 'none'; connect-src 'self'; img-src 'self' data:; "
-            "style-src 'self' 'unsafe-inline'; script-src 'self'"
+            "form-action 'none'; connect-src 'self' https://cdn.jsdelivr.net/pyodide/v0.27.7/full/; img-src 'self' data:; "
+            "style-src 'self' 'unsafe-inline'; script-src 'self' 'wasm-unsafe-eval' https://cdn.jsdelivr.net/pyodide/v0.27.7/full/; worker-src 'self'"
         )
         extra['Cross-Origin-Resource-Policy'] = 'same-origin'
         if getattr(self, '_new_sid', None):
@@ -228,19 +242,49 @@ class CloudHandler(WebHandler):
         self._response(401, b'Authentication required', 'text/plain; charset=utf-8',
                        {'WWW-Authenticate': 'Basic realm="Tal Lab Chess", charset="UTF-8"'})
 
+    def _client_ip(self):
+        peer = ip_address(self.client_address[0])
+        trusted = self.server.trusted_proxies
+        if not any(peer in network for network in trusted):
+            return str(peer)
+        headers = self.headers.get_all('X-Forwarded-For', [])
+        if len(headers) != 1 or len(headers[0]) > 1024:
+            return str(peer)
+        hops = headers[0].split(',')
+        if len(hops) > 16:
+            return str(peer)
+        # Only walk the rightmost chain appended by explicitly trusted proxies.
+        # The first untrusted hop is the effective client; ignore the prefix.
+        try:
+            for hop in reversed(hops):
+                client = ip_address(hop.strip())
+                if client.version == 6 and client.scope_id:
+                    return str(peer)
+                if not any(client in network for network in trusted):
+                    return str(client)
+        except ValueError:
+            return str(peer)
+        return str(peer)
+
     def _require_auth(self):
-        ip = self.client_address[0]
-        wait = self.server.auth_limiter.wait_seconds(ip)
+        authorized = self._authorized()
+        if authorized:
+            token = cookie_token(self.headers.get('Cookie', ''))
+            if token and self.server.sessions.active(token):
+                return True
+        if not self.headers.get('Authorization'):
+            self._reject_auth()
+            return False
+        ip = self._client_ip()
+        limiter = self.server.auth_limiter
+        wait = limiter.wait_seconds(ip) if authorized else limiter.failure(ip)
         if wait:
             self._response(429, b'Too many login attempts', 'text/plain; charset=utf-8',
                            {'Retry-After': str(wait)})
             return False
-        if self._authorized():
-            self.server.auth_limiter.success(ip)
-            return True
-        self.server.auth_limiter.failure(ip)
-        self._reject_auth()
-        return False
+        if not authorized:
+            self._reject_auth()
+        return authorized
 
     def do_HEAD(self):
         # Render and browsers may probe HEAD /. A HEAD response must carry
@@ -307,11 +351,14 @@ class CloudHandler(WebHandler):
 
 
 def make_cloud_server(port, *, host='0.0.0.0', public_host, auth_user,
-                      auth_password, secure=True):
+                      auth_password, secure=True, trusted_proxies=()):
     if not auth_password or len(auth_password) < 12:
         raise ValueError('TAL_SITE_PASSWORD에는 12자 이상의 전용 비밀번호를 지정하세요.')
     if not public_host:
         raise ValueError('RENDER_EXTERNAL_HOSTNAME 또는 TAL_PUBLIC_HOST가 필요해요.')
+    networks = tuple(ip_network(network) for network in trusted_proxies)
+    if any(network.prefixlen == 0 for network in networks):
+        raise ValueError('신뢰 프록시에는 구체적인 주소 범위가 필요해요.')
     server = ThreadingHTTPServer((host, port), CloudHandler)
     server.daemon_threads = True
     server.public_host = public_host
@@ -320,21 +367,24 @@ def make_cloud_server(port, *, host='0.0.0.0', public_host, auth_user,
     server.secure = secure
     server.sessions = Sessions()
     server.auth_limiter = AuthLimiter()
+    server.trusted_proxies = networks
     return server
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Tal Lab v0.5.5 cloud analysis')
+    parser = argparse.ArgumentParser(description='Tal Lab v0.8.6 cloud analysis')
     parser.add_argument('--port', type=int, default=int(os.environ.get('PORT', '10000')))
     parser.add_argument('--host', default='0.0.0.0')
     args = parser.parse_args()
     hostname = os.environ.get('RENDER_EXTERNAL_HOSTNAME') or os.environ.get('TAL_PUBLIC_HOST')
     username = os.environ.get('TAL_SITE_USER', 'player')
     password = os.environ.get('TAL_SITE_PASSWORD', '')
+    trusted = os.environ.get('TAL_TRUSTED_PROXY_CIDRS', '').split()
     secure = os.environ.get('TAL_INSECURE_LOCAL_TEST') != '1'
     try:
         server = make_cloud_server(args.port, host=args.host, public_host=hostname,
-                                   auth_user=username, auth_password=password, secure=secure)
+                                   auth_user=username, auth_password=password, secure=secure,
+                                   trusted_proxies=trusted)
     except ValueError as exc:
         parser.error(str(exc))
     print(f'Tal Lab cloud ready: host={hostname} port={server.server_port}', flush=True)

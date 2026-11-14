@@ -9,13 +9,14 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/analysis.css">
+  <script src="/analysis-visuals.js" defer></script>
   <script src="/analysis.js" defer></script>
 </head>
 <body>
   <div class="site-shell">
     <header class="site-header">
       <a href="/" class="brand" aria-label="Tal Lab 분석실"><span class="brand-mark">♞</span><span class="brand-name">TAL<span class="brand-divider">/</span>LAB</span><span class="brand-label">ANALYSIS</span></a>
-      <div class="header-right"><span class="local-chip"><span class="online-dot"></span>ANALYSIS STUDIO</span><span class="version-label">ENGINE v0.5.5</span><a class="legacy-link" href="/play">대국 화면 ↗</a></div>
+      <div class="header-right"><span class="local-chip"><span class="online-dot"></span>ANALYSIS STUDIO</span><span class="version-label">ENGINE v0.8.6</span><a class="legacy-link" href="/play">대국 화면 ↗</a></div>
     </header>
     <section class="analysis-hero">
       <span class="eyebrow"><span class="eyebrow-line"></span> DEEPER THAN THE FIRST MOVE</span>
@@ -25,13 +26,15 @@
     <main class="analysis-layout">
       <section class="analysis-board-column" aria-label="분석할 체스 국면">
         <div class="analysis-board-header"><span>POSITION EXPLORER</span><span id="turn-badge" class="turn-badge">WHITE TO MOVE</span></div>
-        <div class="board-frame"><div id="analysis-board" class="chessboard" role="grid" aria-label="분석 체스판. 백과 흑 모두 수를 이동할 수 있습니다."></div></div>
+        <div class="board-frame"><div class="board-overlay-wrap"><div id="analysis-board" class="chessboard" role="grid" aria-label="분석 체스판. 백과 흑 모두 수를 이동할 수 있습니다."></div><svg id="candidate-arrows" viewBox="0 0 800 800" aria-hidden="true"></svg></div></div>
         <div class="analysis-board-actions">
           <button id="undo-position" type="button" class="action-button">↶ 한 수 뒤로</button>
           <button id="flip-position" type="button" class="action-button">⇅ 판 뒤집기</button>
           <button id="best-position" type="button" class="action-button">✦ 추천수 적용</button>
           <button id="reset-position" type="button" class="action-button">⟲ 시작 국면</button>
         </div>
+        <p class="field-help">화살표: 상위 3개 후보 · 초록 ≤0.30폰 / 노랑 ≤1폰 / 빨강 &gt;1폰 손실 · 보라: 메이트 차이</p>
+        <label class="field-help"><input id="move-sound" type="checkbox"> 기물 이동 소리</label>
         <div id="message" class="message" role="status" aria-live="polite"></div>
         <section class="panel position-panel">
           <div class="panel-header"><div><span class="kicker">POSITION INPUT</span><h2>국면 불러오기</h2></div><span class="panel-index">01</span></div>
@@ -41,6 +44,17 @@
           <label for="master-select" class="field-label select-label">마스터의 실제 희생 국면</label>
           <select id="master-select"><option value="">사례 불러오는 중…</option></select>
           <p id="master-description" class="field-help">유명한 수가 객관적으로 최선수라는 의미는 아닙니다.</p>
+        </section>
+        <section class="panel position-panel">
+          <h2>PGN · 기보 탐색</h2>
+          <input id="pgn-file" type="file" accept=".pgn,.txt" aria-label="PGN 파일 선택">
+          <textarea id="pgn-input" rows="4" placeholder="1. e4 e5 2. Nf3 Nc6 *" aria-label="PGN 입력"></textarea>
+          <button id="load-pgn" class="mini-button">PGN 불러오기</button>
+          <p class="field-help">한 대국, 최대 600 반수 · 주석과 변형은 제외한 본 수순 · FEN 시작 지원</p>
+          <div class="analysis-board-actions"><button id="game-first" class="action-button">|← 처음</button><button id="game-prev" class="action-button">← 이전</button><button id="game-next" class="action-button">다음 →</button><button id="game-last" class="action-button">끝 →|</button></div>
+          <p id="game-position" class="field-help"></p><div id="game-moves" class="game-moves"></div>
+          <svg id="evaluation-graph" viewBox="0 0 600 180" role="img" aria-label="기보 평가 그래프, 백 기준"></svg>
+          <p class="field-help">분석한 국면만 표시합니다. 빈 구간은 미분석이며 점을 누르면 이동합니다. 세로축 ±5폰, 메이트는 끝단 M. 깊이·옵션이 다른 결과는 직접 비교에 주의하세요.</p>
         </section>
       </section>
       <div class="analysis-sidebar">
@@ -53,7 +67,9 @@
             <div><span>경과 시간</span><strong id="elapsed">0.0s</strong></div>
           </div>
           <div class="analysis-progress-line"><span>목표 깊이</span><strong id="target-depth">5 → 8</strong><div class="bar"><div id="depth-progress" class="bar-fill"></div></div></div>
-          <div class="pv-line"><span>현재 예상 수순 (PV)</span><code id="live-pv">자동 분석이 시작되면 깊이를 완료할 때마다 갱신됩니다.</code></div>
+          <div class="pv-line"><span>선택한 후보의 예상 수순 (PV)</span><code id="live-pv">자동 분석이 시작되면 깊이를 완료할 때마다 갱신됩니다.</code></div>
+          <div class="multipv-heading">상위 후보 분석 <span>각 후보를 독립 탐색한 결과 · 완료 깊이 기준</span></div>
+          <div id="multipv-results" class="multipv-results" aria-live="polite"><p class="empty-history">분석이 시작되면 후보가 나타납니다.</p></div>
           <div class="small-caption"><span id="nodes-display">0 nodes</span><span id="analysis-state-label">시작할 준비가 됐어요.</span></div>
         </section>
         <section class="panel settings-panel">
@@ -62,10 +78,14 @@
             <label class="auto-analysis-label" for="auto-analyze"><input id="auto-analyze" type="checkbox" checked><span><strong>자동 분석</strong><small>페이지 접속 · 수 진행 · FEN 변경 시 분석</small></span></label>
             <span id="auto-mode-label" class="auto-mode-label">ON</span>
           </div>
+          <div class="analysis-setting-row"><label for="compute-mode">연산 위치</label><select id="compute-mode"><option value="server">서버 CPU</option><option value="local">로컬 CPU · 브라우저</option><option value="auto">자동 · 실측 기준</option></select></div>
+          <button id="benchmark-compute" class="mini-button" type="button">CPU 성능 비교</button>
+          <p id="compute-status" class="field-help">서버 CPU · 로컬은 같은 Python 엔진을 실행하며 첫 사용 시 런타임을 다운로드합니다.</p>
           <div class="analysis-setting-row"><label for="min-depth">최소 목표 깊이</label><select id="min-depth"><option value="3">3</option><option value="4">4</option><option value="5" selected>5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></div>
           <div class="analysis-setting-row"><label for="max-depth">최대 깊이</label><select id="max-depth"><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8" selected>8</option><option value="9">9</option><option value="10">10</option></select></div>
+          <div class="analysis-setting-row"><label for="multipv">후보 수 (MultiPV)</label><select id="multipv"><option value="1">1개 · 빠름</option><option value="2">2개</option><option value="3" selected>3개 · 기본</option><option value="5">5개 · 느림</option></select></div>
           <div class="analysis-setting-row"><label for="analysis-seconds">안전 시간 상한</label><select id="analysis-seconds"><option value="10">10초</option><option value="20">20초</option><option value="30" selected>30초</option><option value="45">45초</option><option value="60">60초</option></select></div>
-          <p class="setting-explanation">최소 깊이는 <strong>목표</strong>입니다. 서버 보호를 위한 최대 시간에 먼저 도달하면 목표 깊이를 채우지 못할 수 있어요. 분석이 끝난 깊이의 최선수만 확정적으로 표시합니다.</p>
+          <p class="setting-explanation">최소 깊이는 <strong>목표</strong>입니다. 서버 보호를 위한 최대 시간에 먼저 도달하면 목표 깊이를 채우지 못할 수 있어요. MultiPV는 모든 후보 탐색이 완료된 깊이만 표시하며 후보가 많을수록 목표 깊이에 도달하기 어렵습니다.</p>
           <details class="advanced-settings"><summary>탐색·공격 실험 옵션 <span>⌄</span></summary><div class="toggles">
             <label><input type="checkbox" data-option="tactical_checks"> TacticalChecks</label>
             <label><input type="checkbox" data-option="attack_activity"> AttackActivity</label>
@@ -75,9 +95,24 @@
             <label><input type="checkbox" data-option="aspiration"> Aspiration</label>
             <label><input type="checkbox" data-option="king_safety"> KingSafety</label>
             <label><input type="checkbox" data-option="lmr"> LMR (실험)</label>
+            <label><input type="checkbox" data-option="selective"> SelectiveSearch (실험)</label>
           </div></details>
           <div class="analysis-controls"><button id="start-analysis" class="primary-button" type="button"><span>↻</span> 다시 분석 <span class="arrow">→</span></button><button id="stop-analysis" class="stop-button" type="button" disabled>■ 중단</button></div>
+          <details class="advanced-settings"><summary>심층 분석 <span>⌄</span></summary>
+            <div class="analysis-setting-row"><label for="deep-seconds">계산 예산</label><select id="deep-seconds"><option value="60">60초</option><option value="180">180초</option><option value="300">300초</option><option value="600">600초</option></select></div>
+            <div class="analysis-setting-row"><label for="deep-profile">탐색 방식</label><select id="deep-profile"><option value="conservative">보수적 LMR</option><option value="full">기본 탐색</option><option value="selective">선택적 탐색</option></select></div>
+            <div class="analysis-setting-row"><label for="deep-candidate">비교할 수 (선택)</label><input id="deep-candidate" placeholder="예: d1d4" maxlength="5"></div>
+            <p class="field-help">먼저 전체 합법수에서 최선수를 찾고, 남은 시간으로 희생 후보와 상대 방어를 비교합니다. 서버에서는 다른 분석 요청에 양보할 수 있습니다.</p>
+            <div class="compact-actions"><button id="start-deep" class="mini-button" type="button">심층 분석 시작</button><button id="download-deep" class="mini-button secondary" type="button" disabled>분석 JSON 저장</button></div>
+            <div id="deep-report" class="field-help" aria-live="polite"></div>
+          </details>
           <p class="setting-explanation bottom-note">자동 분석 ON: 새 국면·설정을 반영해 자동으로 계산합니다. ■ 중단을 누르면 자동 분석도 꺼집니다. 같은 국면은 시간 상한까지 1회만 계산하며 무한 반복하지 않습니다. 새 국면을 적용하면 기존 분석은 취소됩니다.</p>
+        </section>
+        <section class="panel">
+          <h2>Brilliant Sacrifice 연구</h2>
+          <p class="field-help">현재 국면에서 상대가 즉시 수락할 수 있는 기물 희생을 찾거나, 입력한 수의 방어를 검증합니다. 서버 CPU에서 약 5초 동안 계산합니다.</p>
+          <div class="compact-actions"><input id="sacrifice-move" placeholder="예: e5f7" aria-label="검증할 후보 UCI"><button id="verify-sacrifice" class="mini-button">후보 검증</button><button id="discover-sacrifice" class="mini-button">희생 찾기</button></div>
+          <p id="sacrifice-result" class="field-help" aria-live="polite">분석을 중단한 뒤 희생을 찾거나 후보 수를 검증하세요.</p>
         </section>
         <section class="panel results-panel">
           <div class="panel-header"><div><span class="kicker">ITERATIVE DEEPENING</span><h2>깊이별 판단 변화</h2></div><span class="panel-index">03</span></div>
@@ -87,7 +122,7 @@
         </section>
       </div>
     </main>
-    <footer class="site-footer"><span>TAL / LAB · ANALYSIS v0.5.5</span><span>직접 개발한 Python 엔진 · 분석은 객관적인 최선수의 보증이 아닙니다.</span></footer>
+    <footer class="site-footer"><span>TAL / LAB · ANALYSIS v0.8.6</span><span>직접 개발한 Python 엔진 · 분석은 객관적인 최선수의 보증이 아닙니다.</span></footer>
   </div>
   <div id="promotion-modal" class="modal-backdrop" hidden><div class="promotion-dialog" role="dialog" aria-modal="true" aria-label="승격 기물 선택"><h2>폰을 승격할 기물</h2><div id="promotion-choices" class="promotion-choices"></div><button id="promotion-cancel" type="button" class="modal-cancel">취소</button></div></div>
 </body>

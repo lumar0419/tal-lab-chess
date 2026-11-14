@@ -1,0 +1,1 @@
+{"private":true,"scripts":{"dev":"python tools/preview_server.py","test":"node test_visuals.js"}}

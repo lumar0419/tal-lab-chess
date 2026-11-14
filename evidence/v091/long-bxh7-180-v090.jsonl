@@ -1,0 +1,8 @@
+{"id": "lasker_bauer_1889_ply29", "depth": 1, "score": -35, "nodes": 98, "seconds": 0.0019362969997018808, "pv": ["e2h5"]}
+{"id": "lasker_bauer_1889_ply29", "depth": 2, "score": -35, "nodes": 1451, "seconds": 0.03717572699952143, "pv": ["e2h5", "h7h6"]}
+{"id": "lasker_bauer_1889_ply29", "depth": 3, "score": -25, "nodes": 6606, "seconds": 0.10212831999979244, "pv": ["e2h5", "h7h6", "f4f5"]}
+{"id": "lasker_bauer_1889_ply29", "depth": 4, "score": -25, "nodes": 39305, "seconds": 0.6390103389994692, "pv": ["e2h5", "f7f5", "h5f3", "e7f6"]}
+{"id": "lasker_bauer_1889_ply29", "depth": 5, "score": -20, "nodes": 172243, "seconds": 2.066608592999728, "pv": ["e2h5", "f7f5", "h5f3", "e7f6", "a1d1"]}
+{"id": "lasker_bauer_1889_ply29", "depth": 6, "score": -25, "nodes": 790114, "seconds": 9.4325751209999, "pv": ["e2h5", "f7f5", "h5f3", "e7f6", "a1d1", "d5d4"]}
+{"id": "lasker_bauer_1889_ply29", "depth": 7, "score": -20, "nodes": 3721578, "seconds": 38.005665165999744, "pv": ["e2h5", "f7f5", "h5f3", "e7f6", "e5f6", "f8f6", "a1d1"]}
+{"elapsed": 180.00079483199988, "total_nodes": 15236266}

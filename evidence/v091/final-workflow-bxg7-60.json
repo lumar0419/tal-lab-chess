@@ -1,0 +1,828 @@
+{
+  "fen": "r4rk1/1b2bpp1/ppq1p3/2ppB2Q/5P2/1P2P3/P1PP2PP/R4RK1 w - - 1 17",
+  "profile": "conservative",
+  "budget": 60.0,
+  "root": [
+    {
+      "depth": 1,
+      "score": -284,
+      "nodes": 129,
+      "seconds": 0.007,
+      "pv": [
+        "d2d3"
+      ]
+    },
+    {
+      "depth": 2,
+      "score": -284,
+      "nodes": 1611,
+      "seconds": 0.08,
+      "pv": [
+        "h5g4",
+        "g7g6"
+      ]
+    },
+    {
+      "depth": 3,
+      "score": -279,
+      "nodes": 8204,
+      "seconds": 0.285,
+      "pv": [
+        "h5g4",
+        "f7f6",
+        "e5c3"
+      ]
+    },
+    {
+      "depth": 4,
+      "score": -274,
+      "nodes": 39913,
+      "seconds": 1.11,
+      "pv": [
+        "d2d3",
+        "f8e8",
+        "h5g4",
+        "e7f8"
+      ]
+    },
+    {
+      "depth": 5,
+      "score": -274,
+      "nodes": 96279,
+      "seconds": 2.853,
+      "pv": [
+        "h5g4",
+        "f7f6",
+        "e5b2",
+        "c5c4",
+        "d2d3"
+      ]
+    },
+    {
+      "depth": 6,
+      "score": -274,
+      "nodes": 329187,
+      "seconds": 8.508,
+      "pv": [
+        "h5g4",
+        "f7f6",
+        "e5b2",
+        "c5c4",
+        "d2d4",
+        "c4d3",
+        "c2d3"
+      ]
+    },
+    {
+      "depth": 7,
+      "score": -129,
+      "nodes": 1356254,
+      "seconds": 35.844,
+      "pv": [
+        "e5g7",
+        "g8g7",
+        "f1f3",
+        "f8e8",
+        "f3g3",
+        "e7g5",
+        "h5g5",
+        "g7f8",
+        "d2d3"
+      ]
+    }
+  ],
+  "screen": [
+    [
+      {
+        "depth": 1,
+        "score": -645,
+        "nodes": 96,
+        "seconds": 0.007,
+        "pv": [
+          "e5c7",
+          "c6c7"
+        ]
+      },
+      {
+        "depth": 1,
+        "score": -645,
+        "nodes": 187,
+        "seconds": 0.008,
+        "pv": [
+          "e5b8",
+          "a8b8"
+        ]
+      }
+    ],
+    [
+      {
+        "depth": 2,
+        "score": -645,
+        "nodes": 516,
+        "seconds": 0.021,
+        "pv": [
+          "e5c7",
+          "c6c7"
+        ]
+      },
+      {
+        "depth": 2,
+        "score": -645,
+        "nodes": 834,
+        "seconds": 0.023,
+        "pv": [
+          "e5b8",
+          "a8b8"
+        ]
+      }
+    ],
+    [
+      {
+        "depth": 3,
+        "score": -630,
+        "nodes": 4245,
+        "seconds": 0.177,
+        "pv": [
+          "e5c7",
+          "d5d4",
+          "e3e4",
+          "c6c7"
+        ]
+      },
+      {
+        "depth": 3,
+        "score": -630,
+        "nodes": 6068,
+        "seconds": 0.215,
+        "pv": [
+          "e5b8",
+          "d5d4",
+          "e3e4",
+          "a8b8"
+        ]
+      }
+    ],
+    [
+      {
+        "depth": 4,
+        "score": -635,
+        "nodes": 11708,
+        "seconds": 0.346,
+        "pv": [
+          "e5c7",
+          "c6c7",
+          "d2d3",
+          "e7f6"
+        ]
+      },
+      {
+        "depth": 4,
+        "score": -635,
+        "nodes": 15847,
+        "seconds": 0.412,
+        "pv": [
+          "e5b8",
+          "a8b8",
+          "d2d3",
+          "e7f6"
+        ]
+      }
+    ],
+    [
+      {
+        "depth": 5,
+        "score": -630,
+        "nodes": 35189,
+        "seconds": 0.897,
+        "pv": [
+          "e5c7",
+          "c6c7",
+          "d2d3",
+          "e7f6",
+          "a1d1"
+        ]
+      },
+      {
+        "depth": 5,
+        "score": -640,
+        "nodes": 64975,
+        "seconds": 1.618,
+        "pv": [
+          "e5b8",
+          "d5d4",
+          "h5g4",
+          "a8b8",
+          "a1d1"
+        ]
+      }
+    ]
+  ],
+  "offers_found": 14,
+  "screen_complete": true,
+  "candidates": [
+    {
+      "move": "e5g7",
+      "offer": {
+        "move": "e5g7",
+        "piece": "B",
+        "acceptances": [
+          {
+            "uci": "g8g7",
+            "material_risk_cp": 230
+          }
+        ],
+        "label": "\ud76c\uc0dd \ud6c4\ubcf4 \u00b7 \uac80\uc99d \ud544\uc694"
+      },
+      "reference": true,
+      "iterations": [
+        {
+          "depth": 1,
+          "score": -521,
+          "nodes": 8,
+          "seconds": 0.001,
+          "pv": [
+            "e5g7",
+            "g8g7"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -521,
+          "nodes": 74,
+          "seconds": 0.002,
+          "pv": [
+            "e5g7",
+            "g8g7"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -501,
+          "nodes": 376,
+          "seconds": 0.016,
+          "pv": [
+            "e5g7",
+            "g8g7",
+            "d2d3"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -496,
+          "nodes": 2998,
+          "seconds": 0.096,
+          "pv": [
+            "e5g7",
+            "g8g7",
+            "h5g4",
+            "g7h7",
+            "d2d3"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -506,
+          "nodes": 11591,
+          "seconds": 0.874,
+          "pv": [
+            "e5g7",
+            "g8g7",
+            "h5g4",
+            "g7h7",
+            "d2d3",
+            "e7f6"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": -163,
+          "nodes": 60667,
+          "seconds": 2.083,
+          "pv": [
+            "e5g7",
+            "g8g7",
+            "h5g4",
+            "g7h7",
+            "f1f3",
+            "e7h4",
+            "g4h4",
+            "h7g8"
+          ]
+        }
+      ],
+      "comparison": {
+        "depth": 6,
+        "score": -163,
+        "reference_score": -163,
+        "delta_for_mover": 0
+      },
+      "defenses": [
+        {
+          "depth": 1,
+          "score": -521,
+          "nodes": 65,
+          "seconds": 0.002,
+          "pv": [
+            "g8g7"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -501,
+          "nodes": 795,
+          "seconds": 0.018,
+          "pv": [
+            "g8g7",
+            "d2d3"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -496,
+          "nodes": 3522,
+          "seconds": 0.041,
+          "pv": [
+            "g8g7",
+            "h5g4",
+            "g7h7",
+            "d2d3"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -506,
+          "nodes": 13117,
+          "seconds": 0.172,
+          "pv": [
+            "g8g7",
+            "d2d3",
+            "e7f6",
+            "a1d1"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -163,
+          "nodes": 72886,
+          "seconds": 0.819,
+          "pv": [
+            "g8g7",
+            "h5g4",
+            "g7h8",
+            "f1f3",
+            "e7h4",
+            "g4h4",
+            "h8g8"
+          ]
+        }
+      ],
+      "proof": null,
+      "verification": "defense_searched",
+      "time_limit": 4.026,
+      "material": {
+        "changes_cp": [
+          100,
+          -230,
+          -230,
+          -230,
+          -230,
+          -230,
+          100,
+          100
+        ],
+        "low_cp": -230,
+        "last_cp": 100
+      },
+      "legal_replies": 30,
+      "defense_time_limit": 1.413,
+      "draw_claim": false,
+      "material_under_defense": {
+        "changes_cp": [
+          100,
+          -230,
+          -230,
+          -230,
+          -230,
+          -230,
+          100,
+          100
+        ],
+        "low_cp": -230,
+        "last_cp": 100
+      },
+      "defense_agrees_at_depth": true,
+      "defense_accepts": true
+    },
+    {
+      "move": "e5c7",
+      "offer": {
+        "move": "e5c7",
+        "piece": "B",
+        "acceptances": [
+          {
+            "uci": "c6c7",
+            "material_risk_cp": 330
+          }
+        ],
+        "label": "\ud76c\uc0dd \ud6c4\ubcf4 \u00b7 \uac80\uc99d \ud544\uc694"
+      },
+      "reference": false,
+      "iterations": [
+        {
+          "depth": 1,
+          "score": -645,
+          "nodes": 8,
+          "seconds": 0.001,
+          "pv": [
+            "e5c7",
+            "c6c7"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -645,
+          "nodes": 74,
+          "seconds": 0.007,
+          "pv": [
+            "e5c7",
+            "c6c7"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -630,
+          "nodes": 1414,
+          "seconds": 0.071,
+          "pv": [
+            "e5c7",
+            "d5d4",
+            "e3e4",
+            "c6c7"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -635,
+          "nodes": 4797,
+          "seconds": 0.136,
+          "pv": [
+            "e5c7",
+            "c6c7",
+            "d2d3",
+            "e7f6"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -630,
+          "nodes": 13278,
+          "seconds": 0.366,
+          "pv": [
+            "e5c7",
+            "c6c7",
+            "d2d3",
+            "e7f6",
+            "a1d1"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": -635,
+          "nodes": 42959,
+          "seconds": 0.982,
+          "pv": [
+            "e5c7",
+            "c6c7",
+            "d2d3",
+            "e7f6",
+            "a1d1",
+            "d5d4"
+          ]
+        },
+        {
+          "depth": 7,
+          "score": -630,
+          "nodes": 166161,
+          "seconds": 3.787,
+          "pv": [
+            "e5c7",
+            "c6c7",
+            "d2d3",
+            "e7f6",
+            "a1d1",
+            "e6e5",
+            "f4e5",
+            "f6e5"
+          ]
+        }
+      ],
+      "comparison": {
+        "depth": 6,
+        "score": -635,
+        "reference_score": -163,
+        "delta_for_mover": -472
+      },
+      "defenses": [
+        {
+          "depth": 1,
+          "score": -645,
+          "nodes": 65,
+          "seconds": 0.002,
+          "pv": [
+            "c6c7"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -630,
+          "nodes": 1909,
+          "seconds": 0.031,
+          "pv": [
+            "d5d4",
+            "e3e4",
+            "c6c7"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -635,
+          "nodes": 5179,
+          "seconds": 0.06,
+          "pv": [
+            "c6c7",
+            "d2d3",
+            "e7f6"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -630,
+          "nodes": 15051,
+          "seconds": 0.185,
+          "pv": [
+            "c6c7",
+            "d2d3",
+            "e7f6",
+            "a1d1"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -635,
+          "nodes": 40973,
+          "seconds": 0.442,
+          "pv": [
+            "c6c7",
+            "d2d3",
+            "e7f6",
+            "a1d1",
+            "d5d4"
+          ]
+        }
+      ],
+      "proof": null,
+      "verification": "defense_searched",
+      "time_limit": 4.026,
+      "material": {
+        "changes_cp": [
+          0,
+          -330,
+          -330,
+          -330,
+          -330,
+          -330,
+          -230,
+          -330
+        ],
+        "low_cp": -330,
+        "last_cp": -330
+      },
+      "legal_replies": 30,
+      "defense_time_limit": 1.413,
+      "draw_claim": false,
+      "material_under_defense": {
+        "changes_cp": [
+          0,
+          -330,
+          -330,
+          -330,
+          -330,
+          -330
+        ],
+        "low_cp": -330,
+        "last_cp": -330
+      },
+      "defense_agrees_at_depth": true,
+      "defense_accepts": true
+    },
+    {
+      "move": "e5b8",
+      "offer": {
+        "move": "e5b8",
+        "piece": "B",
+        "acceptances": [
+          {
+            "uci": "a8b8",
+            "material_risk_cp": 330
+          },
+          {
+            "uci": "f8b8",
+            "material_risk_cp": 330
+          }
+        ],
+        "label": "\ud76c\uc0dd \ud6c4\ubcf4 \u00b7 \uac80\uc99d \ud544\uc694"
+      },
+      "reference": false,
+      "iterations": [
+        {
+          "depth": 1,
+          "score": -645,
+          "nodes": 9,
+          "seconds": 0.001,
+          "pv": [
+            "e5b8",
+            "a8b8"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -645,
+          "nodes": 71,
+          "seconds": 0.004,
+          "pv": [
+            "e5b8",
+            "a8b8"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -630,
+          "nodes": 1392,
+          "seconds": 0.043,
+          "pv": [
+            "e5b8",
+            "d5d4",
+            "e3e4",
+            "a8b8"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -635,
+          "nodes": 4269,
+          "seconds": 0.114,
+          "pv": [
+            "e5b8",
+            "a8b8",
+            "d2d3",
+            "e7f6"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -640,
+          "nodes": 17936,
+          "seconds": 0.538,
+          "pv": [
+            "e5b8",
+            "d5d4",
+            "h5g4",
+            "f8b8",
+            "a1d1"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": -645,
+          "nodes": 43118,
+          "seconds": 1.801,
+          "pv": [
+            "e5b8",
+            "d5d4",
+            "h5g4",
+            "f8b8",
+            "e3d4",
+            "c5d4"
+          ]
+        },
+        {
+          "depth": 7,
+          "score": -630,
+          "nodes": 193751,
+          "seconds": 3.924,
+          "pv": [
+            "e5b8",
+            "d5d4",
+            "h5g4",
+            "f8b8",
+            "a1e1",
+            "e7f6",
+            "d2d3"
+          ]
+        }
+      ],
+      "comparison": {
+        "depth": 6,
+        "score": -645,
+        "reference_score": -163,
+        "delta_for_mover": -482
+      },
+      "defenses": [
+        {
+          "depth": 1,
+          "score": -645,
+          "nodes": 61,
+          "seconds": 0.002,
+          "pv": [
+            "a8b8"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -630,
+          "nodes": 1761,
+          "seconds": 0.025,
+          "pv": [
+            "d5d4",
+            "e3e4",
+            "a8b8"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -635,
+          "nodes": 4539,
+          "seconds": 0.049,
+          "pv": [
+            "a8b8",
+            "d2d3",
+            "e7f6"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -640,
+          "nodes": 24253,
+          "seconds": 0.309,
+          "pv": [
+            "d5d4",
+            "h5g4",
+            "a8b8",
+            "a1d1"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -645,
+          "nodes": 52120,
+          "seconds": 0.614,
+          "pv": [
+            "d5d4",
+            "h5g4",
+            "a8b8",
+            "e3d4",
+            "c5d4"
+          ]
+        }
+      ],
+      "proof": null,
+      "verification": "defense_searched",
+      "time_limit": 4.026,
+      "material": {
+        "changes_cp": [
+          0,
+          0,
+          0,
+          -330,
+          -330,
+          -330,
+          -330
+        ],
+        "low_cp": -330,
+        "last_cp": -330
+      },
+      "legal_replies": 28,
+      "defense_time_limit": 1.413,
+      "draw_claim": false,
+      "material_under_defense": {
+        "changes_cp": [
+          0,
+          0,
+          0,
+          -330,
+          -230,
+          -330
+        ],
+        "low_cp": -330,
+        "last_cp": -330
+      },
+      "defense_agrees_at_depth": true,
+      "defense_accepts": false
+    }
+  ],
+  "phase": "done",
+  "attempting": 6,
+  "elapsed": 59.649,
+  "outcome": "completed",
+  "root_move": "e5g7"
+}

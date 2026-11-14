@@ -1,0 +1,570 @@
+{
+  "fen": "r1bk2nr/p2p1pNp/n2B4/1p1NP2P/6P1/3P1Q2/P1P1K3/q5b1 w - - 1 22",
+  "history": [],
+  "profile": "conservative",
+  "budget": 1.0,
+  "root": [
+    {
+      "depth": 1,
+      "score": -1065,
+      "nodes": 122,
+      "seconds": 0.002,
+      "pv": [
+        "a2a3"
+      ]
+    },
+    {
+      "depth": 2,
+      "score": 99997,
+      "nodes": 1102,
+      "seconds": 0.014,
+      "pv": [
+        "f3f6",
+        "g8e7",
+        "d6e7"
+      ]
+    },
+    {
+      "depth": 3,
+      "score": 99997,
+      "nodes": 5139,
+      "seconds": 0.055,
+      "pv": [
+        "f3f6",
+        "g8e7",
+        "d6e7"
+      ]
+    }
+  ],
+  "screen": [
+    [
+      {
+        "depth": 1,
+        "score": -1075,
+        "nodes": 165,
+        "seconds": 0.002,
+        "pv": [
+          "d5c3"
+        ]
+      },
+      {
+        "depth": 1,
+        "score": -1085,
+        "nodes": 283,
+        "seconds": 0.004,
+        "pv": [
+          "d5e7"
+        ]
+      }
+    ],
+    [
+      {
+        "depth": 2,
+        "score": -1058,
+        "nodes": 1215,
+        "seconds": 0.013,
+        "pv": [
+          "d5b6",
+          "g1b6",
+          "f3a8",
+          "a1a2"
+        ]
+      },
+      {
+        "depth": 2,
+        "score": -1061,
+        "nodes": 1670,
+        "seconds": 0.016,
+        "pv": [
+          "d5c3",
+          "a1c3",
+          "f3a8",
+          "c3c2",
+          "e2f1"
+        ]
+      }
+    ],
+    [
+      {
+        "depth": 3,
+        "score": -1058,
+        "nodes": 2922,
+        "seconds": 0.03,
+        "pv": [
+          "d5b6",
+          "g1b6",
+          "f3a8",
+          "a1a2"
+        ]
+      },
+      {
+        "depth": 3,
+        "score": -1061,
+        "nodes": 3322,
+        "seconds": 0.033,
+        "pv": [
+          "d5c3",
+          "a1c3",
+          "f3a8",
+          "c3c2",
+          "e2f1"
+        ]
+      }
+    ]
+  ],
+  "offers_found": 13,
+  "screen_complete": true,
+  "candidates": [
+    {
+      "move": "f3f6",
+      "offer": {
+        "move": "f3f6",
+        "piece": "Q",
+        "acceptances": [
+          {
+            "uci": "g8f6",
+            "material_risk_cp": 580
+          }
+        ],
+        "label": "희생 후보 · 검증 필요"
+      },
+      "reference": true,
+      "iterations": [
+        {
+          "depth": 1,
+          "score": -1801,
+          "nodes": 36,
+          "seconds": 0.001,
+          "pv": [
+            "f3f6",
+            "g8f6",
+            "e5f6",
+            "a1a2"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 99997,
+          "nodes": 105,
+          "seconds": 0.002,
+          "pv": [
+            "f3f6",
+            "g8f6",
+            "d6e7"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 99997,
+          "nodes": 336,
+          "seconds": 0.005,
+          "pv": [
+            "f3f6",
+            "g8f6",
+            "d6e7"
+          ]
+        }
+      ],
+      "comparison": {
+        "depth": 3,
+        "score": 99997,
+        "reference_score": 99997,
+        "delta_for_mover": 0
+      },
+      "defenses": [
+        {
+          "depth": 1,
+          "score": 99998,
+          "nodes": 81,
+          "seconds": 0.001,
+          "pv": [
+            "g8f6",
+            "d6e7"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": 99998,
+          "nodes": 311,
+          "seconds": 0.003,
+          "pv": [
+            "g8f6",
+            "d6e7"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": 99998,
+          "nodes": 1905,
+          "seconds": 0.019,
+          "pv": [
+            "g8f6",
+            "d6e7"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": 99998,
+          "nodes": 6947,
+          "seconds": 0.072,
+          "pv": [
+            "g8f6",
+            "d6e7"
+          ]
+        }
+      ],
+      "proof": {
+        "status": "proved",
+        "max_plies": 3,
+        "nodes": 25,
+        "node_budget": 25000
+      },
+      "verification": "mate_proved",
+      "time_limit": 0.205,
+      "material": {
+        "changes_cp": [
+          0,
+          -900,
+          -900
+        ],
+        "low_cp": -900,
+        "last_cp": -900
+      },
+      "legal_replies": 2,
+      "defense_time_limit": 0.128,
+      "draw_claim": false,
+      "material_under_defense": {
+        "changes_cp": [
+          0,
+          -900,
+          -900
+        ],
+        "low_cp": -900,
+        "last_cp": -900
+      },
+      "defense_accepts": true
+    },
+    {
+      "move": "d5b6",
+      "offer": {
+        "move": "d5b6",
+        "piece": "N",
+        "acceptances": [
+          {
+            "uci": "g1b6",
+            "material_risk_cp": 320
+          },
+          {
+            "uci": "a7b6",
+            "material_risk_cp": 320
+          }
+        ],
+        "label": "희생 후보 · 검증 필요"
+      },
+      "reference": false,
+      "iterations": [
+        {
+          "depth": 1,
+          "score": -1085,
+          "nodes": 23,
+          "seconds": 0.001,
+          "pv": [
+            "d5b6"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -1058,
+          "nodes": 262,
+          "seconds": 0.003,
+          "pv": [
+            "d5b6",
+            "g1b6",
+            "f3a8",
+            "a1a2"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -1058,
+          "nodes": 735,
+          "seconds": 0.009,
+          "pv": [
+            "d5b6",
+            "g1b6",
+            "f3a8",
+            "a1a2"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -1058,
+          "nodes": 3388,
+          "seconds": 0.036,
+          "pv": [
+            "d5b6",
+            "g1b6",
+            "f3a8",
+            "a1a2"
+          ]
+        }
+      ],
+      "comparison": {
+        "depth": 3,
+        "score": -1058,
+        "reference_score": 99997,
+        "delta_for_mover": -101055
+      },
+      "defenses": [
+        {
+          "depth": 1,
+          "score": -1058,
+          "nodes": 254,
+          "seconds": 0.004,
+          "pv": [
+            "g1b6",
+            "f3a8",
+            "a1a2"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -1058,
+          "nodes": 727,
+          "seconds": 0.009,
+          "pv": [
+            "g1b6",
+            "f3a8",
+            "a1a2"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -1058,
+          "nodes": 3402,
+          "seconds": 0.037,
+          "pv": [
+            "g1b6",
+            "f3a8",
+            "a1a2"
+          ]
+        }
+      ],
+      "proof": null,
+      "verification": "defense_searched",
+      "time_limit": 0.205,
+      "material": {
+        "changes_cp": [
+          0,
+          -320,
+          180,
+          80
+        ],
+        "low_cp": -320,
+        "last_cp": 80
+      },
+      "legal_replies": 30,
+      "defense_time_limit": 0.128,
+      "draw_claim": false,
+      "material_under_defense": {
+        "changes_cp": [
+          0,
+          -320,
+          180,
+          80
+        ],
+        "low_cp": -320,
+        "last_cp": 80
+      },
+      "defense_agrees_at_depth": true,
+      "defense_accepts": true
+    },
+    {
+      "move": "d5c3",
+      "offer": {
+        "move": "d5c3",
+        "piece": "N",
+        "acceptances": [
+          {
+            "uci": "a1c3",
+            "material_risk_cp": 320
+          }
+        ],
+        "label": "희생 후보 · 검증 필요"
+      },
+      "reference": false,
+      "iterations": [
+        {
+          "depth": 1,
+          "score": -1075,
+          "nodes": 33,
+          "seconds": 0.001,
+          "pv": [
+            "d5c3"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -1061,
+          "nodes": 244,
+          "seconds": 0.003,
+          "pv": [
+            "d5c3",
+            "a1c3",
+            "f3a8",
+            "c3c2",
+            "e2f1"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -1061,
+          "nodes": 645,
+          "seconds": 0.007,
+          "pv": [
+            "d5c3",
+            "a1c3",
+            "f3a8",
+            "c3c2",
+            "e2f1"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -1061,
+          "nodes": 2867,
+          "seconds": 0.027,
+          "pv": [
+            "d5c3",
+            "a1c3",
+            "f3a8",
+            "c3c2",
+            "e2f1"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -1180,
+          "nodes": 11794,
+          "seconds": 0.13,
+          "pv": [
+            "d5c3",
+            "a1c3",
+            "f3a8",
+            "c3c2",
+            "e2f3",
+            "c2f2",
+            "f3e4",
+            "f2a2"
+          ]
+        }
+      ],
+      "comparison": {
+        "depth": 3,
+        "score": -1061,
+        "reference_score": 99997,
+        "delta_for_mover": -101058
+      },
+      "defenses": [
+        {
+          "depth": 1,
+          "score": -1061,
+          "nodes": 210,
+          "seconds": 0.003,
+          "pv": [
+            "a1c3",
+            "f3a8",
+            "c3c2",
+            "e2f1"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -1061,
+          "nodes": 614,
+          "seconds": 0.006,
+          "pv": [
+            "a1c3",
+            "f3a8",
+            "c3c2",
+            "e2f1"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -1061,
+          "nodes": 2835,
+          "seconds": 0.024,
+          "pv": [
+            "a1c3",
+            "f3a8",
+            "c3c2",
+            "e2f1"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -1180,
+          "nodes": 11761,
+          "seconds": 0.117,
+          "pv": [
+            "a1c3",
+            "f3a8",
+            "c3c2",
+            "e2f3",
+            "c2f2",
+            "f3e4",
+            "f2a2"
+          ]
+        }
+      ],
+      "proof": null,
+      "verification": "defense_searched",
+      "time_limit": 0.205,
+      "material": {
+        "changes_cp": [
+          0,
+          -320,
+          180,
+          80,
+          80,
+          80,
+          80,
+          -20
+        ],
+        "low_cp": -320,
+        "last_cp": -20
+      },
+      "legal_replies": 27,
+      "defense_time_limit": 0.128,
+      "draw_claim": false,
+      "material_under_defense": {
+        "changes_cp": [
+          0,
+          -320,
+          180,
+          80,
+          80,
+          80,
+          80,
+          -20
+        ],
+        "low_cp": -320,
+        "last_cp": -20
+      },
+      "defense_agrees_at_depth": true,
+      "defense_accepts": true
+    }
+  ],
+  "phase": "done",
+  "attempting": 5,
+  "elapsed": 0.974,
+  "outcome": "completed",
+  "root_proof": {
+    "status": "proved",
+    "max_plies": 3,
+    "nodes": 25,
+    "node_budget": 25000
+  },
+  "root_move": "f3f6"
+}

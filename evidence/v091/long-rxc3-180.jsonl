@@ -1,0 +1,10 @@
+{"depth": 1, "score": -6, "seconds": 0.010417864999908488, "nodes": 434, "pv": ["h4e7", "e4b7", "e7b7", "c3e4"]}
+{"depth": 2, "score": -5, "seconds": 0.03994805999991513, "nodes": 2213, "pv": ["h4e7", "a1d1"]}
+{"depth": 3, "score": -6, "seconds": 0.14877056600016658, "nodes": 11227, "pv": ["h4e7", "e4b7", "e7b7", "c3e4"]}
+{"depth": 4, "score": -10, "seconds": 0.6362939959999494, "nodes": 46420, "pv": ["h4e7", "f1f3", "b7c6", "a1e1"]}
+{"depth": 5, "score": -115, "seconds": 1.8458856070001275, "nodes": 168663, "pv": ["b7e4", "c3e4", "h4h2", "e2h2", "g4h2", "f1e1", "h2f3"]}
+{"depth": 6, "score": -110, "seconds": 5.135970590999932, "nodes": 495427, "pv": ["b7e4", "c3e4", "h4h2", "e2h2", "g4h2", "f1b1", "h2f3", "h1g2"]}
+{"depth": 7, "score": -108, "seconds": 12.472215286999926, "nodes": 1167452, "pv": ["b7e4", "c3e4", "h4h2", "e2h2", "g4h2", "f1d1", "h2f3", "d1d8", "c8d8", "h1g2"]}
+{"depth": 8, "score": -109, "seconds": 35.10937585299962, "nodes": 3362690, "pv": ["b7e4", "c3e4", "h4h2", "e2h2", "g4h2", "f1d1", "h2f3", "h1g2", "f3d4", "b2d4", "b6d4"]}
+{"depth": 9, "score": -240, "seconds": 153.78811690299972, "nodes": 14254095, "pv": ["c8c3", "e4b7", "c3g3", "f1f3", "g3f3", "b7f3", "g4f2", "h1g1", "f2d3", "g1f1", "d3b2", "e2b2", "h4f4"]}
+{"total_nodes": 16644111}

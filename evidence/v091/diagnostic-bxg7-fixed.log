@@ -1,0 +1,6 @@
+full None {'depth': 6, 'score': -163, 'nodes': 824047, 'pv': ['e5g7', 'g8g7', 'h5g4', 'g7h8', 'f1f3', 'e7h4', 'g4h4', 'h8g8'], 'seconds': 8.668714813000406}
+full e5g7 {'depth': 6, 'score': -163, 'nodes': 91918, 'pv': ['e5g7', 'g8g7', 'h5g4', 'g7h8', 'f1f3', 'e7h4', 'g4h4', 'h8g8'], 'seconds': 0.8280119290002403}
+full h5g4 {'depth': 6, 'score': -274, 'nodes': 64515, 'pv': ['h5g4', 'f7f6', 'e5b2', 'c5c4', 'd2d4', 'c4d3', 'c2d3'], 'seconds': 0.6549050970006647}
+conservative None {'depth': 6, 'score': -274, 'nodes': 329187, 'pv': ['h5g4', 'f7f6', 'e5b2', 'c5c4', 'd2d4', 'c4d3', 'c2d3'], 'seconds': 3.3200526740001806}
+conservative e5g7 {'depth': 6, 'score': -163, 'nodes': 72899, 'pv': ['e5g7', 'g8g7', 'h5g4', 'g7h8', 'f1f3', 'e7h4', 'g4h4', 'h8g8'], 'seconds': 0.7099045940003634}
+conservative h5g4 {'depth': 6, 'score': -274, 'nodes': 41375, 'pv': ['h5g4', 'f7f6', 'e5b2', 'c5c4', 'd2d4', 'c4d3', 'c2d3'], 'seconds': 0.3811053660001562}

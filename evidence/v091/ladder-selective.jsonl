@@ -1,0 +1,16 @@
+{"id": "kasparov_topalov_1999_ply47", "depth": 1, "score": 20, "nodes": 157, "seconds": 0.004056343999764067, "pv": ["f4d6", "d8d6"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 2, "score": 20, "nodes": 1439, "seconds": 0.039579368999511644, "pv": ["f4d6", "d8d6"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 3, "score": 20, "nodes": 6761, "seconds": 0.10687812000014674, "pv": ["f4d6", "d8d6", "e1e7", "a7b8"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 4, "score": -10, "nodes": 24382, "seconds": 0.6084779209995759, "pv": ["a5c6", "a8c6", "d5c6", "d6f4", "g3f4"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 5, "score": -10, "nodes": 45901, "seconds": 1.1593466269996497, "pv": ["a5c6", "a8c6", "f4d6", "d8d6", "d5c6", "d6c6", "e1e7", "a7b8", "e7f7"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 6, "score": -72, "nodes": 92554, "seconds": 2.2929693149999366, "pv": ["a5c6", "a8c6", "d5c6", "d6f4", "g3f4", "a7b6", "e1e7", "b6c6", "e7f7"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 7, "score": -72, "nodes": 179170, "seconds": 4.111850991999745, "pv": ["a5c6", "a8c6", "d5c6", "d6f4", "g3f4", "a7b6", "e1e7", "b6c6", "e7f7"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 8, "score": -82, "nodes": 354570, "seconds": 7.593284926999331, "pv": ["a5c6", "a8c6", "d5c6", "d6f4", "g3f4", "a7b6", "e1e7", "f6d5", "e7f7", "b6c6"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 9, "score": -28, "nodes": 656453, "seconds": 13.273153532999459, "pv": ["a5c6", "a8c6", "f4d6", "d8d6", "d5c6", "a7b6", "e1e7", "b6c6", "e7f7", "f6d5"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 10, "score": -15, "nodes": 1165712, "seconds": 24.472755435999716, "pv": ["a5c6", "a8c6", "f4d6", "d8d6", "d5c6", "a7b6", "e1e7", "b6c6", "e7f7", "b5b4", "a3b4", "c5b4"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 11, "score": -15, "nodes": 2068473, "seconds": 44.555538939000144, "pv": ["a5c6", "a8c6", "f4d6", "d8d6", "d5c6", "a7b6", "e1e7", "b6c6", "e7f7", "f6d5", "f7a7", "c6b6"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 12, "score": -23, "nodes": 4056936, "seconds": 89.6101036, "pv": ["a5c6", "a8c6", "f4d6", "d8d6", "d5c6", "a7b6", "e1e7", "b6c6", "e7f7", "f6d5", "h3g4", "d5e3", "d1e1", "e3g4", "f3g4"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 13, "score": -23, "nodes": 6906683, "seconds": 154.28983101799986, "pv": ["a5c6", "a8c6", "f4d6", "d8d6", "d5c6", "a7b6", "e1e7", "b6c6", "e7f7", "f6d5", "h3g4", "d5e3", "d1e1", "e3g4", "f3g4"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 14, "score": -23, "nodes": 12135628, "seconds": 271.7899783719995, "pv": ["a5c6", "a8c6", "f4d6", "d8d6", "d5c6", "a7b6", "e1e7", "b6c6", "e7f7", "f6d5", "h3g4", "d5e3", "d1e1", "e3g4", "f3g4"]}
+{"id": "kasparov_topalov_1999_ply47", "depth": 15, "score": -18, "nodes": 18364997, "seconds": 422.32625291399927, "pv": ["a5c6", "a8c6", "f4d6", "d8d6", "d5c6", "a7b6", "e1e7", "b6c6", "e7f7", "f6d5", "f3f4", "d5e3", "d1e1", "c5c4", "f4f5", "g6f5", "h3f5", "e3f5", "f7f5"]}
+{"elapsed": 600.012045554, "total_nodes": 25104709}

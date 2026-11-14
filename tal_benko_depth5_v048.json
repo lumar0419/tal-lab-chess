@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "engine_version": "0.4.8",
+  "utc_created": "2026-11-12T09:40:50.877250+00:00",
+  "python_version": "3.13.5",
+  "system": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "profiles": [
+    "baseline"
+  ],
+  "depths": [
+    4,
+    5
+  ],
+  "cases": [
+    {
+      "case_id": "tal_benko_1959_r14_ply45",
+      "game_id": "tal_benko_1959_r14",
+      "theme": "bishop_offer",
+      "fen": "1r1qr1k1/2n1p2p/p2pP1pB/2pP1p2/bp5R/5N1P/1bPQ1PP1/4RBK1 w - - 0 23",
+      "historical_san": "Bf8",
+      "historical_move": "h6f8",
+      "source": "https://www.chessbox.in/chessgame/tal-mihail-benko-pal-c-2/",
+      "profile": "baseline",
+      "historical_static": {
+        "static_eval_after_move_cp": -110,
+        "immediate_material_delta_cp": 0,
+        "signals": {
+          "gives_check": false,
+          "captures": false,
+          "exposed_to_capture_after": true,
+          "moves_into_attack": true,
+          "moved_piece": "B"
+        }
+      },
+      "depth_results": [
+        {
+          "depth": 4,
+          "selected": {
+            "move": "d2d3",
+            "score_cp_or_mate_encoded": -115,
+            "score_display": "-1.15",
+            "completed_depth": 4,
+            "nodes": 31036,
+            "elapsed_s": 0.41989,
+            "pv": [
+              "d2d3",
+              "a4b5",
+              "d3b3",
+              "b2f6"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "historical_forced": {
+            "move": "h6f8",
+            "score_cp_or_mate_encoded": -350,
+            "score_display": "-3.50",
+            "completed_depth": 4,
+            "nodes": 9153,
+            "elapsed_s": 0.13336,
+            "pv": [
+              "h6f8",
+              "e8f8",
+              "d2h6",
+              "f8e8"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              -330,
+              -330,
+              -330
+            ]
+          },
+          "historical_move_chosen": false,
+          "approx_score_gap_cp": 235,
+          "mate_sensitive": false,
+          "selected_static": {
+            "static_eval_after_move_cp": -105,
+            "immediate_material_delta_cp": 0,
+            "signals": {
+              "gives_check": false,
+              "captures": false,
+              "exposed_to_capture_after": false,
+              "moves_into_attack": false,
+              "moved_piece": "Q"
+            }
+          },
+          "warning": null
+        },
+        {
+          "depth": 5,
+          "selected": {
+            "move": "e1b1",
+            "score_cp_or_mate_encoded": -115,
+            "score_display": "-1.15",
+            "completed_depth": 5,
+            "nodes": 225439,
+            "elapsed_s": 2.62995,
+            "pv": [
+              "e1b1",
+              "b2c3",
+              "d2d1",
+              "a4b5",
+              "f1d3"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "historical_forced": {
+            "move": "h6f8",
+            "score_cp_or_mate_encoded": -360,
+            "score_display": "-3.60",
+            "completed_depth": 5,
+            "nodes": 37566,
+            "elapsed_s": 0.55793,
+            "pv": [
+              "h6f8",
+              "b2c3",
+              "d2h6",
+              "c3f6",
+              "h6h7"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              0,
+              0,
+              0,
+              100
+            ]
+          },
+          "historical_move_chosen": false,
+          "approx_score_gap_cp": 245,
+          "mate_sensitive": false,
+          "selected_static": {
+            "static_eval_after_move_cp": -115,
+            "immediate_material_delta_cp": 0,
+            "signals": {
+              "gives_check": false,
+              "captures": false,
+              "exposed_to_capture_after": false,
+              "moves_into_attack": false,
+              "moved_piece": "R"
+            }
+          },
+          "warning": null
+        }
+      ],
+      "gap_trend_first_to_last_cp": 10,
+      "interpretation": "Depth/gap trends alone cannot distinguish horizon effects, evaluation bias, and a speculative historical move. Independent stronger analysis is needed."
+    }
+  ],
+  "external_stockfish": {},
+  "limitations": [
+    "ONE unchanged chess engine; profiles are runtime flags, not separate engines",
+    "Tal historical move is NOT an objectively correct answer",
+    "A finite-depth root-forced score is NOT the minimax score and can depend on search order",
+    "Scores and PVs can change sharply with depth; no attribution to evaluation vs search without further analysis",
+    "Material deltas follow truncated PVs and are not a measure of lasting sacrifice compensation",
+    "No Elo, human-likeness score, or objective soundness claim is produced",
+    "FENs omit historical move/repetition history even when reconstructed from full game scores",
+    "Stockfish data only appears if independently run with the requested binary and depth"
+  ]
+}

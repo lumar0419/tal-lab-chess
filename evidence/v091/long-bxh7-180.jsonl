@@ -1,0 +1,9 @@
+{"depth": 1, "score": -35, "seconds": 0.003771770999264845, "nodes": 98, "pv": ["e2h5"]}
+{"depth": 2, "score": -35, "seconds": 0.03719438899952365, "nodes": 1451, "pv": ["e2h5", "h7h6"]}
+{"depth": 3, "score": -25, "seconds": 0.09986668399960763, "nodes": 6606, "pv": ["e2h5", "h7h6", "f4f5"]}
+{"depth": 4, "score": -25, "seconds": 0.6893911389997811, "nodes": 38769, "pv": ["e2h5", "f7f5", "h5f3", "e7f6"]}
+{"depth": 5, "score": -20, "seconds": 1.1884816789997785, "nodes": 91575, "pv": ["e2h5", "f7f5", "h5f3", "e7f6", "a1d1"]}
+{"depth": 6, "score": -25, "seconds": 5.533545985999808, "nodes": 446023, "pv": ["e2h5", "f7f5", "h5f3", "e7f6", "a1d1", "d5d4"]}
+{"depth": 7, "score": -20, "seconds": 16.77530353399925, "nodes": 1414374, "pv": ["e2h5", "f7f5", "h5f3", "e7f6", "e5f6", "f8f6", "a1d1"]}
+{"depth": 8, "score": -25, "seconds": 65.83144904299934, "nodes": 5560512, "pv": ["e2h5", "f7f5", "h5f3", "e7f6", "e5f6", "f8f6", "a1d1", "d5d4"]}
+{"total_nodes": 15042560}

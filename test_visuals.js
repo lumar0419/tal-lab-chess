@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict');
+const {center,style,arrows}=require('./web/analysis-visuals.js');
+assert.deepEqual(center('a8'),[50,50]);assert.deepEqual(center('h1','black'),[50,50]);
+assert.deepEqual(center('e2','black'),[350,150]);
+assert.equal(style(-100,-200,'black').width,13);
+assert.equal(style(60,100,'white').width,13);
+assert.equal(style(99995,99997,'white').label,'메이트 수순 차이');
+const lines=['e2e4','d2d4','g1f3','b1c3'].map((m,i)=>({pv:[m],score:50-i*80}));
+assert.equal(arrows(lines,'white','white',lines.map(l=>l.pv[0])).length,3);
+assert.equal(arrows(lines,'white','white',[]).length,0);
+assert.deepEqual(arrows([{pv:['a7a8n'],score:0}],'white','white',['a7a8n'])[0].to,[50,50]);
+console.log('visual helpers: 9 assertions passed');

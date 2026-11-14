@@ -1,0 +1,9 @@
+{"id": "rotlewi_rubinstein_1907_ply44", "depth": 1, "score": 6, "nodes": 434, "seconds": 0.010578611000710225, "pv": ["h4e7", "e4b7", "e7b7", "c3e4"]}
+{"id": "rotlewi_rubinstein_1907_ply44", "depth": 2, "score": 5, "nodes": 2213, "seconds": 0.0409255660006238, "pv": ["h4e7", "a1d1"]}
+{"id": "rotlewi_rubinstein_1907_ply44", "depth": 3, "score": 6, "nodes": 11227, "seconds": 0.15515421100008098, "pv": ["h4e7", "e4b7", "e7b7", "c3e4"]}
+{"id": "rotlewi_rubinstein_1907_ply44", "depth": 4, "score": 10, "nodes": 50280, "seconds": 0.6726331820000269, "pv": ["h4e7", "f1f3", "b7c6", "a1e1"]}
+{"id": "rotlewi_rubinstein_1907_ply44", "depth": 5, "score": 115, "nodes": 260667, "seconds": 2.898011102000055, "pv": ["b7e4", "c3e4", "h4h2", "e2h2", "g4h2", "f1e1", "h2f3"]}
+{"id": "rotlewi_rubinstein_1907_ply44", "depth": 6, "score": 110, "nodes": 925125, "seconds": 10.554170123999938, "pv": ["b7e4", "c3e4", "h4h2", "e2h2", "g4h2", "f1b1", "h2f3", "h1g2"]}
+{"id": "rotlewi_rubinstein_1907_ply44", "depth": 7, "score": 108, "nodes": 3650379, "seconds": 34.4342447250001, "pv": ["b7e4", "c3e4", "h4h2", "e2h2", "g4h2", "f1d1", "h2f3", "d1d8", "c8d8", "h1g2"]}
+{"id": "rotlewi_rubinstein_1907_ply44", "depth": 8, "score": 111, "nodes": 13346470, "seconds": 141.37030792699989, "pv": ["b7e4", "c3e4", "h4h2", "e2h2", "g4h2", "f1d1", "d8d1", "a1d1", "h2g4", "d1d6", "c8b8"]}
+{"elapsed": 180.00071440899956, "total_nodes": 16763046}

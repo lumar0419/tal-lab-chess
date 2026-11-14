@@ -1,0 +1,4 @@
+wac: 300개 중 Stockfish 1초 확인 281개
+ecm: 183개 중 Stockfish 1초 확인 147개
+iq4: 183개 중 Stockfish 1초 확인 146개
+Counter({('wac', True): 194, ('ecm', True): 122, ('iq4', True): 103, ('wac', False): 87, ('iq4', False): 43, ('ecm', False): 25})

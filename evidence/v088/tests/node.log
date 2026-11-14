@@ -1,0 +1,2 @@
+visual helpers: 9 assertions passed
+frontend contracts: 13 assertions passed (auto default, worker cancellation/error, stale poll, cleared arrows)

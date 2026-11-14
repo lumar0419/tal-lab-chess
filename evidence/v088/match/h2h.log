@@ -1,0 +1,80 @@
+engine1: MyEngine 0.8.7 (1)  [SelectiveSearch=true]  Hash 64MB
+engine2: MyEngine 0.8.7 (2)  [SelectiveSearch=false]  Hash 64MB
+실험 ID v088_h2h-20261114-132615-7326  CPU 2개, 시작 시 부하 1.39
+※ 시작 시 시스템 부하가 높음 — 다른 프로그램이 CPU를 쓰고 있으면 결과 비교가 흐려질 수 있음
+40판, 10+0.1s, 오프닝 고정 순서
+
+    1. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1-0      117 ply  Open Game                checkmate
+    2. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       0-1      138 ply  Open Game                checkmate
+    3. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1-0      131 ply  Sicilian                 checkmate
+    4. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       1/2-1/2  106 ply  Sicilian                 threefold_repetition
+    5. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1-0       85 ply  Queen's Gambit Declined  checkmate
+    6. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       0-1       82 ply  Queen's Gambit Declined  checkmate
+    7. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1-0      137 ply  King's Indian            checkmate
+    8. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       1-0      109 ply  King's Indian            checkmate
+    9. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1/2-1/2  144 ply  French                   threefold_repetition
+   10. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       0-1       94 ply  French                   checkmate
+   11. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1-0      227 ply  Caro-Kann                checkmate
+   12. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       1-0      123 ply  Caro-Kann                checkmate
+   13. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1-0      109 ply  English                  checkmate
+   14. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       1-0      133 ply  English                  checkmate
+   15. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1/2-1/2  114 ply  Reti                     threefold_repetition
+   16. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       1-0      147 ply  Reti                     checkmate
+   17. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       0-1      138 ply  Nimzo/Queen's Indian     checkmate
+   18. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       1/2-1/2   57 ply  Nimzo/Queen's Indian     threefold_repetition
+   19. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1/2-1/2   32 ply  Scandinavian             threefold_repetition
+   20. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       0-1      128 ply  Scandinavian             checkmate
+   21. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1-0       73 ply  Open Game                checkmate
+   22. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       0-1       92 ply  Open Game                checkmate
+   23. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1-0      109 ply  Sicilian                 checkmate
+   24. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       1-0      159 ply  Sicilian                 checkmate
+   25. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1-0       89 ply  Queen's Gambit Declined  checkmate
+   26. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       0-1      140 ply  Queen's Gambit Declined  checkmate
+   27. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1-0      139 ply  King's Indian            checkmate
+   28. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       0-1      134 ply  King's Indian            checkmate
+   29. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1/2-1/2  120 ply  French                   threefold_repetition
+   30. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       0-1       46 ply  French                   checkmate
+   31. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1/2-1/2   56 ply  Caro-Kann                threefold_repetition
+   32. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       0-1      136 ply  Caro-Kann                checkmate
+   33. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       0-1      126 ply  English                  checkmate
+   34. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       1-0      195 ply  English                  checkmate
+   35. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       0-1      108 ply  Reti                     checkmate
+   36. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       1/2-1/2  148 ply  Reti                     threefold_repetition
+   37. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1-0      167 ply  Nimzo/Queen's Indian     checkmate
+   38. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       1/2-1/2   57 ply  Nimzo/Queen's Indian     threefold_repetition
+   39. MyEngine 0.8.7 (1)       - MyEngine 0.8.7 (2)       1-0       63 ply  Scandinavian             checkmate
+   40. MyEngine 0.8.7 (2)       - MyEngine 0.8.7 (1)       0-1      150 ply  Scandinavian             checkmate
+
+========================================================================
+MyEngine 0.8.7 (1)  vs  MyEngine 0.8.7 (2)   (10+0.1s)
+  전체             22승 9무 9패 / 40판   점수율 66.2%
+  engine1 백      12승 5무 3패 / 20판   점수율 72.5%
+  engine1 흑      10승 4무 6패 / 20판   점수율 60.0%
+  오프닝별 (engine1 기준):
+    Open Game                4-0-0  (100%)
+    Sicilian                 2-1-1  (62%)
+    Queen's Gambit Declined  4-0-0  (100%)
+    King's Indian            3-0-1  (75%)
+    French                   2-2-0  (75%)
+    Caro-Kann                2-1-1  (62%)
+    English                  1-0-3  (25%)
+    Reti                     0-2-2  (25%)
+    Nimzo/Queen's Indian     1-2-1  (50%)
+    Scandinavian             3-1-0  (88%)
+  메이트 승 22 / 메이트 패 9
+  시간패            engine1 0 / engine2 0
+  불법수·수 없음       engine1 0 / engine2 0
+  엔진 오류·충돌       engine1 0 / engine2 0
+  종료 사유: checkmate 31, threefold_repetition 9
+  평균 대국 길이 116.5 ply
+  생각 시간 MyEngine 0.8.7 (1): 평균 0.21s, 최대 0.45s (2251수), 평균 깊이 4.72, 수당 노드 9,436, NPS 44,874
+  생각 시간 MyEngine 0.8.7 (2): 평균 0.22s, 최대 0.45s (2247수), 평균 깊이 3.79, 수당 노드 15,777, NPS 71,612
+  실행 환경: 시스템 부하 평균 1.05 최대 1.39, 일한 코어 평균 1.01 (1.5 넘은 판 0)
+
+  Elo 차이 (engine1 − engine2, 상대적인 값):
+    +117  95% 범위 +25 ~ +229  (판을 독립으로 본 삼항 오차)
+    쌍 기준 +117  95% 범위 +22 ~ +234  (같은 오프닝 두 판 = 한 쌍, 20쌍)
+    LOS(engine1이 더 강할 확률, 무승부 제외 정규 근사) 99.0%
+========================================================================
+총 970s,  기보 /home/claude/v087/sf/h2h.pgn  결과 /home/claude/v087/sf/h2h.json  표 /home/claude/v087/sf/h2h.csv
+exit 0

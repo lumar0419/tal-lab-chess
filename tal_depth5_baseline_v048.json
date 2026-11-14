@@ -1,0 +1,613 @@
+{
+  "schema_version": 1,
+  "engine_version": "0.4.8",
+  "overview": {
+    "baseline": {
+      "cases": 4,
+      "historical_choices_at_last_depth": 0,
+      "gaps_narrowed_at_last_depth": 1,
+      "gaps_widened_at_last_depth": 1
+    }
+  },
+  "utc_created": "2026-11-12T09:44:24.362796+00:00",
+  "python_version": "3.13.5",
+  "system": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "profiles": [
+    "baseline"
+  ],
+  "depths": [
+    4,
+    5
+  ],
+  "cases": [
+    {
+      "case_id": "botvinnik_tal_1960_g6_ply42",
+      "game_id": "botvinnik_tal_1960_g6",
+      "theme": "knight_sacrifice",
+      "fen": "2r3k1/pp4bp/3p2p1/3Ppb1n/1qr5/2N1B1PP/PP2QPBK/R1R5 b - - 1 21",
+      "historical_san": "Nf4",
+      "historical_move": "h5f4",
+      "source": "https://en.wikipedia.org/wiki/World_Chess_Championship_1960",
+      "profile": "baseline",
+      "historical_static": {
+        "static_eval_after_move_cp": 9,
+        "immediate_material_delta_cp": 0,
+        "signals": {
+          "gives_check": false,
+          "captures": false,
+          "exposed_to_capture_after": true,
+          "moves_into_attack": false,
+          "moved_piece": "N"
+        }
+      },
+      "depth_results": [
+        {
+          "depth": 4,
+          "selected": {
+            "move": "e5e4",
+            "score_cp_or_mate_encoded": -51,
+            "score_display": "-0.51",
+            "completed_depth": 4,
+            "nodes": 146486,
+            "elapsed_s": 2.25481,
+            "pv": [
+              "e5e4",
+              "g3g4",
+              "g7e5",
+              "h2g1"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "historical_forced": {
+            "move": "h5f4",
+            "score_cp_or_mate_encoded": -244,
+            "score_display": "-2.44",
+            "completed_depth": 4,
+            "nodes": 20256,
+            "elapsed_s": 0.33209,
+            "pv": [
+              "h5f4",
+              "g3f4",
+              "e5f4",
+              "e3a7"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              -320,
+              -220,
+              -320
+            ]
+          },
+          "historical_move_chosen": false,
+          "approx_score_gap_cp": 193,
+          "mate_sensitive": false,
+          "selected_static": {
+            "static_eval_after_move_cp": -30,
+            "immediate_material_delta_cp": 0,
+            "signals": {
+              "gives_check": false,
+              "captures": false,
+              "exposed_to_capture_after": false,
+              "moves_into_attack": false,
+              "moved_piece": "P"
+            }
+          },
+          "warning": null
+        },
+        {
+          "depth": 5,
+          "selected": {
+            "move": "e5e4",
+            "score_cp_or_mate_encoded": -51,
+            "score_display": "-0.51",
+            "completed_depth": 5,
+            "nodes": 401004,
+            "elapsed_s": 4.33656,
+            "pv": [
+              "e5e4",
+              "g3g4",
+              "g7e5",
+              "h2g1",
+              "h5f4"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "historical_forced": {
+            "move": "h5f4",
+            "score_cp_or_mate_encoded": -244,
+            "score_display": "-2.44",
+            "completed_depth": 5,
+            "nodes": 35355,
+            "elapsed_s": 0.4808,
+            "pv": [
+              "h5f4",
+              "g3f4",
+              "e5f4",
+              "e3a7",
+              "g7c3"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              -320,
+              -220,
+              -320,
+              0
+            ]
+          },
+          "historical_move_chosen": false,
+          "approx_score_gap_cp": 193,
+          "mate_sensitive": false,
+          "selected_static": {
+            "static_eval_after_move_cp": -30,
+            "immediate_material_delta_cp": 0,
+            "signals": {
+              "gives_check": false,
+              "captures": false,
+              "exposed_to_capture_after": false,
+              "moves_into_attack": false,
+              "moved_piece": "P"
+            }
+          },
+          "warning": null
+        }
+      ],
+      "gap_trend_first_to_last_cp": 0,
+      "interpretation": "Depth/gap trends alone cannot distinguish horizon effects, evaluation bias, and a speculative historical move. Independent stronger analysis is needed."
+    },
+    {
+      "case_id": "tal_larsen_1965_g10_ply31",
+      "game_id": "tal_larsen_1965_g10",
+      "theme": "positional_knight_sacrifice",
+      "fen": "rqb2rk1/3nbppp/p2pp3/6P1/1p1BPP2/2NB1Q2/PPP4P/2KR3R w - - 0 16",
+      "historical_san": "Nd5",
+      "historical_move": "c3d5",
+      "source": "https://github.com/tonymorris/immortalgames/blob/master/immortal_games.pgn",
+      "profile": "baseline",
+      "historical_static": {
+        "static_eval_after_move_cp": 66,
+        "immediate_material_delta_cp": 0,
+        "signals": {
+          "gives_check": false,
+          "captures": false,
+          "exposed_to_capture_after": true,
+          "moves_into_attack": false,
+          "moved_piece": "N"
+        }
+      },
+      "depth_results": [
+        {
+          "depth": 4,
+          "selected": {
+            "move": "c3e2",
+            "score_cp_or_mate_encoded": 16,
+            "score_display": "+0.16",
+            "completed_depth": 4,
+            "nodes": 21019,
+            "elapsed_s": 0.31721,
+            "pv": [
+              "c3e2",
+              "e6e5",
+              "d4e3",
+              "b8c7"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "historical_forced": {
+            "move": "c3d5",
+            "score_cp_or_mate_encoded": -171,
+            "score_display": "-1.71",
+            "completed_depth": 4,
+            "nodes": 1537,
+            "elapsed_s": 0.02036,
+            "pv": [
+              "c3d5",
+              "e6d5",
+              "e4d5",
+              "b8c7"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              -320,
+              -220,
+              -220
+            ]
+          },
+          "historical_move_chosen": false,
+          "approx_score_gap_cp": 187,
+          "mate_sensitive": false,
+          "selected_static": {
+            "static_eval_after_move_cp": 51,
+            "immediate_material_delta_cp": 0,
+            "signals": {
+              "gives_check": false,
+              "captures": false,
+              "exposed_to_capture_after": false,
+              "moves_into_attack": false,
+              "moved_piece": "N"
+            }
+          },
+          "warning": null
+        },
+        {
+          "depth": 5,
+          "selected": {
+            "move": "c3e2",
+            "score_cp_or_mate_encoded": 21,
+            "score_display": "+0.21",
+            "completed_depth": 5,
+            "nodes": 123380,
+            "elapsed_s": 1.49573,
+            "pv": [
+              "c3e2",
+              "e6e5",
+              "d4e3",
+              "d7c5"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "historical_forced": {
+            "move": "c3d5",
+            "score_cp_or_mate_encoded": -166,
+            "score_display": "-1.66",
+            "completed_depth": 5,
+            "nodes": 8682,
+            "elapsed_s": 0.09734,
+            "pv": [
+              "c3d5",
+              "e6d5",
+              "e4d5",
+              "d7c5",
+              "d3c4"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              -320,
+              -220,
+              -220,
+              -220
+            ]
+          },
+          "historical_move_chosen": false,
+          "approx_score_gap_cp": 187,
+          "mate_sensitive": false,
+          "selected_static": {
+            "static_eval_after_move_cp": 51,
+            "immediate_material_delta_cp": 0,
+            "signals": {
+              "gives_check": false,
+              "captures": false,
+              "exposed_to_capture_after": false,
+              "moves_into_attack": false,
+              "moved_piece": "N"
+            }
+          },
+          "warning": null
+        }
+      ],
+      "gap_trend_first_to_last_cp": 0,
+      "interpretation": "Depth/gap trends alone cannot distinguish horizon effects, evaluation bias, and a speculative historical move. Independent stronger analysis is needed."
+    },
+    {
+      "case_id": "tal_benko_1959_r14_ply45",
+      "game_id": "tal_benko_1959_r14",
+      "theme": "bishop_offer",
+      "fen": "1r1qr1k1/2n1p2p/p2pP1pB/2pP1p2/bp5R/5N1P/1bPQ1PP1/4RBK1 w - - 0 23",
+      "historical_san": "Bf8",
+      "historical_move": "h6f8",
+      "source": "https://www.chessbox.in/chessgame/tal-mihail-benko-pal-c-2/",
+      "profile": "baseline",
+      "historical_static": {
+        "static_eval_after_move_cp": -110,
+        "immediate_material_delta_cp": 0,
+        "signals": {
+          "gives_check": false,
+          "captures": false,
+          "exposed_to_capture_after": true,
+          "moves_into_attack": true,
+          "moved_piece": "B"
+        }
+      },
+      "depth_results": [
+        {
+          "depth": 4,
+          "selected": {
+            "move": "d2d3",
+            "score_cp_or_mate_encoded": -115,
+            "score_display": "-1.15",
+            "completed_depth": 4,
+            "nodes": 31036,
+            "elapsed_s": 0.43045,
+            "pv": [
+              "d2d3",
+              "a4b5",
+              "d3b3",
+              "b2f6"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "historical_forced": {
+            "move": "h6f8",
+            "score_cp_or_mate_encoded": -350,
+            "score_display": "-3.50",
+            "completed_depth": 4,
+            "nodes": 9153,
+            "elapsed_s": 0.13529,
+            "pv": [
+              "h6f8",
+              "e8f8",
+              "d2h6",
+              "f8e8"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              -330,
+              -330,
+              -330
+            ]
+          },
+          "historical_move_chosen": false,
+          "approx_score_gap_cp": 235,
+          "mate_sensitive": false,
+          "selected_static": {
+            "static_eval_after_move_cp": -105,
+            "immediate_material_delta_cp": 0,
+            "signals": {
+              "gives_check": false,
+              "captures": false,
+              "exposed_to_capture_after": false,
+              "moves_into_attack": false,
+              "moved_piece": "Q"
+            }
+          },
+          "warning": null
+        },
+        {
+          "depth": 5,
+          "selected": {
+            "move": "e1b1",
+            "score_cp_or_mate_encoded": -115,
+            "score_display": "-1.15",
+            "completed_depth": 5,
+            "nodes": 225439,
+            "elapsed_s": 2.5356,
+            "pv": [
+              "e1b1",
+              "b2c3",
+              "d2d1",
+              "a4b5",
+              "f1d3"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "historical_forced": {
+            "move": "h6f8",
+            "score_cp_or_mate_encoded": -360,
+            "score_display": "-3.60",
+            "completed_depth": 5,
+            "nodes": 37566,
+            "elapsed_s": 0.49131,
+            "pv": [
+              "h6f8",
+              "b2c3",
+              "d2h6",
+              "c3f6",
+              "h6h7"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              0,
+              0,
+              0,
+              100
+            ]
+          },
+          "historical_move_chosen": false,
+          "approx_score_gap_cp": 245,
+          "mate_sensitive": false,
+          "selected_static": {
+            "static_eval_after_move_cp": -115,
+            "immediate_material_delta_cp": 0,
+            "signals": {
+              "gives_check": false,
+              "captures": false,
+              "exposed_to_capture_after": false,
+              "moves_into_attack": false,
+              "moved_piece": "R"
+            }
+          },
+          "warning": null
+        }
+      ],
+      "gap_trend_first_to_last_cp": 10,
+      "interpretation": "Depth/gap trends alone cannot distinguish horizon effects, evaluation bias, and a speculative historical move. Independent stronger analysis is needed."
+    },
+    {
+      "case_id": "tal_smyslov_1959_r8_ply27",
+      "game_id": "tal_smyslov_1959_r8",
+      "theme": "bishop_offer",
+      "fen": "r1bb1rk1/p2n1ppp/q1p2n2/1p3N2/2BQ4/5N2/PPPB1PPP/2KR3R w - - 4 14",
+      "historical_san": "Qh4",
+      "historical_move": "d4h4",
+      "source": "https://chessmotion.com/explore/famous-chess-games/tal-smyslov-1959",
+      "profile": "baseline",
+      "historical_static": {
+        "static_eval_after_move_cp": 60,
+        "immediate_material_delta_cp": 0,
+        "signals": {
+          "gives_check": false,
+          "captures": false,
+          "exposed_to_capture_after": false,
+          "moves_into_attack": false,
+          "moved_piece": "Q"
+        }
+      },
+      "depth_results": [
+        {
+          "depth": 4,
+          "selected": {
+            "move": "c4b3",
+            "score_cp_or_mate_encoded": 40,
+            "score_display": "+0.40",
+            "completed_depth": 4,
+            "nodes": 56158,
+            "elapsed_s": 0.68048,
+            "pv": [
+              "c4b3",
+              "c6c5",
+              "d4e3",
+              "d8b6"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "historical_forced": {
+            "move": "d4h4",
+            "score_cp_or_mate_encoded": -258,
+            "score_display": "-2.58",
+            "completed_depth": 4,
+            "nodes": 5620,
+            "elapsed_s": 0.07506,
+            "pv": [
+              "d4h4",
+              "b5c4",
+              "h4g5",
+              "g7g6"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              -330,
+              -330,
+              -330
+            ]
+          },
+          "historical_move_chosen": false,
+          "approx_score_gap_cp": 298,
+          "mate_sensitive": false,
+          "selected_static": {
+            "static_eval_after_move_cp": 70,
+            "immediate_material_delta_cp": 0,
+            "signals": {
+              "gives_check": false,
+              "captures": false,
+              "exposed_to_capture_after": false,
+              "moves_into_attack": false,
+              "moved_piece": "B"
+            }
+          },
+          "warning": null
+        },
+        {
+          "depth": 5,
+          "selected": {
+            "move": "c4b3",
+            "score_cp_or_mate_encoded": 45,
+            "score_display": "+0.45",
+            "completed_depth": 5,
+            "nodes": 391388,
+            "elapsed_s": 4.67378,
+            "pv": [
+              "c4b3",
+              "c6c5",
+              "d4e3",
+              "c5c4",
+              "e3g5"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "historical_forced": {
+            "move": "d4h4",
+            "score_cp_or_mate_encoded": -239,
+            "score_display": "-2.39",
+            "completed_depth": 5,
+            "nodes": 31553,
+            "elapsed_s": 0.47274,
+            "pv": [
+              "d4h4",
+              "b5c4",
+              "h4g5",
+              "g7g6",
+              "c1b1"
+            ],
+            "material_delta_by_ply_cp": [
+              0,
+              -330,
+              -330,
+              -330,
+              -330
+            ]
+          },
+          "historical_move_chosen": false,
+          "approx_score_gap_cp": 284,
+          "mate_sensitive": false,
+          "selected_static": {
+            "static_eval_after_move_cp": 70,
+            "immediate_material_delta_cp": 0,
+            "signals": {
+              "gives_check": false,
+              "captures": false,
+              "exposed_to_capture_after": false,
+              "moves_into_attack": false,
+              "moved_piece": "B"
+            }
+          },
+          "warning": null
+        }
+      ],
+      "gap_trend_first_to_last_cp": -14,
+      "interpretation": "Depth/gap trends alone cannot distinguish horizon effects, evaluation bias, and a speculative historical move. Independent stronger analysis is needed."
+    }
+  ],
+  "external_stockfish": {},
+  "limitations": [
+    "ONE unchanged chess engine; profiles are runtime flags, not separate engines",
+    "Tal historical move is NOT an objectively correct answer",
+    "A finite-depth root-forced score is NOT the minimax score and can depend on search order",
+    "Scores and PVs can change sharply with depth; no attribution to evaluation vs search without further analysis",
+    "Material deltas follow truncated PVs and are not a measure of lasting sacrifice compensation",
+    "No Elo, human-likeness score, or objective soundness claim is produced",
+    "FENs omit historical move/repetition history even when reconstructed from full game scores",
+    "Stockfish data only appears if independently run with the requested binary and depth"
+  ]
+}

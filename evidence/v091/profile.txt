@@ -1,0 +1,33 @@
+Sat Nov 14 21:22:31 2026    ../evidence-v091/engine.prof
+
+         5129547 function calls (5032592 primitive calls) in 2.701 seconds
+
+   Ordered by: internal time
+   List reduced from 445 to 23 due to restriction <23>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+    71491    0.374    0.000    0.490    0.000 evaluate.py:746(evaluate_white)
+    21869    0.346    0.000    0.586    0.000 board.py:505(pseudo_legal_moves)
+   196528    0.267    0.000    0.267    0.000 board.py:317(is_attacked)
+  69057/5    0.217    0.000    2.635    0.527 search.py:572(negamax)
+   381535    0.178    0.000    0.265    0.000 search.py:1232(priority)
+83064/55713    0.145    0.000    1.211    0.000 search.py:907(quiesce)
+    69822    0.126    0.000    0.169    0.000 board.py:714(has_legal_move)
+    98638    0.123    0.000    0.144    0.000 board.py:758(make_move)
+    25748    0.084    0.000    0.358    0.000 {method 'sort' of 'list' objects}
+   480273    0.078    0.000    0.078    0.000 {method 'get' of 'dict' objects}
+   420532    0.073    0.000    0.124    0.000 <string>:1(<lambda>)
+    98638    0.055    0.000    0.067    0.000 board.py:808(unmake_move)
+   537750    0.055    0.000    0.055    0.000 {method 'append' of 'list' objects}
+     2600    0.053    0.000    0.086    0.000 evaluate.py:396(_pawn_structure)
+   358448    0.051    0.000    0.051    0.000 {built-in method builtins.min}
+   420566    0.051    0.000    0.051    0.000 {built-in method __new__ of type object at 0x144d380}
+     3880    0.049    0.000    0.067    0.000 board.py:637(_generate_evasions)
+   365754    0.046    0.000    0.046    0.000 {method 'upper' of 'str' objects}
+    58481    0.039    0.000    0.070    0.000 board.py:685(_add_pawn_move)
+   425934    0.036    0.000    0.036    0.000 board.py:86(rank_of)
+        1    0.033    0.033    0.049    0.049 evaluate.py:1(<module>)
+    71491    0.026    0.000    0.516    0.000 evaluate.py:835(evaluate)
+    69058    0.021    0.000    0.112    0.000 board.py:352(in_check)
+
+

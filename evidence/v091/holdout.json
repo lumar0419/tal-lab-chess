@@ -1,0 +1,568 @@
+[
+  {
+    "id": "lichess_d2fLf",
+    "game": "7dVWAvmW",
+    "source": "https://lichess.org/game/7dVWAvmW#51",
+    "suite": "defense",
+    "fen": "3r1r1k/4R1p1/2Qp4/P1p2q2/8/2P3p1/1P3P1P/5RK1 b - - 1 26",
+    "bm": [
+      "g3f2"
+    ],
+    "rating": 2322,
+    "solution": [
+      "g3f2",
+      "g1h1",
+      "d6d5"
+    ]
+  },
+  {
+    "id": "lichess_oA4fo",
+    "game": "hrDImKAB",
+    "source": "https://lichess.org/game/hrDImKAB/black#52",
+    "suite": "defense",
+    "fen": "5rk1/R4p1p/1q1pp1pQ/2p1P3/1rPn4/2N3PP/1P3PK1/5R2 w - - 1 27",
+    "bm": [
+      "c3e4"
+    ],
+    "rating": 1884,
+    "solution": [
+      "c3e4",
+      "b6c6",
+      "f2f3"
+    ]
+  },
+  {
+    "id": "lichess_GYimm",
+    "game": "vXWLaCl8",
+    "source": "https://lichess.org/game/vXWLaCl8/black#66",
+    "suite": "defense",
+    "fen": "8/8/2p1k3/1pP1p3/p3P2p/P4KrR/1P6/8 w - - 4 34",
+    "bm": [
+      "h3g3"
+    ],
+    "rating": 1982,
+    "solution": [
+      "h3g3",
+      "h4g3",
+      "f3g3",
+      "e6f6",
+      "g3h4",
+      "f6g6",
+      "h4g4"
+    ]
+  },
+  {
+    "id": "lichess_fmTfQ",
+    "game": "TyFT3y9M",
+    "source": "https://lichess.org/game/TyFT3y9M/black#78",
+    "suite": "defense",
+    "fen": "2r4k/5P1p/p4q2/4p3/P2p2Q1/3P1n1P/7K/6R1 w - - 4 40",
+    "bm": [
+      "h2h1"
+    ],
+    "rating": 1712,
+    "solution": [
+      "h2h1",
+      "f3g1",
+      "g4c8",
+      "h8g7",
+      "c8g8"
+    ]
+  },
+  {
+    "id": "lichess_XsYUe",
+    "game": "EsKaYaN8",
+    "source": "https://lichess.org/game/EsKaYaN8/black#78",
+    "suite": "defense",
+    "fen": "2r2rk1/5p2/5Qp1/p1pPp2P/2B1P3/2q3Nn/P4PK1/8 w - - 0 40",
+    "bm": [
+      "h5h6"
+    ],
+    "rating": 1731,
+    "solution": [
+      "h5h6",
+      "h3f4",
+      "g2h2",
+      "c3g3",
+      "f2g3"
+    ]
+  },
+  {
+    "id": "lichess_pAENi",
+    "game": "r0HMVSTL",
+    "source": "https://lichess.org/game/r0HMVSTL#81",
+    "suite": "defense",
+    "fen": "8/5k2/1p6/1r4R1/7P/6PK/6P1/8 b - - 2 41",
+    "bm": [
+      "b5g5"
+    ],
+    "rating": 1677,
+    "solution": [
+      "b5g5",
+      "h4g5",
+      "b6b5",
+      "h3g4",
+      "b5b4"
+    ]
+  },
+  {
+    "id": "lichess_WAgLa",
+    "game": "vXFYpqfb",
+    "source": "https://lichess.org/game/vXFYpqfb/black#82",
+    "suite": "defense",
+    "fen": "8/2p3p1/2Kp3p/1p5P/6kP/8/PP6/8 w - - 4 42",
+    "bm": [
+      "c6b5"
+    ],
+    "rating": 1609,
+    "solution": [
+      "c6b5",
+      "g4h5",
+      "a2a4",
+      "h5h4",
+      "a4a5"
+    ]
+  },
+  {
+    "id": "lichess_J0Y4Z",
+    "game": "Ax7M88IQ",
+    "source": "https://lichess.org/game/Ax7M88IQ#61",
+    "suite": "defense",
+    "fen": "8/R2p2bk/2p4p/1p1pP1p1/1P1P4/2P1BP1q/2Q2P2/5bK1 b - - 5 31",
+    "bm": [
+      "h7g8"
+    ],
+    "rating": 1907,
+    "solution": [
+      "h7g8",
+      "a7a8",
+      "g8f7",
+      "c2f5",
+      "h3f5"
+    ]
+  },
+  {
+    "id": "lichess_WOVV9",
+    "game": "EcSME7y4",
+    "source": "https://lichess.org/game/EcSME7y4#55",
+    "suite": "forced_mate",
+    "fen": "5qk1/p2pP1pp/b5r1/2pP3Q/8/1PN4P/P1P3r1/R3R2K b - - 1 28",
+    "bm": [
+      "g2h2"
+    ],
+    "rating": 1836,
+    "solution": [
+      "g2h2",
+      "h1h2",
+      "f8f2",
+      "h2h1",
+      "f2g2"
+    ]
+  },
+  {
+    "id": "lichess_ytdRK",
+    "game": "K8WdZOGG",
+    "source": "https://lichess.org/game/K8WdZOGG/black#48",
+    "suite": "forced_mate",
+    "fen": "2r1rk2/pp3ppQ/4p3/3p2Np/3P2n1/1P4P1/PB1Pq2P/R6K w - - 0 25",
+    "bm": [
+      "b2a3"
+    ],
+    "rating": 1677,
+    "solution": [
+      "b2a3",
+      "c8c5",
+      "a3c5",
+      "e8e7",
+      "h7h8"
+    ]
+  },
+  {
+    "id": "lichess_KllsQ",
+    "game": "8hF0396a",
+    "source": "https://lichess.org/game/8hF0396a#89",
+    "suite": "forced_mate",
+    "fen": "Q1Q5/5p1k/7p/1p1p1Kp1/3P2P1/1B2Pb1P/5P1q/8 b - - 3 45",
+    "bm": [
+      "f3e4"
+    ],
+    "rating": 1569,
+    "solution": [
+      "f3e4",
+      "f5f6",
+      "h2d6",
+      "c8e6",
+      "d6e6"
+    ]
+  },
+  {
+    "id": "lichess_X7OVY",
+    "game": "9MML5Nxf",
+    "source": "https://lichess.org/game/9MML5Nxf/black#42",
+    "suite": "forced_mate",
+    "fen": "r1b2rk1/1p3pp1/p6p/3p4/5QqP/P2B4/2P3P1/4RR1K w - - 4 22",
+    "bm": [
+      "f4f7"
+    ],
+    "rating": 1607,
+    "solution": [
+      "f4f7",
+      "f8f7",
+      "e1e8",
+      "f7f8",
+      "f1f8"
+    ]
+  },
+  {
+    "id": "lichess_w8nMf",
+    "game": "Wp8r7Rkr",
+    "source": "https://lichess.org/game/Wp8r7Rkr#39",
+    "suite": "forced_mate",
+    "fen": "r4rk1/1pp2pp1/3p2np/3P4/p3P1n1/P1R2NNq/BP3P2/R2Q2K1 b - - 2 20",
+    "bm": [
+      "g6h4"
+    ],
+    "rating": 2250,
+    "solution": [
+      "g6h4",
+      "f3h4",
+      "h3h2",
+      "g1f1",
+      "h2f2"
+    ]
+  },
+  {
+    "id": "lichess_UBo5t",
+    "game": "EnHflo51",
+    "source": "https://lichess.org/game/EnHflo51#53",
+    "suite": "forced_mate",
+    "fen": "2R2rk1/4bqpp/4p3/4B3/1p1P4/1Q2P1PB/7P/6K1 b - - 0 27",
+    "bm": [
+      "f7f2"
+    ],
+    "rating": 1581,
+    "solution": [
+      "f7f2",
+      "g1h1",
+      "f2e1",
+      "h3f1",
+      "e1f1"
+    ]
+  },
+  {
+    "id": "lichess_FItSM",
+    "game": "opP5azOD",
+    "source": "https://lichess.org/game/opP5azOD#77",
+    "suite": "forced_mate",
+    "fen": "1r1bkr2/6R1/3p4/3P2PR/3BP3/2p5/1PN5/1K6 b - - 0 39",
+    "bm": [
+      "b8b2"
+    ],
+    "rating": 1717,
+    "solution": [
+      "b8b2",
+      "b1a1",
+      "f8f1",
+      "c2e1",
+      "f1e1"
+    ]
+  },
+  {
+    "id": "lichess_7XmMz",
+    "game": "NhSZYvuV",
+    "source": "https://lichess.org/game/NhSZYvuV#65",
+    "suite": "forced_mate",
+    "fen": "8/3Q1pkp/4p1pb/8/3P4/4PB2/1r3RPP/6K1 b - - 0 33",
+    "bm": [
+      "b2b1"
+    ],
+    "rating": 1949,
+    "solution": [
+      "b2b1",
+      "f3d1",
+      "b1d1",
+      "f2f1",
+      "h6e3",
+      "g1h1",
+      "d1f1"
+    ]
+  },
+  {
+    "id": "lichess_scETJ",
+    "game": "DgOTlu45",
+    "source": "https://lichess.org/game/DgOTlu45#83",
+    "suite": "long_sacrifice",
+    "fen": "1Q6/P5pk/7p/6n1/2q5/3p2NP/6PK/8 b - - 0 42",
+    "bm": [
+      "g5f3"
+    ],
+    "rating": 1930,
+    "solution": [
+      "g5f3",
+      "g2f3",
+      "c4c2",
+      "h2h1",
+      "d3d2"
+    ]
+  },
+  {
+    "id": "lichess_jwBkl",
+    "game": "fnAxXIZW",
+    "source": "https://lichess.org/game/fnAxXIZW#67",
+    "suite": "long_sacrifice",
+    "fen": "8/pppR4/4P1qk/7r/5Pr1/P1P2Q2/1P5P/5R1K b - - 0 34",
+    "bm": [
+      "h5h2"
+    ],
+    "rating": 2223,
+    "solution": [
+      "h5h2",
+      "h1h2",
+      "g4h4",
+      "f3h3",
+      "h4h3",
+      "h2h3",
+      "g6e6",
+      "h3g3",
+      "e6d7"
+    ]
+  },
+  {
+    "id": "lichess_WHw0A",
+    "game": "2LziUTfO",
+    "source": "https://lichess.org/game/2LziUTfO#47",
+    "suite": "long_sacrifice",
+    "fen": "2r2rk1/1p1q1ppb/p4P1p/P2pP3/3Qn3/2P1B3/1P2B2P/R4R1K b - - 2 24",
+    "bm": [
+      "e4g3"
+    ],
+    "rating": 2067,
+    "solution": [
+      "e4g3",
+      "h2g3",
+      "d7h3",
+      "h1g1",
+      "h3g3"
+    ]
+  },
+  {
+    "id": "lichess_ugP3a",
+    "game": "iMABta8V",
+    "source": "https://lichess.org/game/iMABta8V/black#70",
+    "suite": "long_sacrifice",
+    "fen": "8/r3q2k/2pp1rpP/p1n2p2/1p1QpP2/1B6/1PP5/1K4RR w - - 2 36",
+    "bm": [
+      "b3g8"
+    ],
+    "rating": 2074,
+    "solution": [
+      "b3g8",
+      "h7g8",
+      "h6h7",
+      "g8h8",
+      "g1g6",
+      "a7a8",
+      "g6f6"
+    ]
+  },
+  {
+    "id": "lichess_J0Dll",
+    "game": "9yVrAcJg",
+    "source": "https://lichess.org/game/9yVrAcJg#57",
+    "suite": "long_sacrifice",
+    "fen": "1k6/1pp2R2/2n1n1p1/p2pP1P1/3P2B1/2PKB3/PP5r/8 b - - 2 29",
+    "bm": [
+      "e6c5"
+    ],
+    "rating": 1817,
+    "solution": [
+      "e6c5",
+      "d4c5",
+      "c6e5",
+      "d3d4",
+      "e5f7"
+    ]
+  },
+  {
+    "id": "lichess_MvXct",
+    "game": "g1bKoOES",
+    "source": "https://lichess.org/game/g1bKoOES#79",
+    "suite": "long_sacrifice",
+    "fen": "2r5/5pk1/3p1npq/3Pp3/4P1N1/PR4Q1/4N1PP/6K1 b - - 12 40",
+    "bm": [
+      "c8c1"
+    ],
+    "rating": 1933,
+    "solution": [
+      "c8c1",
+      "e2c1",
+      "h6c1",
+      "g1f2",
+      "f6e4"
+    ]
+  },
+  {
+    "id": "lichess_oZOUA",
+    "game": "a2YejEYI",
+    "source": "https://lichess.org/game/a2YejEYI#47",
+    "suite": "long_sacrifice",
+    "fen": "2rq1nk1/7p/2b1p1p1/p5b1/1p2P3/3B4/PPPN2Q1/2KR3R b - - 2 24",
+    "bm": [
+      "d8d3"
+    ],
+    "rating": 1663,
+    "solution": [
+      "d8d3",
+      "c2d3",
+      "c6e4",
+      "c1b1",
+      "e4g2"
+    ]
+  },
+  {
+    "id": "lichess_zcIGz",
+    "game": "CzDgcrbG",
+    "source": "https://lichess.org/game/CzDgcrbG#37",
+    "suite": "long_sacrifice",
+    "fen": "2rq2rk/1p3pp1/p2p1b1p/3N1P2/3nPQ2/3B4/PPP4P/2KR2R1 b - - 0 19",
+    "bm": [
+      "c8c2"
+    ],
+    "rating": 1673,
+    "solution": [
+      "c8c2",
+      "d3c2",
+      "d4e2",
+      "c1b1",
+      "e2f4"
+    ]
+  },
+  {
+    "id": "lichess_k6SL4",
+    "game": "wjtSSoR3",
+    "source": "https://lichess.org/game/wjtSSoR3#111",
+    "suite": "short",
+    "fen": "8/8/5k2/1p2p3/4KP1p/6p1/B5P1/8 b - - 0 56",
+    "bm": [
+      "h4h3"
+    ],
+    "rating": 1637,
+    "solution": [
+      "h4h3",
+      "e4f3",
+      "h3h2"
+    ]
+  },
+  {
+    "id": "lichess_M9uXZ",
+    "game": "Aq6JheLg",
+    "source": "https://lichess.org/game/Aq6JheLg/black#102",
+    "suite": "short",
+    "fen": "8/5pk1/8/3R2pK/4P2P/8/8/6r1 w - - 0 52",
+    "bm": [
+      "d5g5"
+    ],
+    "rating": 1784,
+    "solution": [
+      "d5g5",
+      "g1g5",
+      "h5g5"
+    ]
+  },
+  {
+    "id": "lichess_s0GGK",
+    "game": "cGe0TUGz",
+    "source": "https://lichess.org/game/cGe0TUGz/black#52",
+    "suite": "short",
+    "fen": "5rkr/3P2p1/3np2p/p2p3q/8/P3Q1P1/P1P4P/2K2R2 w - - 0 27",
+    "bm": [
+      "f1f8"
+    ],
+    "rating": 1749,
+    "solution": [
+      "f1f8",
+      "g8f8",
+      "d7d8q"
+    ]
+  },
+  {
+    "id": "lichess_7xqT4",
+    "game": "nDlg0CV0",
+    "source": "https://lichess.org/game/nDlg0CV0#29",
+    "suite": "short",
+    "fen": "5rk1/p3ppbp/2p3p1/q2p1b2/3Pn3/PP2P3/1B1NBPPP/3Q1RK1 b - - 0 15",
+    "bm": [
+      "a5d2"
+    ],
+    "rating": 1786,
+    "solution": [
+      "a5d2",
+      "d1d2",
+      "e4d2"
+    ]
+  },
+  {
+    "id": "lichess_xSMHN",
+    "game": "3GtYaEtN",
+    "source": "https://lichess.org/game/3GtYaEtN/black#84",
+    "suite": "short",
+    "fen": "8/p2b4/7p/3k3P/1P1p1KP1/P2Bp3/8/8 w - - 3 43",
+    "bm": [
+      "g4g5"
+    ],
+    "rating": 1740,
+    "solution": [
+      "g4g5",
+      "h6g5",
+      "f4g5"
+    ]
+  },
+  {
+    "id": "lichess_6hraf",
+    "game": "YcHnMq3P",
+    "source": "https://lichess.org/game/YcHnMq3P#55",
+    "suite": "short",
+    "fen": "2q2rk1/5pb1/pQ4p1/1p1P3p/1P1NnP2/1B3R1b/PB4P1/6K1 b - - 1 28",
+    "bm": [
+      "h3g2"
+    ],
+    "rating": 2057,
+    "solution": [
+      "h3g2",
+      "g1g2",
+      "c8g4"
+    ]
+  },
+  {
+    "id": "lichess_lkBlF",
+    "game": "6ToVNjHf",
+    "source": "https://lichess.org/game/6ToVNjHf#31",
+    "suite": "short",
+    "fen": "1r1q1k1r/pb1p1pp1/1pn1p3/2p1PB2/3P3p/2P1BQ1P/P1P1NPP1/1R3RK1 b - - 0 16",
+    "bm": [
+      "c6d4"
+    ],
+    "rating": 1562,
+    "solution": [
+      "c6d4",
+      "e2d4",
+      "b7f3"
+    ]
+  },
+  {
+    "id": "lichess_b8a9x",
+    "game": "BzJGcwJ1",
+    "source": "https://lichess.org/game/BzJGcwJ1#57",
+    "suite": "short",
+    "fen": "3r2k1/1pp2pq1/p5p1/3r4/3PRQ1R/P5P1/1P3P1P/6K1 b - - 9 29",
+    "bm": [
+      "g6g5"
+    ],
+    "rating": 1672,
+    "solution": [
+      "g6g5",
+      "f4c7",
+      "g5h4"
+    ]
+  }
+]
