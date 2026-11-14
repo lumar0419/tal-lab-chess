@@ -1,0 +1,217 @@
+{
+ "fen": "r4rk1/1b2bpp1/ppq1p3/2ppB2Q/5P2/1P2P3/P1PP2PP/R4RK1 w - - 1 17",
+ "case": "lasker_bauer_1889_ply33",
+ "expected": "e5g7",
+ "profile": "tactical",
+ "seconds": 300.0,
+ "tt_entries": 300000,
+ "engine": "/home/user/tal-lab-chess",
+ "python": "3.13.18",
+ "runtime": "CPython",
+ "rows": [
+  {
+   "depth": 1,
+   "score_white": -284,
+   "nodes": 1565,
+   "seconds": 0.03,
+   "move": "d2d3",
+   "pv": [
+    "d2d3"
+   ]
+  },
+  {
+   "depth": 2,
+   "score_white": -284,
+   "nodes": 6452,
+   "seconds": 0.19,
+   "move": "h5g4",
+   "pv": [
+    "h5g4",
+    "g7g6"
+   ]
+  },
+  {
+   "depth": 3,
+   "score_white": -156,
+   "nodes": 16140,
+   "seconds": 0.46,
+   "move": "e5g7",
+   "pv": [
+    "e5g7",
+    "g8g7",
+    "f1f3",
+    "e7h4",
+    "h5h4"
+   ]
+  },
+  {
+   "depth": 4,
+   "score_white": -149,
+   "nodes": 36136,
+   "seconds": 0.87,
+   "move": "e5g7",
+   "pv": [
+    "e5g7",
+    "g8g7",
+    "f1f3",
+    "f8e8",
+    "f3g3",
+    "e7g5",
+    "h5g5",
+    "g7f8"
+   ]
+  },
+  {
+   "depth": 5,
+   "score_white": 11,
+   "nodes": 93377,
+   "seconds": 1.96,
+   "move": "e5g7",
+   "pv": [
+    "e5g7",
+    "f7f5",
+    "h5h8",
+    "g8f7",
+    "g7f8",
+    "a8f8",
+    "h8h7",
+    "f7f6",
+    "d2d3"
+   ]
+  },
+  {
+   "depth": 6,
+   "score_white": -1,
+   "nodes": 220907,
+   "seconds": 4.27,
+   "move": "e5g7",
+   "pv": [
+    "e5g7",
+    "f7f5",
+    "g7f8",
+    "d5d4",
+    "h5g6",
+    "g8f8",
+    "e3d4",
+    "c5d4",
+    "a1d1"
+   ]
+  },
+  {
+   "depth": 7,
+   "score_white": 10,
+   "nodes": 458602,
+   "seconds": 8.63,
+   "move": "e5g7",
+   "pv": [
+    "e5g7",
+    "f7f5",
+    "g7f8",
+    "g8f8",
+    "d2d4",
+    "c5d4",
+    "h5h8",
+    "f8f7",
+    "h8d4",
+    "e7f6"
+   ]
+  },
+  {
+   "depth": 8,
+   "score_white": 10,
+   "nodes": 1033589,
+   "seconds": 19.98,
+   "move": "e5g7",
+   "pv": [
+    "e5g7",
+    "f7f5",
+    "g7f8",
+    "e7f8",
+    "h5g6",
+    "f8g7",
+    "d2d3",
+    "a8d8",
+    "a1e1",
+    "c5c4",
+    "d3c4",
+    "d5c4"
+   ]
+  },
+  {
+   "depth": 9,
+   "score_white": 16,
+   "nodes": 2277507,
+   "seconds": 44.95,
+   "move": "e5g7",
+   "pv": [
+    "e5g7",
+    "f7f5",
+    "g7f8",
+    "e7f8",
+    "h5g6",
+    "f8g7",
+    "d2d4",
+    "c5d4",
+    "e3d4",
+    "b6b5",
+    "h2h4",
+    "a8e8"
+   ]
+  },
+  {
+   "depth": 10,
+   "score_white": 73,
+   "nodes": 4881644,
+   "seconds": 99.48,
+   "move": "e5g7",
+   "pv": [
+    "e5g7",
+    "f7f5",
+    "g7b2",
+    "e6e5",
+    "b2e5",
+    "c6e8",
+    "h5h6",
+    "g8f7",
+    "e3e4",
+    "e8c6",
+    "h6h7",
+    "f7e8",
+    "e4f5"
+   ]
+  },
+  {
+   "depth": 11,
+   "score_white": 280,
+   "nodes": 11498373,
+   "seconds": 234.77,
+   "move": "e5g7",
+   "pv": [
+    "e5g7",
+    "g8g7",
+    "h5g4",
+    "g7h7",
+    "f1f3",
+    "e6e5",
+    "f3h3",
+    "c6h6",
+    "g4f5",
+    "h7g7",
+    "h3h6",
+    "g7h6",
+    "f5d7",
+    "a8b8",
+    "d7e7",
+    "e5f4",
+    "e7f6",
+    "h6h7",
+    "f6b6",
+    "f4e3",
+    "d2e3"
+   ]
+  }
+ ],
+ "final_move": "e5g7",
+ "elapsed": 300.0,
+ "matches_expected": true
+}

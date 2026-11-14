@@ -336,7 +336,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--fen', required=True)
     parser.add_argument('--seconds', type=float, default=60)
-    parser.add_argument('--profile', choices=PROFILES, default='conservative')
+    parser.add_argument('--profile', choices=PROFILES, default='tactical')
     parser.add_argument('--candidate')
     parser.add_argument('--moves', nargs='+', default=(), help='Replay UCI moves from the supplied FEN.')
     parser.add_argument('--output', help='Write JSON to a file instead of stdout.')

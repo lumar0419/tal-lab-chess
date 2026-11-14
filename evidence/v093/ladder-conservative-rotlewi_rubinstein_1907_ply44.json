@@ -1,0 +1,160 @@
+{
+ "fen": "2rr2k1/1b3ppp/pb2p3/1p2P3/1P2BPnq/P1N3P1/1B2Q2P/R4R1K b - - 0 22",
+ "case": "rotlewi_rubinstein_1907_ply44",
+ "expected": "c8c3",
+ "profile": "conservative",
+ "seconds": 300.0,
+ "tt_entries": 300000,
+ "engine": "/home/user/tal-lab-chess",
+ "python": "3.13.18",
+ "runtime": "CPython",
+ "rows": [
+  {
+   "depth": 1,
+   "score_white": -6,
+   "nodes": 434,
+   "seconds": 0.01,
+   "move": "h4e7",
+   "pv": [
+    "h4e7",
+    "e4b7",
+    "e7b7",
+    "c3e4"
+   ]
+  },
+  {
+   "depth": 2,
+   "score_white": -5,
+   "nodes": 2213,
+   "seconds": 0.03,
+   "move": "h4e7",
+   "pv": [
+    "h4e7",
+    "a1d1"
+   ]
+  },
+  {
+   "depth": 3,
+   "score_white": -6,
+   "nodes": 11227,
+   "seconds": 0.1,
+   "move": "h4e7",
+   "pv": [
+    "h4e7",
+    "e4b7",
+    "e7b7",
+    "c3e4"
+   ]
+  },
+  {
+   "depth": 4,
+   "score_white": -10,
+   "nodes": 46420,
+   "seconds": 0.52,
+   "move": "h4e7",
+   "pv": [
+    "h4e7",
+    "f1f3",
+    "b7c6",
+    "a1e1"
+   ]
+  },
+  {
+   "depth": 5,
+   "score_white": -115,
+   "nodes": 168663,
+   "seconds": 1.81,
+   "move": "b7e4",
+   "pv": [
+    "b7e4",
+    "c3e4",
+    "h4h2",
+    "e2h2",
+    "g4h2",
+    "f1e1",
+    "h2f3"
+   ]
+  },
+  {
+   "depth": 6,
+   "score_white": -110,
+   "nodes": 495427,
+   "seconds": 5.15,
+   "move": "b7e4",
+   "pv": [
+    "b7e4",
+    "c3e4",
+    "h4h2",
+    "e2h2",
+    "g4h2",
+    "f1b1",
+    "h2f3",
+    "h1g2"
+   ]
+  },
+  {
+   "depth": 7,
+   "score_white": -108,
+   "nodes": 1167452,
+   "seconds": 12.48,
+   "move": "b7e4",
+   "pv": [
+    "b7e4",
+    "c3e4",
+    "h4h2",
+    "e2h2",
+    "g4h2",
+    "f1d1",
+    "h2f3",
+    "d1d8",
+    "c8d8",
+    "h1g2"
+   ]
+  },
+  {
+   "depth": 8,
+   "score_white": -109,
+   "nodes": 3362690,
+   "seconds": 33.59,
+   "move": "b7e4",
+   "pv": [
+    "b7e4",
+    "c3e4",
+    "h4h2",
+    "e2h2",
+    "g4h2",
+    "f1d1",
+    "h2f3",
+    "h1g2",
+    "f3d4",
+    "b2d4",
+    "b6d4"
+   ]
+  },
+  {
+   "depth": 9,
+   "score_white": -240,
+   "nodes": 14252667,
+   "seconds": 158.12,
+   "move": "c8c3",
+   "pv": [
+    "c8c3",
+    "e4b7",
+    "c3g3",
+    "f1f3",
+    "g3f3",
+    "b7f3",
+    "g4f2",
+    "h1g1",
+    "f2d3",
+    "g1f1",
+    "d3b2",
+    "e2b2",
+    "h4f4"
+   ]
+  }
+ ],
+ "final_move": "c8c3",
+ "elapsed": 300.0,
+ "matches_expected": true
+}

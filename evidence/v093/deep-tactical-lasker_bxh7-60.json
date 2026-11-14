@@ -1,0 +1,1276 @@
+{
+  "fen": "r4rk1/1b2bppp/ppq1p3/2pp3n/5P2/1P1BP3/PBPPQ1PP/R4RK1 w - - 0 15",
+  "history": [],
+  "profile": "tactical",
+  "budget": 60.0,
+  "root": [
+    {
+      "depth": 1,
+      "score": -40,
+      "nodes": 514,
+      "seconds": 0.01,
+      "pv": [
+        "e2h5"
+      ]
+    },
+    {
+      "depth": 2,
+      "score": -40,
+      "nodes": 3502,
+      "seconds": 0.08,
+      "pv": [
+        "e2h5",
+        "h7h6"
+      ]
+    },
+    {
+      "depth": 3,
+      "score": -30,
+      "nodes": 6587,
+      "seconds": 0.156,
+      "pv": [
+        "e2h5",
+        "h7h6",
+        "f4f5"
+      ]
+    },
+    {
+      "depth": 4,
+      "score": -40,
+      "nodes": 16474,
+      "seconds": 0.381,
+      "pv": [
+        "e2h5",
+        "h7h6",
+        "f4f5",
+        "e7d6"
+      ]
+    },
+    {
+      "depth": 5,
+      "score": -30,
+      "nodes": 35028,
+      "seconds": 0.764,
+      "pv": [
+        "e2h5",
+        "f7f5",
+        "a1b1",
+        "e7f6",
+        "h5f3"
+      ]
+    },
+    {
+      "depth": 6,
+      "score": -30,
+      "nodes": 67071,
+      "seconds": 1.406,
+      "pv": [
+        "e2h5",
+        "f7f5",
+        "h5f3",
+        "e7d6",
+        "a1d1",
+        "b6b5"
+      ]
+    },
+    {
+      "depth": 7,
+      "score": -25,
+      "nodes": 128092,
+      "seconds": 2.622,
+      "pv": [
+        "e2h5",
+        "h7h6",
+        "f4f5",
+        "d5d4",
+        "e3e4",
+        "e6e5",
+        "h5f3"
+      ]
+    },
+    {
+      "depth": 8,
+      "score": -30,
+      "nodes": 258687,
+      "seconds": 5.264,
+      "pv": [
+        "e2h5",
+        "h7h6",
+        "h5f3",
+        "a8d8",
+        "f1e1",
+        "c6d7",
+        "a1d1",
+        "e7d6"
+      ]
+    },
+    {
+      "depth": 9,
+      "score": -30,
+      "nodes": 525035,
+      "seconds": 11.21,
+      "pv": [
+        "e2h5",
+        "h7h6",
+        "f4f5",
+        "d5d4",
+        "e3e4",
+        "e6e5",
+        "h5f3",
+        "e7f6",
+        "a1d1"
+      ]
+    },
+    {
+      "depth": 10,
+      "score": 10,
+      "nodes": 1555964,
+      "seconds": 34.515,
+      "pv": [
+        "d3h7",
+        "g8h7",
+        "e2h5",
+        "h7g8",
+        "b2g7",
+        "f7f5",
+        "g7e5",
+        "f8f6",
+        "d2d4",
+        "c5d4",
+        "e3d4",
+        "c6e8",
+        "h5e8",
+        "a8e8",
+        "e5f6",
+        "e7f6"
+      ]
+    }
+  ],
+  "screen": [
+    [
+      {
+        "depth": 1,
+        "score": -422,
+        "nodes": 3340,
+        "seconds": 0.046,
+        "pv": [
+          "b2d4",
+          "c5d4",
+          "e2h5"
+        ]
+      },
+      {
+        "depth": 1,
+        "score": -453,
+        "nodes": 2010,
+        "seconds": 0.028,
+        "pv": [
+          "d3a6",
+          "b7a6",
+          "e2h5",
+          "a6f1",
+          "g1f1"
+        ]
+      }
+    ],
+    [
+      {
+        "depth": 2,
+        "score": -407,
+        "nodes": 6553,
+        "seconds": 0.121,
+        "pv": [
+          "b2d4",
+          "c5d4",
+          "e2h5",
+          "g7g6"
+        ]
+      },
+      {
+        "depth": 2,
+        "score": -419,
+        "nodes": 9412,
+        "seconds": 0.176,
+        "pv": [
+          "d3b5",
+          "c6b5",
+          "e2h5",
+          "c5c4"
+        ]
+      }
+    ],
+    [
+      {
+        "depth": 3,
+        "score": -397,
+        "nodes": 14664,
+        "seconds": 0.295,
+        "pv": [
+          "b2d4",
+          "c5d4",
+          "e2h5",
+          "g7g6",
+          "h5f3"
+        ]
+      },
+      {
+        "depth": 3,
+        "score": -409,
+        "nodes": 19631,
+        "seconds": 0.399,
+        "pv": [
+          "d3b5",
+          "c6b5",
+          "e2h5",
+          "c5c4",
+          "f4f5"
+        ]
+      }
+    ],
+    [
+      {
+        "depth": 4,
+        "score": -394,
+        "nodes": 42131,
+        "seconds": 0.932,
+        "pv": [
+          "d3b5",
+          "c6b5",
+          "e2h5",
+          "b5c6",
+          "h5g4",
+          "g7g6"
+        ]
+      },
+      {
+        "depth": 4,
+        "score": -406,
+        "nodes": 31714,
+        "seconds": 0.692,
+        "pv": [
+          "b2d4",
+          "h5f4",
+          "f1f4",
+          "c5d4",
+          "e3d4",
+          "e7f6"
+        ]
+      }
+    ],
+    [
+      {
+        "depth": 5,
+        "score": -394,
+        "nodes": 77883,
+        "seconds": 1.704,
+        "pv": [
+          "d3b5",
+          "c6b5",
+          "e2h5",
+          "c5c4",
+          "h5g4",
+          "g7g6",
+          "g4f3"
+        ]
+      },
+      {
+        "depth": 5,
+        "score": -396,
+        "nodes": 99820,
+        "seconds": 2.157,
+        "pv": [
+          "d3f5",
+          "e6f5",
+          "e2h5",
+          "d5d4",
+          "f1f2",
+          "c6d5",
+          "e3d4",
+          "c5d4"
+        ]
+      }
+    ],
+    [
+      {
+        "depth": 6,
+        "score": -393,
+        "nodes": 191132,
+        "seconds": 4.086,
+        "pv": [
+          "d3e4",
+          "d5e4",
+          "e2h5",
+          "c5c4",
+          "h5g4",
+          "g7g6",
+          "b3c4",
+          "c6c4"
+        ]
+      },
+      {
+        "depth": 6,
+        "score": -396,
+        "nodes": 229163,
+        "seconds": 4.772,
+        "pv": [
+          "d3f5",
+          "e6f5",
+          "e2h5",
+          "d5d4",
+          "f1f2",
+          "c6d5",
+          "e3d4",
+          "c5d4"
+        ]
+      }
+    ]
+  ],
+  "offers_found": 10,
+  "screen_complete": true,
+  "candidates": [
+    {
+      "move": "d3h7",
+      "offer": {
+        "move": "d3h7",
+        "piece": "B",
+        "acceptances": [
+          {
+            "uci": "g8h7",
+            "material_risk_cp": 230
+          }
+        ],
+        "label": "희생 후보 · 검증 필요"
+      },
+      "reference": true,
+      "iterations": [
+        {
+          "depth": 1,
+          "score": -289,
+          "nodes": 602,
+          "seconds": 0.012,
+          "pv": [
+            "d3h7",
+            "g8h7",
+            "e2h5",
+            "h7g8",
+            "d2d3"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -289,
+          "nodes": 3182,
+          "seconds": 0.067,
+          "pv": [
+            "d3h7",
+            "g8h7",
+            "e2h5",
+            "h7g8",
+            "h5g4",
+            "g7g6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -269,
+          "nodes": 6551,
+          "seconds": 0.154,
+          "pv": [
+            "d3h7",
+            "g8h7",
+            "e2h5",
+            "h7g8",
+            "h5g4",
+            "g7g6",
+            "d2d3"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -273,
+          "nodes": 13010,
+          "seconds": 0.288,
+          "pv": [
+            "d3h7",
+            "g8h7",
+            "e2h5",
+            "h7g8",
+            "h5g4",
+            "g7g6",
+            "d2d4",
+            "c5d4",
+            "b2d4",
+            "c6c2",
+            "d4b6"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -273,
+          "nodes": 24603,
+          "seconds": 0.51,
+          "pv": [
+            "d3h7",
+            "g8h7",
+            "e2h5",
+            "h7g8",
+            "h5g4",
+            "g7g6",
+            "d2d4",
+            "c5d4",
+            "b2d4",
+            "c6c2",
+            "d4b6"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": -156,
+          "nodes": 88108,
+          "seconds": 1.798,
+          "pv": [
+            "d3h7",
+            "g8h7",
+            "e2h5",
+            "h7g8",
+            "b2g7",
+            "g8g7",
+            "h5g4",
+            "g7h7",
+            "g4h3",
+            "h7g6",
+            "h3g4",
+            "g6h6",
+            "g4h3",
+            "e7h4",
+            "h3h4",
+            "h6g7"
+          ]
+        }
+      ],
+      "comparison": {
+        "depth": 6,
+        "score": -156,
+        "reference_score": -156,
+        "delta_for_mover": 0
+      },
+      "defenses": [
+        {
+          "depth": 1,
+          "score": -309,
+          "nodes": 109,
+          "seconds": 0.001,
+          "pv": [
+            "g8h7",
+            "e2h5",
+            "h7g8"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -289,
+          "nodes": 356,
+          "seconds": 0.004,
+          "pv": [
+            "g8h7",
+            "e2h5",
+            "h7g8",
+            "d2d3"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -289,
+          "nodes": 1807,
+          "seconds": 0.034,
+          "pv": [
+            "g8h7",
+            "e2h5",
+            "h7g8",
+            "h5g4",
+            "g7g6"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -289,
+          "nodes": 3259,
+          "seconds": 0.066,
+          "pv": [
+            "g8h7",
+            "e2h5",
+            "h7g8",
+            "d2d3",
+            "e7d6",
+            "f4f5"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -289,
+          "nodes": 10626,
+          "seconds": 0.219,
+          "pv": [
+            "g8h7",
+            "e2h5",
+            "h7g8",
+            "d2d3",
+            "a8d8",
+            "f4f5",
+            "d5d4"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": -274,
+          "nodes": 18063,
+          "seconds": 0.376,
+          "pv": [
+            "g8h7",
+            "e2h5",
+            "h7g8",
+            "d2d3",
+            "a8d8",
+            "h5g4",
+            "d5d4",
+            "e3e4"
+          ]
+        },
+        {
+          "depth": 7,
+          "score": -284,
+          "nodes": 31271,
+          "seconds": 0.662,
+          "pv": [
+            "g8h7",
+            "e2h5",
+            "h7g8",
+            "d2d3",
+            "a8d8",
+            "h5g4",
+            "d5d4",
+            "e3e4",
+            "e7d6"
+          ]
+        },
+        {
+          "depth": 8,
+          "score": -151,
+          "nodes": 66532,
+          "seconds": 1.434,
+          "pv": [
+            "g8h7",
+            "e2h5",
+            "h7g8",
+            "b2g7",
+            "g8g7",
+            "h5g4",
+            "g7h6",
+            "g4h3",
+            "h6g6",
+            "h3g4",
+            "g6h7",
+            "g4h5",
+            "h7g8",
+            "h5g4",
+            "e7g5",
+            "g4g5",
+            "g8h7"
+          ]
+        },
+        {
+          "depth": 9,
+          "score": 0,
+          "nodes": 128353,
+          "seconds": 2.86,
+          "pv": [
+            "g8h7",
+            "e2h5",
+            "h7g8",
+            "b2g7",
+            "g8g7",
+            "h5g4",
+            "g7h8",
+            "g4h5",
+            "h8g8",
+            "h5g4",
+            "e7g5",
+            "g4g5",
+            "g8h8",
+            "g5h6",
+            "h8g8",
+            "h6g5"
+          ]
+        }
+      ],
+      "proof": null,
+      "verification": "defense_searched",
+      "time_limit": 3.073,
+      "material": {
+        "changes_cp": [
+          100,
+          -230,
+          90,
+          90,
+          190,
+          -140,
+          -140,
+          -140,
+          -140,
+          -140,
+          -140,
+          -140,
+          -140,
+          -140,
+          190,
+          190
+        ],
+        "low_cp": -230,
+        "last_cp": 190,
+        "sustained_piece_loss": {
+          "ply": 6,
+          "piece": "B"
+        }
+      },
+      "legal_replies": 2,
+      "defense_time_limit": 2.918,
+      "draw_claim": false,
+      "material_under_defense": {
+        "changes_cp": [
+          100,
+          -230,
+          90,
+          90,
+          190,
+          -140,
+          -140,
+          -140,
+          -140,
+          -140,
+          -140,
+          -140,
+          190,
+          190,
+          190,
+          190,
+          190
+        ],
+        "low_cp": -230,
+        "last_cp": 190,
+        "sustained_piece_loss": {
+          "ply": 6,
+          "piece": "B"
+        }
+      },
+      "consistency": {
+        "status": "disagrees",
+        "candidate_depth": 6,
+        "defense_depth": 5,
+        "candidate_reply": "g8h7",
+        "independent_reply": "g8h7",
+        "candidate_score": -156,
+        "independent_score": -289,
+        "reply_agrees": true,
+        "score_delta": -133
+      },
+      "root_consistency": {
+        "status": "disagrees",
+        "candidate_depth": 10,
+        "defense_depth": 9,
+        "candidate_reply": "g8h7",
+        "independent_reply": "g8h7",
+        "candidate_score": 10,
+        "independent_score": 0,
+        "reply_agrees": true,
+        "score_delta": -10
+      },
+      "required_defense_depth": 9,
+      "deepest_defense_verified": false,
+      "defense_agrees_at_depth": true,
+      "defense_need": 2.585,
+      "defense_accepts": true
+    },
+    {
+      "move": "d3e4",
+      "offer": {
+        "move": "d3e4",
+        "piece": "B",
+        "acceptances": [
+          {
+            "uci": "d5e4",
+            "material_risk_cp": 330
+          }
+        ],
+        "label": "희생 후보 · 검증 필요"
+      },
+      "reference": false,
+      "iterations": [
+        {
+          "depth": 1,
+          "score": -407,
+          "nodes": 801,
+          "seconds": 0.016,
+          "pv": [
+            "d3e4",
+            "d5e4",
+            "e2h5"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -417,
+          "nodes": 1703,
+          "seconds": 0.034,
+          "pv": [
+            "d3e4",
+            "d5e4",
+            "e2h5",
+            "e7d6"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -412,
+          "nodes": 3555,
+          "seconds": 0.078,
+          "pv": [
+            "d3e4",
+            "d5e4",
+            "e2h5",
+            "e7d6",
+            "h5g4"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -397,
+          "nodes": 8707,
+          "seconds": 0.193,
+          "pv": [
+            "d3e4",
+            "d5e4",
+            "e2h5",
+            "e7d6",
+            "h5g4",
+            "g7g6"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -392,
+          "nodes": 16944,
+          "seconds": 0.39,
+          "pv": [
+            "d3e4",
+            "d5e4",
+            "e2h5",
+            "c5c4",
+            "h5g4",
+            "g7g6",
+            "a1d1"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": -393,
+          "nodes": 33564,
+          "seconds": 0.722,
+          "pv": [
+            "d3e4",
+            "d5e4",
+            "e2h5",
+            "c5c4",
+            "h5g4",
+            "g7g6",
+            "b3c4",
+            "c6c4"
+          ]
+        },
+        {
+          "depth": 7,
+          "score": -394,
+          "nodes": 65552,
+          "seconds": 1.403,
+          "pv": [
+            "d3e4",
+            "d5e4",
+            "e2h5",
+            "f8d8",
+            "h5g4",
+            "e7f8",
+            "g4e2",
+            "f8d6",
+            "d2d4",
+            "e4d3",
+            "c2d3"
+          ]
+        },
+        {
+          "depth": 8,
+          "score": -398,
+          "nodes": 107234,
+          "seconds": 2.415,
+          "pv": [
+            "d3e4",
+            "d5e4",
+            "e2h5",
+            "c5c4",
+            "h5g4",
+            "g7g6",
+            "b3c4",
+            "c6c4",
+            "b2c3",
+            "e7d6"
+          ]
+        }
+      ],
+      "comparison": {
+        "depth": 6,
+        "score": -393,
+        "reference_score": -156,
+        "delta_for_mover": -237
+      },
+      "defenses": [
+        {
+          "depth": 1,
+          "score": -407,
+          "nodes": 386,
+          "seconds": 0.005,
+          "pv": [
+            "d5e4",
+            "e2h5"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -407,
+          "nodes": 1402,
+          "seconds": 0.028,
+          "pv": [
+            "d5e4",
+            "e2h5"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -417,
+          "nodes": 3862,
+          "seconds": 0.064,
+          "pv": [
+            "d5e4",
+            "e2h5",
+            "e7d6"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -412,
+          "nodes": 6392,
+          "seconds": 0.131,
+          "pv": [
+            "d5e4",
+            "e2h5",
+            "e7d6",
+            "a1d1"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -397,
+          "nodes": 15685,
+          "seconds": 0.369,
+          "pv": [
+            "d5e4",
+            "e2h5",
+            "e7d6",
+            "h5g5",
+            "g7g6"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": -397,
+          "nodes": 34383,
+          "seconds": 0.787,
+          "pv": [
+            "d5e4",
+            "e2h5",
+            "f7f5",
+            "a1d1",
+            "e7d6",
+            "f1e1"
+          ]
+        },
+        {
+          "depth": 7,
+          "score": -393,
+          "nodes": 78774,
+          "seconds": 1.695,
+          "pv": [
+            "d5e4",
+            "e2h5",
+            "c5c4",
+            "h5g4",
+            "g7g6",
+            "b3c4",
+            "c6c4"
+          ]
+        }
+      ],
+      "proof": null,
+      "verification": "defense_searched",
+      "time_limit": 3.073,
+      "material": {
+        "changes_cp": [
+          0,
+          -330,
+          -10,
+          -10,
+          -10,
+          -10,
+          90,
+          -10,
+          -10,
+          -10
+        ],
+        "low_cp": -330,
+        "last_cp": -10,
+        "sustained_piece_loss": null
+      },
+      "legal_replies": 37,
+      "defense_time_limit": 1.99,
+      "draw_claim": false,
+      "material_under_defense": {
+        "changes_cp": [
+          0,
+          -330,
+          -10,
+          -10,
+          -10,
+          -10,
+          90,
+          -10
+        ],
+        "low_cp": -330,
+        "last_cp": -10,
+        "sustained_piece_loss": null
+      },
+      "consistency": {
+        "status": "disagrees",
+        "candidate_depth": 8,
+        "defense_depth": 7,
+        "candidate_reply": "d5e4",
+        "independent_reply": "d5e4",
+        "candidate_score": -398,
+        "independent_score": -393,
+        "reply_agrees": true,
+        "score_delta": 5
+      },
+      "root_consistency": null,
+      "required_defense_depth": 7,
+      "deepest_defense_verified": false,
+      "defense_agrees_at_depth": true,
+      "defense_need": 1.025,
+      "defense_accepts": true
+    },
+    {
+      "move": "d3f5",
+      "offer": {
+        "move": "d3f5",
+        "piece": "B",
+        "acceptances": [
+          {
+            "uci": "e6f5",
+            "material_risk_cp": 330
+          }
+        ],
+        "label": "희생 후보 · 검증 필요"
+      },
+      "reference": false,
+      "iterations": [
+        {
+          "depth": 1,
+          "score": -402,
+          "nodes": 765,
+          "seconds": 0.014,
+          "pv": [
+            "d3f5",
+            "e6f5",
+            "e2h5"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -407,
+          "nodes": 1913,
+          "seconds": 0.038,
+          "pv": [
+            "d3f5",
+            "e6f5",
+            "e2h5",
+            "d5d4"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -402,
+          "nodes": 3743,
+          "seconds": 0.077,
+          "pv": [
+            "d3f5",
+            "e6f5",
+            "e2h5",
+            "d5d4",
+            "h5e2"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -401,
+          "nodes": 8545,
+          "seconds": 0.191,
+          "pv": [
+            "d3f5",
+            "e6f5",
+            "e2h5",
+            "d5d4",
+            "f1f2",
+            "c6e4",
+            "e3d4",
+            "e4c2"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -396,
+          "nodes": 18019,
+          "seconds": 0.407,
+          "pv": [
+            "d3f5",
+            "e6f5",
+            "e2h5",
+            "d5d4",
+            "f1f2",
+            "c6d5",
+            "e3d4",
+            "c5d4"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": -396,
+          "nodes": 36416,
+          "seconds": 0.777,
+          "pv": [
+            "d3f5",
+            "e6f5",
+            "e2h5",
+            "d5d4",
+            "f1f2",
+            "c6d5",
+            "e3d4",
+            "c5d4"
+          ]
+        },
+        {
+          "depth": 7,
+          "score": -389,
+          "nodes": 77097,
+          "seconds": 1.661,
+          "pv": [
+            "d3f5",
+            "e6f5",
+            "e2h5",
+            "d5d4",
+            "f1f2",
+            "c6e4",
+            "d2d3",
+            "e4e3",
+            "h5f5"
+          ]
+        },
+        {
+          "depth": 8,
+          "score": -394,
+          "nodes": 143299,
+          "seconds": 3.064,
+          "pv": [
+            "d3f5",
+            "e6f5",
+            "e2h5",
+            "d5d4",
+            "f1f2",
+            "c6e4",
+            "a1d1",
+            "e7f6",
+            "d2d3",
+            "e4e3",
+            "h5f5"
+          ]
+        }
+      ],
+      "comparison": {
+        "depth": 6,
+        "score": -396,
+        "reference_score": -156,
+        "delta_for_mover": -240
+      },
+      "defenses": [
+        {
+          "depth": 1,
+          "score": -402,
+          "nodes": 428,
+          "seconds": 0.005,
+          "pv": [
+            "e6f5",
+            "e2h5"
+          ]
+        },
+        {
+          "depth": 2,
+          "score": -402,
+          "nodes": 1256,
+          "seconds": 0.024,
+          "pv": [
+            "e6f5",
+            "e2h5"
+          ]
+        },
+        {
+          "depth": 3,
+          "score": -407,
+          "nodes": 3703,
+          "seconds": 0.061,
+          "pv": [
+            "e6f5",
+            "e2h5",
+            "d5d4"
+          ]
+        },
+        {
+          "depth": 4,
+          "score": -402,
+          "nodes": 6879,
+          "seconds": 0.171,
+          "pv": [
+            "e6f5",
+            "e2h5",
+            "d5d4",
+            "h5e2"
+          ]
+        },
+        {
+          "depth": 5,
+          "score": -401,
+          "nodes": 14800,
+          "seconds": 0.368,
+          "pv": [
+            "e6f5",
+            "e2h5",
+            "d5d4",
+            "f1f2",
+            "c6e4",
+            "e3d4",
+            "e4c2"
+          ]
+        },
+        {
+          "depth": 6,
+          "score": -402,
+          "nodes": 25268,
+          "seconds": 0.606,
+          "pv": [
+            "e6f5",
+            "e2h5",
+            "d5d4",
+            "h5e2",
+            "c6e4",
+            "a1b1"
+          ]
+        },
+        {
+          "depth": 7,
+          "score": -406,
+          "nodes": 55867,
+          "seconds": 1.255,
+          "pv": [
+            "e6f5",
+            "e2h5",
+            "d5d4",
+            "h5h3",
+            "e7f6",
+            "h3g3",
+            "c6e4",
+            "e3d4",
+            "e4c2"
+          ]
+        }
+      ],
+      "proof": null,
+      "verification": "defense_searched",
+      "time_limit": 3.073,
+      "material": {
+        "changes_cp": [
+          0,
+          -330,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -110,
+          -10
+        ],
+        "low_cp": -330,
+        "last_cp": -10,
+        "sustained_piece_loss": null
+      },
+      "legal_replies": 36,
+      "defense_time_limit": 1.996,
+      "draw_claim": false,
+      "material_under_defense": {
+        "changes_cp": [
+          0,
+          -330,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          -10,
+          90,
+          -10
+        ],
+        "low_cp": -330,
+        "last_cp": -10,
+        "sustained_piece_loss": null
+      },
+      "consistency": {
+        "status": "disagrees",
+        "candidate_depth": 8,
+        "defense_depth": 7,
+        "candidate_reply": "e6f5",
+        "independent_reply": "e6f5",
+        "candidate_score": -394,
+        "independent_score": -406,
+        "reply_agrees": true,
+        "score_delta": -12
+      },
+      "root_consistency": null,
+      "required_defense_depth": 7,
+      "deepest_defense_verified": false,
+      "defense_agrees_at_depth": true,
+      "defense_need": 1.035,
+      "defense_accepts": true
+    }
+  ],
+  "phase": "done",
+  "attempting": 8,
+  "elapsed": 59.419,
+  "outcome": "completed",
+  "adaptive": true,
+  "depth_kind": "selective",
+  "root_move": "d3h7"
+}

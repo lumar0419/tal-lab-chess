@@ -25,6 +25,7 @@ ENGINE_IMPLEMENTATION = ('Tal Lab Python / Pyodide' if sys.platform=='emscripten
     'Tal Lab Cython / CPython' if getattr(sys.modules['board'],'__file__','').endswith(('.so','.pyd')) else
     'Tal Lab Python / '+sys.implementation.name)
 
+TACTICAL_EXTRA_DEPTH = 3
 ANALYSIS_OPTION_KEYS = ('tactical_checks', 'attack_activity', 'initiative',
                         'tactical_ordering', 'check_continuation', 'aspiration',
                         'king_safety', 'lmr', 'selective', 'tactical')
@@ -482,7 +483,10 @@ class AnalysisSession:
 
             # MultiPV=1 uses the original root search unchanged. Other values
             # emit a depth only when *all* requested root lines are complete.
-            worker.search(b, max_depth=maximum, min_depth=minimum,
+            # 전술 프로필은 같은 시간에 명목 깊이가 더 빨리 오른다. 화면의 최대 깊이에서 일찍 멈추면
+            # 남은 시간을 버리므로 대국 화면의 선택적 탐색과 같이 상한을 3반수 넉넉히 준다.
+            limit = maximum + (TACTICAL_EXTRA_DEPTH if options['tactical'] else 0)
+            worker.search(b, max_depth=limit, min_depth=minimum,
                           time_limit=seconds,
                           multipv=multipv,
                           on_info=(lambda info: publish([info])) if multipv == 1 else None,

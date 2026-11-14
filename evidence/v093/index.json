@@ -1,0 +1,346 @@
+{
+ "tuning-2s-full-width": {
+  "seconds": 2.0,
+  "options": {},
+  "cases": 574,
+  "solved": 260,
+  "mean_depth": 4.73
+ },
+ "tuning-2s-conservative-lmr": {
+  "seconds": 2.0,
+  "options": {
+   "lmr": true
+  },
+  "cases": 574,
+  "solved": 260,
+  "mean_depth": 5.09
+ },
+ "tuning-2s-lmr-quiet-checks": {
+  "seconds": 2.0,
+  "options": {
+   "lmr": true,
+   "qsearch_quiet_checks": true
+  },
+  "cases": 574,
+  "solved": 281,
+  "mean_depth": 4.84
+ },
+ "tuning-2s-lmr-check-continuation": {
+  "seconds": 2.0,
+  "options": {
+   "lmr": true,
+   "qsearch_quiet_checks": true,
+   "check_continuation": true
+  },
+  "cases": 574,
+  "solved": 284,
+  "mean_depth": 4.64
+ },
+ "tuning-2s-lmr-null-threat": {
+  "seconds": 2.0,
+  "options": {
+   "lmr": true,
+   "null_threat_extension": true
+  },
+  "cases": 574,
+  "solved": 262,
+  "mean_depth": 4.99
+ },
+ "tuning-2s-selective": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true
+  },
+  "cases": 574,
+  "solved": 297,
+  "mean_depth": 6.11
+ },
+ "tuning-2s-selective-no-rfp": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "sel_rfp": false
+  },
+  "cases": 574,
+  "solved": 297,
+  "mean_depth": 5.6
+ },
+ "tuning-2s-selective-no-qs-cuts": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "sel_qsearch": false
+  },
+  "cases": 574,
+  "solved": 295,
+  "mean_depth": 6.01
+ },
+ "tuning-2s-selective-no-futility": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "sel_futility": false
+  },
+  "cases": 574,
+  "solved": 288,
+  "mean_depth": 5.75
+ },
+ "tuning-2s-selective-no-null": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "sel_null": false
+  },
+  "cases": 574,
+  "solved": 286,
+  "mean_depth": 5.67
+ },
+ "tuning-2s-selective-no-iir": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "sel_iir": false
+  },
+  "cases": 574,
+  "solved": 297,
+  "mean_depth": 6.11
+ },
+ "tuning-2s-selective-check-continuation": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "check_continuation": true
+  },
+  "cases": 574,
+  "solved": 299,
+  "mean_depth": 5.76
+ },
+ "tuning-2s-selective-sac1": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "sac_extension": 1
+  },
+  "cases": 574,
+  "solved": 308,
+  "mean_depth": 5.68
+ },
+ "tuning-2s-selective-sac2": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "sac_extension": 2
+  },
+  "cases": 574,
+  "solved": 318,
+  "mean_depth": 5.1
+ },
+ "tuning-2s-selective-sac3": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "sac_extension": 3
+  },
+  "cases": 574,
+  "solved": 314,
+  "mean_depth": 4.33
+ },
+ "rejected-2s-one-reply": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "one_reply_extension": true
+  },
+  "cases": 574,
+  "solved": 304,
+  "mean_depth": 5.86
+ },
+ "rejected-2s-null-mate-threat": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "sel_threat": true
+  },
+  "cases": 574,
+  "solved": 296,
+  "mean_depth": 6.08
+ },
+ "rejected-2s-singular": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "singular_extension": true
+  },
+  "cases": 574,
+  "solved": 299,
+  "mean_depth": 6.09
+ },
+ "rejected-2s-sac2-one-reply": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "sac_extension": 2,
+   "one_reply_extension": true
+  },
+  "cases": 574,
+  "solved": 309,
+  "mean_depth": 4.73
+ },
+ "rejected-2s-sac2-follow-up": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "sac_extension": 2,
+   "sac_follow_extension": 1
+  },
+  "cases": 574,
+  "solved": 311,
+  "mean_depth": 4.77
+ },
+ "rejected-2s-sac2-history-malus": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "sac_extension": 2,
+   "sel_malus": true
+  },
+  "cases": 574,
+  "solved": 313,
+  "mean_depth": 5.1
+ },
+ "tuning-2s-sac2-no-rfp": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "sac_extension": 2,
+   "sel_rfp": false
+  },
+  "cases": 574,
+  "solved": 321,
+  "mean_depth": 4.36
+ },
+ "tuning-2s-sac2-check-continuation": {
+  "seconds": 2.0,
+  "options": {
+   "selective": true,
+   "sac_extension": 2,
+   "check_continuation": true
+  },
+  "cases": 574,
+  "solved": 316,
+  "mean_depth": 4.77
+ },
+ "tuning-8s-conservative-lmr": {
+  "seconds": 8.0,
+  "options": {
+   "lmr": true
+  },
+  "cases": 287,
+  "solved": 143,
+  "mean_depth": 6.14
+ },
+ "tuning-8s-selective": {
+  "seconds": 8.0,
+  "options": {
+   "selective": true
+  },
+  "cases": 287,
+  "solved": 174,
+  "mean_depth": 7.99
+ },
+ "tuning-8s-selective-sac1": {
+  "seconds": 8.0,
+  "options": {
+   "selective": true,
+   "sac_extension": 1
+  },
+  "cases": 287,
+  "solved": 189,
+  "mean_depth": 7.49
+ },
+ "tuning-8s-selective-sac2": {
+  "seconds": 8.0,
+  "options": {
+   "selective": true,
+   "sac_extension": 2
+  },
+  "cases": 287,
+  "solved": 196,
+  "mean_depth": 6.91
+ },
+ "tuning-8s-selective-sac3": {
+  "seconds": 8.0,
+  "options": {
+   "selective": true,
+   "sac_extension": 3
+  },
+  "cases": 287,
+  "solved": 202,
+  "mean_depth": 6.2
+ },
+ "rejected-8s-sac2-singular": {
+  "seconds": 8.0,
+  "options": {
+   "selective": true,
+   "sac_extension": 2,
+   "singular_extension": true
+  },
+  "cases": 287,
+  "solved": 190,
+  "mean_depth": 6.75
+ },
+ "verify-3s-full-width": {
+  "seconds": 3.0,
+  "options": {},
+  "cases": 158,
+  "solved": 116,
+  "mean_depth": 5.82
+ },
+ "verify-3s-conservative-lmr": {
+  "seconds": 3.0,
+  "options": {
+   "lmr": true
+  },
+  "cases": 158,
+  "solved": 119,
+  "mean_depth": 6.32
+ },
+ "verify-3s-selective": {
+  "seconds": 3.0,
+  "options": {
+   "selective": true
+  },
+  "cases": 158,
+  "solved": 124,
+  "mean_depth": 7.38
+ },
+ "verify-3s-tactical": {
+  "seconds": 3.0,
+  "options": {
+   "selective": true,
+   "sac_extension": 2
+  },
+  "cases": 158,
+  "solved": 122,
+  "mean_depth": 6.73
+ },
+ "verify-10s-conservative-lmr": {
+  "seconds": 10.0,
+  "options": {
+   "lmr": true
+  },
+  "cases": 158,
+  "solved": 121,
+  "mean_depth": 7.2
+ },
+ "verify-10s-tactical": {
+  "seconds": 10.0,
+  "options": {
+   "selective": true,
+   "sac_extension": 2
+  },
+  "cases": 158,
+  "solved": 126,
+  "mean_depth": 8.2
+ }
+}

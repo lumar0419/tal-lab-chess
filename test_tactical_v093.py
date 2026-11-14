@@ -148,6 +148,33 @@ class Integration(unittest.TestCase):
         with self.assertRaises(ValueError):
             deep_analysis.make_searcher('nope')
 
+    def test_multipv_lines_are_distinct_legal_moves(self):
+        searcher = Searcher()
+        searcher.set_tactical(True)
+        board = Board(KASPAROV)
+        groups = []
+        searcher.search(board, max_depth=3, multipv=3, on_info=None, on_multipv=groups.append)
+        self.assertEqual([group[0].depth for group in groups], [1, 2, 3])
+        firsts = [line.pv[0] for line in groups[-1]]
+        self.assertEqual(len(set(firsts)), 3)
+        self.assertTrue(set(firsts) <= set(board.legal_moves()))
+        scores = [line.score for line in groups[-1]]
+        self.assertEqual(scores, sorted(scores, reverse=True))
+
+    def test_analysis_session_runs_tactical_past_the_depth_cap(self):
+        import threading
+        import analysis_server
+        session = analysis_server.AnalysisSession(threading.Lock(), background=False)
+        session.set_fen("8/8/8/4k3/8/8/4P3/4K3 w - - 0 1")
+        base = dict(min_depth=1, max_depth=5, seconds=10, multipv=1)
+        session.start({**base, 'options': {'tactical': True}})
+        state = session.state()
+        self.assertTrue(state['options']['tactical'])
+        self.assertEqual(state['status'], 'completed')
+        self.assertEqual(state['completed']['depth'], 5 + analysis_server.TACTICAL_EXTRA_DEPTH)
+        session.start({**base, 'options': {}})
+        self.assertEqual(session.state()['completed']['depth'], 5)
+
     def test_server_option_keys(self):
         import analysis_server
         import web_server

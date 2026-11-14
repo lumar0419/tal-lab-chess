@@ -1,0 +1,90 @@
+[
+ {
+  "id": "queen_offer",
+  "profile": "conservative",
+  "forbidden": "e2e4",
+  "refutation": "d5e4",
+  "root_move": "e2h5",
+  "rejected": true,
+  "reply": "d5e4",
+  "refuted": true,
+  "root_depth": 7
+ },
+ {
+  "id": "queen_offer",
+  "profile": "tactical",
+  "forbidden": "e2e4",
+  "refutation": "d5e4",
+  "root_move": "e2e5",
+  "rejected": true,
+  "reply": "d5e4",
+  "refuted": true,
+  "root_depth": 6
+ },
+ {
+  "id": "rook_offer",
+  "profile": "conservative",
+  "forbidden": "e2e4",
+  "refutation": "d5e4",
+  "root_move": "e2g2",
+  "rejected": true,
+  "reply": "d5e4",
+  "refuted": true,
+  "root_depth": 8
+ },
+ {
+  "id": "rook_offer",
+  "profile": "tactical",
+  "forbidden": "e2e4",
+  "refutation": "d5e4",
+  "root_move": "e2g2",
+  "rejected": true,
+  "reply": "d5e4",
+  "refuted": true,
+  "root_depth": 9
+ },
+ {
+  "id": "black_queen_offer",
+  "profile": "conservative",
+  "forbidden": "e7e5",
+  "refutation": "d4e5",
+  "root_move": "e8d7",
+  "rejected": true,
+  "reply": "d4e5",
+  "refuted": true,
+  "root_depth": 6
+ },
+ {
+  "id": "black_queen_offer",
+  "profile": "tactical",
+  "forbidden": "e7e5",
+  "refutation": "d4e5",
+  "root_move": "e8d7",
+  "rejected": true,
+  "reply": "d4e5",
+  "refuted": true,
+  "root_depth": 6
+ },
+ {
+  "id": "capture_loses_to_mate",
+  "profile": "conservative",
+  "forbidden": "g2f1",
+  "refutation": "a1a8",
+  "root_move": "g2e4",
+  "rejected": true,
+  "reply": "a1a8",
+  "refuted": true,
+  "root_depth": 6
+ },
+ {
+  "id": "capture_loses_to_mate",
+  "profile": "tactical",
+  "forbidden": "g2f1",
+  "refutation": "a1a8",
+  "root_move": "g2e4",
+  "rejected": true,
+  "reply": "a1a8",
+  "refuted": true,
+  "root_depth": 6
+ }
+]
