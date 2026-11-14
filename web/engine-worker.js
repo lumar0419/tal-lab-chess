@@ -1,6 +1,6 @@
 'use strict';
 // A pinned Python runtime executes the SAME Python source as the server.
-const ROOT='https://cdn.jsdelivr.net/pyodide/v0.27.7/full/';
+let ROOT='https://cdn.jsdelivr.net/pyodide/v0.27.7/full/';
 let ready;
 async function initialize(){
   importScripts(ROOT+'pyodide.js');
@@ -10,8 +10,15 @@ async function initialize(){
   return py;
 }
 self.onmessage=async({data})=>{
-  const {id,kind,position,settings}=data;
+  const {id,kind,position,settings,runtimeBase}=data;
   try{
+    if(runtimeBase){
+      const runtime=new URL(runtimeBase,self.location.href);
+      const local=runtime.origin===self.location.origin&&runtime.pathname==='/runtime/pyodide/v0.27.7/';
+      const pinned=runtime.href==='https://cdn.jsdelivr.net/pyodide/v0.27.7/full/';
+      if(!local&&!pinned)throw new Error('허용되지 않은 브라우저 런타임 경로');
+      ROOT=runtime.href;
+    }
     const py=await(ready ||= initialize());
     self.emitState=json=>self.postMessage({id,kind:'progress',state:JSON.parse(json)});
     py.globals.set('request_json',JSON.stringify({position,settings}));

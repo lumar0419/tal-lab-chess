@@ -12,3 +12,7 @@ build/
 
 # Raw profiles may embed private execution paths; keep them local.
 evidence/v092/*.prof
+web/runtime/
+evidence/render-test/screenshots/
+
+node_modules/

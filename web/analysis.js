@@ -10,6 +10,11 @@ let polling = null;
 let localWorker=null,localResult=null,localTicket=0,localWatchdog=null;
 let measurement=null,positionRevision=0;
 const localScores=new Map();
+const deployment=window.TAL_DEPLOYMENT||{};
+if(deployment.site_label)$('site-label').textContent=deployment.site_label;
+if(['local','server','auto'].includes(deployment.default_compute)){
+  $('compute-mode').value=deployment.default_compute;
+}
 let lastFen = '';
 const AUTO_KEY = 'tal_lab_analysis_auto_v055';
 let autoEnabled = true;
@@ -155,6 +160,7 @@ function apply(next, initialize=false) {
   const changed = next.fen !== lastFen;
   lastFen = next.fen;
   state = next;
+  if(next.version)$('engine-version').textContent='ENGINE v'+next.version;
   if(next.engine_implementation){
     $('compute-mode').title='실행 엔진: '+next.engine_implementation;
     $('engine-implementation').textContent='실행 엔진: '+next.engine_implementation;
@@ -421,7 +427,7 @@ async function api(url,data){
     // The worker reconstructs a new session with its own revision counter.
     const settings={...data};
     delete settings.expected_epoch;
-    worker.postMessage({id,kind:'analyze',position:base,settings});
+    worker.postMessage({id,kind:'analyze',position:base,settings,runtimeBase:deployment.runtime_base});
     return localResult;
   }
   if(url==='/api/analysis/state'&&localResult)return localResult;
@@ -457,9 +463,18 @@ function localBenchmark(){
     const done=()=>{clearTimeout(timer);worker.terminate();};
     worker.onerror=e=>{done();reject(new Error(e.message||'Worker 오류'));};
     worker.onmessage=({data})=>{if(data.kind==='done'){done();resolve(data.result);}else if(data.kind==='error'){done();reject(new Error(data.error));}};
-    worker.postMessage({id:1,kind:'benchmark'});
+    worker.postMessage({id:1,kind:'benchmark',runtimeBase:deployment.runtime_base});
   });
 }
+// Send a small cancellation request, never a long-running unload request.
+// The epoch protects a newer job started from another tab in this session.
+window.addEventListener?.('pagehide',()=>{
+  stopLocal();
+  if(state?.active){
+    fetch('/api/analysis/stop',{method:'POST',credentials:'same-origin',keepalive:true,
+      headers:{'Content-Type':'application/json'},body:JSON.stringify({expected_epoch:state.epoch})}).catch(()=>{});
+  }
+});
 $('benchmark-compute').addEventListener('click',async()=>{
   if(busy)return;busy=true;cancelAuto();setAutoPreference(false);clearTimeout(polling);positionRevision++;
   $('benchmark-compute').disabled=true;stopLocal();localResult=null;measurement=null;

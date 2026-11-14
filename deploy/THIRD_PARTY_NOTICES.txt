@@ -1,0 +1,13 @@
+Tal Lab browser runtime
+
+Pyodide 0.27.7 is distributed unmodified from the official npm package.
+License: Mozilla Public License 2.0 (see PYODIDE-LICENSE.txt).
+Corresponding source: https://github.com/pyodide/pyodide/tree/0.27.7
+Release: https://github.com/pyodide/pyodide/releases/tag/0.27.7
+
+The WebAssembly runtime contains CPython and its standard library.
+CPython is covered by the Python Software Foundation License and the
+additional notices reproduced in PYTHON-LICENSE.txt.
+Sources: https://github.com/python/cpython/tree/v3.12.7
+
+These licenses apply to the runtime, separately from Tal Lab's own code.

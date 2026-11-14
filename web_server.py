@@ -18,6 +18,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from version import VERSION
+from web_runtime import RuntimeFile, PREFIX as RUNTIME_PREFIX, FILES as RUNTIME_FILES, DIRECTORY as RUNTIME_DIRECTORY, public_config
 import evaluate
 from board import BLACK, EMPTY, START_FEN, WHITE, Board, file_of, rank_of, sq, sq_name
 from search import Searcher, format_score
@@ -317,8 +318,8 @@ class Game:
         with self.lock:
             result = self._outcome_locked()
             label = result[0] if result else '*'
-            white = 'Player' if self.human == WHITE else 'Tal Lab v0.8.6'
-            black = 'Player' if self.human == BLACK else 'Tal Lab v0.8.6'
+            white = 'Player' if self.human == WHITE else 'Tal Lab v'+VERSION
+            black = 'Player' if self.human == BLACK else 'Tal Lab v'+VERSION
             headers = [
                 '[Event "Tal Lab Local Game"]',
                 '[Site "localhost"]',
@@ -338,22 +339,26 @@ class Game:
 
 class WebHandler(BaseHTTPRequestHandler):
     game = None  # set on the subclass created by make_server
-    server_version = 'TalLab/0.8.6'
+    server_version = 'TalLab/'+VERSION
 
     def _response(self, status, content, content_type='application/json; charset=utf-8', extra=None):
         self.send_response(status)
         self.send_header('Content-Type', content_type)
         self.send_header('Content-Length', str(len(content)))
-        self.send_header('Cache-Control', 'no-store')
+        self.send_header('Cache-Control', (extra or {}).get('Cache-Control','no-store'))
         self.send_header('X-Content-Type-Options', 'nosniff')
         self.send_header('X-Frame-Options', 'DENY')
         self.send_header('Referrer-Policy', 'no-referrer')
         if extra:
             for key, value in extra.items():
-                self.send_header(key, value)
+                if key.lower()!='cache-control':
+                    self.send_header(key, value)
         self.end_headers()
         if self.command != 'HEAD':
-            self.wfile.write(content)
+            if isinstance(content,RuntimeFile):
+                content.write_to(self.wfile)
+            else:
+                self.wfile.write(content)
 
     def _json(self, status, data):
         self._response(status, json.dumps(data, ensure_ascii=False).encode('utf-8'))
@@ -383,6 +388,19 @@ class WebHandler(BaseHTTPRequestHandler):
             self._json(403, {'error': '허용되지 않은 호스트예요.'})
             return
         path = urlsplit(self.path).path
+        if path == '/deployment-config.js':
+            config=getattr(self.server,'site_config',None) or public_config()
+            self._response(200,('window.TAL_DEPLOYMENT = Object.freeze('+json.dumps(config)+');\n').encode(),
+                           'application/javascript; charset=utf-8')
+            return
+        if path.startswith(RUNTIME_PREFIX):
+            name=path[len(RUNTIME_PREFIX):]
+            if name not in RUNTIME_FILES or not (RUNTIME_DIRECTORY/name).is_file():
+                self._json(404,{'error':'브라우저 런타임 파일을 찾을 수 없어요.'})
+                return
+            self._response(200,RuntimeFile(RUNTIME_DIRECTORY/name),RUNTIME_FILES[name],
+                           {'Cache-Control':'private, max-age=31536000, immutable'})
+            return
         if path == '/api/analysis/state':
             self._json(200, self.game.analysis().state())
             return
@@ -458,7 +476,7 @@ class WebHandler(BaseHTTPRequestHandler):
             elif path == '/api/analysis/restart':
                 state = self.game.analysis().start(obj, mode='restart')
             elif path == '/api/analysis/stop':
-                state = self.game.analysis().stop()
+                state = self.game.analysis().stop(expected_epoch=obj.get('expected_epoch'))
             elif path == '/api/analysis/fen':
                 state = self.game.analysis().set_fen(obj.get('fen'))
             elif path == '/api/analysis/move':

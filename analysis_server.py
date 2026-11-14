@@ -174,8 +174,10 @@ class AnalysisSession:
         finally:
             self.search_gate.release()
 
-    def stop(self):
+    def stop(self, *, expected_epoch=None):
         with self.lock:
+            if expected_epoch is not None and expected_epoch != self.epoch:
+                return self._state_locked()
             if self.active:
                 if self.started_at is not None:
                     self.elapsed = time.monotonic() - self.started_at

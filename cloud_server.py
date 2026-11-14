@@ -22,6 +22,8 @@ from urllib.parse import urlsplit
 
 from web_server import Game, WebHandler
 from search_gate import SearchGate
+from version import VERSION
+from web_runtime import public_config, require_runtime
 
 SESSION_COOKIE = 'tal_lab_sid'
 SESSION_TTL = 2 * 60 * 60
@@ -48,6 +50,16 @@ class CloudGame(Game):
             '[Site "localhost"]', '[Site "Tal Lab Cloud"]'
         )
 
+    def _engine_worker(self, *args):
+        try:
+            super()._engine_worker(*args)
+        finally:
+            # Hosted clients share one CPU slot. Do not retain a separate TT
+            # per inactive visitor on a small instance; local games still cache.
+            with self.lock:
+                if not self.thinking:
+                    self._cached_searcher=None
+
 
 class SessionLimitError(Exception):
     pass
@@ -63,13 +75,35 @@ class Sessions:
     """
 
     def __init__(self, ttl=SESSION_TTL, maximum=MAX_SESSIONS,
-                 idle_reclaim=IDLE_RECLAIM_SECONDS, clock=time.monotonic):
+                 idle_reclaim=IDLE_RECLAIM_SECONDS, clock=time.monotonic, job_lease=90):
         self.ttl = ttl
         self.maximum = maximum
         self.idle_reclaim = idle_reclaim
         self.clock = clock
+        self.job_lease = job_lease
         self.lock = threading.Lock()
         self.items = OrderedDict()  # token => (CloudGame, last_seen_epoch)
+
+    @staticmethod
+    def stop_jobs(game):
+        with game.lock:
+            game._stop_locked()
+            if game._analysis:
+                game._analysis.stop()
+
+    def cancel_abandoned_jobs(self):
+        """A disconnected browser cannot occupy the shared CPU indefinitely."""
+        now=self.clock()
+        with self.lock:
+            for game,last in self.items.values():
+                if now-last>=self.job_lease and (
+                        game.thinking or (game._analysis and game._analysis.active)):
+                    self.stop_jobs(game)
+
+    def stop_all(self):
+        with self.lock:
+            for game,_ in self.items.values():
+                self.stop_jobs(game)
 
     def active(self, token):
         with self.lock:
@@ -85,10 +119,12 @@ class Sessions:
                     self.items.move_to_end(token)
                     self.items[token] = (game, now)
                     return token, game, False
+                self.stop_jobs(game)
                 del self.items[token]
             # Normal TTL expiry, even if there is room in the pool.
             for old_token, (game, last) in list(self.items.items()):
                 if now - last >= self.ttl:
+                    self.stop_jobs(game)
                     self.items.pop(old_token, None)
             # Limit reached: reclaim only a long-idle, nonthinking game.
             if len(self.items) >= self.maximum:
@@ -182,7 +218,7 @@ def cookie_token(raw):
 
 
 class CloudHandler(WebHandler):
-    server_version = 'TalLabCloud/0.8.6'
+    server_version = 'TalLabCloud/'+VERSION
 
     def setup(self):
         super().setup()
@@ -350,6 +386,23 @@ class CloudHandler(WebHandler):
             super().log_message(format, *args)
 
 
+class HostedServer(ThreadingHTTPServer):
+    def start_reaper(self):
+        self._reaper_stop=threading.Event()
+        def reap():
+            while not self._reaper_stop.wait(min(5,self.sessions.job_lease/4)):
+                self.sessions.cancel_abandoned_jobs()
+        self._reaper=threading.Thread(target=reap,daemon=True)
+        self._reaper.start()
+
+    def server_close(self):
+        if hasattr(self,'_reaper_stop'):
+            self._reaper_stop.set()
+            self.sessions.stop_all()
+            self._reaper.join(timeout=1)
+        super().server_close()
+
+
 def make_cloud_server(port, *, host='0.0.0.0', public_host, auth_user,
                       auth_password, secure=True, trusted_proxies=()):
     if not auth_password or len(auth_password) < 12:
@@ -359,15 +412,23 @@ def make_cloud_server(port, *, host='0.0.0.0', public_host, auth_user,
     networks = tuple(ip_network(network) for network in trusted_proxies)
     if any(network.prefixlen == 0 for network in networks):
         raise ValueError('신뢰 프록시에는 구체적인 주소 범위가 필요해요.')
-    server = ThreadingHTTPServer((host, port), CloudHandler)
+    config=public_config()
+    require_runtime(config)
+    maximum=int(os.environ.get('TAL_MAX_SESSIONS',str(MAX_SESSIONS)))
+    lease=int(os.environ.get('TAL_JOB_LEASE_SECONDS','90'))
+    if not 1<=maximum<=128 or not 15<=lease<=600:
+        raise ValueError('TAL_MAX_SESSIONS: 1–128; TAL_JOB_LEASE_SECONDS: 15–600.')
+    server = HostedServer((host, port), CloudHandler)
     server.daemon_threads = True
     server.public_host = public_host
     server.auth_user = auth_user
     server.auth_password = auth_password
     server.secure = secure
-    server.sessions = Sessions()
+    server.sessions = Sessions(maximum=maximum,job_lease=lease)
+    server.site_config = config
     server.auth_limiter = AuthLimiter()
     server.trusted_proxies = networks
+    server.start_reaper()
     return server
 
 
@@ -388,6 +449,11 @@ def main():
     except ValueError as exc:
         parser.error(str(exc))
     print(f'Tal Lab cloud ready: host={hostname} port={server.server_port}', flush=True)
+    # shutdown() on the serving thread would deadlock; use the finally below.
+    import signal
+    def terminate(*_):
+        raise KeyboardInterrupt
+    signal.signal(signal.SIGTERM,terminate)
     try:
         server.serve_forever(poll_interval=.2)
     except KeyboardInterrupt:
