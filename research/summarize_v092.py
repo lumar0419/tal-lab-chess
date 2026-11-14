@@ -62,6 +62,24 @@ def main():
                     if r['candidate']['defenses'] else None) for r in data.get('false_offers',[])])
     match=read('match')
     if match:summary['match']=match.get('summary')
+    workflows=[]
+    for path in sorted(ROOT.glob('workflow-*.json')):
+        source=json.loads(path.read_text());report=source['report']
+        rankings=[]
+        items=report['candidates']
+        if items:
+            common=set.intersection(*(set(r['depth'] for r in c['iterations']) for c in items))
+            for depth in sorted(common):
+                lines=[dict(move=c['move'],score=next(r['score'] for r in c['iterations'] if r['depth']==depth)) for c in items]
+                lines.sort(key=lambda l:l['score'],reverse=report['fen'].split()[1]=='w')
+                rankings.append(dict(depth=depth,ranked=lines))
+        workflows.append(dict(file=path.name,root=report['root'][-1] if report['root'] else None,
+            outcome=report['outcome'],rankings=rankings,candidates=[dict(
+                move=c['move'],comparison=c['comparison'],
+                defense=c['defenses'][-1] if c['defenses'] else None,
+                consistency=c.get('consistency'),root_consistency=c.get('root_consistency'),
+                deepest_defense_verified=c.get('deepest_defense_verified')) for c in items]))
+    summary['workflows']=workflows
     checks=read('checks')
     if checks:summary['checks']=checks
     ROOT.joinpath('summary.json').write_text(json.dumps(summary,indent=2)+'\n')

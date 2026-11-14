@@ -2100,17 +2100,32 @@ def test_quick_basics():
     # UCI 기본 명령 (엔진을 프로세스로 띄워서)
     here = os.path.dirname(os.path.abspath(__file__))
     try:
-        p = subprocess.run([sys.executable, os.path.join(here, 'uci.py')], capture_output=True, text=True, timeout=60,
-                           input="uci\nisready\nucinewgame\nposition startpos moves e2e4 e7e5\ngo depth 3\n"
-                                 "position fen 6k1/5ppp/8/8/8/8/5PPP/3R2K1 w - - 0 1\ngo depth 2\nquit\n")
-        out = p.stdout.splitlines()
-        best = [l.split()[1] for l in out if l.startswith('bestmove')]
+        # UCI go is asynchronous. Wait for bestmove before changing position
+        # or sending quit; otherwise a slower/cold JIT is correctly interrupted
+        # before it can publish the mate, making this a scheduler race.
+        from test_uci import Engine as ProtocolProcess
+        engine = ProtocolProcess()
+        try:
+            engine.send('uci')
+            handshake, _, _ = engine.wait_for(lambda line: line == 'uciok', 10)
+            engine.send('isready')
+            ready, _, _ = engine.wait_for(lambda line: line == 'readyok', 10)
+            engine.send('ucinewgame')
+            engine.send('position startpos moves e2e4 e7e5')
+            engine.send('go depth 3')
+            first, _, _ = engine.bestmove(30)
+            engine.send('position fen 6k1/5ppp/8/8/8/8/5PPP/3R2K1 w - - 0 1')
+            engine.send('go depth 2')
+            second, mate_info, _ = engine.bestmove(30)
+        finally:
+            engine.close()
         b = Board()
         b.push_uci('e2e4')
         b.push_uci('e7e5')
-        ok = ('uciok' in out and 'readyok' in out and len(best) == 2 and best[1] == 'd1d8'
-              and best[0] in [m.uci() for m in b.legal_moves()] and any('score mate 1' in l for l in out))
-        detail = ' '.join(best)
+        ok = (handshake == 'uciok' and ready == 'readyok' and second == 'd1d8'
+              and first in [m.uci() for m in b.legal_moves()]
+              and any('score mate 1' in line for line in mate_info))
+        detail = f'{first} {second}'
     except Exception as e:
         ok, detail = False, f"{type(e).__name__}: {e}"
     check("UCI: uci/isready/position/go/quit — uciok, readyok, 합법 bestmove, 1수 메이트는 'score mate 1'과 Rd8", ok, detail)

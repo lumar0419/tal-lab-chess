@@ -12,7 +12,7 @@ from pathlib import Path
 import time
 
 from board import Board
-from search import INF, Searcher
+from search import INF, Searcher, TimeUp
 
 
 class PruningTrace:
@@ -56,6 +56,8 @@ def counterfactual(event, seconds=10):
                 score = engine.quiesce(board,-INF,INF,0)
                 score = -score if event['move'] else score
                 result['runs'][mode] = dict(score=score, nodes=engine.nodes, depth=0)
+            except TimeUp:
+                result['runs'][mode] = dict(status='incomplete',score=None,nodes=engine.nodes,depth=0)
             finally:
                 board.restore(original)
         else:
