@@ -18,16 +18,17 @@ import evaluate
 from board import Board, WHITE, START_FEN, file_of, rank_of, sq, sq_name
 from search import Searcher, TimeUp
 from search_gate import AUTO, DEEP, MANUAL, acquire_search
-from deep_analysis import DEEP_SECONDS, analyze_deep
+from deep_analysis import DEEP_SECONDS, PROFILES as DEEP_PROFILES, analyze_deep
 
 # This comes from the imported implementation, rather than a requested setting.
 ENGINE_IMPLEMENTATION = ('Tal Lab Python / Pyodide' if sys.platform=='emscripten' else
     'Tal Lab Cython / CPython' if getattr(sys.modules['board'],'__file__','').endswith(('.so','.pyd')) else
     'Tal Lab Python / '+sys.implementation.name)
 
+TACTICAL_EXTRA_DEPTH = 3
 ANALYSIS_OPTION_KEYS = ('tactical_checks', 'attack_activity', 'initiative',
                         'tactical_ordering', 'check_continuation', 'aspiration',
-                        'king_safety', 'lmr', 'selective')
+                        'king_safety', 'lmr', 'selective', 'tactical')
 
 
 class AnalysisSession:
@@ -273,7 +274,7 @@ class AnalysisSession:
         candidate = data.get('candidate')
         if type(seconds) is not int or seconds not in DEEP_SECONDS:
             raise ValueError('심층 분석 시간은 60·180·300·600초 중 하나를 선택하세요.')
-        if profile not in ('conservative', 'full', 'selective'):
+        if profile not in DEEP_PROFILES:
             raise ValueError('알 수 없는 심층 분석 설정이에요.')
         if candidate is not None and (not isinstance(candidate, str) or len(candidate) > 5):
             raise ValueError('후보 수는 d1d4 또는 e7e8q 형태로 입력해 주세요.')
@@ -408,6 +409,7 @@ class AnalysisSession:
             worker.aspiration = options['aspiration']
             worker.lmr = options['lmr']
             worker.selective = options['selective']
+            worker.set_tactical(options['tactical'])
             evaluate.ATTACK_ACTIVITY = options['attack_activity']
             evaluate.INITIATIVE = options['initiative']
             evaluate.KING_SAFETY = options['king_safety']
@@ -481,7 +483,10 @@ class AnalysisSession:
 
             # MultiPV=1 uses the original root search unchanged. Other values
             # emit a depth only when *all* requested root lines are complete.
-            worker.search(b, max_depth=maximum, min_depth=minimum,
+            # 전술 프로필은 같은 시간에 명목 깊이가 더 빨리 오른다. 화면의 최대 깊이에서 일찍 멈추면
+            # 남은 시간을 버리므로 대국 화면의 선택적 탐색과 같이 상한을 3반수 넉넉히 준다.
+            limit = maximum + (TACTICAL_EXTRA_DEPTH if options['tactical'] else 0)
+            worker.search(b, max_depth=limit, min_depth=minimum,
                           time_limit=seconds,
                           multipv=multipv,
                           on_info=(lambda info: publish([info])) if multipv == 1 else None,

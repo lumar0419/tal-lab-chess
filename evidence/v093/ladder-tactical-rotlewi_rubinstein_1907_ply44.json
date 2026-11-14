@@ -1,0 +1,260 @@
+{
+ "fen": "2rr2k1/1b3ppp/pb2p3/1p2P3/1P2BPnq/P1N3P1/1B2Q2P/R4R1K b - - 0 22",
+ "case": "rotlewi_rubinstein_1907_ply44",
+ "expected": "c8c3",
+ "profile": "tactical",
+ "seconds": 300.0,
+ "tt_entries": 300000,
+ "engine": "/home/user/tal-lab-chess",
+ "python": "3.13.18",
+ "runtime": "CPython",
+ "rows": [
+  {
+   "depth": 1,
+   "score_white": -1,
+   "nodes": 2760,
+   "seconds": 0.05,
+   "move": "b7e4",
+   "pv": [
+    "b7e4",
+    "c3e4"
+   ]
+  },
+  {
+   "depth": 2,
+   "score_white": -65,
+   "nodes": 7693,
+   "seconds": 0.16,
+   "move": "h4h2",
+   "pv": [
+    "h4h2",
+    "e2h2",
+    "b7e4",
+    "c3e4",
+    "g4h2",
+    "f1e1"
+   ]
+  },
+  {
+   "depth": 3,
+   "score_white": -115,
+   "nodes": 17865,
+   "seconds": 0.37,
+   "move": "h4h2",
+   "pv": [
+    "h4h2",
+    "e2h2",
+    "b7e4",
+    "c3e4",
+    "g4h2",
+    "f1e1",
+    "h2f3"
+   ]
+  },
+  {
+   "depth": 4,
+   "score_white": -115,
+   "nodes": 31919,
+   "seconds": 0.69,
+   "move": "h4h2",
+   "pv": [
+    "h4h2",
+    "e2h2",
+    "b7e4",
+    "c3e4",
+    "g4h2",
+    "f1e1",
+    "h2f3",
+    "e1d1"
+   ]
+  },
+  {
+   "depth": 5,
+   "score_white": -107,
+   "nodes": 59161,
+   "seconds": 1.2,
+   "move": "h4h2",
+   "pv": [
+    "h4h2",
+    "e2h2",
+    "b7e4",
+    "c3e4",
+    "g4h2",
+    "f1d1",
+    "d8d1",
+    "a1d1",
+    "h2g4",
+    "d1d7",
+    "g4f2",
+    "e4f2",
+    "b6f2"
+   ]
+  },
+  {
+   "depth": 6,
+   "score_white": -110,
+   "nodes": 119996,
+   "seconds": 2.21,
+   "move": "h4h2",
+   "pv": [
+    "h4h2",
+    "e2h2",
+    "b7e4",
+    "c3e4",
+    "g4h2",
+    "f1d1",
+    "h2f3",
+    "d1d6",
+    "c8b8",
+    "h1g2"
+   ]
+  },
+  {
+   "depth": 7,
+   "score_white": -112,
+   "nodes": 224542,
+   "seconds": 4.04,
+   "move": "h4h2",
+   "pv": [
+    "h4h2",
+    "e2h2",
+    "b7e4",
+    "c3e4",
+    "g4h2",
+    "f1d1",
+    "h2f3",
+    "d1d8",
+    "c8d8",
+    "h1g2",
+    "f3d4",
+    "b2d4",
+    "b6d4"
+   ]
+  },
+  {
+   "depth": 8,
+   "score_white": -116,
+   "nodes": 396687,
+   "seconds": 7.3,
+   "move": "h4h2",
+   "pv": [
+    "h4h2",
+    "e2h2",
+    "b7e4",
+    "c3e4",
+    "g4h2",
+    "f1d1",
+    "d8d1",
+    "a1d1",
+    "c8c2",
+    "d1c1",
+    "c2c1",
+    "b2c1",
+    "h2f3",
+    "h1g2"
+   ]
+  },
+  {
+   "depth": 9,
+   "score_white": -113,
+   "nodes": 803427,
+   "seconds": 15.86,
+   "move": "h4h2",
+   "pv": [
+    "h4h2",
+    "e2h2",
+    "b7e4",
+    "c3e4",
+    "g4h2",
+    "f1c1",
+    "h2g4",
+    "h1g2",
+    "c8c1",
+    "a1c1",
+    "g4e3",
+    "g2h2",
+    "e3d5",
+    "c1e1"
+   ]
+  },
+  {
+   "depth": 10,
+   "score_white": -301,
+   "nodes": 2094456,
+   "seconds": 43.85,
+   "move": "c8c3",
+   "pv": [
+    "c8c3",
+    "e4b7",
+    "c3g3",
+    "a1c1",
+    "g3h3",
+    "c1c2",
+    "b6e3",
+    "f4f5",
+    "g4f2",
+    "f1f2",
+    "e3f2",
+    "e2f2",
+    "d8d1",
+    "f2g1",
+    "d1g1",
+    "h1g1",
+    "e6f5",
+    "b7a6"
+   ]
+  },
+  {
+   "depth": 11,
+   "score_white": -301,
+   "nodes": 3847919,
+   "seconds": 82.84,
+   "move": "c8c3",
+   "pv": [
+    "c8c3",
+    "e4b7",
+    "c3g3",
+    "a1c1",
+    "g3h3",
+    "c1c2",
+    "b6e3",
+    "f4f5",
+    "g4f2",
+    "f1f2",
+    "e3f2",
+    "e2f2",
+    "d8d1",
+    "f2g1",
+    "d1g1",
+    "h1g1",
+    "e6f5",
+    "b7a6"
+   ]
+  },
+  {
+   "depth": 12,
+   "score_white": -263,
+   "nodes": 8668278,
+   "seconds": 179.9,
+   "move": "c8c3",
+   "pv": [
+    "c8c3",
+    "e4b7",
+    "c3g3",
+    "a1c1",
+    "g3e3",
+    "e2g2",
+    "e3h3",
+    "c1c2",
+    "g4e3",
+    "g2f2",
+    "e3f1",
+    "f2f1",
+    "b6e3"
+   ]
+  }
+ ],
+ "final_move": "c8c3",
+ "elapsed": 300.0,
+ "matches_expected": true
+}

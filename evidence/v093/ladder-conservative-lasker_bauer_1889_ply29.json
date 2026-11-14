@@ -1,0 +1,124 @@
+{
+ "fen": "r4rk1/1b2bppp/ppq1p3/2ppB2n/5P2/1P1BP3/P1PPQ1PP/R4RK1 w - - 0 15",
+ "case": "lasker_bauer_1889_ply29",
+ "expected": "d3h7",
+ "profile": "conservative",
+ "seconds": 300.0,
+ "tt_entries": 300000,
+ "engine": "/home/user/tal-lab-chess",
+ "python": "3.13.18",
+ "runtime": "CPython",
+ "rows": [
+  {
+   "depth": 1,
+   "score_white": -35,
+   "nodes": 98,
+   "seconds": 0.0,
+   "move": "e2h5",
+   "pv": [
+    "e2h5"
+   ]
+  },
+  {
+   "depth": 2,
+   "score_white": -35,
+   "nodes": 1451,
+   "seconds": 0.02,
+   "move": "e2h5",
+   "pv": [
+    "e2h5",
+    "h7h6"
+   ]
+  },
+  {
+   "depth": 3,
+   "score_white": -25,
+   "nodes": 6606,
+   "seconds": 0.07,
+   "move": "e2h5",
+   "pv": [
+    "e2h5",
+    "h7h6",
+    "f4f5"
+   ]
+  },
+  {
+   "depth": 4,
+   "score_white": -25,
+   "nodes": 38769,
+   "seconds": 0.49,
+   "move": "e2h5",
+   "pv": [
+    "e2h5",
+    "f7f5",
+    "h5f3",
+    "e7f6"
+   ]
+  },
+  {
+   "depth": 5,
+   "score_white": -20,
+   "nodes": 91575,
+   "seconds": 1.0,
+   "move": "e2h5",
+   "pv": [
+    "e2h5",
+    "f7f5",
+    "h5f3",
+    "e7f6",
+    "a1d1"
+   ]
+  },
+  {
+   "depth": 6,
+   "score_white": -25,
+   "nodes": 446023,
+   "seconds": 5.46,
+   "move": "e2h5",
+   "pv": [
+    "e2h5",
+    "f7f5",
+    "h5f3",
+    "e7f6",
+    "a1d1",
+    "d5d4"
+   ]
+  },
+  {
+   "depth": 7,
+   "score_white": -20,
+   "nodes": 1414374,
+   "seconds": 17.07,
+   "move": "e2h5",
+   "pv": [
+    "e2h5",
+    "f7f5",
+    "h5f3",
+    "e7f6",
+    "e5f6",
+    "f8f6",
+    "a1d1"
+   ]
+  },
+  {
+   "depth": 8,
+   "score_white": -25,
+   "nodes": 5560512,
+   "seconds": 69.91,
+   "move": "e2h5",
+   "pv": [
+    "e2h5",
+    "f7f5",
+    "h5f3",
+    "e7f6",
+    "e5f6",
+    "f8f6",
+    "a1d1",
+    "d5d4"
+   ]
+  }
+ ],
+ "final_move": "e2h5",
+ "elapsed": 300.0,
+ "matches_expected": false
+}

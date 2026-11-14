@@ -1,0 +1,154 @@
+{
+ "fen": "b2r3r/k4p1p/p2q1np1/NppP4/3p1Q2/P4PPB/1PP4P/1K1RR3 w - - 1 24",
+ "case": "kasparov_topalov_1999_ply47",
+ "expected": "d1d4",
+ "profile": "conservative",
+ "seconds": 300.0,
+ "tt_entries": 300000,
+ "engine": "/home/user/tal-lab-chess",
+ "python": "3.13.18",
+ "runtime": "CPython",
+ "rows": [
+  {
+   "depth": 1,
+   "score_white": 20,
+   "nodes": 186,
+   "seconds": 0.0,
+   "move": "f4d6",
+   "pv": [
+    "f4d6",
+    "d8d6"
+   ]
+  },
+  {
+   "depth": 2,
+   "score_white": 20,
+   "nodes": 787,
+   "seconds": 0.01,
+   "move": "f4d6",
+   "pv": [
+    "f4d6",
+    "d8d6"
+   ]
+  },
+  {
+   "depth": 3,
+   "score_white": 20,
+   "nodes": 6587,
+   "seconds": 0.06,
+   "move": "f4d6",
+   "pv": [
+    "f4d6",
+    "d8d6",
+    "e1e7",
+    "a7b8"
+   ]
+  },
+  {
+   "depth": 4,
+   "score_white": -10,
+   "nodes": 28702,
+   "seconds": 0.36,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "d5c6",
+    "d6f4",
+    "g3f4"
+   ]
+  },
+  {
+   "depth": 5,
+   "score_white": -20,
+   "nodes": 69661,
+   "seconds": 0.77,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "d5c6",
+    "d6f4",
+    "g3f4",
+    "c5c4"
+   ]
+  },
+  {
+   "depth": 6,
+   "score_white": -18,
+   "nodes": 245766,
+   "seconds": 2.59,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "f4d6",
+    "d8d6",
+    "d5c6",
+    "a7b6",
+    "e1e7",
+    "b6c6",
+    "e7f7"
+   ]
+  },
+  {
+   "depth": 7,
+   "score_white": -18,
+   "nodes": 791711,
+   "seconds": 8.86,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "f4d6",
+    "d8d6",
+    "d5c6",
+    "a7b6",
+    "e1e7",
+    "b6c6",
+    "e7f7"
+   ]
+  },
+  {
+   "depth": 8,
+   "score_white": -20,
+   "nodes": 2513302,
+   "seconds": 27.52,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "f4d6",
+    "d8d6",
+    "d5c6",
+    "d6c6",
+    "e1e7",
+    "a7b8",
+    "e7f7",
+    "f6d5"
+   ]
+  },
+  {
+   "depth": 9,
+   "score_white": -28,
+   "nodes": 10652879,
+   "seconds": 122.37,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "f4d6",
+    "d8d6",
+    "d5c6",
+    "a7b6",
+    "e1e7",
+    "b6c6",
+    "e7f7",
+    "f6d5"
+   ]
+  }
+ ],
+ "final_move": "a5c6",
+ "elapsed": 300.0,
+ "matches_expected": false
+}

@@ -56,7 +56,8 @@ def run(args):
                             'seconds': group[-1].seconds, 'lines': [
                 {'score': line.score, 'pv': [move.uci() for move in line.pv]} for line in group]})
         started = time.perf_counter()
-        limits = {'max_depth': args.depth} if args.depth else {'time_limit': args.seconds}
+        limits = ({'max_depth': args.depth} if args.depth else {'node_limit': args.nodes}
+                  if args.nodes else {'time_limit': args.seconds})
         board = Board(case['fen'])
         before = board.snapshot()
         move, score = searcher.search(board, on_info=(lambda line: collect([line])) if args.multipv == 1 else None,
@@ -76,7 +77,7 @@ def run(args):
                      'iterations': samples, 'pruning': getattr(searcher, 'sel_stats', {}),
                      'trace': events})
     with open(args.output, 'w', encoding='utf-8') as handle:
-        json.dump({'engine': str(root), 'seconds': args.seconds, 'depth': args.depth,
+        json.dump({'engine': str(root), 'seconds': args.seconds, 'depth': args.depth, 'node_limit': args.nodes,
                    'options': options, 'multipv': args.multipv, 'rows': rows}, handle)
     solved = sum(row['ok'] for row in rows)
     print(f'{solved}/{len(rows)} solved, mean completed depth '
@@ -108,6 +109,7 @@ def main():
     runner.add_argument('--output', required=True)
     runner.add_argument('--seconds', type=float, default=1.0)
     runner.add_argument('--depth', type=int)
+    runner.add_argument('--nodes', type=int, help='고정 노드 수 (시간 잡음 없이 재현 가능한 비교)')
     runner.add_argument('--multipv', type=int, choices=(1, 3), default=1)
     runner.add_argument('--trace', action='store_true', help='Record selected pruning events in root candidate lines.')
     runner.add_argument('--shard', type=int, default=0)

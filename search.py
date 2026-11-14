@@ -114,6 +114,13 @@ for _d in range(1, 64):
         LMR_TABLE[_d][_n] = int(0.75 + _math.log(_d) * _math.log(_n) / 2.25)
 
 
+# ── v0.9.3 전술 프로필 ──
+# 선택적 탐색(같은 시간에 더 깊이) 위에 '기물을 내주는 수는 더 깊이 본다'는 연장을 얹은 묶음.
+# 값은 evidence/v093 의 같은 시간 비교에서 고른 것이며 Searcher.set_tactical()이 적용한다.
+TACTICAL_PROFILE = {'selective': True, 'sac_extension': 2}
+_TACTICAL_OFF = {'sac_extension': 0}
+
+
 class TimeUp(Exception):
     """시간·노드 한도 초과 또는 정지 요청 → 탐색을 즉시 중단"""
 
@@ -369,7 +376,26 @@ class Searcher:
         self.sel_qchecks = True      # 정적 탐색 첫 층에서 조용한 체크도 본다 (TacticalChecks와 같은 동작)
         self.sel_stats = Counter()
         self.selective_trace = None  # Optional research callback (event, board, ply, depth, move).
+        # v0.9.3 희생 수 연장: 루트에서 기물을 내주는 수(SEE <= -SAC_MIN)를 이 반수만큼 더 깊이 본다.
+        # 가지를 버리지 않고 더 보는 장치라 시간이 더 든다. 기본 0(꺼짐), set_tactical()이 켠다.
+        self.sac_extension = 0
+        self.ext_stats = Counter()
         self._gain = [0] * (MAX_PLY + 3)
+        self.tactical = False        # set_tactical()로 켠 상태인지 (표시용)
+
+    def set_tactical(self, enabled=True):
+        """v0.9.3 전술 프로필을 켜거나 끈다.
+
+        켜면 TACTICAL_PROFILE의 값을 적용한다 (선택적 탐색 포함). 끄면 v0.9.3 연장만 기본값으로
+        되돌리고 selective는 건드리지 않는다 — 부르는 쪽이 원래 설정을 다시 넣는다."""
+        if enabled:
+            for key, value in TACTICAL_PROFILE.items():
+                setattr(self, key, value)
+        elif self.tactical:
+            for key in TACTICAL_PROFILE:
+                if key in _TACTICAL_OFF:
+                    setattr(self, key, _TACTICAL_OFF[key])
+        self.tactical = bool(enabled)
 
     @property
     def tt_size(self):
@@ -440,7 +466,8 @@ class Searcher:
                     self.null_threat_extension, evaluation.ATTACK_ACTIVITY, evaluation.INITIATIVE,
                     evaluation.KING_SAFETY, self.selective, self.sel_qsearch, self.sel_null,
                     self.sel_rfp, self.sel_futility, self.sel_lmr, self.sel_iir, self.sel_order,
-                    self.sel_sac_ply, self.sel_sac_root_only, self.sel_qchecks)
+                    self.sel_sac_ply, self.sel_sac_root_only, self.sel_qchecks,
+                    self.sac_extension)
         # Scores from a different reversible game history can hide future draw
         # claims even when no draw was visited in the cached search. The board
         # hash intentionally excludes the halfmove clock and game history.
@@ -458,6 +485,7 @@ class Searcher:
         self._eval_cache_limit = self.eval_cache_size * (8 if self.selective else 1)
         self._gain[0] = 0
         self.sel_stats.clear()
+        self.ext_stats.clear()
         self.tt.new_search()           # 세대 증가: 이전 탐색의 항목은 교체 우선 대상이 됨
 
         state = board.snapshot()
@@ -743,6 +771,7 @@ class Searcher:
         legal = 0
         board = b.board
         moves = b.evasion_candidates() if in_check and self.fast_evasions else b.pseudo_legal_moves()
+        sac_ext = self.sac_extension if root else 0
         if root and self.root_filter is not None:      # go searchmoves: 루트 후보만 남김 (아래 깊이는 전부)
             moves = [m for m in moves if m in self.root_filter]
         # Tactical ordering is limited to the upper tree and low remaining depths:
@@ -772,6 +801,11 @@ class Searcher:
                 self._gain[ply + 1] = invested - (
                     (ORDER_VALUE[board[m.to]] or (100 if piece in 'Pp' and m.to == b.ep else 0))
                     + (ORDER_VALUE[m.promo] - 100 if m.promo else 0))
+            child_depth = depth - 1
+            if sac_ext and b.see_estimate(m) <= -SAC_MIN:
+                # v0.9.3 희생 수 연장: 루트에서 기물을 내주는 수는 보상이 늦게 드러나므로 더 깊이 본다.
+                child_depth += sac_ext
+                self.ext_stats['sac'] += 1
             prune = None
             quiet_candidate = (sel_prune or sel_reduce) and quiet and legal > 0
             if quiet_candidate:
@@ -811,7 +845,7 @@ class Searcher:
                 self.sel_stats['lmr'] += 1
                 if trace:
                     self._emit_trace(trace, 'lmr', b, ply, depth, m, alpha, beta, static_eval, reduction=reduction, after_move=True)
-                score = -self.negamax(b, depth - 1 - reduction, -alpha - 1, -alpha,
+                score = -self.negamax(b, child_depth - reduction, -alpha - 1, -alpha,
                                       ply + 1, False, checks_left, threat_left)
                 if score > alpha:
                     self.sel_stats['lmr_research'] += 1
@@ -833,11 +867,11 @@ class Searcher:
                     if trace:
                         self._emit_trace(trace, 'conservative_lmr', b, ply, depth, m,
                                          alpha, beta, static_eval, reduction=1, after_move=True)
-                    score = -self.negamax(b, depth - 2, -alpha - 1, -alpha,
+                    score = -self.negamax(b, child_depth - 1, -alpha - 1, -alpha,
                                           ply + 1, False, checks_left, threat_left)
                     if score > alpha:
                         self.lmr_researches += 1
-                        score = -self.negamax(b, depth - 1, -beta, -alpha,
+                        score = -self.negamax(b, child_depth, -beta, -alpha,
                                               ply + 1, False, checks_left, threat_left)
                 elif self.pvs and legal > 1 and beta - alpha > 1:
                     # PVS: 첫 합법 수는 이미 전체 창에서 확인했다. 이후 수의 경우
@@ -845,14 +879,14 @@ class Searcher:
                     # null-window 값은 fail-soft 경계일 수 있으므로 alpha < score < beta면
                     # 전체 창으로 재탐색해야 정확한 점수와 PV를 구할 수 있다.
                     self.pvs_probes += 1
-                    score = -self.negamax(b, depth - 1, -alpha - 1, -alpha,
+                    score = -self.negamax(b, child_depth, -alpha - 1, -alpha,
                                           ply + 1, False, checks_left, threat_left)
                     if alpha < score < beta:
                         self.pvs_researches += 1
-                        score = -self.negamax(b, depth - 1, -beta, -alpha,
+                        score = -self.negamax(b, child_depth, -beta, -alpha,
                                               ply + 1, False, checks_left, threat_left)
                 else:
-                    score = -self.negamax(b, depth - 1, -beta, -alpha,
+                    score = -self.negamax(b, child_depth, -beta, -alpha,
                                           ply + 1, False, checks_left, threat_left)
             b.unmake_move()
 

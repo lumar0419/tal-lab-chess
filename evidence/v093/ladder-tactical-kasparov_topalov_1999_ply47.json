@@ -1,0 +1,245 @@
+{
+ "fen": "b2r3r/k4p1p/p2q1np1/NppP4/3p1Q2/P4PPB/1PP4P/1K1RR3 w - - 1 24",
+ "case": "kasparov_topalov_1999_ply47",
+ "expected": "d1d4",
+ "profile": "tactical",
+ "seconds": 300.0,
+ "tt_entries": 300000,
+ "engine": "/home/user/tal-lab-chess",
+ "python": "3.13.18",
+ "runtime": "CPython",
+ "rows": [
+  {
+   "depth": 1,
+   "score_white": 20,
+   "nodes": 2291,
+   "seconds": 0.03,
+   "move": "f4d6",
+   "pv": [
+    "f4d6",
+    "d8d6"
+   ]
+  },
+  {
+   "depth": 2,
+   "score_white": 20,
+   "nodes": 6775,
+   "seconds": 0.18,
+   "move": "f4d6",
+   "pv": [
+    "f4d6",
+    "d8d6"
+   ]
+  },
+  {
+   "depth": 3,
+   "score_white": 20,
+   "nodes": 15774,
+   "seconds": 0.41,
+   "move": "f4d6",
+   "pv": [
+    "f4d6",
+    "d8d6",
+    "e1e7",
+    "a7b8"
+   ]
+  },
+  {
+   "depth": 4,
+   "score_white": -10,
+   "nodes": 42749,
+   "seconds": 1.1,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "d5c6",
+    "d6f4",
+    "g3f4"
+   ]
+  },
+  {
+   "depth": 5,
+   "score_white": -10,
+   "nodes": 87184,
+   "seconds": 1.99,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "f4d6",
+    "d8d6",
+    "d5c6",
+    "d6c6",
+    "e1e7",
+    "a7b8",
+    "e7f7"
+   ]
+  },
+  {
+   "depth": 6,
+   "score_white": -65,
+   "nodes": 178125,
+   "seconds": 3.87,
+   "move": "f4d6",
+   "pv": [
+    "f4d6",
+    "d8d6",
+    "b2b4",
+    "c5b4",
+    "e1e7",
+    "a7b8",
+    "a3b4",
+    "a8d5",
+    "d1d4"
+   ]
+  },
+  {
+   "depth": 7,
+   "score_white": -18,
+   "nodes": 349583,
+   "seconds": 7.1,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "f4d6",
+    "d8d6",
+    "d5c6",
+    "a7b6",
+    "e1e7",
+    "b6c6",
+    "e7f7"
+   ]
+  },
+  {
+   "depth": 8,
+   "score_white": -20,
+   "nodes": 660922,
+   "seconds": 13.12,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "f4d6",
+    "d8d6",
+    "d5c6",
+    "d6c6",
+    "e1e7",
+    "a7b8",
+    "e7f7",
+    "f6d5"
+   ]
+  },
+  {
+   "depth": 9,
+   "score_white": -28,
+   "nodes": 1254081,
+   "seconds": 25.45,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "f4d6",
+    "d8d6",
+    "d5c6",
+    "a7b6",
+    "e1e7",
+    "b6c6",
+    "e7f7",
+    "f6d5"
+   ]
+  },
+  {
+   "depth": 10,
+   "score_white": -15,
+   "nodes": 2312352,
+   "seconds": 48.56,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "f4d6",
+    "d8d6",
+    "d5c6",
+    "a7b6",
+    "e1e7",
+    "b6c6",
+    "e7f7",
+    "b5b4",
+    "a3b4",
+    "c5b4"
+   ]
+  },
+  {
+   "depth": 11,
+   "score_white": -16,
+   "nodes": 4405604,
+   "seconds": 95.54,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "f4d6",
+    "d8d6",
+    "d5c6",
+    "a7b6",
+    "e1e7",
+    "b6c6",
+    "e7f7",
+    "c6d5",
+    "h3g2",
+    "c5c4"
+   ]
+  },
+  {
+   "depth": 12,
+   "score_white": -14,
+   "nodes": 7241537,
+   "seconds": 159.69,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "f4d6",
+    "d8d6",
+    "d5c6",
+    "a7b6",
+    "e1e7",
+    "b6c6",
+    "e7f7",
+    "f6d5",
+    "f3f4",
+    "d6f6",
+    "h3d7",
+    "c6d6"
+   ]
+  },
+  {
+   "depth": 13,
+   "score_white": -23,
+   "nodes": 12802136,
+   "seconds": 285.85,
+   "move": "a5c6",
+   "pv": [
+    "a5c6",
+    "a8c6",
+    "f4d6",
+    "d8d6",
+    "d5c6",
+    "a7b6",
+    "e1e7",
+    "b6c6",
+    "e7f7",
+    "f6d5",
+    "f3f4",
+    "d5e3",
+    "d1e1",
+    "c5c4"
+   ]
+  }
+ ],
+ "final_move": "a5c6",
+ "elapsed": 300.0,
+ "matches_expected": false
+}
