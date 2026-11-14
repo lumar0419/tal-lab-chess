@@ -95,6 +95,23 @@ def _defense_consistency(candidate_rows, defense_rows, root_in_check=False):
                 reply_agrees=c['pv'][1]==d['pv'][0], score_delta=score-c['score'])
 
 
+def _verify_defense(item, root_rows, root_in_check=False):
+    """A shallower comparison agreement must not certify a deeper root PV."""
+    candidate_rows = item['iterations']
+    matching_root = [row for row in root_rows if row['pv'] and row['pv'][0]==item['move']]
+    item['consistency'] = _defense_consistency(candidate_rows,item['defenses'],root_in_check)
+    item['root_consistency'] = (_defense_consistency(matching_root,item['defenses'],root_in_check)
+                                if matching_root else None)
+    item['required_defense_depth'] = max(
+        (r['depth'] for r in [*candidate_rows,*matching_root]),default=1)-1+int(root_in_check)
+    item['deepest_defense_verified'] = bool(item['defenses'] and
+        item['defenses'][-1]['depth']>=item['required_defense_depth'] and
+        item['consistency']['status']=='agrees' and
+        (item['root_consistency'] is None or item['root_consistency']['status']=='agrees'))
+    if 'reply_agrees' in item['consistency']:
+        item['defense_agrees_at_depth'] = item['consistency']['reply_agrees']
+
+
 def analyze_deep(board, seconds, *, profile='conservative', candidate=None, cancel_check=None,
                  on_root=None, on_progress=None, max_depth=MAX_PLY, adaptive=True):
     """Search the whole root, compare forced moves, then re-root at defenses.
@@ -292,16 +309,8 @@ def analyze_deep(board, seconds, *, profile='conservative', candidate=None, canc
                     last_defense = item['defenses'][-1]
                     item['material_under_defense'] = _material_trace(
                         board, [item['move'], *last_defense['pv']])
-                    item['consistency'] = _defense_consistency(
-                        item['iterations'], item['defenses'], board.in_check())
+                    _verify_defense(item, report['root'], board.in_check())
                     item['defense_need'] = _defense_need(item)
-                    item['required_defense_depth'] = max(
-                        (r['depth'] for r in item['iterations']),default=1)-1+int(board.in_check())
-                    item['deepest_defense_verified'] = (
-                        last_defense['depth'] >= item['required_defense_depth'] and
-                        item['consistency']['status']=='agrees')
-                    if 'reply_agrees' in item['consistency']:
-                        item['defense_agrees_at_depth'] = item['consistency']['reply_agrees']
                     if offered:
                         reply = last_defense['pv'][0]
                         item['defense_accepts'] = reply[2:4] == item['move'][2:4]

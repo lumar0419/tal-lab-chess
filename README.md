@@ -1,4 +1,6 @@
-# Tal Lab v0.9.1
+# Tal Lab v0.9.2
+
+프로파일 기반 수 생성 최적화, 선택적 Cython 빌드, PyPy 비교, 가지치기 진단과 독립 방어 일관성 검증을 추가했습니다. [실제 측정 및 한계](VALIDATION_v092.md), [실행·재현 방법](PERFORMANCE_v092.md).
 
 직접 개발한 Python 체스 엔진으로 여러 마스터의 희생수와 상대 방어를 연구하는 분석실입니다. Fischer, Kasparov, Anderssen의 실전 사례 6개와 기존 FEN 분석, 대국 화면, UCI 인터페이스를 제공합니다. 심층 연구 도구에는 9명의 마스터가 둔 23개 국면이 포함됩니다. [v0.8.8 검증 기록](VALIDATION_v088.md), [v0.8.7](VALIDATION_v087.md), [v0.8.6](VALIDATION_v086.md), [전술 분기 진단](VALIDATION_v085.md), [서버 검증 기록](VALIDATION_v084.md), [개발 기록](CHANGELOG.md)
 

@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch
 
 from board import Board, Move
-from deep_analysis import _defense_consistency, _defense_need
+from deep_analysis import _defense_consistency, _defense_need, _verify_defense
 from research.pruning_trace import PruningTrace
 from search import EXACT, Searcher
 
@@ -85,6 +85,16 @@ class PerformanceAccuracyTests(unittest.TestCase):
         a=dict(iterations=[dict(depth=3,score=1,pv=['a','b']),dict(depth=4,score=300,pv=['a','c'])],comparison=None)
         b={**a,'offer':{'piece':'Q'}}
         self.assertEqual(_defense_need(a),_defense_need(b))
+
+    def test_shallow_agreement_cannot_verify_deeper_unrestricted_root(self):
+        row=dict(depth=5,score=20,pv=['e2e4','e7e5'])
+        item=dict(move='e2e4',iterations=[row],defenses=[dict(depth=4,score=20,pv=['e7e5'])])
+        _verify_defense(item,[{**row,'depth':7}])
+        self.assertEqual(item['consistency']['status'],'agrees')
+        self.assertFalse(item['deepest_defense_verified'])
+        self.assertEqual(item['required_defense_depth'],6)
+        _verify_defense(item,[row])
+        self.assertTrue(item['deepest_defense_verified'])
 
 
 if __name__=='__main__':

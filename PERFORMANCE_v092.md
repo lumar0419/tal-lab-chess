@@ -12,17 +12,19 @@ GitHub에서 확인한 `main`은 `4b91b757a49b2b33ae1fdbebd00fd350bc905442`이�
 기존 v0.9.0 보고서가 가리키는 `af02d346...`는 원격에서도 가져올 수 없어 재측정하지 않았습니다.
 작업 브랜치는 `development/performance-accuracy-v092`입니다. main과 Render는 변경하거나 배포하지 않았습니다.
 
-제공된 Git bundle을 기존 저장소에서 가져오면 원격에 쓰지 않고 검토할 수 있습니다.
+GitHub 개발 브랜치와 보고서에 기록한 v0.9.1 기준 커밋을 비교해 변경을 검토할 수 있습니다.
+로컬 작업의 커밋 ID와 GitHub API로 옮긴 커밋 ID는 다를 수 있으며, 각 단계의 tree SHA 일치를 검증합니다.
+원격 커밋 매핑은 `evidence/v092/remote-provenance.json`에 기록합니다.
 
 ```sh
-git fetch /path/to/tal_lab_v092.bundle development/performance-accuracy-v092:development/performance-accuracy-v092
-git diff 4fa222e development/performance-accuracy-v092
-git switch development/performance-accuracy-v092
-git worktree add --detach ../baseline-v091 4fa222e
+git fetch origin development/performance-accuracy-v092
+git switch --track origin/development/performance-accuracy-v092
 ```
 
-제공 `.patch`는 **ZIP v0.9.1 기준** 변경입니다. 현재 GitHub main에 직접 적용하는 패치가 아닙니다.
-전체 소스 ZIP에는 기존 소스, 테스트, 기존 검증 자료도 포함합니다. 컴파일 산출물과 외부 실행 파일은 포함하지 않습니다.
+제공하는 비교 패치는 **ZIP v0.9.1과 동일한 트리의 기준 커밋** 이후 변경입니다.
+현재 GitHub main에 직접 적용하는 패치가 아닙니다. 전체 소스 ZIP에는 기존 소스와 테스트,
+기존 검증 자료도 포함합니다. 컴파일 산출물과 외부 실행 파일은 포함하지 않습니다.
+기준 벤치마크를 다시 실행하려면 보고서의 v0.9.1 원격 커밋으로 별도 worktree를 만드세요.
 
 ## 실행 방식
 
