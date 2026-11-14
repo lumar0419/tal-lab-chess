@@ -4,7 +4,7 @@ const PIECE = {K:'♔', Q:'♕', R:'♖', B:'♗', N:'♘', P:'♙', k:'♚', q:
 const PIECE_KO = {k:'킹', q:'퀸', r:'룩', b:'비숍', n:'나이트', p:'폰'};
 const TAL_PRESET = {tactical_checks:true, attack_activity:true, initiative:true,
                     tactical_ordering:true, check_continuation:false, aspiration:false, king_safety:false, lmr:false,
-                    selective:false};
+                    selective:false, tactical:false};
 const OPTION_KEYS = Object.keys(TAL_PRESET);
 const $ = id => document.getElementById(id);
 

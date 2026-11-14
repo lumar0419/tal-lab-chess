@@ -18,7 +18,7 @@ import evaluate
 from board import Board, WHITE, START_FEN, file_of, rank_of, sq, sq_name
 from search import Searcher, TimeUp
 from search_gate import AUTO, DEEP, MANUAL, acquire_search
-from deep_analysis import DEEP_SECONDS, analyze_deep
+from deep_analysis import DEEP_SECONDS, PROFILES as DEEP_PROFILES, analyze_deep
 
 # This comes from the imported implementation, rather than a requested setting.
 ENGINE_IMPLEMENTATION = ('Tal Lab Python / Pyodide' if sys.platform=='emscripten' else
@@ -27,7 +27,7 @@ ENGINE_IMPLEMENTATION = ('Tal Lab Python / Pyodide' if sys.platform=='emscripten
 
 ANALYSIS_OPTION_KEYS = ('tactical_checks', 'attack_activity', 'initiative',
                         'tactical_ordering', 'check_continuation', 'aspiration',
-                        'king_safety', 'lmr', 'selective')
+                        'king_safety', 'lmr', 'selective', 'tactical')
 
 
 class AnalysisSession:
@@ -273,7 +273,7 @@ class AnalysisSession:
         candidate = data.get('candidate')
         if type(seconds) is not int or seconds not in DEEP_SECONDS:
             raise ValueError('심층 분석 시간은 60·180·300·600초 중 하나를 선택하세요.')
-        if profile not in ('conservative', 'full', 'selective'):
+        if profile not in DEEP_PROFILES:
             raise ValueError('알 수 없는 심층 분석 설정이에요.')
         if candidate is not None and (not isinstance(candidate, str) or len(candidate) > 5):
             raise ValueError('후보 수는 d1d4 또는 e7e8q 형태로 입력해 주세요.')
@@ -408,6 +408,7 @@ class AnalysisSession:
             worker.aspiration = options['aspiration']
             worker.lmr = options['lmr']
             worker.selective = options['selective']
+            worker.set_tactical(options['tactical'])
             evaluate.ATTACK_ACTIVITY = options['attack_activity']
             evaluate.INITIATIVE = options['initiative']
             evaluate.KING_SAFETY = options['king_safety']

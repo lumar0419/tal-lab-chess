@@ -10,15 +10,17 @@ from search import MAX_PLY, Searcher, TimeUp, mate_plies
 
 DEEP_SECONDS = (60, 180, 300, 600)
 VERIFY_MAX_PLY = 7
+PROFILES = ('tactical', 'conservative', 'full', 'selective')
 
 
 def make_searcher(profile='conservative'):
-    if profile not in ('conservative', 'full', 'selective'):
+    if profile not in PROFILES:
         raise ValueError('알 수 없는 심층 탐색 프로필입니다.')
     searcher = Searcher(tt_size=300_000)
     searcher.tt.preserve_deeper = True
     searcher.lmr = profile == 'conservative'
     searcher.selective = profile == 'selective'
+    searcher.set_tactical(profile == 'tactical')
     return searcher
 
 
@@ -334,7 +336,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--fen', required=True)
     parser.add_argument('--seconds', type=float, default=60)
-    parser.add_argument('--profile', choices=('conservative', 'full', 'selective'), default='conservative')
+    parser.add_argument('--profile', choices=PROFILES, default='conservative')
     parser.add_argument('--candidate')
     parser.add_argument('--moves', nargs='+', default=(), help='Replay UCI moves from the supplied FEN.')
     parser.add_argument('--output', help='Write JSON to a file instead of stdout.')

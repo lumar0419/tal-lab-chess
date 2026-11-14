@@ -141,6 +141,7 @@ class UCIEngine:
         self.move_overhead = DEFAULT_MOVE_OVERHEAD_MS
         self.searcher = UCISearcher(tt_size=self.hash_mb * TT_ENTRIES_PER_MB)
         self.searcher.selective = DEFAULT_SELECTIVE
+        self.selective_option = DEFAULT_SELECTIVE   # TacticalSearch를 끌 때 되돌릴 값
         self.multipv = 1
         self.board = Board()
         self.position_key = (START_FEN, [])     # 마지막 position 명령 (수 목록 재사용용)
@@ -200,6 +201,7 @@ class UCIEngine:
                 self.send("option name ExperimentalNullMove type check default false")
                 self.send("option name ExperimentalNullThreat type check default false")
                 self.send(f"option name SelectiveSearch type check default {str(DEFAULT_SELECTIVE).lower()}")
+                self.send("option name TacticalSearch type check default false")
                 self.send("option name AttackActivity type check default false")
                 self.send("option name Initiative type check default false")
                 self.send("option name Ponder type check default false")   # 상대 차례에 미리 생각 (v0.4.1)
@@ -321,7 +323,14 @@ class UCIEngine:
             setattr(self.searcher, attr, value.strip().lower() == 'true')
         elif name == 'selectivesearch' and value is not None:
             self.stop_search()                  # 설정이 바뀌면 다음 탐색 시작 때 TT를 비움 (search.py)
-            self.searcher.selective = value.strip().lower() == 'true'
+            self.selective_option = value.strip().lower() == 'true'
+            self.searcher.selective = self.selective_option or self.searcher.tactical
+        elif name == 'tacticalsearch' and value is not None:
+            # v0.9.3 전술 프로필: 선택적 탐색 + 희생 수 연장. 끄면 SelectiveSearch 설정으로 돌아감.
+            self.stop_search()
+            self.searcher.set_tactical(value.strip().lower() == 'true')
+            if not self.searcher.tactical:
+                self.searcher.selective = self.selective_option
         elif name == 'tacticalchecks' and value is not None:
             self.stop_search()                        # 평가 방식이 바뀌므로 진행 중 탐색 중단
             enabled = value.strip().lower() == 'true'

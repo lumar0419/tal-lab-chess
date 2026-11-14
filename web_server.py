@@ -26,7 +26,7 @@ BASE = Path(__file__).resolve().parent
 ASSETS = BASE / 'web'
 OPTION_KEYS = ('tactical_checks', 'attack_activity', 'initiative',
                'tactical_ordering', 'check_continuation', 'aspiration', 'king_safety', 'lmr',
-               'selective')
+               'selective', 'tactical')
 ENGINE_FILES = ('version.py', 'board.py', 'evaluate.py', 'search.py', 'notation.py', 'analysis_server.py', 'benchmark.py', 'pgn_io.py', 'sacrifice.py', 'search_gate.py', 'deep_analysis.py')
 DEFAULT_OPTIONS = {key: False for key in OPTION_KEYS}
 SELECTIVE_EXTRA_DEPTH = 3      # 선택적 탐색을 켠 대국에서 깊이 상한에 더하는 반수 (v0.8.8)
@@ -140,6 +140,7 @@ class Game:
             searcher.aspiration = options['aspiration']
             searcher.lmr = options['lmr']
             searcher.selective = options['selective']
+            searcher.set_tactical(options['tactical'])
             evaluate.ATTACK_ACTIVITY = options['attack_activity']
             evaluate.INITIATIVE = options['initiative']
             evaluate.KING_SAFETY = options['king_safety']
@@ -160,7 +161,7 @@ class Game:
 
             # 선택적 탐색은 같은 시간에 더 깊이 가지만 같은 깊이에서는 가지를 덜 본다.
             # 화면의 '깊이'를 그대로 상한으로 쓰면 오히려 얕게 끝나므로 상한을 넉넉히 준다.
-            limit = depth + (SELECTIVE_EXTRA_DEPTH if options['selective'] else 0)
+            limit = depth + (SELECTIVE_EXTRA_DEPTH if options['selective'] or options['tactical'] else 0)
             move, score = searcher.search(search_board, max_depth=limit,
                                           time_limit=seconds, on_info=on_info,
                                           cancel_check=lambda: generation != self.generation)
