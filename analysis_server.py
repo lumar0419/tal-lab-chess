@@ -186,6 +186,35 @@ class AnalysisSession:
             self._stop_locked()
             return self._state_locked()
 
+    def evaluation(self, data):
+        """Evaluate a snapshot only; safe while another session is searching."""
+        options = data.get('options', {})
+        if (not isinstance(options, dict) or
+                set(options) - {'king_safety', 'attack_activity', 'initiative'} or
+                any(type(v) is not bool for v in options.values())):
+            raise ValueError('지원하지 않는 평가 옵션이에요.')
+        with self.lock:
+            if data.get('expected_fen') != self.board.fen():
+                raise ValueError('국면이 변경되었습니다.')
+            board = Board(self.board.fen())
+            defaults = {key: self.options[key] for key in
+                        ('king_safety', 'attack_activity', 'initiative')}
+        options = {**defaults, **options}
+        before = evaluate.evaluation_breakdown(board, **options)
+        result = dict(before=before, after=None, delta=None, options=options)
+        uci = data.get('uci')
+        if uci is not None and uci != '':
+            if not isinstance(uci, str) or not re.fullmatch(r'[a-h][1-8][a-h][1-8][qrbn]?', uci):
+                raise ValueError('이동은 e2e4 또는 e7e8q 형태로 입력해 주세요.')
+            move = board.parse_uci(uci)
+            if move is None:
+                raise ValueError('현재 국면에서 합법적인 수가 아니에요.')
+            board.make_move(move)
+            after = evaluate.evaluation_breakdown(board, **options)
+            result.update(after=after, uci=uci,
+                          delta=after['static_score']-before['static_score'])
+        return result
+
     def start(self, data, *, mode='manual'):
         """Begin a bounded analysis.
 

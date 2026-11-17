@@ -1,0 +1,116 @@
+127.0.0.1 - - [17/Nov/2026 05:18:47] "GET / HTTP/1.1" 401 -
+127.0.0.1 - - [17/Nov/2026 05:18:47] "GET / HTTP/1.1" 403 -
+127.0.0.1 - - [17/Nov/2026 05:18:47] "POST /api/move HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:18:47] "POST /api/new HTTP/1.1" 403 -
+127.0.0.1 - - [17/Nov/2026 05:18:47] "POST /api/new HTTP/1.1" 403 -
+127.0.0.1 - - [17/Nov/2026 05:18:47] "POST /api/new HTTP/1.1" 401 -
+127.0.0.1 - - [17/Nov/2026 05:18:47] "POST /api/new HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:18:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:18:47] "GET /play HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:18:47] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:18:47] "GET /api/pgn HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:18:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:18:48] "GET / HTTP/1.1" 401 -
+127.0.0.1 - - [17/Nov/2026 05:18:52] "POST /api/analysis/benchmark HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:18:52] "POST /api/analysis/pgn HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:18:52] "POST /api/analysis/navigate HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:18:52] "GET /engine/board.py HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:18:52] "GET /engine/cloud_server.py HTTP/1.1" 404 -
+127.0.0.1 - - [17/Nov/2026 05:18:52] "GET /engine/../cloud_server.py HTTP/1.1" 404 -
+127.0.0.1 - - [17/Nov/2026 05:18:52] "GET /engine/.git/config HTTP/1.1" 404 -
+127.0.0.1 - - [17/Nov/2026 05:18:54] "POST /api/analysis/evaluation HTTP/1.1" 200 -
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py:589: ResourceWarning: unclosed file <_io.TextIOWrapper name=4 encoding='UTF-8'>
+  if method() is not None:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py:589: ResourceWarning: unclosed file <_io.TextIOWrapper name=5 encoding='UTF-8'>
+  if method() is not None:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Differential positions=3859, checked positions=206
+Tal diagnostic: 1 historical cases, profiles=['baseline'], depths=[1]
+
+botvinnik_tal_1960_g6_ply42  Tal Nf4 (h5f4)
+  baseline   d1: picked b4a5    -0.35 | Tal   -2.44 | gap         +209cp | PV h5f4 g3f4 e5f4 e3a7 g7c3
+  baseline   static-after: Tal +9cp, selected -35cp; Tal PV material change [0, -320, -220, -320, 0, -330, -230]cp; gap change 0cp
+Report saved: /tmp/tmp5ksdotld/report.json
+
+botvinnik_tal_1960_g6_ply42  Tal Nf4 (h5f4)
+  baseline   d1: picked b4a5    -0.35 | Tal   -2.44 | gap         +209cp | PV h5f4 g3f4 e5f4 e3a7 g7c3
+  baseline   static-after: Tal +9cp, selected -35cp; Tal PV material change [0, -320, -220, -320, 0, -330, -230]cp; gap change 0cp
+  Stockfish depth 8: best Cp(+100) / historical Cp(+80)
+Historic source games: 4, selected critical decisions: 4; depth 1
+Reference move = historical choice, NOT a proven objectively best move. Engine settings unchanged.
+
+[baseline]
+ other botvinnik_tal_1960_g6_ply42        Tal Nf4      (h5f4) engine b4a5   -0.35  gap=mate-sensitive/not measured
+ other tal_larsen_1965_g10_ply31          Tal Nd5      (c3d5) engine c3e2   +0.51  gap=mate-sensitive/not measured
+ other tal_benko_1959_r14_ply45           Tal Bf8      (h6f8) engine f1c4   -0.90  gap=mate-sensitive/not measured
+ other tal_smyslov_1959_r8_ply27          Tal Qh4      (d4h4) engine c4b3   +0.70  gap=mate-sensitive/not measured
+127.0.0.1 - - [17/Nov/2026 05:20:09] "HEAD / HTTP/1.1" 401 -
+127.0.0.1 - - [17/Nov/2026 05:20:09] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:09] "GET / HTTP/1.1" 401 -
+127.0.0.1 - - [17/Nov/2026 05:20:09] "GET / HTTP/1.1" 401 -
+127.0.0.1 - - [17/Nov/2026 05:20:09] "GET / HTTP/1.1" 401 -
+127.0.0.1 - - [17/Nov/2026 05:20:09] "GET / HTTP/1.1" 429 -
+127.0.0.1 - - [17/Nov/2026 05:20:09] "GET / HTTP/1.1" 429 -
+127.0.0.1 - - [17/Nov/2026 05:20:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:11] "POST /api/analysis/reset HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:11] "POST /api/analysis/start HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:11] "GET /api/analysis/state HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:11] "GET /api/analysis/state HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:11] "GET /analysis HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:11] "GET /analysis.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:11] "GET /analysis.css HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:11] "GET /play HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:11] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:11] "GET /api/analysis/state HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:11] "GET /api/analysis/cases HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:12] "POST /api/analysis/start HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "POST /api/analysis/reset HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "POST /api/analysis/auto HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "POST /api/analysis/restart HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "GET /api/analysis/state HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "GET /api/analysis/state HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "GET /analysis.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "GET /analysis.css HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "POST /api/analysis/reset HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "POST /api/analysis/start HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "GET /api/analysis/state HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "GET /api/analysis/state HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "GET /analysis.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "GET /analysis HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:13] "GET /analysis.css HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:14] "POST /api/new HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:14] "POST /api/move HTTP/1.1" 400 -
+127.0.0.1 - - [17/Nov/2026 05:20:14] "POST /api/move HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:14] "POST /api/undo HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:14] "GET /api/pgn HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:14] "POST /api/new HTTP/1.1" 403 -
+127.0.0.1 - - [17/Nov/2026 05:20:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:14] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:14] "GET /styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 05:20:14] "GET /favicon.svg HTTP/1.1" 200 -
+----------------------------------------------------------------------
+Ran 276 tests in 100.840s
+
+OK
+
+SUMMARY (selection on selected historical positions; not general style or Elo):
+  baseline    historical-match 0/4 checks 0 captures 0 exposed-piece proxy 0 nodes 2,962 time 0.04s
+Saved: /tmp/tmptwlgyvkq/tal_results.json
+깊이  1  점수      #1  노드        44    0.00s  91,107/s  수순 a1a8
+깊이  1  점수      #1  노드        44    0.00s  110,795/s  수순 a1a8
+깊이  1  점수      #1  노드        73    0.00s  55,014/s  수순 f7f8n
+깊이  1  점수      #1  노드        73    0.00s  76,581/s  수순 f7f8n
+깊이  1  점수   +0.50  노드        41    0.00s  148,941/s  수순 b1c3
+깊이  2  점수   +0.00  노드       194    0.00s  142,470/s  수순 b1c3 b8c6
+깊이  3  점수   +0.50  노드     1,193    0.01s  194,220/s  수순 b1c3 b8c6 g1f3
+깊이  1  점수   +0.50  노드        41    0.00s  151,488/s  수순 b1c3
+깊이  2  점수   +0.00  노드       194    0.00s  144,757/s  수순 b1c3 b8c6
+깊이  3  점수   +0.50  노드     1,193    0.01s  184,734/s  수순 b1c3 b8c6 g1f3
+깊이  1  점수   +0.50  노드        41    0.00s  147,418/s  수순 b1c3
+깊이  2  점수   +0.00  노드       194    0.00s  142,036/s  수순 b1c3 b8c6
+깊이  3  점수   +0.50  노드     1,193    0.01s  194,375/s  수순 b1c3 b8c6 g1f3
+깊이  1  점수   +0.00  노드        51    0.00s  112,004/s  수순 b8c6
+깊이  2  점수   -0.50  노드       165    0.00s  125,248/s  수순 b8c6 g1f3

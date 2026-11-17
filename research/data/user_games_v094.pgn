@@ -1,0 +1,49 @@
+[Event "Tal Lab v0.9.3 Test 1"]
+[White "Tal Lab"]
+[Black "Chess.com Bot 2561"]
+[Result "*"]
+
+1. Nc3 d5 2. Nf3 d4 3. Ne4 Nc6
+4. e3 f5 5. Ng3 dxe3 6. dxe3 Qxd1+
+7. Kxd1 Nf6 8. Bb5 Bd7 9. Bxc6 Bxc6
+10. Nxf5 e5 11. Nxe5 O-O-O+
+12. Ke2 Bxg2 13. Rg1 Be4
+14. Nf7 Bxf5 15. Nxh8 Be6
+16. b3 Bb4 17. Rxg7 Bc3
+18. Rb1 Ne4 19. Rxh7 Bxh8
+20. Kf1 Bf5 21. Rh5 Bg4
+22. Rh4 Bf3 23. Bb2 Bxb2
+24. Rxe4 Bxe4 25. Rxb2 Bf3 *
+
+
+[Event "Tal Lab v0.9.3 Test 2"]
+[White "Chess.com Bot 2100"]
+[Black "Tal Lab"]
+[Result "0-1"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6
+4. O-O Nxe4 5. d4 exd4
+6. Re1 f5 7. a3 Kf7
+8. Bf4 Bc5 9. b4 Bb6
+10. c3 dxc3 11. Qd5+ Ke8
+12. Nxc3 Bxf2+ 13. Kh1 Bxe1
+14. Nxe4 Bxb4 15. Bc4 Qe7
+16. Ng3 Qf6 17. Qd1 Bd6
+18. Nh5 Qe7 19. Bg5 Qf8
+20. Nd4 Be5 21. Qe2 d6
+22. Nxc6 bxc6 23. Nf4 g6
+24. Re1 Qg7 25. Qf3 Bd7
+26. Ne6 Bxe6 27. Qxc6+ Qd7
+28. Qxa8+ Kf7 29. Bxe6+ Qxe6
+30. Qxa7 Qd7 31. Qe3 Re8
+32. Qf3 d5 33. g3 c5
+34. Kg2 c4 35. g4 d4
+36. gxf5 gxf5 37. Rf1 Kg6
+38. Bf4 Bxf4 39. Qxf4 Re4
+40. Qf3 c3 41. Kh1 d3
+42. h3 c2 43. Qg2+ Kf6
+44. Qd2 Qd5 45. Qh6+ Ke5
+46. Kg1 d2 47. Qxh7 d1=Q
+48. Qxf5+ Kd6 49. Qf8+ Kd7
+50. Qf6 Rg4+ 51. hxg4 Qxg4+
+52. Kh2 Qdg2# 0-1

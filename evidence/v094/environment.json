@@ -1,0 +1,12 @@
+{
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "python": "3.12.14",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "logical_cpus": 3,
+  "affinity": "0 baseline diagnostics; 1 reference/build; 2 ablations, concurrent disjoint-core workloads",
+  "stockfish": {
+    "tag": "sf_19",
+    "url": "https://github.com/official-stockfish/Stockfish/releases/download/sf_19/stockfish-linux-x86-64-universal.tar.gz",
+    "binary_sha256": "0f83d24cc46d2c66c60f16001af5444873bc112b7d028594513426894c12da19"
+  }
+}

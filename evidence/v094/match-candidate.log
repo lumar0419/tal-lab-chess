@@ -1,0 +1,60 @@
+engine1: MyEngine 0.9.4-dev  [TacticalSearch=true]  Hash 64MB
+engine2: MyEngine 0.9.3  [TacticalSearch=true]  Hash 64MB
+실험 ID v094-no-quiet-pruning-screen-20261117-051149-2011  CPU 3개, 시작 시 부하 2.21
+※ 시작 시 시스템 부하가 높음 — 다른 프로그램이 CPU를 쓰고 있으면 결과 비교가 흐려질 수 있음
+20판, 5+0.05s, 오프닝 시드 9417
+
+    1. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1-0      159 ply  Queen's Gambit Declined  checkmate
+    2. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1/2-1/2  151 ply  Queen's Gambit Declined  threefold_repetition
+    3. MyEngine 0.9.4-dev       - MyEngine 0.9.3           0-1      116 ply  Open Game                checkmate
+    4. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1/2-1/2  180 ply  Open Game                threefold_repetition
+    5. MyEngine 0.9.4-dev       - MyEngine 0.9.3           0-1       60 ply  King's Indian            checkmate
+    6. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1/2-1/2  154 ply  King's Indian            threefold_repetition
+    7. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1/2-1/2  158 ply  French                   threefold_repetition
+    8. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1/2-1/2   50 ply  French                   threefold_repetition
+    9. MyEngine 0.9.4-dev       - MyEngine 0.9.3           0-1      116 ply  Scandinavian             checkmate
+   10. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1-0       41 ply  Scandinavian             checkmate
+   11. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1-0      191 ply  Reti                     checkmate
+   12. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1/2-1/2   53 ply  Reti                     threefold_repetition
+   13. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1-0       97 ply  English                  checkmate
+   14. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1/2-1/2  224 ply  English                  threefold_repetition
+   15. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1/2-1/2   75 ply  Nimzo/Queen's Indian     threefold_repetition
+   16. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1-0      139 ply  Nimzo/Queen's Indian     checkmate
+   17. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1/2-1/2  113 ply  Caro-Kann                threefold_repetition
+   18. MyEngine 0.9.3           - MyEngine 0.9.4-dev       0-1       68 ply  Caro-Kann                checkmate
+   19. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1/2-1/2   69 ply  Sicilian                 threefold_repetition
+   20. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1/2-1/2   96 ply  Sicilian                 threefold_repetition
+
+========================================================================
+MyEngine 0.9.4-dev  vs  MyEngine 0.9.3   (5+0.05s)
+  전체             4승 11무 5패 / 20판   점수율 47.5%
+  engine1 백      3승 4무 3패 / 10판   점수율 50.0%
+  engine1 흑      1승 7무 2패 / 10판   점수율 45.0%
+  오프닝별 (engine1 기준):
+    Queen's Gambit Declined  1-1-0  (75%)
+    Open Game                0-1-1  (25%)
+    King's Indian            0-1-1  (25%)
+    French                   0-2-0  (50%)
+    Scandinavian             0-0-2  (0%)
+    Reti                     1-1-0  (75%)
+    English                  1-1-0  (75%)
+    Nimzo/Queen's Indian     0-1-1  (25%)
+    Caro-Kann                1-1-0  (75%)
+    Sicilian                 0-2-0  (50%)
+  메이트 승 4 / 메이트 패 5
+  시간패            engine1 0 / engine2 0
+  불법수·수 없음       engine1 0 / engine2 0
+  엔진 오류·충돌       engine1 0 / engine2 0
+  종료 사유: checkmate 9, threefold_repetition 11
+  평균 대국 길이 115.5 ply
+  생각 시간 MyEngine 0.9.4-dev: 평균 0.11s, 최대 0.21s (1116수), 평균 깊이 2.4, 수당 노드 4,858, NPS 44,722
+  생각 시간 MyEngine 0.9.3: 평균 0.11s, 최대 0.21s (1114수), 평균 깊이 2.53, 수당 노드 3,444, NPS 32,197
+  실행 환경: 시스템 부하 평균 2.53 최대 3.2, 일한 코어 평균 2.04 (1.5 넘은 판 20)
+
+  Elo 차이 (engine1 − engine2, 상대적인 값):
+    -17  95% 범위 -124 ~ +86  (판을 독립으로 본 삼항 오차)
+    쌍 기준 -17  95% 범위 -136 ~ +98  (같은 오프닝 두 판 = 한 쌍, 10쌍)
+    LOS(engine1이 더 강할 확률, 무승부 제외 정규 근사) 36.9%
+    ※ 20판은 표본이 작아 범위가 넓고 정규 근사도 거칠어요. 수십~수백 판이 필요해요.
+========================================================================
+총 242s,  기보 evidence/v094/match-candidate.pgn  결과 evidence/v094/match-candidate.json  표 evidence/v094/match-candidate.csv

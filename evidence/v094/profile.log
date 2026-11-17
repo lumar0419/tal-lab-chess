@@ -1,0 +1,18 @@
+board.py:pseudo_legal_moves: 18330 calls, self=0.3660s, total=0.5620s
+board.py:is_attacked: 162051 calls, self=0.3203s, total=0.3203s
+board.py:unmake_move: 106105 calls, self=0.2862s, total=0.3019s
+search.py:quiesce: 27385 calls, self=0.2476s, total=1.9314s
+board.py:make_move: 106105 calls, self=0.2261s, total=0.2502s
+search.py:negamax: 18516 calls, self=0.2181s, total=3.4851s
+board.py:_generate_evasions: 7915 calls, self=0.2081s, total=0.2297s
+evaluate.py:evaluate_white: 14611 calls, self=0.1866s, total=0.2892s
+search.py:priority: 221623 calls, self=0.1576s, total=0.2984s
+~:<method 'upper' of 'str' objects>: 362789 calls, self=0.1254s, total=0.1254s
+~:<method 'append' of 'list' objects>: 442131 calls, self=0.1234s, total=0.1234s
+~:<method 'sort' of 'list' objects>: 26244 calls, self=0.1066s, total=0.4307s
+board.py:quiet_check_candidates: 10784 calls, self=0.0899s, total=0.1451s
+board.py:_least_attacker: 42736 calls, self=0.0747s, total=0.0747s
+board.py:evasion_candidates: 7915 calls, self=0.0705s, total=0.3031s
+evaluate.py:_pawn_structure: 1266 calls, self=0.0654s, total=0.0878s
+board.py:has_legal_move: 9823 calls, self=0.0615s, total=0.0696s
+board.py:see_estimate: 25116 calls, self=0.0597s, total=0.1445s

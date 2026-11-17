@@ -1,5 +1,16 @@
 # Tal Lab 개발 기록
 
+
+## v0.9.4-dev — Positional Understanding & Search Accuracy
+
+- v0.9.3 `af201fb` 기반 별도 개발 브랜치. 기력 개선 완료판이 아닌 검증/진단 Draft이며, main/Render는 변경하지 않았습니다.
+- 두 사용자 기보를 독립 규칙 oracle과 재생하고 실제 60초·전술 탐색·MultiPV 1/2 조건을 대조했습니다. Stockfish 19의 시간/고정 노드 비교, 상세 PV 및 원시 결과를 보존했습니다.
+- `evaluation_breakdown()` 및 `/api/analysis/evaluation` API, 웹 평가 상세/착수 전후 비교를 추가했습니다. 백 기준, 정확한 phase numerator, 최종 절삭과 기물 부족 무승부 override를 노출합니다. 정적 평가와 탐색 평가를 분리하고 전역 옵션을 변경하지 않습니다.
+- opt-in trace에 quiet 순서/count, history/killer, PV 여부, futility margin/LMP threshold, LMR 재탐색을 기록합니다. 검색 정책과 기본값은 유지합니다.
+- 안전 mobility·king pressure/shelter·home-minor development·rook file 후보를 연구 도구에서 독립 구현했습니다. grouped PGN Texel 튜너, 누수 검사, 고정 노드/시간 ablation, 실제 UCI 후보 실험 및 집계 도구를 추가했습니다.
+- 새 후보들은 검증 오차·전술 정확도·계산 비용·대국 결과가 통합을 뒷받침하지 못해 제품 기본 평가에서 제외했습니다. 역사적 수나 Stockfish 수를 하드코딩하지 않았습니다.
+- CPython/PyPy/Cython/Pyodide 검증, 기존 테스트 유지, 신규 11개 회귀 및 frontend API 검사. 세부 결과/한계는 [VALIDATION_v094.md](VALIDATION_v094.md).
+
 ## v0.9.3
 
 - **전술 탐색 프로필**을 추가했습니다. 선택적 탐색에 루트 희생 수 연장(SEE ≤ −100인 루트 수를 2반수 더 깊이)을 더한 묶음입니다. `Searcher.set_tactical()`, UCI `TacticalSearch`, 분석·대국 화면 옵션, 심층 분석 `tactical` 프로필로 켭니다.

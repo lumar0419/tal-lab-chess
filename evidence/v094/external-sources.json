@@ -1,0 +1,22 @@
+{
+  "PyCheckmate": {
+    "commit": "edd4049bb314147402f638db9a92f52150c94162",
+    "remote": "https://github.com/pdloc06/PyCheckmate.git",
+    "date": "2026-08-20T16:01:04+07:00"
+  },
+  "numbfish": {
+    "commit": "97fcbbca1ab9f724b806b5b90ceff6541ac0b46f",
+    "remote": "https://github.com/dimdano/numbfish.git",
+    "date": "2023-03-07T13:31:53+02:00"
+  },
+  "Pygin": {
+    "commit": "ff12d8de40eead6ddd257a3b36f4d5b3f20957d4",
+    "remote": "https://github.com/IchNukeDichWeg/Pygin.git",
+    "date": "2026-11-07T14:06:31+01:00"
+  },
+  "sunfish": {
+    "commit": "e396948acbd80cdcbad3dccfb07e878fba9df8f4",
+    "remote": "https://github.com/thomasahle/sunfish.git",
+    "date": "2026-08-27T13:54:38+02:00"
+  }
+}

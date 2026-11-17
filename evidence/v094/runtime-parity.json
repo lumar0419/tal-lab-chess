@@ -1,0 +1,614 @@
+{
+  "pyodide": {
+    "version": "0.9.4-dev",
+    "results": [
+      [
+        {
+          "sacrifice": null,
+          "rank": 1,
+          "depth": 4,
+          "nodes": 8985,
+          "score": 35,
+          "pv": [
+            "g8f6",
+            "e4e5",
+            "f6e4",
+            "g1f3"
+          ],
+          "pv_san": [
+            "Nf6",
+            "e5",
+            "Ne4",
+            "Nf3"
+          ],
+          "best_san": "Nf6"
+        },
+        {
+          "sacrifice": null,
+          "rank": 2,
+          "depth": 4,
+          "nodes": 9354,
+          "score": 40,
+          "pv": [
+            "b8c6",
+            "b1c3",
+            "g8f6",
+            "g1f3"
+          ],
+          "pv_san": [
+            "Nc6",
+            "Nc3",
+            "Nf6",
+            "Nf3"
+          ],
+          "best_san": "Nc6"
+        },
+        {
+          "sacrifice": null,
+          "rank": 3,
+          "depth": 4,
+          "nodes": 12972,
+          "score": 40,
+          "pv": [
+            "d7d5",
+            "e4d5",
+            "d8d5",
+            "g1f3"
+          ],
+          "pv_san": [
+            "d5",
+            "exd5",
+            "Qxd5",
+            "Nf3"
+          ],
+          "best_san": "d5"
+        }
+      ],
+      [
+        {
+          "sacrifice": null,
+          "rank": 1,
+          "depth": 4,
+          "nodes": 5807,
+          "score": 20,
+          "pv": [
+            "g8f6",
+            "b1c3",
+            "d7d5",
+            "f1d3"
+          ],
+          "pv_san": [
+            "Nf6",
+            "Nc3",
+            "d5",
+            "Bd3"
+          ],
+          "best_san": "Nf6"
+        },
+        {
+          "sacrifice": null,
+          "rank": 2,
+          "depth": 4,
+          "nodes": 4775,
+          "score": 40,
+          "pv": [
+            "b8c6",
+            "b1c3",
+            "g8f6",
+            "g1f3"
+          ],
+          "pv_san": [
+            "Nc6",
+            "Nc3",
+            "Nf6",
+            "Nf3"
+          ],
+          "best_san": "Nc6"
+        },
+        {
+          "sacrifice": null,
+          "rank": 3,
+          "depth": 4,
+          "nodes": 7113,
+          "score": 40,
+          "pv": [
+            "d7d5",
+            "e4d5",
+            "d8d5",
+            "g1f3"
+          ],
+          "pv_san": [
+            "d5",
+            "exd5",
+            "Qxd5",
+            "Nf3"
+          ],
+          "best_san": "d5"
+        }
+      ],
+      [
+        {
+          "sacrifice": null,
+          "rank": 1,
+          "depth": 4,
+          "nodes": 8985,
+          "score": 35,
+          "pv": [
+            "g8f6",
+            "e4e5",
+            "f6e4",
+            "g1f3"
+          ],
+          "pv_san": [
+            "Nf6",
+            "e5",
+            "Ne4",
+            "Nf3"
+          ],
+          "best_san": "Nf6"
+        },
+        {
+          "sacrifice": null,
+          "rank": 2,
+          "depth": 4,
+          "nodes": 9354,
+          "score": 40,
+          "pv": [
+            "b8c6",
+            "b1c3",
+            "g8f6",
+            "g1f3"
+          ],
+          "pv_san": [
+            "Nc6",
+            "Nc3",
+            "Nf6",
+            "Nf3"
+          ],
+          "best_san": "Nc6"
+        },
+        {
+          "sacrifice": null,
+          "rank": 3,
+          "depth": 4,
+          "nodes": 12972,
+          "score": 40,
+          "pv": [
+            "d7d5",
+            "e4d5",
+            "d8d5",
+            "g1f3"
+          ],
+          "pv_san": [
+            "d5",
+            "exd5",
+            "Qxd5",
+            "Nf3"
+          ],
+          "best_san": "d5"
+        }
+      ]
+    ],
+    "deep": {
+      "root": "f3f6",
+      "depth": 3,
+      "comparison": {
+        "depth": 3,
+        "score": 99997,
+        "reference_score": 99997,
+        "delta_for_mover": 0
+      },
+      "proof": {
+        "status": "proved",
+        "max_plies": 3,
+        "nodes": 25,
+        "node_budget": 25000
+      }
+    },
+    "evaluation": {
+      "before": {
+        "fen": "7k/8/8/8/8/8/p7/R6K w - - 0 1",
+        "perspective": "white",
+        "unit": "centipawn",
+        "kind": "static",
+        "phase": 2,
+        "denominator": 24,
+        "terms": {
+          "기물 가치": {
+            "mg": 400,
+            "eg": 400,
+            "numerator": 9600
+          },
+          "위치 점수": {
+            "mg": -50,
+            "eg": -50,
+            "numerator": -1200
+          },
+          "폰 구조": {
+            "mg": -50,
+            "eg": -105,
+            "numerator": -2410
+          },
+          "비숍 쌍": {
+            "mg": 0,
+            "eg": 0,
+            "numerator": 0
+          },
+          "킹 안전": {
+            "mg": 0,
+            "eg": 0,
+            "numerator": 0
+          },
+          "공격 활동성": {
+            "mg": 0,
+            "eg": 0,
+            "numerator": 0
+          }
+        },
+        "unrounded_numerator": 5990,
+        "rounded_before_override": 249,
+        "dead_position": false,
+        "static_score": 249,
+        "search_score": null
+      },
+      "after": {
+        "fen": "7k/8/8/8/8/8/R7/7K b - - 0 1",
+        "perspective": "white",
+        "unit": "centipawn",
+        "kind": "static",
+        "phase": 2,
+        "denominator": 24,
+        "terms": {
+          "기물 가치": {
+            "mg": 500,
+            "eg": 500,
+            "numerator": 12000
+          },
+          "위치 점수": {
+            "mg": -5,
+            "eg": -5,
+            "numerator": -120
+          },
+          "폰 구조": {
+            "mg": 0,
+            "eg": 0,
+            "numerator": 0
+          },
+          "비숍 쌍": {
+            "mg": 0,
+            "eg": 0,
+            "numerator": 0
+          },
+          "킹 안전": {
+            "mg": 0,
+            "eg": 0,
+            "numerator": 0
+          },
+          "공격 활동성": {
+            "mg": 8,
+            "eg": 8,
+            "numerator": 192
+          }
+        },
+        "unrounded_numerator": 12072,
+        "rounded_before_override": 503,
+        "dead_position": false,
+        "static_score": 503,
+        "search_score": null
+      },
+      "delta": 254,
+      "options": {
+        "king_safety": true,
+        "attack_activity": true,
+        "initiative": false
+      },
+      "uci": "a1a2"
+    }
+  },
+  "native": {
+    "version": "0.9.4-dev",
+    "results": [
+      [
+        {
+          "sacrifice": null,
+          "rank": 1,
+          "depth": 4,
+          "nodes": 8985,
+          "score": 35,
+          "pv": [
+            "g8f6",
+            "e4e5",
+            "f6e4",
+            "g1f3"
+          ],
+          "pv_san": [
+            "Nf6",
+            "e5",
+            "Ne4",
+            "Nf3"
+          ],
+          "best_san": "Nf6"
+        },
+        {
+          "sacrifice": null,
+          "rank": 2,
+          "depth": 4,
+          "nodes": 9354,
+          "score": 40,
+          "pv": [
+            "b8c6",
+            "b1c3",
+            "g8f6",
+            "g1f3"
+          ],
+          "pv_san": [
+            "Nc6",
+            "Nc3",
+            "Nf6",
+            "Nf3"
+          ],
+          "best_san": "Nc6"
+        },
+        {
+          "sacrifice": null,
+          "rank": 3,
+          "depth": 4,
+          "nodes": 12972,
+          "score": 40,
+          "pv": [
+            "d7d5",
+            "e4d5",
+            "d8d5",
+            "g1f3"
+          ],
+          "pv_san": [
+            "d5",
+            "exd5",
+            "Qxd5",
+            "Nf3"
+          ],
+          "best_san": "d5"
+        }
+      ],
+      [
+        {
+          "sacrifice": null,
+          "rank": 1,
+          "depth": 4,
+          "nodes": 5807,
+          "score": 20,
+          "pv": [
+            "g8f6",
+            "b1c3",
+            "d7d5",
+            "f1d3"
+          ],
+          "pv_san": [
+            "Nf6",
+            "Nc3",
+            "d5",
+            "Bd3"
+          ],
+          "best_san": "Nf6"
+        },
+        {
+          "sacrifice": null,
+          "rank": 2,
+          "depth": 4,
+          "nodes": 4775,
+          "score": 40,
+          "pv": [
+            "b8c6",
+            "b1c3",
+            "g8f6",
+            "g1f3"
+          ],
+          "pv_san": [
+            "Nc6",
+            "Nc3",
+            "Nf6",
+            "Nf3"
+          ],
+          "best_san": "Nc6"
+        },
+        {
+          "sacrifice": null,
+          "rank": 3,
+          "depth": 4,
+          "nodes": 7113,
+          "score": 40,
+          "pv": [
+            "d7d5",
+            "e4d5",
+            "d8d5",
+            "g1f3"
+          ],
+          "pv_san": [
+            "d5",
+            "exd5",
+            "Qxd5",
+            "Nf3"
+          ],
+          "best_san": "d5"
+        }
+      ],
+      [
+        {
+          "sacrifice": null,
+          "rank": 1,
+          "depth": 4,
+          "nodes": 8985,
+          "score": 35,
+          "pv": [
+            "g8f6",
+            "e4e5",
+            "f6e4",
+            "g1f3"
+          ],
+          "pv_san": [
+            "Nf6",
+            "e5",
+            "Ne4",
+            "Nf3"
+          ],
+          "best_san": "Nf6"
+        },
+        {
+          "sacrifice": null,
+          "rank": 2,
+          "depth": 4,
+          "nodes": 9354,
+          "score": 40,
+          "pv": [
+            "b8c6",
+            "b1c3",
+            "g8f6",
+            "g1f3"
+          ],
+          "pv_san": [
+            "Nc6",
+            "Nc3",
+            "Nf6",
+            "Nf3"
+          ],
+          "best_san": "Nc6"
+        },
+        {
+          "sacrifice": null,
+          "rank": 3,
+          "depth": 4,
+          "nodes": 12972,
+          "score": 40,
+          "pv": [
+            "d7d5",
+            "e4d5",
+            "d8d5",
+            "g1f3"
+          ],
+          "pv_san": [
+            "d5",
+            "exd5",
+            "Qxd5",
+            "Nf3"
+          ],
+          "best_san": "d5"
+        }
+      ]
+    ],
+    "deep": {
+      "root": "f3f6",
+      "depth": 3,
+      "comparison": {
+        "depth": 3,
+        "score": 99997,
+        "reference_score": 99997,
+        "delta_for_mover": 0
+      },
+      "proof": {
+        "status": "proved",
+        "max_plies": 3,
+        "nodes": 25,
+        "node_budget": 25000
+      }
+    },
+    "evaluation": {
+      "before": {
+        "fen": "7k/8/8/8/8/8/p7/R6K w - - 0 1",
+        "perspective": "white",
+        "unit": "centipawn",
+        "kind": "static",
+        "phase": 2,
+        "denominator": 24,
+        "terms": {
+          "기물 가치": {
+            "mg": 400,
+            "eg": 400,
+            "numerator": 9600
+          },
+          "위치 점수": {
+            "mg": -50,
+            "eg": -50,
+            "numerator": -1200
+          },
+          "폰 구조": {
+            "mg": -50,
+            "eg": -105,
+            "numerator": -2410
+          },
+          "비숍 쌍": {
+            "mg": 0,
+            "eg": 0,
+            "numerator": 0
+          },
+          "킹 안전": {
+            "mg": 0,
+            "eg": 0,
+            "numerator": 0
+          },
+          "공격 활동성": {
+            "mg": 0,
+            "eg": 0,
+            "numerator": 0
+          }
+        },
+        "unrounded_numerator": 5990,
+        "rounded_before_override": 249,
+        "dead_position": false,
+        "static_score": 249,
+        "search_score": null
+      },
+      "after": {
+        "fen": "7k/8/8/8/8/8/R7/7K b - - 0 1",
+        "perspective": "white",
+        "unit": "centipawn",
+        "kind": "static",
+        "phase": 2,
+        "denominator": 24,
+        "terms": {
+          "기물 가치": {
+            "mg": 500,
+            "eg": 500,
+            "numerator": 12000
+          },
+          "위치 점수": {
+            "mg": -5,
+            "eg": -5,
+            "numerator": -120
+          },
+          "폰 구조": {
+            "mg": 0,
+            "eg": 0,
+            "numerator": 0
+          },
+          "비숍 쌍": {
+            "mg": 0,
+            "eg": 0,
+            "numerator": 0
+          },
+          "킹 안전": {
+            "mg": 0,
+            "eg": 0,
+            "numerator": 0
+          },
+          "공격 활동성": {
+            "mg": 8,
+            "eg": 8,
+            "numerator": 192
+          }
+        },
+        "unrounded_numerator": 12072,
+        "rounded_before_override": 503,
+        "dead_position": false,
+        "static_score": 503,
+        "search_score": null
+      },
+      "delta": 254,
+      "options": {
+        "king_safety": true,
+        "attack_activity": true,
+        "initiative": false
+      },
+      "uci": "a1a2"
+    }
+  }
+}

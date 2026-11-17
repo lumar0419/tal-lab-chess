@@ -48,6 +48,18 @@ const run=s=>vm.runInContext(s,context);
  assert.deepEqual(sacrificeRequest,{discover:true,uci:'',expected_fen:'new-position'});
  assert.equal(ids['sacrifice-move'].value,'e2e4');
  assert.match(ids['sacrifice-result'].textContent,/3반수 이내 강제 메이트.*d7d5 \(수락/);
+ context.document.querySelector=()=>({checked:false});
+ context.fetch=async (url,options)=>{
+   assert.equal(url,'/api/analysis/evaluation');
+   assert.equal(JSON.parse(options.body).expected_fen,'new-position');
+   const before={denominator:24,terms:{Material:{numerator:2400}},static_score:100};
+   const after={denominator:24,terms:{Material:{numerator:4800}},static_score:200};
+   return {ok:true,headers:{get:()=>null},json:async()=>({before,after,delta:100,
+     options:{king_safety:false,attack_activity:false,initiative:false}})};
+ };
+ await ids['show-evaluation'].events.click();
+ assert.match(ids['evaluation-result'].textContent,/정적 평가: \+1.00 → \+2.00/);
+ assert.match(ids['evaluation-result'].textContent,/기본 평가/);
  ids['compute-mode'].value='local';
  ids['deep-seconds'].value='600';ids['deep-profile'].value='conservative';
  context.fetch=async()=>({ok:true,headers:{get:()=>null},json:async()=>response});

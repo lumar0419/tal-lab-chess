@@ -9,6 +9,7 @@ import json
 import os
 from pathlib import Path
 import platform
+import runpy
 import sys
 
 from Cython.Build import cythonize
@@ -21,7 +22,7 @@ if platform.python_implementation() != 'CPython' or sys.platform == 'emscripten'
     raise SystemExit('Use the portable Python engine on this runtime.')
 extensions = [Extension(Path(p).stem, [p]) for p in SOURCES]
 source_hashes = {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCES}
-setup(name='tal-lab-native', version='0.9.3',
+setup(name='tal-lab-native', version=runpy.run_path(str(ROOT/'version.py'))['VERSION'].replace('-dev', '.dev0'),
       ext_modules=cythonize(extensions, build_dir='build/cython',
           compiler_directives={'language_level':3, 'annotation_typing':False,
                                'binding':True, 'infer_types':False}))
