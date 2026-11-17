@@ -1,0 +1,3494 @@
+{
+  "engine": {
+    "name": "Stockfish 19",
+    "author": "the Stockfish developers (see AUTHORS file)"
+  },
+  "threads": 1,
+  "hash_mb": 32,
+  "seconds": 1.0,
+  "rows": [
+    {
+      "id": "quiet_holdout_00",
+      "fen": "6r1/8/1k1n4/2R5/p2P1PP1/1pP2K2/1P1B4/8 w - - 3 41",
+      "root": {
+        "depth": 20,
+        "score_white": 332,
+        "mate_white": null,
+        "nodes": 996067,
+        "nps": 996067,
+        "elapsed": 1.0133416979999765,
+        "pv": [
+          "d2c1",
+          "g8e8"
+        ]
+      },
+      "forced": {
+        "c3c4": {
+          "depth": 17,
+          "score_white": -378,
+          "mate_white": null,
+          "nodes": 1201224,
+          "nps": 1201224,
+          "elapsed": 1.0011089439999523,
+          "pv": [
+            "c3c4",
+            "a4a3"
+          ]
+        },
+        "c5d5": {
+          "depth": 20,
+          "score_white": 316,
+          "mate_white": null,
+          "nodes": 1048856,
+          "nps": 1048856,
+          "elapsed": 1.0053558479999083,
+          "pv": [
+            "c5d5",
+            "d6c4",
+            "d2c1",
+            "g8e8",
+            "d5c5",
+            "c4d6",
+            "c5e5",
+            "e8c8",
+            "e5e3",
+            "c8h8",
+            "e3e1",
+            "a4a3",
+            "b2a3",
+            "h8h3",
+            "f3f2",
+            "b6c6",
+            "g4g5",
+            "c6d7",
+            "d4d5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_01",
+      "fen": "3r1rk1/1p3ppn/p5p1/7q/2NNP2P/P4P2/1P3QP1/2RR2K1 w - - 3 29",
+      "root": {
+        "depth": 23,
+        "score_white": 736,
+        "mate_white": null,
+        "nodes": 912613,
+        "nps": 911701,
+        "elapsed": 1.0048263199998928,
+        "pv": [
+          "e4e5",
+          "g6g5",
+          "c4d6",
+          "h5h4",
+          "c1c7",
+          "h4f4",
+          "d4f5",
+          "g7g6",
+          "f5h6",
+          "g8g7",
+          "c7f7",
+          "f8f7",
+          "h6f7",
+          "f4a4",
+          "f7d8",
+          "a4d1",
+          "g1h2",
+          "h7f8"
+        ]
+      },
+      "forced": {
+        "g2g4": {
+          "depth": 23,
+          "score_white": 720,
+          "mate_white": null,
+          "nodes": 734328,
+          "nps": 734328,
+          "elapsed": 1.0041913279999335,
+          "pv": [
+            "g2g4",
+            "h5c5",
+            "c4e3",
+            "c5e5",
+            "f2h2",
+            "e5h2",
+            "g1h2",
+            "g6g5",
+            "h2g3",
+            "g5h4",
+            "g3h4",
+            "h7f6",
+            "d4e2",
+            "f6d7",
+            "h4g3",
+            "d7f6",
+            "g3g2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_02",
+      "fen": "6r1/5kp1/3Bp3/1p1p4/p1bP3R/P1P1P1P1/6K1/8 w - - 4 37",
+      "root": {
+        "depth": 37,
+        "score_white": 0,
+        "mate_white": null,
+        "nodes": 1242382,
+        "nps": 1242382,
+        "elapsed": 1.0047405249999883,
+        "pv": [
+          "g3g4",
+          "c4d3",
+          "g2g3",
+          "g7g5",
+          "h4h5",
+          "f7f6",
+          "h5h2",
+          "f6g6",
+          "d6b4",
+          "g8c8",
+          "h2h5",
+          "d3e4",
+          "h5h3",
+          "g6g7",
+          "h3h2",
+          "e4g6",
+          "h2f2",
+          "g6e4",
+          "f2f1",
+          "e4g6",
+          "b4c5",
+          "g6d3",
+          "f1f2",
+          "d3e4",
+          "c5b4",
+          "e4d3",
+          "f2d2",
+          "d3e4",
+          "d2h2"
+        ]
+      },
+      "forced": {
+        "g2f3": {
+          "depth": 34,
+          "score_white": 1,
+          "mate_white": null,
+          "nodes": 1037617,
+          "nps": 1037617,
+          "elapsed": 1.0037895269999808,
+          "pv": [
+            "g2f3",
+            "c4d3",
+            "g3g4",
+            "g8c8",
+            "d6c5",
+            "g7g5",
+            "h4h6",
+            "d3g6",
+            "c5b4",
+            "f7g7",
+            "h6h2",
+            "c8c7",
+            "f3g3",
+            "c7c8",
+            "h2f2",
+            "g6e4",
+            "f2b2",
+            "c8c7",
+            "b2h2",
+            "e4g6",
+            "b4c5",
+            "c7f7",
+            "h2f2",
+            "f7c7",
+            "c5f8",
+            "g7g8",
+            "f8b4",
+            "g8g7",
+            "b4a5",
+            "c7d7",
+            "f2b2",
+            "g6e4",
+            "b2b5"
+          ]
+        },
+        "h4f4": {
+          "depth": 29,
+          "score_white": 4,
+          "mate_white": null,
+          "nodes": 973390,
+          "nps": 973390,
+          "elapsed": 1.0055635039998378,
+          "pv": [
+            "h4f4",
+            "f7g6",
+            "g2f3",
+            "g8d8",
+            "f4g4",
+            "g6f7",
+            "d6b4",
+            "c4d3",
+            "g4f4",
+            "d3f5",
+            "f4h4",
+            "g7g5",
+            "h4h5",
+            "f7f6",
+            "g3g4",
+            "f5e4",
+            "f3f2",
+            "d8c8",
+            "h5h6",
+            "f6f7",
+            "f2g3",
+            "c8c4",
+            "h6h8"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_03",
+      "fen": "8/7p/4k3/8/4P2P/p7/6r1/K7 w - - 4 45",
+      "root": {
+        "depth": 95,
+        "score_white": -29994,
+        "mate_white": -6,
+        "nodes": 2997157,
+        "nps": 2997157,
+        "elapsed": 1.004422513999998,
+        "pv": [
+          "h4h5",
+          "e6e5",
+          "a1b1",
+          "e5d4",
+          "h5h6",
+          "d4c4",
+          "e4e5",
+          "a3a2",
+          "b1a1",
+          "c4b3",
+          "e5e6",
+          "g2g1"
+        ]
+      },
+      "forced": {
+        "h4h5": {
+          "depth": 79,
+          "score_white": -29994,
+          "mate_white": -6,
+          "nodes": 2357177,
+          "nps": 2357177,
+          "elapsed": 1.0032960670000648,
+          "pv": [
+            "h4h5",
+            "e6d6",
+            "a1b1",
+            "d6c5",
+            "b1a1",
+            "c5b4",
+            "a1b1",
+            "b4b3",
+            "b1c1",
+            "a3a2",
+            "e4e5",
+            "a2a1q"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_04",
+      "fen": "6R1/3k4/p6p/1bBB4/3K4/7P/8/8 w - - 7 53",
+      "root": {
+        "depth": 52,
+        "score_white": 29994,
+        "mate_white": 6,
+        "nodes": 1416571,
+        "nps": 1416571,
+        "elapsed": 1.0070742120001341,
+        "pv": [
+          "g8g7",
+          "d7d8",
+          "d4e5",
+          "b5d7",
+          "e5d6",
+          "d7e8",
+          "g7g8",
+          "a6a5",
+          "c5b6",
+          "d8c8",
+          "g8e8"
+        ]
+      },
+      "forced": {
+        "g8g7": {
+          "depth": 71,
+          "score_white": 29994,
+          "mate_white": 6,
+          "nodes": 2130849,
+          "nps": 2130849,
+          "elapsed": 1.003960116999906,
+          "pv": [
+            "g8g7",
+            "d7d8",
+            "d4e5",
+            "b5e8",
+            "e5d6",
+            "e8f7",
+            "d5f7",
+            "d8c8",
+            "f7d5",
+            "c8d8",
+            "g7g8"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_05",
+      "fen": "4Q3/p1p3pk/7p/8/2P5/1q2P1PK/7P/8 w - - 3 29",
+      "root": {
+        "depth": 40,
+        "score_white": 0,
+        "mate_white": null,
+        "nodes": 1169467,
+        "nps": 1169467,
+        "elapsed": 1.0072665919999508,
+        "pv": [
+          "e8e4",
+          "h7h8",
+          "e4e8",
+          "h8h7"
+        ]
+      },
+      "forced": {
+        "e8e4": {
+          "depth": 52,
+          "score_white": 0,
+          "mate_white": null,
+          "nodes": 1102020,
+          "nps": 1102020,
+          "elapsed": 1.0046794370000498,
+          "pv": [
+            "e8e4",
+            "h7h8",
+            "e4e8",
+            "h8h7"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_06",
+      "fen": "6k1/2p1np1p/6p1/p1N1P3/Pp6/5K2/1P3P1P/8 w - - 1 33",
+      "root": {
+        "depth": 22,
+        "score_white": 269,
+        "mate_white": null,
+        "nodes": 973834,
+        "nps": 973834,
+        "elapsed": 1.005999015000043,
+        "pv": [
+          "c5b7",
+          "g8f8",
+          "b7a5",
+          "f8e8",
+          "a5b7",
+          "e8d7",
+          "f3e4",
+          "g6g5",
+          "a4a5",
+          "d7c6",
+          "b7d8",
+          "c6b5",
+          "d8f7",
+          "c7c5",
+          "f7g5",
+          "b5a5",
+          "f2f4",
+          "c5c4",
+          "g5f3",
+          "c4c3",
+          "b2c3",
+          "b4c3",
+          "f3d4",
+          "a5b4",
+          "f4f5",
+          "b4c5",
+          "f5f6",
+          "e7g6",
+          "d4c2",
+          "g6f8"
+        ]
+      },
+      "forced": {
+        "f3e4": {
+          "depth": 21,
+          "score_white": 262,
+          "mate_white": null,
+          "nodes": 975272,
+          "nps": 975272,
+          "elapsed": 1.0017066549999072,
+          "pv": [
+            "f3e4",
+            "g8f8"
+          ]
+        },
+        "f3f4": {
+          "depth": 19,
+          "score_white": 211,
+          "mate_white": null,
+          "nodes": 990274,
+          "nps": 990274,
+          "elapsed": 1.005018770000106,
+          "pv": [
+            "f3f4",
+            "g8f8"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_07",
+      "fen": "r3kr2/ppp1b1p1/8/7p/3P1n2/2P1NK2/PP4PP/RNB4R w - - 5 17",
+      "root": {
+        "depth": 19,
+        "score_white": 648,
+        "mate_white": null,
+        "nodes": 837861,
+        "nps": 837861,
+        "elapsed": 1.003773653000053,
+        "pv": [
+          "g2g3",
+          "f4g6",
+          "f3e2",
+          "f8h8",
+          "e2d1",
+          "e8d7",
+          "b1d2",
+          "h5h4",
+          "g3h4",
+          "a8f8",
+          "d2c4"
+        ]
+      },
+      "forced": {
+        "b1d2": {
+          "depth": 19,
+          "score_white": 598,
+          "mate_white": null,
+          "nodes": 749741,
+          "nps": 749741,
+          "elapsed": 1.0070757920000233,
+          "pv": [
+            "b1d2",
+            "c7c5",
+            "g2g3",
+            "f4e6",
+            "f3g2",
+            "c5d4",
+            "c3d4",
+            "e6d4",
+            "d2b3",
+            "a8d8",
+            "h1d1",
+            "d4b3",
+            "a2b3",
+            "e7c5",
+            "d1d8",
+            "e8d8",
+            "c1d2",
+            "f8e8",
+            "a1d1",
+            "d8d7"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_08",
+      "fen": "r4rk1/pp3pp1/1np4p/3pP3/5P1q/2PB3P/PPQ3P1/R4RK1 w - - 2 21",
+      "root": {
+        "depth": 21,
+        "score_white": 146,
+        "mate_white": null,
+        "nodes": 761749,
+        "nps": 761749,
+        "elapsed": 1.0056459719999111,
+        "pv": [
+          "a1e1",
+          "b6d7",
+          "e1e3",
+          "a7a5",
+          "f4f5",
+          "f8e8",
+          "c2e2",
+          "e8e7",
+          "f5f6",
+          "g7f6",
+          "e5e6",
+          "f7e6",
+          "e3e6",
+          "e7g7",
+          "d3f5",
+          "d7e5"
+        ]
+      },
+      "forced": {
+        "a1d1": {
+          "depth": 20,
+          "score_white": 127,
+          "mate_white": null,
+          "nodes": 809071,
+          "nps": 809071,
+          "elapsed": 1.003696366999975,
+          "pv": [
+            "a1d1",
+            "b6d7",
+            "c2e2",
+            "d7c5",
+            "d3c2",
+            "a7a5",
+            "g1h2",
+            "h4e7",
+            "e2g4",
+            "a8d8",
+            "f1e1",
+            "c5e4",
+            "c2e4",
+            "d5e4",
+            "e1e4",
+            "d8d1",
+            "g4d1",
+            "f8d8",
+            "d1f3"
+          ]
+        },
+        "a1e1": {
+          "depth": 21,
+          "score_white": 157,
+          "mate_white": null,
+          "nodes": 766875,
+          "nps": 766875,
+          "elapsed": 1.0042033969998556,
+          "pv": [
+            "a1e1",
+            "b6d7"
+          ]
+        },
+        "f1f2": {
+          "depth": 21,
+          "score_white": 106,
+          "mate_white": null,
+          "nodes": 739505,
+          "nps": 739505,
+          "elapsed": 1.0060474660001546,
+          "pv": [
+            "f1f2",
+            "b6d7",
+            "d3f5",
+            "d7c5",
+            "a1e1",
+            "a8e8",
+            "g1h2",
+            "g7g6",
+            "b2b4",
+            "c5e6",
+            "g2g3",
+            "h4d8",
+            "f5d3",
+            "e6g7",
+            "e1f1",
+            "h6h5",
+            "f2g2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_09",
+      "fen": "r1b1kb1r/1pp4p/2p3p1/p7/3qP3/2N2P2/PPP1Q1PP/R4R1K w - - 0 17",
+      "root": {
+        "depth": 19,
+        "score_white": -407,
+        "mate_white": null,
+        "nodes": 772307,
+        "nps": 772307,
+        "elapsed": 1.003316322000046,
+        "pv": [
+          "f3f4",
+          "f8e7"
+        ]
+      },
+      "forced": {
+        "e4e5": {
+          "depth": 20,
+          "score_white": -464,
+          "mate_white": null,
+          "nodes": 708347,
+          "nps": 708347,
+          "elapsed": 1.0040686820000246,
+          "pv": [
+            "e4e5",
+            "c8e6",
+            "a1d1",
+            "d4c4",
+            "e2e3",
+            "a8d8",
+            "c3e4",
+            "f8e7",
+            "c2c3",
+            "a5a4",
+            "h2h3",
+            "h7h6",
+            "b2b3",
+            "a4b3",
+            "a2b3",
+            "c4b3",
+            "d1d8",
+            "e8d8",
+            "f1a1",
+            "d8d7",
+            "e3d3",
+            "b3d5",
+            "d3c2",
+            "d5e5",
+            "c2d2",
+            "d7e8"
+          ]
+        },
+        "f1d1": {
+          "depth": 19,
+          "score_white": -491,
+          "mate_white": null,
+          "nodes": 693466,
+          "nps": 693466,
+          "elapsed": 1.0060379250001006,
+          "pv": [
+            "f1d1",
+            "d4e5",
+            "d1f1",
+            "e5f4",
+            "e4e5",
+            "c8e6",
+            "c3e4",
+            "f8e7",
+            "a1d1",
+            "e8f8",
+            "d1d4",
+            "c6c5",
+            "e2d2",
+            "g6g5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_10",
+      "fen": "8/R7/1k6/1p6/8/PK2n3/8/8 w - - 5 53",
+      "root": {
+        "depth": 26,
+        "score_white": 28,
+        "mate_white": null,
+        "nodes": 1683866,
+        "nps": 1683866,
+        "elapsed": 1.00520487100016,
+        "pv": [
+          "a7h7",
+          "e3d5"
+        ]
+      },
+      "forced": {
+        "a7f7": {
+          "depth": 31,
+          "score_white": 25,
+          "mate_white": null,
+          "nodes": 1525464,
+          "nps": 1525464,
+          "elapsed": 1.0035491989999628,
+          "pv": [
+            "a7f7",
+            "e3d5",
+            "b3c2",
+            "d5e3",
+            "c2c3",
+            "e3d5",
+            "c3d4",
+            "d5c7",
+            "f7e7",
+            "c7a6",
+            "e7e6",
+            "b6a5",
+            "e6d6",
+            "a6c7",
+            "d4c5",
+            "c7a6",
+            "c5d5",
+            "a6b8",
+            "d6g6",
+            "b8a6",
+            "g6h6",
+            "a6b8",
+            "h6h7",
+            "a5b6",
+            "h7h8",
+            "b8a6",
+            "h8h6",
+            "b6a5",
+            "h6g6",
+            "a6b8",
+            "g6g1",
+            "b8a6",
+            "g1b1",
+            "a6b8",
+            "d5c5",
+            "b8a6",
+            "c5c6",
+            "b5b4"
+          ]
+        },
+        "a7g7": {
+          "depth": 32,
+          "score_white": 25,
+          "mate_white": null,
+          "nodes": 1651055,
+          "nps": 1651055,
+          "elapsed": 1.0100972660000025,
+          "pv": [
+            "a7g7",
+            "e3d5",
+            "b3c2",
+            "d5c7",
+            "c2d3",
+            "c7a6",
+            "d3d4",
+            "a6c7",
+            "g7h7",
+            "c7a6",
+            "h7h6",
+            "b6a5",
+            "h6c6",
+            "a6b8",
+            "c6d6",
+            "b8a6",
+            "d4d5",
+            "a6b8",
+            "d6g6",
+            "b8a6",
+            "g6h6",
+            "a6b8",
+            "h6h5",
+            "a5b6",
+            "h5h8",
+            "b8a6",
+            "h8h6",
+            "b6a5",
+            "h6g6",
+            "a6b8",
+            "g6g7",
+            "a5b6",
+            "d5d6",
+            "b8a6",
+            "g7g6",
+            "b6a5",
+            "d6c6",
+            "b5b4",
+            "g6g5",
+            "a5a4",
+            "a3b4",
+            "a6b4",
+            "c6c5",
+            "b4d3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_11",
+      "fen": "8/2P3p1/1P5p/1k6/8/5P1P/6P1/6K1 w - - 1 45",
+      "root": {
+        "depth": 213,
+        "score_white": 29995,
+        "mate_white": 5,
+        "nodes": 4759187,
+        "nps": 4759187,
+        "elapsed": 1.0029442420000123,
+        "pv": [
+          "b6b7",
+          "b5b6",
+          "c7c8q",
+          "h6h5",
+          "b7b8q",
+          "b6a5",
+          "c8c5",
+          "a5a6",
+          "c5a7"
+        ]
+      },
+      "forced": {
+        "b6b7": {
+          "depth": 245,
+          "score_white": 29995,
+          "mate_white": 5,
+          "nodes": 1600465,
+          "nps": 3334302,
+          "elapsed": 0.484873891999996,
+          "pv": [
+            "b6b7",
+            "b5a5",
+            "c7c8q",
+            "a5a4",
+            "b7b8r",
+            "a4a5",
+            "c8c5",
+            "a5a6",
+            "c5a3"
+          ]
+        },
+        "c7c8q": {
+          "depth": 47,
+          "score_white": 29991,
+          "mate_white": 9,
+          "nodes": 1762379,
+          "nps": 1762379,
+          "elapsed": 1.0065133779999087,
+          "pv": [
+            "c7c8q",
+            "b5b6",
+            "g1f2",
+            "g7g5",
+            "f2e3",
+            "g5g4",
+            "e3d4",
+            "g4f3",
+            "g2f3",
+            "h6h5",
+            "d4d5",
+            "b6b5",
+            "c8b8",
+            "b5a4",
+            "d5c4",
+            "a4a3",
+            "b8b3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_12",
+      "fen": "8/8/6k1/6p1/7p/5PqP/6P1/6K1 w - - 4 49",
+      "root": {
+        "depth": 60,
+        "score_white": -29993,
+        "mate_white": -7,
+        "nodes": 2290708,
+        "nps": 2290708,
+        "elapsed": 1.0037008030001289,
+        "pv": [
+          "g1f1",
+          "g3e5",
+          "f1f2",
+          "g6f5",
+          "f3f4",
+          "f5f4",
+          "g2g3",
+          "h4g3",
+          "f2g2",
+          "e5e3",
+          "g2h1",
+          "e3f2",
+          "h3h4",
+          "f2h2"
+        ]
+      },
+      "forced": {
+        "g1f1": {
+          "depth": 52,
+          "score_white": -29993,
+          "mate_white": -7,
+          "nodes": 2214547,
+          "nps": 2214547,
+          "elapsed": 1.003897482999946,
+          "pv": [
+            "g1f1",
+            "g3e5",
+            "f3f4",
+            "g5f4",
+            "f1f2",
+            "e5e3",
+            "f2f1",
+            "g6f5",
+            "g2g4",
+            "f4g3",
+            "f1g2",
+            "e3f2",
+            "g2h1",
+            "f2f1"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_13",
+      "fen": "8/3K4/1p5p/p6P/P4kPb/8/4B3/8 w - - 35 65",
+      "root": {
+        "depth": 39,
+        "score_white": 0,
+        "mate_white": null,
+        "nodes": 1205660,
+        "nps": 1205660,
+        "elapsed": 1.0058835239999553,
+        "pv": [
+          "d7c6",
+          "h4f2",
+          "c6d5",
+          "f2c5",
+          "e2d1",
+          "f4g5",
+          "d5e4",
+          "g5f6",
+          "d1e2",
+          "c5d6",
+          "e4d5",
+          "d6g3",
+          "e2d1",
+          "f6g5",
+          "d5e4",
+          "g3f2",
+          "d1e2",
+          "f2g1",
+          "e4e5",
+          "g1c5",
+          "e5e6",
+          "c5d4",
+          "e2d1",
+          "d4g1",
+          "e6e5",
+          "g1e3",
+          "e5e6",
+          "e3d4",
+          "e6d6",
+          "d4c5",
+          "d6e6",
+          "c5e3",
+          "e6e5"
+        ]
+      },
+      "forced": {
+        "d7c6": {
+          "depth": 33,
+          "score_white": 0,
+          "mate_white": null,
+          "nodes": 1151045,
+          "nps": 1151045,
+          "elapsed": 1.0053488969999762,
+          "pv": [
+            "d7c6",
+            "h4f2",
+            "e2d1",
+            "f4e5",
+            "c6b5",
+            "e5e4",
+            "d1c2",
+            "e4f4",
+            "c2f5",
+            "f2c5",
+            "f5d7",
+            "f4e5",
+            "d7c8",
+            "c5e3",
+            "c8f5",
+            "e3c5",
+            "f5c2",
+            "e5f4",
+            "c2d1",
+            "f4e4",
+            "d1b3",
+            "e4e3",
+            "b5c4",
+            "e3f4",
+            "b3d1",
+            "c5e3",
+            "c4d5",
+            "e3f2",
+            "d5e6"
+          ]
+        },
+        "d7d6": {
+          "depth": 36,
+          "score_white": 0,
+          "mate_white": null,
+          "nodes": 1181712,
+          "nps": 1181712,
+          "elapsed": 1.0058951510000043,
+          "pv": [
+            "d7d6",
+            "h4f2",
+            "e2d1",
+            "f2h4",
+            "d6e6",
+            "h4f2"
+          ]
+        },
+        "d7e6": {
+          "depth": 39,
+          "score_white": 0,
+          "mate_white": null,
+          "nodes": 1144653,
+          "nps": 1144653,
+          "elapsed": 1.0068736340001578,
+          "pv": [
+            "d7e6",
+            "f4e3",
+            "e2d1",
+            "e3d2",
+            "d1f3",
+            "d2c3",
+            "e6d6",
+            "c3b4",
+            "f3c6",
+            "h4g5",
+            "d6d5",
+            "g5d8",
+            "c6e8",
+            "d8e7",
+            "e8b5",
+            "e7f6",
+            "b5e8",
+            "f6h4",
+            "e8d7",
+            "h4e7",
+            "d5e6",
+            "e7g5",
+            "e6d6",
+            "g5c1",
+            "d6d5",
+            "c1f4",
+            "d7b5",
+            "f4d2",
+            "b5e8",
+            "d2e3",
+            "d5d6",
+            "e3c1",
+            "e8b5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_14",
+      "fen": "r1bqk2r/pp1p1ppp/1bn2n2/4p3/4P3/1NNB4/PPP2PPP/R1BQ1RK1 w kq - 6 9",
+      "root": {
+        "depth": 20,
+        "score_white": 95,
+        "mate_white": null,
+        "nodes": 701888,
+        "nps": 701888,
+        "elapsed": 1.0053987750000033,
+        "pv": [
+          "c3d5",
+          "h7h6"
+        ]
+      },
+      "forced": {
+        "c1g5": {
+          "depth": 22,
+          "score_white": 70,
+          "mate_white": null,
+          "nodes": 725016,
+          "nps": 725016,
+          "elapsed": 1.0045476249999865,
+          "pv": [
+            "c1g5",
+            "h7h6"
+          ]
+        },
+        "c3d5": {
+          "depth": 20,
+          "score_white": 114,
+          "mate_white": null,
+          "nodes": 741515,
+          "nps": 741515,
+          "elapsed": 1.0030875590000505,
+          "pv": [
+            "c3d5",
+            "h7h6"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_15",
+      "fen": "N2k3r/pp2bpp1/7p/6q1/3N4/7b/PP2BPPP/R2Q1RK1 w - - 1 17",
+      "root": {
+        "depth": 18,
+        "score_white": 1366,
+        "mate_white": null,
+        "nodes": 834001,
+        "nps": 834001,
+        "elapsed": 1.0040732499999194,
+        "pv": [
+          "d4e6",
+          "d8c8",
+          "e6g5",
+          "h3g2",
+          "g5f7",
+          "g2f1",
+          "f7h8",
+          "f1e2",
+          "d1e2",
+          "c8d8",
+          "a1d1",
+          "d8c8",
+          "e2g4",
+          "c8b8"
+        ]
+      },
+      "forced": {
+        "d4e6": {
+          "depth": 20,
+          "score_white": 1381,
+          "mate_white": null,
+          "nodes": 868816,
+          "nps": 868816,
+          "elapsed": 1.0045369140000275,
+          "pv": [
+            "d4e6",
+            "d8c8",
+            "e6g5",
+            "c8b8",
+            "g5h3",
+            "b8a8",
+            "a1c1",
+            "h8d8",
+            "d1b3",
+            "b7b6",
+            "e2a6",
+            "a8b8",
+            "b3g3",
+            "e7d6"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_16",
+      "fen": "kN6/2Q5/8/B5p1/7p/P7/3K1P1P/1N2R3 w - - 0 41",
+      "root": {
+        "depth": 245,
+        "score_white": 29998,
+        "mate_white": 2,
+        "nodes": 18925,
+        "nps": 1351785,
+        "elapsed": 0.01887311700011196,
+        "pv": [
+          "b8d7",
+          "g5g4",
+          "c7b8"
+        ]
+      },
+      "forced": {
+        "b8c6": {
+          "depth": 245,
+          "score_white": 29998,
+          "mate_white": 2,
+          "nodes": 1216,
+          "nps": 405333,
+          "elapsed": 0.013315297000190185,
+          "pv": [
+            "b8c6",
+            "h4h3",
+            "e1e8"
+          ]
+        },
+        "e1e6": {
+          "depth": 245,
+          "score_white": 29998,
+          "mate_white": 2,
+          "nodes": 1219,
+          "nps": 406333,
+          "elapsed": 0.01438291600015873,
+          "pv": [
+            "e1e6",
+            "h4h3",
+            "e6a6"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_17",
+      "fen": "8/Npp4p/4pkp1/4p3/4P3/7P/P1P3P1/7K w - - 1 29",
+      "root": {
+        "depth": 20,
+        "score_white": 563,
+        "mate_white": null,
+        "nodes": 1196178,
+        "nps": 1196178,
+        "elapsed": 1.004197978000093,
+        "pv": [
+          "h1g1",
+          "f6e7",
+          "g1f2",
+          "e7d6",
+          "a7b5",
+          "d6d7",
+          "a2a4",
+          "b7b6",
+          "f2e2",
+          "c7c6",
+          "b5a3",
+          "d7e7",
+          "a3c4",
+          "b6b5",
+          "a4b5"
+        ]
+      },
+      "forced": {
+        "a7b5": {
+          "depth": 22,
+          "score_white": 545,
+          "mate_white": null,
+          "nodes": 1370259,
+          "nps": 1370259,
+          "elapsed": 1.0047963909998998,
+          "pv": [
+            "a7b5",
+            "c7c6",
+            "b5c3",
+            "f6e7",
+            "h1g1",
+            "e7d6",
+            "g1f2",
+            "d6c5",
+            "f2e3",
+            "g6g5",
+            "e3d3",
+            "c5b4",
+            "c3b1",
+            "h7h5",
+            "a2a3",
+            "b4a4",
+            "d3c3",
+            "c6c5"
+          ]
+        },
+        "h1g1": {
+          "depth": 21,
+          "score_white": 548,
+          "mate_white": null,
+          "nodes": 1260321,
+          "nps": 1260321,
+          "elapsed": 1.0061874210000497,
+          "pv": [
+            "h1g1",
+            "f6e7",
+            "g1f2",
+            "e7d6",
+            "a7b5",
+            "d6c6",
+            "b5a3",
+            "b7b5",
+            "f2e3",
+            "c6b6",
+            "a3b1",
+            "c7c5",
+            "e3d3",
+            "b6c6",
+            "d3c3"
+          ]
+        },
+        "h1h2": {
+          "depth": 21,
+          "score_white": 545,
+          "mate_white": null,
+          "nodes": 1281818,
+          "nps": 1281818,
+          "elapsed": 1.0039251349999176,
+          "pv": [
+            "h1h2",
+            "f6e7",
+            "h2g3",
+            "e7d7",
+            "a7b5",
+            "c7c6",
+            "b5a3",
+            "b7b5",
+            "g3f3",
+            "d7d6",
+            "f3e2",
+            "h7h6",
+            "a3b1",
+            "d6e7",
+            "g2g3",
+            "e7f6",
+            "b1c3",
+            "f6e7",
+            "c3d1",
+            "e7d6"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_18",
+      "fen": "r2q1rk1/1pp2ppp/3bpn2/p2p4/1n1P3P/1P2PN2/1BPNQPP1/1K1R3R w - - 0 13",
+      "root": {
+        "depth": 20,
+        "score_white": -200,
+        "mate_white": null,
+        "nodes": 752832,
+        "nps": 752832,
+        "elapsed": 1.0033671010000944,
+        "pv": [
+          "c2c3",
+          "b4c6",
+          "e3e4",
+          "d5e4",
+          "d2e4",
+          "a5a4",
+          "b3b4",
+          "f6d5",
+          "f3g5",
+          "a4a3",
+          "b2c1",
+          "h7h6",
+          "e2d3",
+          "d6b4",
+          "c3b4",
+          "c6b4",
+          "d3b3",
+          "c7c5",
+          "d4c5",
+          "b7b6",
+          "c1a3",
+          "b6c5"
+        ]
+      },
+      "forced": {
+        "b2c3": {
+          "depth": 18,
+          "score_white": -573,
+          "mate_white": null,
+          "nodes": 708916,
+          "nps": 708916,
+          "elapsed": 1.0048474780001015,
+          "pv": [
+            "b2c3",
+            "a5a4",
+            "c3b2",
+            "a4b3",
+            "d2b3",
+            "d8e8",
+            "h4h5",
+            "e8a4",
+            "f3e5",
+            "b7b6",
+            "g2g4",
+            "f6e4",
+            "f2f3",
+            "e4g3",
+            "e2g2",
+            "g3h1",
+            "d1h1",
+            "f7f6",
+            "g4g5",
+            "a4a2",
+            "b1c1",
+            "f6e5"
+          ]
+        },
+        "e3e4": {
+          "depth": 20,
+          "score_white": -260,
+          "mate_white": null,
+          "nodes": 722602,
+          "nps": 722602,
+          "elapsed": 1.0037246500000947,
+          "pv": [
+            "e3e4",
+            "d5e4",
+            "d2e4",
+            "a5a4",
+            "b3a4",
+            "b4d5",
+            "c2c4",
+            "f6e4",
+            "e2e4",
+            "d5f6",
+            "e4c2",
+            "d8d7",
+            "h4h5",
+            "d7a4",
+            "c2a4",
+            "a8a4",
+            "c4c5",
+            "d6e7",
+            "f3e5",
+            "f6d5",
+            "b1c2",
+            "f8a8",
+            "d1a1",
+            "a4a1",
+            "h1a1",
+            "a8a1",
+            "b2a1",
+            "d5f6"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_19",
+      "fen": "6k1/1p3pp1/4n2p/p7/P1K5/6P1/8/8 w - - 4 45",
+      "root": {
+        "depth": 29,
+        "score_white": -794,
+        "mate_white": null,
+        "nodes": 1231000,
+        "nps": 1231000,
+        "elapsed": 1.0040987889999542,
+        "pv": [
+          "c4b5",
+          "h6h5",
+          "b5c4",
+          "g8f8",
+          "c4d3",
+          "f8e7",
+          "d3e3",
+          "e7d6",
+          "e3e4",
+          "d6c5",
+          "e4e5",
+          "c5c6",
+          "e5e4",
+          "c6d6",
+          "e4f3",
+          "d6d5",
+          "f3e3",
+          "f7f6",
+          "e3f2",
+          "d5c4",
+          "f2g2",
+          "c4b3",
+          "g2h3",
+          "b7b6",
+          "h3h4",
+          "b3a3"
+        ]
+      },
+      "forced": {
+        "c4b5": {
+          "depth": 30,
+          "score_white": -821,
+          "mate_white": null,
+          "nodes": 1210317,
+          "nps": 1210317,
+          "elapsed": 1.0056459009999799,
+          "pv": [
+            "c4b5",
+            "h6h5",
+            "b5c4",
+            "g8f8",
+            "c4d3",
+            "f8e7",
+            "d3c4",
+            "e7d6",
+            "c4d3",
+            "d6c5",
+            "d3e4",
+            "c5b4",
+            "e4f3",
+            "b4b3",
+            "f3g2",
+            "g7g5",
+            "g2f2",
+            "b3c4",
+            "f2e3",
+            "f7f5",
+            "e3f2",
+            "c4d5",
+            "f2f3",
+            "d5d4",
+            "f3g2",
+            "d4e3",
+            "g2h2",
+            "e3f3",
+            "h2h3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_20",
+      "fen": "8/5b1p/2B5/1Pk2p2/7P/4P3/5K2/8 w - - 3 41",
+      "root": {
+        "depth": 27,
+        "score_white": 619,
+        "mate_white": null,
+        "nodes": 1578374,
+        "nps": 1578374,
+        "elapsed": 1.004491150999911,
+        "pv": [
+          "f2g3",
+          "f7g6",
+          "g3f4",
+          "c5d6",
+          "f4g5",
+          "d6c7",
+          "c6f3",
+          "g6e8",
+          "f3e2",
+          "e8d7",
+          "g5f6",
+          "d7e8",
+          "h4h5",
+          "c7b6",
+          "f6g5",
+          "e8b5",
+          "e2b5",
+          "b6b5",
+          "g5f5",
+          "b5c5",
+          "e3e4",
+          "c5c6"
+        ]
+      },
+      "forced": {
+        "f2f3": {
+          "depth": 26,
+          "score_white": 621,
+          "mate_white": null,
+          "nodes": 1645927,
+          "nps": 1645927,
+          "elapsed": 1.0035488139999416,
+          "pv": [
+            "f2f3",
+            "c5d6",
+            "f3f4",
+            "f7g6",
+            "f4g5",
+            "d6c7",
+            "c6g2",
+            "g6e8",
+            "g2f1",
+            "e8d7",
+            "f1d3",
+            "c7b6",
+            "h4h5",
+            "b6c5",
+            "g5h6",
+            "d7b5",
+            "d3b5",
+            "c5b5",
+            "h6h7",
+            "b5a5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_21",
+      "fen": "r1bq1rk1/pppp1ppp/5nn1/8/3PP3/P1N4P/1PP2KP1/R1BQ1B1R w - - 1 9",
+      "root": {
+        "depth": 20,
+        "score_white": 14,
+        "mate_white": null,
+        "nodes": 700931,
+        "nps": 700931,
+        "elapsed": 1.0047707749999972,
+        "pv": [
+          "e4e5",
+          "f6e8"
+        ]
+      },
+      "forced": {
+        "e4e5": {
+          "depth": 20,
+          "score_white": 16,
+          "mate_white": null,
+          "nodes": 693358,
+          "nps": 693358,
+          "elapsed": 1.0059773000000405,
+          "pv": [
+            "e4e5",
+            "f6e8",
+            "h3h4",
+            "d7d5",
+            "h4h5",
+            "g6e7",
+            "d1f3",
+            "f7f6",
+            "f1d3",
+            "c8f5",
+            "e5e6",
+            "f5e6",
+            "h1e1",
+            "e6f7",
+            "f2g1",
+            "d8d7",
+            "h5h6"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_22",
+      "fen": "r1bqr1k1/ppp2ppp/2n1pn2/3p4/3P4/1P2PN2/P1PNBPPP/R2Q1RK1 w - - 3 9",
+      "root": {
+        "depth": 22,
+        "score_white": 41,
+        "mate_white": null,
+        "nodes": 730006,
+        "nps": 730006,
+        "elapsed": 1.005583445999946,
+        "pv": [
+          "f3e5",
+          "c6e5",
+          "d4e5",
+          "f6d7",
+          "f2f4",
+          "d8e7",
+          "a1c1",
+          "e8d8",
+          "d2f3",
+          "d7c5",
+          "d1e1",
+          "a7a5",
+          "f3d4",
+          "c5e4",
+          "e2f3",
+          "c7c5",
+          "f3e4",
+          "c5d4"
+        ]
+      },
+      "forced": {
+        "e2b5": {
+          "depth": 23,
+          "score_white": 25,
+          "mate_white": null,
+          "nodes": 789116,
+          "nps": 789116,
+          "elapsed": 1.0046444550000615,
+          "pv": [
+            "e2b5",
+            "c8d7",
+            "a2a4",
+            "a8c8",
+            "f3e5",
+            "c6e7",
+            "d2f3",
+            "h7h6",
+            "f1e1",
+            "a7a6",
+            "b5f1",
+            "c7c5",
+            "c2c4",
+            "d8a5",
+            "g2g3",
+            "e8d8",
+            "c4d5",
+            "e6d5",
+            "e5d7",
+            "f6d7"
+          ]
+        },
+        "e2d3": {
+          "depth": 24,
+          "score_white": 2,
+          "mate_white": null,
+          "nodes": 732498,
+          "nps": 732498,
+          "elapsed": 1.0069337360000645,
+          "pv": [
+            "e2d3",
+            "e6e5"
+          ]
+        },
+        "f3e5": {
+          "depth": 22,
+          "score_white": 39,
+          "mate_white": null,
+          "nodes": 718793,
+          "nps": 718793,
+          "elapsed": 1.0066961579998406,
+          "pv": [
+            "f3e5",
+            "c6e5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_23",
+      "fen": "r1bqkb1r/pp2pp1p/5np1/1PnP4/8/2N2N2/P3PPPP/R1BQKB1R w KQkq - 0 9",
+      "root": {
+        "depth": 18,
+        "score_white": 185,
+        "mate_white": null,
+        "nodes": 730812,
+        "nps": 730812,
+        "elapsed": 1.0052032680000593,
+        "pv": [
+          "d1d4",
+          "d8c7"
+        ]
+      },
+      "forced": {
+        "c1f4": {
+          "depth": 21,
+          "score_white": -3,
+          "mate_white": null,
+          "nodes": 672461,
+          "nps": 672461,
+          "elapsed": 1.0048623080001562,
+          "pv": [
+            "c1f4",
+            "f8g7"
+          ]
+        },
+        "c1g5": {
+          "depth": 19,
+          "score_white": -22,
+          "mate_white": null,
+          "nodes": 690716,
+          "nps": 687964,
+          "elapsed": 1.0102312819999497,
+          "pv": [
+            "c1g5",
+            "c8f5",
+            "d1d4",
+            "a8c8",
+            "g2g4",
+            "f5d7",
+            "f1g2",
+            "f8g7",
+            "e1g1",
+            "e8g8",
+            "d4b4",
+            "a7a5",
+            "b5a6",
+            "c5a6",
+            "b4b3",
+            "d7g4",
+            "a1c1",
+            "d8a5",
+            "b3b5"
+          ]
+        },
+        "d1d4": {
+          "depth": 18,
+          "score_white": 175,
+          "mate_white": null,
+          "nodes": 703369,
+          "nps": 702666,
+          "elapsed": 1.0054629589999422,
+          "pv": [
+            "d1d4",
+            "d8c7"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_24",
+      "fen": "rn2k1nr/pp1bq1bp/2ppppp1/8/3PP3/2N1BN2/PPPQ1PPP/2KR1B1R w kq - 0 9",
+      "root": {
+        "depth": 19,
+        "score_white": 486,
+        "mate_white": null,
+        "nodes": 672469,
+        "nps": 672469,
+        "elapsed": 1.0040577739998753,
+        "pv": [
+          "c1b1",
+          "d6d5",
+          "h2h4",
+          "e7f7",
+          "f1d3",
+          "g8e7",
+          "d1e1",
+          "h7h6",
+          "e3f4",
+          "b8a6",
+          "f4d6"
+        ]
+      },
+      "forced": {
+        "c1b1": {
+          "depth": 20,
+          "score_white": 475,
+          "mate_white": null,
+          "nodes": 656340,
+          "nps": 656340,
+          "elapsed": 1.007683003000011,
+          "pv": [
+            "c1b1",
+            "e6e5",
+            "f1c4",
+            "b7b5",
+            "c4b3",
+            "a7a5",
+            "d4e5",
+            "d6e5",
+            "a2a4",
+            "b5b4",
+            "c3e2",
+            "d7e6",
+            "h1e1",
+            "b8d7",
+            "e2c1",
+            "c6c5",
+            "d2e2",
+            "g8h6"
+          ]
+        },
+        "f1d3": {
+          "depth": 20,
+          "score_white": 395,
+          "mate_white": null,
+          "nodes": 689176,
+          "nps": 689176,
+          "elapsed": 1.0058295310000176,
+          "pv": [
+            "f1d3",
+            "e6e5",
+            "d3c4",
+            "d7g4",
+            "d4e5",
+            "d6e5",
+            "h2h3",
+            "g4c8",
+            "c1b1",
+            "b8d7",
+            "h1e1",
+            "d7b6",
+            "c4b3",
+            "c8e6",
+            "c3d5",
+            "c6d5",
+            "e4d5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_25",
+      "fen": "1r2k2r/1bqnppb1/p1np2p1/1p5p/2pPP3/P1P3PP/1P1BNPBK/R1QN1R2 w k - 0 17",
+      "root": {
+        "depth": 20,
+        "score_white": -37,
+        "mate_white": null,
+        "nodes": 735901,
+        "nps": 735901,
+        "elapsed": 1.0049693719997776,
+        "pv": [
+          "c1c2",
+          "e7e5"
+        ]
+      },
+      "forced": {
+        "d1e3": {
+          "depth": 20,
+          "score_white": -42,
+          "mate_white": null,
+          "nodes": 756300,
+          "nps": 756300,
+          "elapsed": 1.0057833679998112,
+          "pv": [
+            "d1e3",
+            "c6a5"
+          ]
+        },
+        "d4d5": {
+          "depth": 21,
+          "score_white": -95,
+          "mate_white": null,
+          "nodes": 800612,
+          "nps": 800612,
+          "elapsed": 1.0043996310000693,
+          "pv": [
+            "d4d5",
+            "c6a5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_26",
+      "fen": "7k/1K1Bq1pp/8/2p5/r5N1/5P2/p5PP/3R4 w - - 0 49",
+      "root": {
+        "depth": 21,
+        "score_white": -1212,
+        "mate_white": null,
+        "nodes": 836465,
+        "nps": 836465,
+        "elapsed": 1.0036597300002086,
+        "pv": [
+          "b7c6",
+          "a4a7",
+          "d7c8",
+          "e7c7",
+          "c6b5",
+          "c7c8",
+          "b5c4",
+          "c8a6",
+          "c4d5",
+          "a2a1q",
+          "d1a1",
+          "a6a1",
+          "d5e4",
+          "a1d4",
+          "e4f5",
+          "g7g6",
+          "f5g5"
+        ]
+      },
+      "forced": {
+        "b7b6": {
+          "depth": 52,
+          "score_white": -29994,
+          "mate_white": -6,
+          "nodes": 2059314,
+          "nps": 2059314,
+          "elapsed": 1.004634704999944,
+          "pv": [
+            "b7b6",
+            "a2a1q",
+            "d1a1",
+            "e7d6",
+            "b6b7",
+            "a4b4",
+            "d7b5",
+            "b4b5",
+            "b7a7",
+            "d6c7",
+            "a7a8",
+            "c7b7"
+          ]
+        },
+        "b7c6": {
+          "depth": 23,
+          "score_white": -3868,
+          "mate_white": null,
+          "nodes": 1016983,
+          "nps": 1016983,
+          "elapsed": 1.003392662999886,
+          "pv": [
+            "b7c6",
+            "a4a6"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_27",
+      "fen": "r1bqkb1r/ppp3pp/2n2n2/5p2/3P4/2N2N2/PP3PPP/R1BQKB1R w KQkq - 2 9",
+      "root": {
+        "depth": 20,
+        "score_white": 281,
+        "mate_white": null,
+        "nodes": 812661,
+        "nps": 812661,
+        "elapsed": 1.003192456000079,
+        "pv": [
+          "d4d5",
+          "c6b4"
+        ]
+      },
+      "forced": {
+        "f1b5": {
+          "depth": 21,
+          "score_white": 135,
+          "mate_white": null,
+          "nodes": 807366,
+          "nps": 807366,
+          "elapsed": 1.0036542369998642,
+          "pv": [
+            "f1b5",
+            "f8d6"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_28",
+      "fen": "8/pp6/5pp1/7p/1Pk1pP1P/4P1P1/5K2/8 w - - 4 49",
+      "root": {
+        "depth": 32,
+        "score_white": -1167,
+        "mate_white": null,
+        "nodes": 1974337,
+        "nps": 1974337,
+        "elapsed": 1.0050604289999683,
+        "pv": [
+          "f4f5",
+          "g6f5",
+          "g3g4",
+          "f5g4",
+          "f2g2",
+          "c4b4",
+          "g2g3",
+          "a7a5",
+          "g3f4",
+          "a5a4",
+          "f4e4",
+          "a4a3",
+          "e4f5",
+          "a3a2",
+          "f5g6",
+          "a2a1q",
+          "g6h5",
+          "g4g3",
+          "h5g6",
+          "a1e5",
+          "g6f7",
+          "g3g2",
+          "h4h5",
+          "g2g1q",
+          "f7f8",
+          "e5c7",
+          "h5h6"
+        ]
+      },
+      "forced": {
+        "f2e2": {
+          "depth": 30,
+          "score_white": -1451,
+          "mate_white": null,
+          "nodes": 2750670,
+          "nps": 2750670,
+          "elapsed": 1.005899516999989,
+          "pv": [
+            "f2e2",
+            "f6f5",
+            "b4b5",
+            "c4b5",
+            "g3g4",
+            "b5b4",
+            "g4h5",
+            "g6h5",
+            "e2d2",
+            "b4c4",
+            "d2c1",
+            "a7a5",
+            "c1b1",
+            "c4c3",
+            "b1a1",
+            "c3c2",
+            "a1a2",
+            "b7b6",
+            "a2a3",
+            "b6b5",
+            "a3a2",
+            "c2c3",
+            "a2a1",
+            "a5a4",
+            "a1b1",
+            "c3c4"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_29",
+      "fen": "2r5/4knp1/1pP1pp1p/p6P/2P3P1/N3PP2/4K3/2R3R1 w - - 1 29",
+      "root": {
+        "depth": 26,
+        "score_white": 758,
+        "mate_white": null,
+        "nodes": 1007515,
+        "nps": 1007515,
+        "elapsed": 1.0039175900001283,
+        "pv": [
+          "c4c5",
+          "c8c6",
+          "c5b6",
+          "c6b6",
+          "c1c7",
+          "e7f8",
+          "a3c4",
+          "b6b8",
+          "f3f4",
+          "e6e5",
+          "g1d1",
+          "f7d8",
+          "f4f5",
+          "d8f7",
+          "d1d7",
+          "f7g5",
+          "d7g7",
+          "b8d8",
+          "g7g6",
+          "g5e4",
+          "c7a7",
+          "d8c8"
+        ]
+      },
+      "forced": {
+        "a3b5": {
+          "depth": 22,
+          "score_white": 710,
+          "mate_white": null,
+          "nodes": 959971,
+          "nps": 959971,
+          "elapsed": 1.0055883110001105,
+          "pv": [
+            "a3b5",
+            "c8c6",
+            "f3f4",
+            "c6c5",
+            "g1h1",
+            "f7d8",
+            "b5d4",
+            "e7f8",
+            "h1d1",
+            "f8f7",
+            "d4b3",
+            "c5c8",
+            "c4c5",
+            "a5a4",
+            "c5b6",
+            "a4b3",
+            "c1c8",
+            "b3b2",
+            "c8c7",
+            "f7e8"
+          ]
+        },
+        "c4c5": {
+          "depth": 27,
+          "score_white": 765,
+          "mate_white": null,
+          "nodes": 964051,
+          "nps": 964051,
+          "elapsed": 1.0041914200000974,
+          "pv": [
+            "c4c5",
+            "c8c6",
+            "c5b6",
+            "c6b6",
+            "c1c7",
+            "e7e8",
+            "a3c4",
+            "b6b8",
+            "g1d1",
+            "a5a4",
+            "c7a7",
+            "e8f8",
+            "a7a4",
+            "f8g8",
+            "c4d2",
+            "b8c8",
+            "a4a7",
+            "e6e5",
+            "d1f1",
+            "c8d8"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_30",
+      "fen": "6k1/8/5K1P/8/8/3B4/8/8 w - - 3 49",
+      "root": {
+        "depth": 23,
+        "score_white": 78,
+        "mate_white": null,
+        "nodes": 2676254,
+        "nps": 2676254,
+        "elapsed": 1.0036053270000593,
+        "pv": [
+          "f6e5",
+          "g8h8"
+        ]
+      },
+      "forced": {
+        "f6e5": {
+          "depth": 25,
+          "score_white": 88,
+          "mate_white": null,
+          "nodes": 2577039,
+          "nps": 2577039,
+          "elapsed": 1.0035849670000516,
+          "pv": [
+            "f6e5",
+            "g8h8"
+          ]
+        },
+        "f6e7": {
+          "depth": 25,
+          "score_white": 108,
+          "mate_white": null,
+          "nodes": 2633553,
+          "nps": 2633553,
+          "elapsed": 1.0049579750000248,
+          "pv": [
+            "f6e7",
+            "g8h8",
+            "e7d6",
+            "h8g8",
+            "d6e5",
+            "g8h8",
+            "h6h7",
+            "h8g7",
+            "d3c2",
+            "g7h8",
+            "c2f5",
+            "h8g7",
+            "f5e4",
+            "g7h8",
+            "e5e6",
+            "h8g7",
+            "e6e7",
+            "g7h8",
+            "e7d7",
+            "h8g7",
+            "d7c8",
+            "g7h8",
+            "c8d8",
+            "h8g7",
+            "d8e8",
+            "g7h8",
+            "e4d3",
+            "h8g7",
+            "d3f5",
+            "g7h8",
+            "f5e4",
+            "h8g7",
+            "e8d8",
+            "g7h8",
+            "e4b1",
+            "h8g7",
+            "d8e8",
+            "g7h8",
+            "e8e7",
+            "h8g7"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_31",
+      "fen": "8/7p/8/1R6/4kp2/5N1P/5PK1/8 w - - 5 45",
+      "root": {
+        "depth": 46,
+        "score_white": 29989,
+        "mate_white": 11,
+        "nodes": 1473628,
+        "nps": 1473628,
+        "elapsed": 1.00429211200003,
+        "pv": [
+          "f3d2",
+          "e4d3",
+          "b5d5",
+          "d3c2",
+          "g2f3",
+          "c2d1",
+          "f3f4",
+          "d1c2",
+          "f4e3",
+          "c2c3",
+          "d5c5",
+          "c3b4",
+          "e3d4",
+          "h7h6",
+          "c5h5",
+          "b4a3",
+          "d4c3",
+          "a3a4",
+          "d2e4",
+          "a4a3",
+          "h5a5"
+        ]
+      },
+      "forced": {
+        "f3d2": {
+          "depth": 30,
+          "score_white": 984,
+          "mate_white": null,
+          "nodes": 2189120,
+          "nps": 2189120,
+          "elapsed": 1.0050307720000546,
+          "pv": [
+            "f3d2",
+            "e4d3",
+            "b5d5",
+            "d3c3",
+            "g2f3",
+            "c3b2",
+            "d5d6",
+            "b2a2",
+            "d2e4",
+            "a2b3",
+            "f3f4",
+            "h7h6",
+            "d6h6",
+            "b3b4",
+            "f4g4",
+            "b4a5",
+            "h6d6",
+            "a5a4",
+            "g4h5",
+            "a4b4",
+            "h3h4",
+            "b4b3",
+            "h5h6",
+            "b3b4",
+            "h4h5",
+            "b4a5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_32",
+      "fen": "1r2r1k1/3nbppp/p1b1p3/4P3/N1PB1P2/5N1P/P5P1/R4RK1 w - - 1 25",
+      "root": {
+        "depth": 20,
+        "score_white": -37,
+        "mate_white": null,
+        "nodes": 990263,
+        "nps": 990263,
+        "elapsed": 1.0016116410001814,
+        "pv": [
+          "a4c3",
+          "d7b6",
+          "f3d2",
+          "e8d8",
+          "c3e2",
+          "e7b4",
+          "a1b1",
+          "a6a5",
+          "f1d1",
+          "c6a4",
+          "d4b6",
+          "b8b6",
+          "d2b3",
+          "d8c8",
+          "d1c1",
+          "b4a3",
+          "c1c3",
+          "a4c6",
+          "b1d1",
+          "a3b4",
+          "c3c1",
+          "a5a4",
+          "b3d4",
+          "b4c5",
+          "g1h2"
+        ]
+      },
+      "forced": {
+        "a4b2": {
+          "depth": 21,
+          "score_white": -72,
+          "mate_white": null,
+          "nodes": 889353,
+          "nps": 889353,
+          "elapsed": 1.0039853569999195,
+          "pv": [
+            "a4b2",
+            "d7c5"
+          ]
+        },
+        "a4c3": {
+          "depth": 20,
+          "score_white": -38,
+          "mate_white": null,
+          "nodes": 921583,
+          "nps": 921583,
+          "elapsed": 1.0041803980000168,
+          "pv": [
+            "a4c3",
+            "d7b6",
+            "f3d2",
+            "e8d8",
+            "c3e2",
+            "e7b4",
+            "a1b1",
+            "a6a5",
+            "f1d1",
+            "h7h5",
+            "g1f1",
+            "c6a4",
+            "d4b6",
+            "b8b6",
+            "d2b3",
+            "d8c8",
+            "b1c1",
+            "b4a3",
+            "c1c3",
+            "b6c6",
+            "g2g4"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_33",
+      "fen": "8/8/5KP1/8/4k3/8/7P/8 w - - 1 57",
+      "root": {
+        "depth": 25,
+        "score_white": 6884,
+        "mate_white": null,
+        "nodes": 2574169,
+        "nps": 2574169,
+        "elapsed": 1.0042489689999456,
+        "pv": [
+          "f6e6",
+          "e4f4",
+          "g6g7",
+          "f4g5",
+          "e6e5",
+          "g5g4",
+          "g7g8q",
+          "g4f3",
+          "g8g7",
+          "f3e2",
+          "h2h4",
+          "e2d2",
+          "e5f6",
+          "d2e2",
+          "h4h5",
+          "e2e3",
+          "g7g2",
+          "e3d4"
+        ]
+      },
+      "forced": {
+        "g6g7": {
+          "depth": 40,
+          "score_white": 29990,
+          "mate_white": 10,
+          "nodes": 2444164,
+          "nps": 2444164,
+          "elapsed": 1.0045377989999906,
+          "pv": [
+            "g6g7",
+            "e4d5",
+            "h2h4",
+            "d5c4",
+            "h4h5",
+            "c4c3",
+            "h5h6",
+            "c3b4",
+            "h6h7",
+            "b4c4",
+            "g7g8q",
+            "c4c3",
+            "h7h8q",
+            "c3b4",
+            "f6e7",
+            "b4a4",
+            "g8c4",
+            "a4a3",
+            "h8c3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_34",
+      "fen": "rnb2rk1/ppp4p/6p1/8/5P2/2P1P3/PP5P/R3KB1n w - - 1 17",
+      "root": {
+        "depth": 18,
+        "score_white": -855,
+        "mate_white": null,
+        "nodes": 854677,
+        "nps": 854677,
+        "elapsed": 1.0034476680000353,
+        "pv": [
+          "f1g2",
+          "a7a6",
+          "g2h1",
+          "a8a7",
+          "h1d5",
+          "g8g7",
+          "d5b3",
+          "b7b6",
+          "a2a4",
+          "c7c6"
+        ]
+      },
+      "forced": {
+        "f1g2": {
+          "depth": 19,
+          "score_white": -843,
+          "mate_white": null,
+          "nodes": 933011,
+          "nps": 933011,
+          "elapsed": 1.0034944229998928,
+          "pv": [
+            "f1g2",
+            "c8d7",
+            "g2h1",
+            "d7c6",
+            "e3e4",
+            "b8a6",
+            "e1d2",
+            "f8f4",
+            "a2a3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_35",
+      "fen": "4r1k1/pp3pp1/2b4p/8/5P2/P5P1/1P1R1K2/8 w - - 4 29",
+      "root": {
+        "depth": 20,
+        "score_white": -717,
+        "mate_white": null,
+        "nodes": 1138963,
+        "nps": 1137825,
+        "elapsed": 1.0061772829999427,
+        "pv": [
+          "d2e2",
+          "e8e2",
+          "f2e2",
+          "c6d7",
+          "e2f3",
+          "g8f8",
+          "g3g4",
+          "f8e7",
+          "g4g5",
+          "e7d6",
+          "f3g3",
+          "h6g5",
+          "f4g5",
+          "d6e6"
+        ]
+      },
+      "forced": {
+        "d2d1": {
+          "depth": 21,
+          "score_white": -712,
+          "mate_white": null,
+          "nodes": 1089713,
+          "nps": 1089713,
+          "elapsed": 1.0037480409998807,
+          "pv": [
+            "d2d1",
+            "c6b5",
+            "f2g1",
+            "g8f8",
+            "d1d2",
+            "g7g6",
+            "d2c2",
+            "b7b6",
+            "g1f2",
+            "b5d7",
+            "c2c7",
+            "d7e6",
+            "c7a7"
+          ]
+        },
+        "f4f5": {
+          "depth": 21,
+          "score_white": -753,
+          "mate_white": null,
+          "nodes": 1096555,
+          "nps": 1096555,
+          "elapsed": 1.0039435060000415,
+          "pv": [
+            "f4f5",
+            "f7f6",
+            "d2e2",
+            "e8d8",
+            "f2e1",
+            "d8d3",
+            "e2e7",
+            "d3d5",
+            "e7c7",
+            "d5e5",
+            "e1d2",
+            "e5f5",
+            "c7c8",
+            "g8h7",
+            "c8a8"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_36",
+      "fen": "2b3r1/4kp2/2n2n2/pp1p4/3P4/1P3NP1/P1P1PP1P/2KR1B1R w - - 0 21",
+      "root": {
+        "depth": 23,
+        "score_white": 719,
+        "mate_white": null,
+        "nodes": 870814,
+        "nps": 870814,
+        "elapsed": 1.0042309180000757,
+        "pv": [
+          "f1g2",
+          "f6e4",
+          "f3e5",
+          "c6e5",
+          "g2e4",
+          "e5g4",
+          "f2f3",
+          "d5e4",
+          "f3g4",
+          "c8g4",
+          "c1d2",
+          "g8c8"
+        ]
+      },
+      "forced": {
+        "e2e3": {
+          "depth": 22,
+          "score_white": 694,
+          "mate_white": null,
+          "nodes": 865773,
+          "nps": 865773,
+          "elapsed": 1.003716435999877,
+          "pv": [
+            "e2e3",
+            "f6e4",
+            "f1b5",
+            "c6b4",
+            "f3e5",
+            "c8f5",
+            "c1b2",
+            "e4f2",
+            "d1f1",
+            "f2h1",
+            "f1f5",
+            "f7f6",
+            "e5c6",
+            "b4c6",
+            "b5c6",
+            "g8h8",
+            "c6d5",
+            "h8h2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_37",
+      "fen": "8/8/2Pk1p2/p2PpPp1/Pp1rB3/5K2/8/8 w - - 5 53",
+      "root": {
+        "depth": 22,
+        "score_white": -990,
+        "mate_white": null,
+        "nodes": 1335928,
+        "nps": 1335928,
+        "elapsed": 1.0055583100001968,
+        "pv": [
+          "e4c2",
+          "d4c4",
+          "c2e4",
+          "b4b3",
+          "c6c7",
+          "c4c7",
+          "f3e2",
+          "b3b2",
+          "e4b1",
+          "d6d5",
+          "e2d3",
+          "e5e4",
+          "d3e3",
+          "d5e5",
+          "b1a2",
+          "c7c1",
+          "e3e2",
+          "c1c5",
+          "e2e3",
+          "c5c4",
+          "e3e2"
+        ]
+      },
+      "forced": {
+        "e4c2": {
+          "depth": 24,
+          "score_white": -1005,
+          "mate_white": null,
+          "nodes": 1395628,
+          "nps": 1395628,
+          "elapsed": 1.0047210440000072,
+          "pv": [
+            "e4c2",
+            "d4d5",
+            "f3g4",
+            "d5c5",
+            "c2d1",
+            "e5e4",
+            "g4g3",
+            "c5c1",
+            "c6c7",
+            "d6c7",
+            "d1h5",
+            "b4b3",
+            "h5f7",
+            "b3b2",
+            "f7a2",
+            "c7d6",
+            "g3f2",
+            "d6e5",
+            "f2e3",
+            "c1c3",
+            "e3f2",
+            "e5d4",
+            "a2b1",
+            "e4e3",
+            "f2f3"
+          ]
+        },
+        "f3e3": {
+          "depth": 23,
+          "score_white": -977,
+          "mate_white": null,
+          "nodes": 1359743,
+          "nps": 1359743,
+          "elapsed": 1.0031297410000661,
+          "pv": [
+            "f3e3",
+            "b4b3",
+            "e4b1",
+            "b3b2",
+            "b1a2",
+            "d4d5",
+            "a2d5",
+            "b2b1q",
+            "d5e6",
+            "d6c6",
+            "e3e2",
+            "c6d6",
+            "e2f3",
+            "b1g1",
+            "e6g8",
+            "g5g4",
+            "f3e2",
+            "g1h2",
+            "e2d3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_38",
+      "fen": "3k3r/pp2npb1/2bp2p1/2p1p2p/4P3/2NP1P2/PPP2P1P/R4R1K w - - 2 17",
+      "root": {
+        "depth": 19,
+        "score_white": -571,
+        "mate_white": null,
+        "nodes": 915452,
+        "nps": 914537,
+        "elapsed": 1.0052809930000421,
+        "pv": [
+          "a1b1",
+          "d8c7",
+          "b2b4",
+          "g7h6",
+          "f1d1",
+          "h8d8",
+          "h1g1",
+          "a7a5",
+          "b4c5",
+          "d6c5",
+          "c3b5",
+          "c6b5",
+          "b1b5",
+          "b7b6",
+          "c2c3",
+          "h6f4",
+          "g1f1",
+          "a5a4"
+        ]
+      },
+      "forced": {
+        "a1d1": {
+          "depth": 17,
+          "score_white": -604,
+          "mate_white": null,
+          "nodes": 858885,
+          "nps": 858885,
+          "elapsed": 1.0040103770002133,
+          "pv": [
+            "a1d1",
+            "a7a6",
+            "a2a3",
+            "d8c7",
+            "b2b4",
+            "b7b5",
+            "a3a4",
+            "c5b4",
+            "a4b5",
+            "b4c3",
+            "b5c6",
+            "h8b8"
+          ]
+        },
+        "h1g1": {
+          "depth": 19,
+          "score_white": -596,
+          "mate_white": null,
+          "nodes": 919401,
+          "nps": 919401,
+          "elapsed": 1.002889788999937,
+          "pv": [
+            "h1g1",
+            "g7h6",
+            "a2a3",
+            "h6d2",
+            "c3e2",
+            "g6g5",
+            "f1d1",
+            "d2a5",
+            "b2b4",
+            "a5c7",
+            "d1b1",
+            "e7g6",
+            "g1f1",
+            "h5h4",
+            "a3a4",
+            "h8g8",
+            "b4c5",
+            "d6c5"
+          ]
+        },
+        "h1g2": {
+          "depth": 20,
+          "score_white": -598,
+          "mate_white": null,
+          "nodes": 832623,
+          "nps": 832623,
+          "elapsed": 1.0043506320000688,
+          "pv": [
+            "h1g2",
+            "g7h6",
+            "f1b1",
+            "h5h4",
+            "b2b4",
+            "h6d2",
+            "b1b3",
+            "d2c3",
+            "b3c3",
+            "c5b4",
+            "c3b3",
+            "d8c7",
+            "a2a3",
+            "c6a4",
+            "b3b2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_39",
+      "fen": "1r6/pB3k2/5p1p/2p4p/3p4/3P2P1/PPP2P1P/R3R1K1 w - - 1 21",
+      "root": {
+        "depth": 22,
+        "score_white": 905,
+        "mate_white": null,
+        "nodes": 1045395,
+        "nps": 1045395,
+        "elapsed": 1.003627551000136,
+        "pv": [
+          "b7d5",
+          "f7f8",
+          "e1e6",
+          "b8d8",
+          "e6f6",
+          "f8e7",
+          "f6f7",
+          "e7d6",
+          "a1e1",
+          "h5h4",
+          "f7f6",
+          "d6c7",
+          "f6c6",
+          "c7b8",
+          "c6e6",
+          "h4g3",
+          "f2g3",
+          "d8d5",
+          "e6e8",
+          "b8c7"
+        ]
+      },
+      "forced": {
+        "b7d5": {
+          "depth": 23,
+          "score_white": 923,
+          "mate_white": null,
+          "nodes": 996220,
+          "nps": 996220,
+          "elapsed": 1.004739402000041,
+          "pv": [
+            "b7d5",
+            "f7f8",
+            "e1e6",
+            "b8e8",
+            "e6f6",
+            "f8e7",
+            "f6f4",
+            "e7d6",
+            "d5h1",
+            "h5h4",
+            "f4h4",
+            "c5c4",
+            "b2b4",
+            "c4d3",
+            "h4d4",
+            "d6c7"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_40",
+      "fen": "2k5/R7/5R2/1p6/2pB3p/P1P5/1P4PP/7K w - - 3 45",
+      "root": {
+        "depth": 245,
+        "score_white": 29999,
+        "mate_white": 1,
+        "nodes": 9315,
+        "nps": 1164375,
+        "elapsed": 0.01531125300016356,
+        "pv": [
+          "f6f8"
+        ]
+      },
+      "forced": {
+        "f6f8": {
+          "depth": 245,
+          "score_white": 29999,
+          "mate_white": 1,
+          "nodes": 245,
+          "nps": 40833,
+          "elapsed": 0.011907283000027746,
+          "pv": [
+            "f6f8"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_41",
+      "fen": "8/5pk1/3B1bpp/8/8/5B1P/p1q3P1/5R1K w - - 0 37",
+      "root": {
+        "depth": 21,
+        "score_white": -931,
+        "mate_white": null,
+        "nodes": 1150480,
+        "nps": 1150480,
+        "elapsed": 1.0011471039999833,
+        "pv": [
+          "h1h2",
+          "c2d3",
+          "f1d1",
+          "d3d6",
+          "d1d6",
+          "f6e5",
+          "g2g3",
+          "e5d6",
+          "f3e4",
+          "a2a1q",
+          "e4g6",
+          "f7g6",
+          "h2g2",
+          "a1a2",
+          "g2f3",
+          "d6e5",
+          "g3g4"
+        ]
+      },
+      "forced": {
+        "d6g3": {
+          "depth": 25,
+          "score_white": -1466,
+          "mate_white": null,
+          "nodes": 1096563,
+          "nps": 1096563,
+          "elapsed": 1.0032646350000505,
+          "pv": [
+            "d6g3",
+            "c2b1",
+            "f1d1",
+            "f6d4",
+            "g3e5",
+            "d4e5",
+            "h1g1",
+            "b1d1",
+            "f3d1",
+            "a2a1q",
+            "g1f2",
+            "a1d1",
+            "f2e3",
+            "d1e1",
+            "e3f3",
+            "e1f1",
+            "f3e3"
+          ]
+        },
+        "f1e1": {
+          "depth": 25,
+          "score_white": -1310,
+          "mate_white": null,
+          "nodes": 1191805,
+          "nps": 1189426,
+          "elapsed": 1.0061323759998686,
+          "pv": [
+            "f1e1",
+            "c2d2",
+            "e1d1",
+            "d2d1",
+            "f3d1",
+            "a2a1q",
+            "h1h2",
+            "a1d1",
+            "d6c5",
+            "d1d2",
+            "h2g3",
+            "d2c3",
+            "g3f2",
+            "c3c2",
+            "f2f1",
+            "c2c5"
+          ]
+        },
+        "h1h2": {
+          "depth": 23,
+          "score_white": -1000,
+          "mate_white": null,
+          "nodes": 1079760,
+          "nps": 1079760,
+          "elapsed": 1.0043459139999413,
+          "pv": [
+            "h1h2",
+            "c2d3",
+            "f1d1",
+            "d3d6",
+            "d1d6",
+            "f6e5",
+            "g2g3",
+            "e5d6",
+            "f3e4",
+            "a2a1q",
+            "e4g6",
+            "a1a2",
+            "h2h1",
+            "g7g6",
+            "h3h4",
+            "d6g3",
+            "h4h5",
+            "g6h5",
+            "h1g1"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_42",
+      "fen": "8/2p5/1pn5/p1p1k1p1/4P3/2P5/P1P3PP/4R1K1 w - - 0 33",
+      "root": {
+        "depth": 21,
+        "score_white": 555,
+        "mate_white": null,
+        "nodes": 991759,
+        "nps": 991759,
+        "elapsed": 1.0043367989999297,
+        "pv": [
+          "g1f2",
+          "c6a7",
+          "f2e3",
+          "a5a4",
+          "e3d3",
+          "a7c8",
+          "e1f1",
+          "c8d6",
+          "c3c4",
+          "c7c6",
+          "f1f8",
+          "b6b5",
+          "f8g8",
+          "b5c4",
+          "d3e3",
+          "e5f6",
+          "e4e5",
+          "f6e5",
+          "g8g5",
+          "d6f5",
+          "e3d2",
+          "e5f6",
+          "g5g4"
+        ]
+      },
+      "forced": {
+        "g1f2": {
+          "depth": 22,
+          "score_white": 559,
+          "mate_white": null,
+          "nodes": 989879,
+          "nps": 989879,
+          "elapsed": 1.004394548000164,
+          "pv": [
+            "g1f2",
+            "c6a7",
+            "f2e3",
+            "a7b5",
+            "c3c4",
+            "b5d4",
+            "e3d3",
+            "d4c6",
+            "e1f1",
+            "e5e6",
+            "f1f5",
+            "g5g4",
+            "f5f1",
+            "e6e5",
+            "d3d2",
+            "a5a4"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_43",
+      "fen": "5k2/p4p1b/1p3p2/3PrP1p/8/4NR1P/P5P1/6K1 w - - 2 41",
+      "root": {
+        "depth": 23,
+        "score_white": 255,
+        "mate_white": null,
+        "nodes": 1063720,
+        "nps": 1063720,
+        "elapsed": 1.0062105030001476,
+        "pv": [
+          "g2g4",
+          "b6b5",
+          "g4h5",
+          "f8e7",
+          "h5h6",
+          "e5e4",
+          "e3g4",
+          "e4d4",
+          "f3a3",
+          "h7f5",
+          "a3a7",
+          "e7f8",
+          "g4f6",
+          "d4h4",
+          "d5d6",
+          "h4h6",
+          "a7a8",
+          "f8g7",
+          "d6d7",
+          "f5d7",
+          "f6d7",
+          "h6h3",
+          "g1f2",
+          "g7g6",
+          "a8a5",
+          "f7f6",
+          "d7c5"
+        ]
+      },
+      "forced": {
+        "d5d6": {
+          "depth": 21,
+          "score_white": 110,
+          "mate_white": null,
+          "nodes": 889300,
+          "nps": 889300,
+          "elapsed": 1.004992497000103,
+          "pv": [
+            "d5d6",
+            "e5a5"
+          ]
+        },
+        "g1f2": {
+          "depth": 22,
+          "score_white": 163,
+          "mate_white": null,
+          "nodes": 824477,
+          "nps": 823653,
+          "elapsed": 1.0080852090000008,
+          "pv": [
+            "g1f2",
+            "e5e4",
+            "g2g4",
+            "e4a4",
+            "f2g3",
+            "a4a2",
+            "f3f1",
+            "a2a3",
+            "g3f3",
+            "f8e8",
+            "f1c1",
+            "e8d7",
+            "c1c6",
+            "b6b5",
+            "c6f6",
+            "h5g4",
+            "h3g4",
+            "h7g8",
+            "f3e4",
+            "a3a2",
+            "f6h6",
+            "b5b4",
+            "h6h8",
+            "b4b3",
+            "h8g8",
+            "b3b2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_44",
+      "fen": "8/1ppk2pb/5p1p/P6P/2P2pP1/P4P2/1K6/5B2 w - - 1 33",
+      "root": {
+        "depth": 19,
+        "score_white": -182,
+        "mate_white": null,
+        "nodes": 1149214,
+        "nps": 1149214,
+        "elapsed": 1.0041752699999051,
+        "pv": [
+          "b2c3",
+          "d7d6"
+        ]
+      },
+      "forced": {
+        "b2c3": {
+          "depth": 19,
+          "score_white": -155,
+          "mate_white": null,
+          "nodes": 1260271,
+          "nps": 1260271,
+          "elapsed": 1.0045573069999136,
+          "pv": [
+            "b2c3",
+            "d7d6"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_45",
+      "fen": "r2qk1nr/pb2ppbp/1pp3p1/8/4P3/2PB4/PP3PPP/RNBQ1RK1 w kq - 2 9",
+      "root": {
+        "depth": 21,
+        "score_white": 70,
+        "mate_white": null,
+        "nodes": 790739,
+        "nps": 790739,
+        "elapsed": 1.0011238810000123,
+        "pv": [
+          "d1e2",
+          "g8f6",
+          "e4e5",
+          "f6d5",
+          "h2h4",
+          "d8d7",
+          "d3c2",
+          "b7c8",
+          "b1d2",
+          "e8g8",
+          "f1e1",
+          "d7g4",
+          "d2f3",
+          "a7a5",
+          "c1d2",
+          "d5f4",
+          "d2f4",
+          "g4f4",
+          "c2e4"
+        ]
+      },
+      "forced": {
+        "b1a3": {
+          "depth": 21,
+          "score_white": 32,
+          "mate_white": null,
+          "nodes": 788807,
+          "nps": 788807,
+          "elapsed": 1.0043799430000035,
+          "pv": [
+            "b1a3",
+            "g8f6",
+            "d1e2",
+            "f6d7",
+            "f2f4",
+            "d7c5",
+            "d3c2",
+            "b7a6",
+            "a3c4",
+            "d8c7",
+            "c1e3",
+            "c5b7",
+            "c2d3",
+            "a8d8",
+            "e4e5",
+            "e8g8",
+            "a2a4"
+          ]
+        },
+        "c3c4": {
+          "depth": 22,
+          "score_white": -10,
+          "mate_white": null,
+          "nodes": 798700,
+          "nps": 798700,
+          "elapsed": 1.0060792050001055,
+          "pv": [
+            "c3c4",
+            "g8f6",
+            "d1e2",
+            "f6h5",
+            "f1e1",
+            "e8g8",
+            "b1c3",
+            "g7d4",
+            "e4e5",
+            "d8c7",
+            "c1h6",
+            "h5g7",
+            "h2h4",
+            "f8d8"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_46",
+      "fen": "4k2r/p4ppp/2p5/3N1bP1/6n1/2P1P1K1/7P/1rB1R3 w k - 0 29",
+      "root": {
+        "depth": 22,
+        "score_white": -762,
+        "mate_white": null,
+        "nodes": 935930,
+        "nps": 935930,
+        "elapsed": 1.0033398919999854,
+        "pv": [
+          "e3e4",
+          "f5d7",
+          "d5c7",
+          "e8d8",
+          "c7a6",
+          "g4e5",
+          "g5g6",
+          "f7f6",
+          "g6h7",
+          "b1b3",
+          "g3f2",
+          "e5d3",
+          "f2g1"
+        ]
+      },
+      "forced": {
+        "e3e4": {
+          "depth": 25,
+          "score_white": -756,
+          "mate_white": null,
+          "nodes": 951842,
+          "nps": 951842,
+          "elapsed": 1.008820402000083,
+          "pv": [
+            "e3e4",
+            "f5g6",
+            "d5c7",
+            "e8d7",
+            "g3g4",
+            "b1c1",
+            "e1c1",
+            "d7c7",
+            "e4e5",
+            "a7a5",
+            "c3c4",
+            "h8e8",
+            "h2h4",
+            "e8e5",
+            "h4h5",
+            "g6d3",
+            "g4f4",
+            "e5e4",
+            "f4f3",
+            "e4c4"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quiet_holdout_47",
+      "fen": "1r4k1/1P1nppbp/6p1/2pP4/8/2NK1N2/1P3PPP/2R5 w - - 4 25",
+      "root": {
+        "depth": 25,
+        "score_white": 0,
+        "mate_white": null,
+        "nodes": 908579,
+        "nps": 908579,
+        "elapsed": 1.005174807000003,
+        "pv": [
+          "c1a1",
+          "b8b7",
+          "a1a8",
+          "d7f8",
+          "c3a4",
+          "g7b2",
+          "a4b2",
+          "b7b2",
+          "f3e5",
+          "b2b7",
+          "d3c4",
+          "g8g7",
+          "c4c5",
+          "f7f6",
+          "c5c6",
+          "b7b2",
+          "e5c4",
+          "b2c2",
+          "c6b5",
+          "g7f7",
+          "a8a7",
+          "f7e8",
+          "g2g4"
+        ]
+      },
+      "forced": {
+        "c1e1": {
+          "depth": 26,
+          "score_white": -1,
+          "mate_white": null,
+          "nodes": 910234,
+          "nps": 908417,
+          "elapsed": 1.0089662119999048,
+          "pv": [
+            "c1e1",
+            "g7f6",
+            "g2g4",
+            "h7h6",
+            "h2h4",
+            "g6g5",
+            "c3e4",
+            "b8b7",
+            "h4g5",
+            "h6g5",
+            "f3g5",
+            "b7b3",
+            "d3c2",
+            "b3b2",
+            "c2c1",
+            "b2b4",
+            "e4f6",
+            "d7f6",
+            "e1e7",
+            "b4g4",
+            "e7f7",
+            "f6d5",
+            "f7f5",
+            "d5c7",
+            "f5e5"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# Optional offline experiments only; production engine needs neither package.
+-r requirements-dev.txt
+numpy==2.5.5
+zstandard==0.25.0

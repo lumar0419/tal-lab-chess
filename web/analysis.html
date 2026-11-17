@@ -72,6 +72,14 @@
           <div id="multipv-results" class="multipv-results" aria-live="polite"><p class="empty-history">분석이 시작되면 후보가 나타납니다.</p></div>
           <div class="small-caption"><span id="nodes-display">0 nodes</span><span id="analysis-state-label">시작할 준비가 됐어요.</span></div>
         </section>
+        <section class="panel evaluation-panel">
+          <div class="panel-header"><div><span class="kicker">STATIC EVALUATION</span><h2>평가 항목 살펴보기</h2></div></div>
+          <p class="field-help">현재 보드의 정적 평가입니다. 위의 탐색 평가와는 다릅니다. 백 기준, 폰 1개 = 1.00.</p>
+          <label for="evaluation-move">비교할 수 (선택)</label>
+          <input id="evaluation-move" placeholder="예: e2e4" maxlength="5">
+          <button id="show-evaluation" class="mini-button" type="button">평가 상세 계산</button>
+          <pre id="evaluation-result" class="field-help" aria-live="polite">버튼을 누르면 항목별 점수를 계산합니다.</pre>
+        </section>
         <section class="panel settings-panel">
           <div class="panel-header"><div><span class="kicker">SEARCH CONTROL</span><h2>분석 설정</h2></div><span class="panel-index">02</span></div>
           <div class="auto-analysis-setting">

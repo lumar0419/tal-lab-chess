@@ -153,6 +153,7 @@ function showPromotion(moves){
 }
 function apply(next, initialize=false) {
   const changed = next.fen !== lastFen;
+  if(changed && $('evaluation-result'))$('evaluation-result').textContent='국면이 바뀌었습니다. 평가 상세를 다시 계산해 주세요.';
   lastFen = next.fen;
   state = next;
   if(next.engine_implementation){
@@ -527,3 +528,34 @@ async function runSacrifice(discover){
 }
 $('verify-sacrifice').addEventListener('click',()=>runSacrifice(false));
 $('discover-sacrifice').addEventListener('click',()=>runSacrifice(true));
+
+$('show-evaluation').addEventListener('click',async()=>{
+  if(!state)return;
+  const fen=state.fen, revision=positionRevision, options={};
+  for(const key of ['king_safety','attack_activity','initiative']){
+    options[key]=!!document.querySelector(`input[data-option="${key}"]`)?.checked;
+  }
+  const target=$('evaluation-result');
+  $('show-evaluation').disabled=true;
+  target.textContent='평가 항목 계산 중…';
+  try{
+    const result=await serverApi('/api/analysis/evaluation',{
+      expected_fen:fen,options,uci:$('evaluation-move').value.trim()});
+    if(!state||state.fen!==fen||positionRevision!==revision){target.textContent='국면이 바뀌었습니다. 다시 계산해 주세요.';return;}
+    const {before,after}=result;
+    const cp=value=>(value>=0?'+':'')+(value/100).toFixed(2);
+    const lines=Object.entries(before.terms).map(([name,row])=>{
+      const value=row.numerator/before.denominator;
+      const next=after?.terms[name].numerator/after?.denominator;
+      return `${name}: ${cp(value)}`+(after?` → ${cp(next)} (${cp(next-value)})`:'');
+    });
+    const names={king_safety:'킹 안전',attack_activity:'공격 활동성',initiative:'주도권'};
+    const enabled=Object.entries(result.options).filter(([,on])=>on).map(([key])=>names[key]).join(', ');
+    lines.unshift('평가 옵션: '+(enabled||'기본 평가'));
+    lines.push(`정적 평가: ${cp(before.static_score)}`+(after?` → ${cp(after.static_score)} (${cp(result.delta)})`:''));
+    if(before.dead_position||after?.dead_position)lines.push('기물 부족 무승부 국면은 최종 점수를 0으로 처리합니다.');
+    lines.push('합산 후 한 번 반올림 없이 절삭하므로 표시 항목의 합과 소수점 차이가 있을 수 있습니다.');
+    target.textContent=lines.join('\n');
+  }catch(e){target.textContent=e.message;}
+  finally{$('show-evaluation').disabled=false;}
+});

@@ -1,0 +1,468 @@
+{
+  "tactics": {
+    "A": {
+      "n": 32,
+      "correct": 28,
+      "mean_depth": 6.5,
+      "mean_seconds": 1.7939551516562453,
+      "nps": 47068.67597667797,
+      "categories": {
+        "bad_sacrifice_refutation": {
+          "n": 4,
+          "correct": 4
+        },
+        "defense": {
+          "n": 4,
+          "correct": 3
+        },
+        "long_mate": {
+          "n": 4,
+          "correct": 3
+        },
+        "positional_compensation_proxy": {
+          "n": 4,
+          "correct": 2
+        },
+        "quiet_attack": {
+          "n": 4,
+          "correct": 4
+        },
+        "sacrifice": {
+          "n": 4,
+          "correct": 4
+        },
+        "serial_sacrifice": {
+          "n": 4,
+          "correct": 4
+        },
+        "short_mate": {
+          "n": 4,
+          "correct": 4
+        }
+      }
+    },
+    "B": {
+      "n": 32,
+      "correct": 25,
+      "mean_depth": 5.71875,
+      "mean_seconds": 1.841719428093743,
+      "nps": 23347.25533872761,
+      "categories": {
+        "bad_sacrifice_refutation": {
+          "n": 4,
+          "correct": 4
+        },
+        "defense": {
+          "n": 4,
+          "correct": 3
+        },
+        "long_mate": {
+          "n": 4,
+          "correct": 3
+        },
+        "positional_compensation_proxy": {
+          "n": 4,
+          "correct": 1
+        },
+        "quiet_attack": {
+          "n": 4,
+          "correct": 3
+        },
+        "sacrifice": {
+          "n": 4,
+          "correct": 4
+        },
+        "serial_sacrifice": {
+          "n": 4,
+          "correct": 3
+        },
+        "short_mate": {
+          "n": 4,
+          "correct": 4
+        }
+      }
+    },
+    "C": {
+      "n": 32,
+      "correct": 27,
+      "mean_depth": 5.65625,
+      "mean_seconds": 1.8431530363749928,
+      "nps": 24228.285236600703,
+      "categories": {
+        "bad_sacrifice_refutation": {
+          "n": 4,
+          "correct": 4
+        },
+        "defense": {
+          "n": 4,
+          "correct": 3
+        },
+        "long_mate": {
+          "n": 4,
+          "correct": 3
+        },
+        "positional_compensation_proxy": {
+          "n": 4,
+          "correct": 2
+        },
+        "quiet_attack": {
+          "n": 4,
+          "correct": 4
+        },
+        "sacrifice": {
+          "n": 4,
+          "correct": 4
+        },
+        "serial_sacrifice": {
+          "n": 4,
+          "correct": 3
+        },
+        "short_mate": {
+          "n": 4,
+          "correct": 4
+        }
+      }
+    },
+    "D": {
+      "n": 32,
+      "correct": 28,
+      "mean_depth": 5.6875,
+      "mean_seconds": 1.8480628034062363,
+      "nps": 23684.27694628438,
+      "categories": {
+        "bad_sacrifice_refutation": {
+          "n": 4,
+          "correct": 4
+        },
+        "defense": {
+          "n": 4,
+          "correct": 3
+        },
+        "long_mate": {
+          "n": 4,
+          "correct": 3
+        },
+        "positional_compensation_proxy": {
+          "n": 4,
+          "correct": 2
+        },
+        "quiet_attack": {
+          "n": 4,
+          "correct": 4
+        },
+        "sacrifice": {
+          "n": 4,
+          "correct": 4
+        },
+        "serial_sacrifice": {
+          "n": 4,
+          "correct": 4
+        },
+        "short_mate": {
+          "n": 4,
+          "correct": 4
+        }
+      }
+    },
+    "E": {
+      "n": 32,
+      "correct": 28,
+      "mean_depth": 6.53125,
+      "mean_seconds": 1.801466475437504,
+      "nps": 44231.5856755805,
+      "categories": {
+        "bad_sacrifice_refutation": {
+          "n": 4,
+          "correct": 4
+        },
+        "defense": {
+          "n": 4,
+          "correct": 3
+        },
+        "long_mate": {
+          "n": 4,
+          "correct": 3
+        },
+        "positional_compensation_proxy": {
+          "n": 4,
+          "correct": 2
+        },
+        "quiet_attack": {
+          "n": 4,
+          "correct": 4
+        },
+        "sacrifice": {
+          "n": 4,
+          "correct": 4
+        },
+        "serial_sacrifice": {
+          "n": 4,
+          "correct": 4
+        },
+        "short_mate": {
+          "n": 4,
+          "correct": 4
+        }
+      }
+    },
+    "F": {
+      "n": 32,
+      "correct": 28,
+      "mean_depth": 6.28125,
+      "mean_seconds": 1.8354741123749925,
+      "nps": 66955.2313058678,
+      "categories": {
+        "bad_sacrifice_refutation": {
+          "n": 4,
+          "correct": 4
+        },
+        "defense": {
+          "n": 4,
+          "correct": 3
+        },
+        "long_mate": {
+          "n": 4,
+          "correct": 3
+        },
+        "positional_compensation_proxy": {
+          "n": 4,
+          "correct": 2
+        },
+        "quiet_attack": {
+          "n": 4,
+          "correct": 4
+        },
+        "sacrifice": {
+          "n": 4,
+          "correct": 4
+        },
+        "serial_sacrifice": {
+          "n": 4,
+          "correct": 4
+        },
+        "short_mate": {
+          "n": 4,
+          "correct": 4
+        }
+      }
+    },
+    "G": {
+      "n": 32,
+      "correct": 28,
+      "mean_depth": 6.3125,
+      "mean_seconds": 1.8411666277812486,
+      "nps": 66649.62347697935,
+      "categories": {
+        "bad_sacrifice_refutation": {
+          "n": 4,
+          "correct": 4
+        },
+        "defense": {
+          "n": 4,
+          "correct": 3
+        },
+        "long_mate": {
+          "n": 4,
+          "correct": 3
+        },
+        "positional_compensation_proxy": {
+          "n": 4,
+          "correct": 2
+        },
+        "quiet_attack": {
+          "n": 4,
+          "correct": 4
+        },
+        "sacrifice": {
+          "n": 4,
+          "correct": 4
+        },
+        "serial_sacrifice": {
+          "n": 4,
+          "correct": 4
+        },
+        "short_mate": {
+          "n": 4,
+          "correct": 4
+        }
+      }
+    },
+    "conservative": {
+      "n": 32,
+      "correct": 27,
+      "mean_depth": 7.09375,
+      "mean_seconds": 1.7672548287499907,
+      "nps": 45965.69347469688,
+      "categories": {
+        "bad_sacrifice_refutation": {
+          "n": 4,
+          "correct": 4
+        },
+        "defense": {
+          "n": 4,
+          "correct": 3
+        },
+        "long_mate": {
+          "n": 4,
+          "correct": 3
+        },
+        "positional_compensation_proxy": {
+          "n": 4,
+          "correct": 2
+        },
+        "quiet_attack": {
+          "n": 4,
+          "correct": 4
+        },
+        "sacrifice": {
+          "n": 4,
+          "correct": 4
+        },
+        "serial_sacrifice": {
+          "n": 4,
+          "correct": 3
+        },
+        "short_mate": {
+          "n": 4,
+          "correct": 4
+        }
+      }
+    }
+  },
+  "positional": {
+    "A": {
+      "n": 48,
+      "exact": 24,
+      "cp_reference_n": 41,
+      "within_50cp": 30,
+      "negative_raw_loss": 13,
+      "mate_reference": 7,
+      "same_mate_outcome": 6,
+      "defense_n": 12,
+      "defense_within_50cp": 7,
+      "median_loss_cp": 9.0,
+      "mean_depth": 5.6875,
+      "nps": 42055.3049156927
+    },
+    "B": {
+      "n": 48,
+      "exact": 19,
+      "cp_reference_n": 41,
+      "within_50cp": 28,
+      "negative_raw_loss": 13,
+      "mate_reference": 7,
+      "same_mate_outcome": 6,
+      "defense_n": 12,
+      "defense_within_50cp": 7,
+      "median_loss_cp": 16,
+      "mean_depth": 4.875,
+      "nps": 21662.261649999495
+    },
+    "C": {
+      "n": 48,
+      "exact": 22,
+      "cp_reference_n": 41,
+      "within_50cp": 31,
+      "negative_raw_loss": 12,
+      "mate_reference": 7,
+      "same_mate_outcome": 6,
+      "defense_n": 12,
+      "defense_within_50cp": 7,
+      "median_loss_cp": 10.5,
+      "mean_depth": 4.958333333333333,
+      "nps": 21843.809237942864
+    },
+    "D": {
+      "n": 48,
+      "exact": 19,
+      "cp_reference_n": 41,
+      "within_50cp": 30,
+      "negative_raw_loss": 12,
+      "mate_reference": 7,
+      "same_mate_outcome": 6,
+      "defense_n": 12,
+      "defense_within_50cp": 7,
+      "median_loss_cp": 10,
+      "mean_depth": 4.958333333333333,
+      "nps": 21558.72631532083
+    },
+    "E": {
+      "n": 48,
+      "exact": 24,
+      "cp_reference_n": 41,
+      "within_50cp": 30,
+      "negative_raw_loss": 13,
+      "mate_reference": 7,
+      "same_mate_outcome": 6,
+      "defense_n": 12,
+      "defense_within_50cp": 7,
+      "median_loss_cp": 9.0,
+      "mean_depth": 5.75,
+      "nps": 41707.76049546364
+    },
+    "F": {
+      "n": 48,
+      "exact": 21,
+      "cp_reference_n": 41,
+      "within_50cp": 31,
+      "negative_raw_loss": 11,
+      "mate_reference": 7,
+      "same_mate_outcome": 6,
+      "defense_n": 12,
+      "defense_within_50cp": 7,
+      "median_loss_cp": 15,
+      "mean_depth": 5.479166666666667,
+      "nps": 61000.013792023376
+    },
+    "G": {
+      "n": 48,
+      "exact": 21,
+      "cp_reference_n": 41,
+      "within_50cp": 31,
+      "negative_raw_loss": 11,
+      "mate_reference": 7,
+      "same_mate_outcome": 6,
+      "defense_n": 12,
+      "defense_within_50cp": 7,
+      "median_loss_cp": 15,
+      "mean_depth": 5.4375,
+      "nps": 62177.57453796956
+    },
+    "conservative": {
+      "n": 48,
+      "exact": 24,
+      "cp_reference_n": 41,
+      "within_50cp": 32,
+      "negative_raw_loss": 13,
+      "mate_reference": 7,
+      "same_mate_outcome": 6,
+      "defense_n": 12,
+      "defense_within_50cp": 7,
+      "median_loss_cp": 8.5,
+      "mean_depth": 5.9375,
+      "nps": 41877.500450711574
+    }
+  },
+  "runtime": {
+    "python": {
+      "nps": 49837.526135002074,
+      "seconds": 9.258324716000288,
+      "version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "max_rss_kib": 23100
+    },
+    "pypy": {
+      "nps": 135957.36721215275,
+      "seconds": 3.3937991700000794,
+      "version": "3.11.17 (ec82f20141cf, Oct 13 2026, 15:02:27)\n[PyPy 8.0.1 with GCC 14.2.1 20250110 (Red Hat 14.2.1-11)]",
+      "max_rss_kib": 121488
+    },
+    "native": {
+      "nps": 93425.2365570013,
+      "seconds": 4.938836838999919,
+      "version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "max_rss_kib": 25676
+    }
+  },
+  "runtime_signatures_equal": true,
+  "historical_1mn_signatures_equal": true
+}

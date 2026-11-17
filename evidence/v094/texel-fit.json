@@ -1,0 +1,370 @@
+{
+  "names": [
+    "mobility_n_mg",
+    "mobility_n_eg",
+    "mobility_b_mg",
+    "mobility_b_eg",
+    "mobility_r_mg",
+    "mobility_r_eg",
+    "mobility_q_mg",
+    "mobility_q_eg",
+    "king_pressure_mg",
+    "king_shelter_mg",
+    "development_mg",
+    "rook_file_mg",
+    "rook_file_eg"
+  ],
+  "weights": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "k": 0.6,
+  "input_sha256": "8e532d4279759f806feffc144cd3e18844c633cb414ac04d372ae2ac0de156f1",
+  "counts": {
+    "train": 6696,
+    "validation": 1323,
+    "test": 1278
+  },
+  "source": "https://database.lichess.org/standard/lichess_db_standard_rated_2013-01.pgn.zst",
+  "seed": 9417,
+  "python": "3.12.14",
+  "baseline": {
+    "train": 0.14880248363369414,
+    "validation": 0.1502477666836426,
+    "test": 0.15238628087983497
+  },
+  "candidate": {
+    "train": 0.14880248363369414,
+    "validation": 0.1502477666836426,
+    "test": 0.15238628087983497
+  },
+  "passes": [
+    {
+      "step": 8,
+      "iteration": 0,
+      "train": 0.14837291431246774,
+      "validation": 0.1516397350448879,
+      "weights": [
+        8,
+        0,
+        8,
+        0,
+        8,
+        0,
+        8,
+        0,
+        8,
+        0,
+        0,
+        8,
+        0
+      ]
+    },
+    {
+      "step": 8,
+      "iteration": 1,
+      "train": 0.14822989630971364,
+      "validation": 0.15185794011316717,
+      "weights": [
+        8,
+        0,
+        0,
+        0,
+        8,
+        0,
+        8,
+        0,
+        16,
+        0,
+        0,
+        16,
+        0
+      ]
+    },
+    {
+      "step": 8,
+      "iteration": 2,
+      "train": 0.14814738641077968,
+      "validation": 0.15205158022321744,
+      "weights": [
+        8,
+        0,
+        0,
+        0,
+        8,
+        0,
+        8,
+        0,
+        24,
+        0,
+        0,
+        24,
+        0
+      ]
+    },
+    {
+      "step": 8,
+      "iteration": 3,
+      "train": 0.14807688629829527,
+      "validation": 0.15173632387770275,
+      "weights": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        0,
+        32,
+        0,
+        0,
+        32,
+        0
+      ]
+    },
+    {
+      "step": 8,
+      "iteration": 4,
+      "train": 0.14805077528297594,
+      "validation": 0.15196408106521614,
+      "weights": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        0,
+        40,
+        0,
+        0,
+        40,
+        0
+      ]
+    },
+    {
+      "step": 8,
+      "iteration": 5,
+      "train": 0.14804009482778946,
+      "validation": 0.1520381503045531,
+      "weights": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        0,
+        40,
+        0,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "step": 8,
+      "iteration": 6,
+      "train": 0.14803967046673608,
+      "validation": 0.15187120969263468,
+      "weights": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        0,
+        32,
+        0,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "step": 8,
+      "iteration": 7,
+      "train": 0.14803967046673608,
+      "validation": 0.15187120969263468,
+      "weights": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        0,
+        32,
+        0,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "step": 4,
+      "iteration": 0,
+      "train": 0.14802574963270837,
+      "validation": 0.15187725602171795,
+      "weights": [
+        8,
+        0,
+        4,
+        0,
+        0,
+        0,
+        8,
+        0,
+        36,
+        0,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "step": 4,
+      "iteration": 1,
+      "train": 0.14802290788302092,
+      "validation": 0.15215328078871068,
+      "weights": [
+        8,
+        4,
+        4,
+        0,
+        0,
+        0,
+        8,
+        0,
+        36,
+        0,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "step": 4,
+      "iteration": 2,
+      "train": 0.14802290788302092,
+      "validation": 0.15215328078871068,
+      "weights": [
+        8,
+        4,
+        4,
+        0,
+        0,
+        0,
+        8,
+        0,
+        36,
+        0,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "step": 2,
+      "iteration": 0,
+      "train": 0.14801524304091088,
+      "validation": 0.15187468657740133,
+      "weights": [
+        6,
+        2,
+        2,
+        0,
+        0,
+        0,
+        8,
+        0,
+        34,
+        0,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "step": 2,
+      "iteration": 1,
+      "train": 0.14801524304091088,
+      "validation": 0.15187468657740133,
+      "weights": [
+        6,
+        2,
+        2,
+        0,
+        0,
+        0,
+        8,
+        0,
+        34,
+        0,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "step": 1,
+      "iteration": 0,
+      "train": 0.14801294920135033,
+      "validation": 0.15193351490469453,
+      "weights": [
+        6,
+        3,
+        3,
+        0,
+        1,
+        0,
+        7,
+        0,
+        35,
+        0,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "step": 1,
+      "iteration": 1,
+      "train": 0.14801294920135033,
+      "validation": 0.15193351490469453,
+      "weights": [
+        6,
+        3,
+        3,
+        0,
+        1,
+        0,
+        7,
+        0,
+        35,
+        0,
+        0,
+        48,
+        0
+      ]
+    }
+  ],
+  "status": "research-only hypothesis; independent match acceptance required"
+}

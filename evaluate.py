@@ -635,7 +635,7 @@ def king_safety_detail(board):
     return out
 
 
-def eval_terms(board):
+def eval_terms(board, *, king_safety=None, attack_activity=None, initiative=None):
     """항목별 백 기준 (중반, 종반) 점수와 phase를 돌려줌. 설명·검증용 (느린 기준 경로).
     탐색은 evaluate_white()의 빠른 경로를 쓰고, 두 경로의 값이 같은지는 테스트가 확인함."""
     b = board.board
@@ -666,12 +666,12 @@ def eval_terms(board):
         '폰 구조': (pawn_mg, pawn_eg),
         '비숍 쌍': (pair * BISHOP_PAIR[0], pair * BISHOP_PAIR[1]),
     }
-    if KING_SAFETY:
+    if KING_SAFETY if king_safety is None else king_safety:
         w, bl = king_safety_detail(board)
         terms['킹 안전'] = (w['total'] - bl['total'], 0)
-    if ATTACK_ACTIVITY:
+    if ATTACK_ACTIVITY if attack_activity is None else attack_activity:
         terms['공격 활동성'] = attack_activity_terms(board)
-    if INITIATIVE:
+    if INITIATIVE if initiative is None else initiative:
         terms['주도권(기물 위협)'] = initiative_terms(board)
     # 폰이 하나도 없을 때만 '기물 부족(죽은 국면)'인지 확인 (드문 경우라 비용이 거의 없음)
     dead = not pawns[WHITE] and not pawns[BLACK] and board.insufficient_material()
@@ -683,6 +683,26 @@ def taper(mg, eg, phase):
     # 주의: 파이썬의 // 는 음수를 '아래로' 내림한다 (-49.5 → -50, +49.5 → +49).
     # 그러면 백과 흑이 같은 상황에서 1점씩 다르게 평가된다. 0 쪽으로 자르도록 맞춤.
     return total // MAX_PHASE if total >= 0 else -(-total // MAX_PHASE)
+
+
+def evaluation_breakdown(board, **options):
+    """On-demand static evaluation, White POV, without changing global options.
+
+    Numerators preserve exact phase-weighted contributions. Rounding happens
+    ONCE on the total, just as in the search evaluator. Dead-position override
+    is explicit: summing individually rounded terms need not equal the score.
+    This function never searches and never treats static evaluation as a PV score.
+    """
+    terms, phase, dead = eval_terms(board, **options)
+    rows = {name: dict(mg=mg, eg=eg, numerator=mg*phase+eg*(MAX_PHASE-phase))
+            for name, (mg, eg) in terms.items()}
+    numerator = sum(row['numerator'] for row in rows.values())
+    score = taper(sum(t[0] for t in terms.values()), sum(t[1] for t in terms.values()), phase)
+    return dict(fen=board.fen(), perspective='white', unit='centipawn',
+        kind='static', phase=phase, denominator=MAX_PHASE, terms=rows,
+        unrounded_numerator=numerator, rounded_before_override=score,
+        dead_position=dead, static_score=0 if dead else score,
+        search_score=None)
 
 
 # ──────────────────────────── 빠른 평가 (v0.4.2) ────────────────────────────

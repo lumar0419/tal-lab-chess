@@ -1,0 +1,59 @@
+engine1: MyEngine 0.9.4-dev  [TacticalSearch=true]  Hash 64MB
+engine2: MyEngine 0.9.3  [TacticalSearch=true]  Hash 64MB
+실험 ID v094-final-v093-regression-20261117-093713-5221  CPU 3개, 시작 시 부하 0.0
+20판, 5+0.05s, 오프닝 시드 9421
+
+    1. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1/2-1/2  164 ply  Reti                     threefold_repetition
+    2. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1/2-1/2  184 ply  Reti                     threefold_repetition
+    3. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1-0      105 ply  Caro-Kann                checkmate
+    4. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1/2-1/2   65 ply  Caro-Kann                threefold_repetition
+    5. MyEngine 0.9.4-dev       - MyEngine 0.9.3           0-1      154 ply  Queen's Gambit Declined  checkmate
+    6. MyEngine 0.9.3           - MyEngine 0.9.4-dev       0-1      150 ply  Queen's Gambit Declined  checkmate
+    7. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1/2-1/2  136 ply  Open Game                threefold_repetition
+    8. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1/2-1/2  150 ply  Open Game                insufficient_material
+    9. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1/2-1/2  127 ply  King's Indian            threefold_repetition
+   10. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1-0      141 ply  King's Indian            checkmate
+   11. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1/2-1/2   84 ply  French                   threefold_repetition
+   12. MyEngine 0.9.3           - MyEngine 0.9.4-dev       0-1       98 ply  French                   checkmate
+   13. MyEngine 0.9.4-dev       - MyEngine 0.9.3           0-1      180 ply  Scandinavian             checkmate
+   14. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1/2-1/2  142 ply  Scandinavian             threefold_repetition
+   15. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1-0      139 ply  Nimzo/Queen's Indian     checkmate
+   16. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1/2-1/2   43 ply  Nimzo/Queen's Indian     threefold_repetition
+   17. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1/2-1/2   93 ply  English                  threefold_repetition
+   18. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1-0      149 ply  English                  checkmate
+   19. MyEngine 0.9.4-dev       - MyEngine 0.9.3           1/2-1/2   60 ply  Sicilian                 threefold_repetition
+   20. MyEngine 0.9.3           - MyEngine 0.9.4-dev       1-0      113 ply  Sicilian                 checkmate
+
+========================================================================
+MyEngine 0.9.4-dev  vs  MyEngine 0.9.3   (5+0.05s)
+  전체             4승 11무 5패 / 20판   점수율 47.5%
+  engine1 백      2승 6무 2패 / 10판   점수율 50.0%
+  engine1 흑      2승 5무 3패 / 10판   점수율 45.0%
+  오프닝별 (engine1 기준):
+    Reti                     0-2-0  (50%)
+    Caro-Kann                1-1-0  (75%)
+    Queen's Gambit Declined  1-0-1  (50%)
+    Open Game                0-2-0  (50%)
+    King's Indian            0-1-1  (25%)
+    French                   1-1-0  (75%)
+    Scandinavian             0-1-1  (25%)
+    Nimzo/Queen's Indian     1-1-0  (75%)
+    English                  0-1-1  (25%)
+    Sicilian                 0-1-1  (25%)
+  메이트 승 4 / 메이트 패 5
+  시간패            engine1 0 / engine2 0
+  불법수·수 없음       engine1 0 / engine2 0
+  엔진 오류·충돌       engine1 0 / engine2 0
+  종료 사유: checkmate 9, insufficient_material 1, threefold_repetition 10
+  평균 대국 길이 123.8 ply
+  생각 시간 MyEngine 0.9.4-dev: 평균 0.10s, 최대 0.26s (1198수), 평균 깊이 3.13, 수당 노드 4,842, NPS 46,331
+  생각 시간 MyEngine 0.9.3: 평균 0.10s, 최대 0.22s (1199수), 평균 깊이 3.09, 수당 노드 4,852, NPS 46,518
+  실행 환경: 시스템 부하 평균 1.66 최대 2.62, 일한 코어 평균 2.01 (1.5 넘은 판 20)
+
+  Elo 차이 (engine1 − engine2, 상대적인 값):
+    -17  95% 범위 -124 ~ +86  (판을 독립으로 본 삼항 오차)
+    쌍 기준 -17  95% 범위 -110 ~ +73  (같은 오프닝 두 판 = 한 쌍, 10쌍)
+    LOS(engine1이 더 강할 확률, 무승부 제외 정규 근사) 36.9%
+    ※ 20판은 표본이 작아 범위가 넓고 정규 근사도 거칠어요. 수십~수백 판이 필요해요.
+========================================================================
+총 251s,  기보 evidence/v094/match-final.pgn  결과 evidence/v094/match-final.json  표 evidence/v094/match-final.csv

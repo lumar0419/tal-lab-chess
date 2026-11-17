@@ -423,7 +423,7 @@ class WebHandler(BaseHTTPRequestHandler):
         path = urlsplit(self.path).path
         routes = {'/api/new', '/api/move', '/api/undo', '/api/resign', '/api/draw',
                   '/api/analysis/pgn', '/api/analysis/navigate', '/api/analysis/sacrifice', '/api/analysis/benchmark', '/api/analysis/start', '/api/analysis/auto', '/api/analysis/restart',
-                  '/api/analysis/stop', '/api/analysis/fen',
+                  '/api/analysis/stop', '/api/analysis/evaluation', '/api/analysis/fen',
                   '/api/analysis/move', '/api/analysis/undo', '/api/analysis/reset'}
         if path not in routes:
             self._json(404, {'error': '지원하지 않는 기능이에요.'})
@@ -436,7 +436,9 @@ class WebHandler(BaseHTTPRequestHandler):
             obj = json.loads(self.rfile.read(size))
             if not isinstance(obj, dict):
                 raise ValueError('JSON 객체가 필요해요.')
-            if path == '/api/analysis/pgn':
+            if path == '/api/analysis/evaluation':
+                state = self.game.analysis().evaluation(obj)
+            elif path == '/api/analysis/pgn':
                 state = self.game.analysis().import_pgn(obj.get('pgn'))
             elif path == '/api/analysis/navigate':
                 state = self.game.analysis().navigate(obj.get('ply'))

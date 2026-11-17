@@ -23,3 +23,5 @@
 
 #sacrifice-result{white-space:pre-line}
 #deep-report{white-space:pre-line;overflow-wrap:anywhere}
+/* Evaluation text stays readable on narrow screens. */
+.evaluation-panel pre { white-space: pre-wrap; overflow-wrap: anywhere; }

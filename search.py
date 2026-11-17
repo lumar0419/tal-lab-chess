@@ -832,7 +832,12 @@ class Searcher:
                     self.sel_stats[prune] += 1
                     b.unmake_move()
                     if trace:
-                        self._emit_trace(trace, prune, b, ply, depth, m, alpha, beta, static_eval)
+                        self._emit_trace(trace, prune, b, ply, depth, m, alpha, beta, static_eval,
+                            legal_before=legal, quiets_seen=quiets_seen,
+                            history_score=self.history.get((piece, m.to), 0),
+                            killer=m in self.killers[ply], pv_node=pv_node,
+                            lmp_threshold=LMP_COUNT[depth],
+                            futility_margin=FUTILITY_MARGIN[depth] if depth <= 2 else None)
                     continue
                 if sel_reduce and legal + 1 >= lmr_from and m != tt_move:
                     reduction = LMR_TABLE[min(depth, 63)][min(legal + 1, 63)] - int(pv_node)
@@ -844,11 +849,18 @@ class Searcher:
                 # 얕게 먼저 보고, alpha를 넘을 때만 아래에서 원래 깊이로 다시 본다.
                 self.sel_stats['lmr'] += 1
                 if trace:
-                    self._emit_trace(trace, 'lmr', b, ply, depth, m, alpha, beta, static_eval, reduction=reduction, after_move=True)
+                    self._emit_trace(trace, 'lmr', b, ply, depth, m, alpha, beta, static_eval,
+                        reduction=reduction, after_move=True, legal_index=legal,
+                        history_score=self.history.get((piece, m.to), 0),
+                        killer=m in self.killers[ply], pv_node=pv_node)
                 score = -self.negamax(b, child_depth - reduction, -alpha - 1, -alpha,
                                       ply + 1, False, checks_left, threat_left)
                 if score > alpha:
                     self.sel_stats['lmr_research'] += 1
+                    if trace:
+                        self._emit_trace(trace, 'lmr_research', b, ply, depth, m,
+                            alpha, beta, static_eval, after_move=True,
+                            reduced_score=score, reduction=reduction)
                     reduction = 0
             if from_search and reduction <= 0:
                 # LMR reduces ONLY late quiet moves at non-PV nodes. Never reduce

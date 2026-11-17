@@ -1,0 +1,18 @@
+{
+  "source": "https://database.lichess.org/standard/lichess_db_standard_rated_2013-01.pgn.zst",
+  "license": "CC0-1.0 (Lichess database)",
+  "source_sha256": "aa40b3671fa3cf1072eb182892cd90b0e1e003a4a5943492f64b77e7f3fd1635",
+  "seed": 9417,
+  "games_read": 10000,
+  "unique_games": 9876,
+  "counts": {
+    "train": 6696,
+    "validation": 1323,
+    "test": 1278
+  },
+  "rejected": {
+    "duplicate_or_excluded": 53
+  },
+  "exclusion_positions": 756,
+  "policy": "Game move-sequence hash split 70/15/15; global first-occurrence position dedup; quiet nonterminal positions every 8 plies from ply 16."
+}
